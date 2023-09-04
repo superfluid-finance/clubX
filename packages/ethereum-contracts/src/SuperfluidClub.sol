@@ -82,7 +82,7 @@ contract SuperfluidClub is SuperTokenBase {
      * @notice this function requires that sender send amount of coin to the contract
      * @param newProtege The address of the new protege
      */
-    function sponsor(address payable newProtege) external payable {
+    function sponsor(address payable newProtege, bool transferCoinToProtege) external payable {
         require(isProtege(msg.sender), "You are not a protege!");
         require(!isProtege(newProtege), "Already a protege!");
 
@@ -90,7 +90,8 @@ contract SuperfluidClub is SuperTokenBase {
         uint8 sponsorLvl = _proteges[msg.sender].level;
         uint256 transferToNewProtege = fees(sponsorLvl);
 
-        require(coinAmount >= transferToNewProtege + FLAT_FEE_SPONSORSHIP, "Not enough coin!");
+        require((!transferCoinToProtege && coinAmount >= FLAT_FEE_SPONSORSHIP)
+            || coinAmount >= transferToNewProtege + FLAT_FEE_SPONSORSHIP, "Not enough coin!");
         require(sponsorLvl < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
 
         // @notice: we update storage already because when open a stream, that can trigger a callback from the new protege
@@ -114,10 +115,12 @@ contract SuperfluidClub is SuperTokenBase {
         }
 
         // WIP - How to know the flow rate of the new protege? this is bound to level max output
+        // @notice: this can trigger a callback
         ISuperToken(address(this)).createFlow(newProtege, getFlowRateAmount(sponsorLvl));
-
-        // sponsor sends some coin to the new protege
-        newProtege.transfer(msg.value);
+        if(transferCoinToProtege) {
+            // @notice: this can trigger a fallback
+            newProtege.transfer(transferToNewProtege);
+        }
     }
 
     /**
