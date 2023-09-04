@@ -53,11 +53,9 @@ contract SuperfluidClub is SuperTokenBase {
         }
     }
 
-    function sponsor(address newProtege) external payable {
+    function sponsor(address payable newProtege) external payable {
         require(!isProtege(msg.sender), "You are not a protege!");
         require(!isProtege(newProtege), "Already a protege!");
-
-        // Protege[MAX_SPONSORSHIP_LEVEL] memory sponsors = getChainOfSponsors(msg.sender);
 
         // update nProteges for all my sponsors
         {
@@ -69,5 +67,7 @@ contract SuperfluidClub is SuperTokenBase {
                 p = _proteges[p].sponsor;
             }
         }
+
+        newProtege.transfer(msg.value);
     }
 }
