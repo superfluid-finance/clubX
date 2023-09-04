@@ -12,8 +12,16 @@ import {SuperTokenBase, ISuperToken} from "@superfluid-finance/custom-supertoken
 
 contract SuperfluidClub is SuperTokenBase {
     using SuperTokenV1Library for ISuperToken;
+    bool private init;
+    constructor() {
+        //_initialize(superTokenFactory, "ClubX", "ClubX");
+       // _mint(address(this), 10000000 ether, new bytes(0));
+    }
 
-    constructor(address superTokenFactory) {
+    // initialize
+    function initialize(address superTokenFactory) public {
+        require(!init, "Already initialized");
+        init = true;
         _initialize(superTokenFactory, "ClubX", "ClubX");
         _mint(address(this), 100000000000000000000000 ether, new bytes(0));
     }
