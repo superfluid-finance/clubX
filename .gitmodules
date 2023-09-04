@@ -1,12 +1,12 @@
 [submodule "pkgs/ethereum-contracts/lib/forge-std"]
-	path = pkgs/ethereum-contracts/lib/forge-std
+	path = packages/ethereum-contracts/lib/forge-std
 	url = https://github.com/foundry-rs/forge-std
 [submodule "pkgs/ethereum-contracts/lib/superfluid-protocol-monorepo"]
-	path = pkgs/ethereum-contracts/lib/superfluid-protocol-monorepo
+	path = packages/ethereum-contracts/lib/superfluid-protocol-monorepo
 	url = https://github.com/superfluid-finance/protocol-monorepo
 [submodule "pkgs/ethereum-contracts/lib/openzeppelin-contracts"]
-	path = pkgs/ethereum-contracts/lib/openzeppelin-contracts
+	path = packages/ethereum-contracts/lib/openzeppelin-contracts
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts
 [submodule "pkgs/ethereum-contracts/lib/custom-supertokens"]
-	path = pkgs/ethereum-contracts/lib/custom-supertokens
+	path = packages/ethereum-contracts/lib/custom-supertokens
 	url = https://github.com/superfluid-finance/custom-supertokens
