@@ -27,7 +27,7 @@ export const Logout = () => {
 
   return (
     <FooterButton onClick={logout} disabled={disabled}>
-      {disabled ? "Loading..." : "Logout"}
+      {disabled ? "Disconnecting..." : "Disconnect"}
     </FooterButton>
   );
 };
