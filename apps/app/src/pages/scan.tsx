@@ -24,19 +24,17 @@ const Scan = () => {
         if (!QRCodeReader.current) return;
 
         if (devices && devices.length) {
-          var cameraId = devices[0].id;
-
           QRCodeReader.current
             .start(
-              cameraId,
+              { facingMode: "environment" },
               {
                 fps: 1,
                 qrbox: { width: 250, height: 250 },
               },
-              (decodedText, decodedResult) => {
+              (decodedText) => {
                 console.log("FOUND CODE", decodedText);
               },
-              (errorMessage) => {}
+              undefined
             )
             .catch((err) => {
               console.log("Starting failed", err);
