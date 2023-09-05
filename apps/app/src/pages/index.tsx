@@ -1,33 +1,10 @@
+import { FooterLink } from "@/components/FooterButton";
+import { PageContent, PageWrapper } from "@/components/Page";
 import { Inter } from "next/font/google";
 import Head from "next/head";
-import styled from "styled-components";
 import QRCode from "react-qr-code";
 
 const inter = Inter({ subsets: ["latin"] });
-
-const Wrapper = styled.main(() => ({
-  display: "flex",
-  flexDirection: "column",
-  alignItems: "center",
-  height: "100vh",
-  width: "100vw",
-}));
-
-const Content = styled.div(() => ({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  textAlign: "center",
-  maxWidth: "calc(100vw - 32px)",
-  gap: "32px",
-  flex: 1,
-}));
-
-const FooterButton = styled.button(() => ({
-  width: "100%",
-  height: "64px",
-}));
 
 export default function Home() {
   return (
@@ -38,8 +15,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Wrapper className={inter.className}>
-        <Content>
+      <PageWrapper className={inter.className}>
+        <PageContent>
           <div>Club SF</div>
           <p>
             To receive a stream and become immortal, please connect your wallet.
@@ -49,13 +26,12 @@ export default function Home() {
           <div>This view needs epic images to hype people up</div>
           <QRCode
             size={256}
-            // style={{ height: "auto", maxWidth: "100%", width: "100%" }}
             value={"https://superfluid.finance"}
             viewBox={`0 0 256 256`}
           />
-        </Content>
-        <FooterButton>Connect</FooterButton>
-      </Wrapper>
+        </PageContent>
+        <FooterLink href="scan">Scan</FooterLink>
+      </PageWrapper>
     </>
   );
 }
