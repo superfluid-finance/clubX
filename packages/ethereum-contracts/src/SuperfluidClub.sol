@@ -208,12 +208,19 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
      * @dev withdraws the fees from the contract
      * @notice only the owner can call this function
      */
-
     function withdrawFees(address receiver, uint256 amount) external onlyOwner {
         require(receiver != address(0), "Invalid receiver");
         require(amount > 0, "Invalid amount");
         require(address(this).balance >= amount, "Not enough balance");
         payable(receiver).transfer(amount);
+    }
+
+    /**
+     * @dev mint club tokens to the contract
+     * @notice only the owner can call this function
+     */
+    function mint(uint256 amount) external onlyOwner {
+        _mint(address(this), amount, new bytes(0));
     }
 
     /**

@@ -81,4 +81,17 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
 	    club.withdrawFees(alice, 1000);
 	    assertEq(address(alice).balance, balanceBefore + 1000);
     }
+	
+	function testMint() public {
+		vm.startPrank(alice);
+		vm.expectRevert("Ownable: caller is not the owner");
+		club.mint(1000);
+		vm.stopPrank();
+
+		// mint 1000 tokens to the contract
+		club.mint(1000 ether);
+		assertEq(clubAsToken.totalSupply(), 100000000000000000000000 ether + 1000 ether);
+		assertEq(clubAsToken.balanceOf(address(club)), 100000000000000000000000 ether + 1000 ether);
+	}
+
 }
