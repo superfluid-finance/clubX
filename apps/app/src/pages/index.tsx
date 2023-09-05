@@ -36,7 +36,14 @@ export default function Home() {
           </p>
 
           {user && (
-            <QRCode size={256} value={user || ""} viewBox={`0 0 256 256`} />
+            <QRCode
+              size={256}
+              value={user || ""}
+              viewBox={`0 0 256 256`}
+              style={{ background: "white", padding: "12px" }}
+              // bgColor="black"
+              // fgColor="white"
+            />
           )}
 
           <Link href="/scan">Approve Subscriptions</Link>

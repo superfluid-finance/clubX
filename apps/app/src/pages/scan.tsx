@@ -1,6 +1,6 @@
 import { FooterButton, FooterLink } from "@/components/FooterButton";
 import { PageContent, PageWrapper } from "@/components/Layout";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { Html5Qrcode } from "html5-qrcode";
 import styled from "styled-components";
 
@@ -20,6 +20,10 @@ const Scan = () => {
     QRCodeReader.current = new Html5Qrcode(cameraRef.current.id);
   }, [cameraRef.current]);
 
+  const onSuccessfulScan = useCallback((decodedText: string) => {
+    setScannedAddress(decodedText);
+  }, []);
+
   useEffect(() => {
     Html5Qrcode.getCameras()
       .then((devices) => {
@@ -30,12 +34,10 @@ const Scan = () => {
             .start(
               { facingMode: "environment" },
               {
-                fps: 1,
+                fps: 5,
                 qrbox: { width: 250, height: 250 },
               },
-              (decodedText) => {
-                setScannedAddress(decodedText);
-              },
+              onSuccessfulScan,
               undefined
             )
             .catch((err) => {
@@ -56,7 +58,7 @@ const Scan = () => {
         <div>Scan the code!</div>
         {scannedAddress && (
           <>
-            <div>Found address:</div>
+            <div>Scanned text:</div>
             <div>{scannedAddress}</div>
           </>
         )}
