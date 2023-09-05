@@ -10,3 +10,6 @@
 [submodule "pkgs/ethereum-contracts/lib/custom-supertokens"]
 	path = packages/ethereum-contracts/lib/custom-supertokens
 	url = https://github.com/superfluid-finance/custom-supertokens
+[submodule "packages/ethereum-contracts/lib/openzeppelin-contracts"]
+	path = packages/ethereum-contracts/lib/openzeppelin-contracts
+	url = https://github.com/OpenZeppelin/openzeppelin-contracts
