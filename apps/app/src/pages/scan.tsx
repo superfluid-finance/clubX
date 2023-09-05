@@ -12,6 +12,8 @@ const Scan = () => {
   const cameraRef = useRef<HTMLDivElement | null>(null);
   const QRCodeReader = useRef<Html5Qrcode>();
 
+  const [scannedAddress, setScannedAddress] = useState<string | undefined>();
+
   useEffect(() => {
     if (!cameraRef.current) return;
 
@@ -32,7 +34,7 @@ const Scan = () => {
                 qrbox: { width: 250, height: 250 },
               },
               (decodedText) => {
-                console.log("FOUND CODE", decodedText);
+                setScannedAddress(decodedText);
               },
               undefined
             )
@@ -52,6 +54,12 @@ const Scan = () => {
     <PageWrapper>
       <PageContent>
         <div>Scan the code!</div>
+        {scannedAddress && (
+          <>
+            <div>Found address:</div>
+            <div>{scannedAddress}</div>
+          </>
+        )}
         <ReaderWrapper ref={cameraRef} id="reader" />
       </PageContent>
       <FooterLink href="/">Cancel</FooterLink>

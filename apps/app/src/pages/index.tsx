@@ -11,20 +11,20 @@ const inter = Inter({ subsets: ["latin"] });
 
 const CenteredContent = styled.div`
   padding: 32px 24px;
-  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-
   gap: 32px;
 `;
 
 export default function Home() {
   const { user } = useUser();
+
   return (
     <PageWrapper className={inter.className}>
       <Header>{user}</Header>
+
       <PageContent>
         <CenteredContent>
           <div>Club SF</div>
