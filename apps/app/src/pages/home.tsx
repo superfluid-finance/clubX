@@ -1,5 +1,5 @@
 import { FooterLink } from "@/components/FooterButton";
-import { PageWrapper, PageContent } from "@/components/Page";
+import { PageWrapper, PageContent } from "@/components/Layout";
 import { FC } from "react";
 import QRCode from "react-qr-code";
 import { Login } from "../components/login";

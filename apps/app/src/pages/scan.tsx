@@ -1,5 +1,5 @@
 import { FooterButton, FooterLink } from "@/components/FooterButton";
-import { PageContent, PageWrapper } from "@/components/Page";
+import { PageContent, PageWrapper } from "@/components/Layout";
 import { FC, useEffect, useRef, useState } from "react";
 import { Html5Qrcode } from "html5-qrcode";
 import styled from "styled-components";
