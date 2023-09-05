@@ -5,7 +5,7 @@ import {ISuperfluid} from "@superfluid-finance/ethereum-contracts/contracts/inte
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
 import {SuperTokenBase, ISuperToken} from "@superfluid-finance/custom-supertokens/contracts/base/SuperTokenBase.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import "forge-std/Test.sol";
+
 /**
  * @title Superfluid Club
  * @dev Contract that facilitates the operations of a superfluid club.
@@ -28,9 +28,10 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
 
     // Constants
     uint256 public constant MAX_SPONSORSHIP_LEVEL = 6;
-    uint256 public constant FLAT_FEE_SPONSORSHIP = 0.1 ether;
+    uint256 public constant FLAT_COST_SPONSORSHIP = 0.01 ether;
     uint256 public constant MAX_SPONSORSHIP_PATH_OUTFLOW = 720 ether;
     uint256 public constant SECONDS_IN_A_DAY = 86400;
+    uint256 public constant FIRST_ELEMENT_PROGRESSION = 365.93 ether; // geometric progression to calculate the allocation
 
     /**
      * @dev A structure that represents a protege in the superfluid club.
@@ -90,20 +91,16 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
      * @notice this function requires that sender send amount of coin to the contract
      * @param newProtege The address of the new protege
      */
-    function sponsor(address payable newProtege, bool transferCoinToProtege) external payable {
+    function sponsor(address payable newProtege) external payable {
         require(!isProtege(newProtege), "Already a protege!");
-        address actualSponsor = (msg.sender == owner()) ? address(this) : msg.sender;
-        require(isProtege(actualSponsor), "You are not a protege!");
+        (address actualSponsor, bool root) = (msg.sender == owner()) ? (address(this), true) : (msg.sender, false);
+        require(isProtege(actualSponsor) || root, "You are not a protege!");
 
         uint256 coinAmount = msg.value;
         uint8 sponsorLvl = _proteges[actualSponsor].level;
-        uint256 transferToNewProtege = fees(sponsorLvl);
 
-        require(
-            (!transferCoinToProtege && coinAmount >= FLAT_FEE_SPONSORSHIP)
-                || coinAmount >= transferToNewProtege + FLAT_FEE_SPONSORSHIP,
-            "Not enough coin!"
-        );
+        require(coinAmount >= FLAT_COST_SPONSORSHIP, "Not enough coin!");
+        coinAmount -= FLAT_COST_SPONSORSHIP;
         require(sponsorLvl < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
 
         // @notice: we update storage already because when open a stream, that can trigger a callback from the new protege
@@ -129,9 +126,9 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         // WIP - How to know the flow rate of the new protege? this is bound to level max output
         // @notice: this can trigger a callback
         ISuperToken(address(this)).createFlow(newProtege, getFlowRateAmount(sponsorLvl + 1, 0));
-        if (transferCoinToProtege) {
+        if (coinAmount > 0) {
             // @notice: this can trigger a fallback
-            newProtege.transfer(transferToNewProtege);
+            newProtege.transfer(coinAmount);
         }
     }
 
@@ -157,30 +154,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
      * @return allocation amount for the given level
      */
     function getAllocation(uint8 level) public pure returns (uint256 allocation) {
-        // magic number - we have a total amount for each sponsorship branch, we don't need to calculate it each time.
-        uint256 a = 365.93 ether;
-        return a / (2 ** level);
-    }
-
-    /**
-     * @notice gets the fees based on sponsorship level
-     * @param sponsorLvl The sponsorship level
-     * @return fee amount for the given level
-     */
-    function fees(uint8 sponsorLvl) public pure returns (uint256 fee) {
-        if (sponsorLvl == 1) {
-            return 0.3 ether;
-        } else if (sponsorLvl == 2) {
-            return 0.1 ether;
-        } else if (sponsorLvl == 3) {
-            return 0.05 ether;
-        } else if (sponsorLvl == 4) {
-            return 0.02 ether;
-        } else if (sponsorLvl == 5) {
-            return 0.01 ether;
-        } else {
-            return 10 ether;
-        }
+        allocation = FIRST_ELEMENT_PROGRESSION / (2 ** level);
     }
 
     /**
@@ -211,7 +185,6 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         return toInt96(totalRate / SECONDS_IN_A_DAY);
     }
 
-
     function getProtegeLevelWeight(uint8 protegeLvl) public pure returns (uint256 levelWeight) {
         if (protegeLvl == 1) {
             return 50;
@@ -232,7 +205,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
      * @dev withdraws the fees from the contract
      * @notice only the owner can call this function
      */
-    function withdrawFees(address receiver, uint256 amount) external onlyOwner {
+    function withdraw(address receiver, uint256 amount) external onlyOwner {
         require(receiver != address(0), "Invalid receiver");
         require(amount > 0, "Invalid amount");
         require(address(this).balance >= amount, "Not enough balance");
