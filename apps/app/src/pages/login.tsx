@@ -24,6 +24,11 @@ export const Login = () => {
       console.error(error);
     }
   };
+  console.log(disabled);
 
-  return <FooterButton onClick={connect} disabled={disabled} />;
+  return (
+    <FooterButton onClick={connect} disabled={disabled}>
+      {disabled ? "Loading..." : "Connect"}
+    </FooterButton>
+  );
 };

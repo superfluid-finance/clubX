@@ -32,6 +32,7 @@ export default function Home() {
           />
         </PageContent>
         <FooterLink href="scan">Scan</FooterLink>
+        <br />
         <Login />
       </PageWrapper>
     </>
