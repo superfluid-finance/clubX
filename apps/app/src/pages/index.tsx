@@ -1,4 +1,4 @@
-import { FooterLink } from "@/components/FooterButton";
+import { FooterButton, FooterLink } from "@/components/FooterButton";
 import { PageContent, PageWrapper } from "@/components/Page";
 import { Inter } from "next/font/google";
 import Head from "next/head";
@@ -17,7 +17,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageWrapper className={inter.className}>
-        <Login />
         <PageContent>
           <div>Club SF</div>
           <p>
@@ -33,6 +32,7 @@ export default function Home() {
           />
         </PageContent>
         <FooterLink href="scan">Scan</FooterLink>
+        <Login />
       </PageWrapper>
     </>
   );

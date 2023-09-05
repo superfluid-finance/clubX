@@ -1,4 +1,4 @@
-import ConnectButton from "@/components/ConnectButton";
+import { FooterButton } from "@/components/FooterButton";
 import { useUser } from "@/contexts/UserProvider";
 import { useWeb3 } from "@/contexts/Web3Context";
 // import { magic } from '@/libs/magic';
@@ -25,9 +25,5 @@ export const Login = () => {
     }
   };
 
-  return (
-    <div className="login-page">
-      <ConnectButton onClick={connect} disabled={disabled} />
-    </div>
-  );
+  return <FooterButton onClick={connect} disabled={disabled} />;
 };
