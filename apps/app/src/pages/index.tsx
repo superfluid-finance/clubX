@@ -1,11 +1,12 @@
-import { Footer, Header, PageContent, PageWrapper } from "@/components/Layout";
-import { useUser } from "@/contexts/UserProvider";
+import Disconnect from "@/components/Disconnect";
+import { FooterLink } from "@/components/FooterButton";
+import { Header, PageContent, PageWrapper } from "@/components/Layout";
+import SignIn from "@/components/SignIn";
 import { Inter } from "next/font/google";
 import Link from "next/link";
 import QRCode from "react-qr-code";
-import styled from "styled-components";
-import { Login } from "../components/login";
-import { Logout } from "../components/logout";
+import { styled } from "styled-components";
+import { useAccount } from "wagmi";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,38 +20,35 @@ const CenteredContent = styled.div`
 `;
 
 export default function Home() {
-  const { user } = useUser();
+  const { isConnected, address } = useAccount();
 
   return (
     <PageWrapper className={inter.className}>
-      <Header>{user}</Header>
+      <Header>{isConnected && address}</Header>
 
       <PageContent>
         <CenteredContent>
           <div>Club SF</div>
-
           <p>
             To receive a stream and become immortal, please connect your wallet.
             You can use your own wallet or use custodial one via entering your
             email.
           </p>
-
-          {user && (
+          {address && (
             <QRCode
               size={256}
-              value={user || ""}
+              value={address}
               viewBox={`0 0 256 256`}
               style={{ background: "white", padding: "12px" }}
               // bgColor="black"
               // fgColor="white"
             />
           )}
-
           <Link href="/scan">Approve Subscriptions</Link>
         </CenteredContent>
       </PageContent>
 
-      <Footer>{user ? <Logout /> : <Login />}</Footer>
+      {!isConnected ? <SignIn /> : <Disconnect />}
     </PageWrapper>
   );
 }

@@ -23,6 +23,8 @@ export const PageContent = styled.div(() => ({
 
 export const Header = styled.header(() => ({
   width: "100%",
+  textAlign: "center",
+  margin: "20px"
   // height: "64px"
   // gridArea: "header",
 }));
