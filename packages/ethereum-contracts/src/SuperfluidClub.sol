@@ -5,18 +5,19 @@ import {ISuperfluid} from "@superfluid-finance/ethereum-contracts/contracts/inte
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
 import {SuperTokenBase, ISuperToken} from "@superfluid-finance/custom-supertokens/contracts/base/SuperTokenBase.sol";
 
+import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+
 /**
  * @title Superfluid Club
  * @dev Contract that facilitates the operations of a superfluid club.
  */
 
-contract SuperfluidClub is SuperTokenBase {
+contract SuperfluidClub is SuperTokenBase, Ownable {
     using SuperTokenV1Library for ISuperToken;
+
     bool private init;
-    constructor() {
-        //_initialize(superTokenFactory, "ClubX", "ClubX");
-       // _mint(address(this), 10000000 ether, new bytes(0));
-    }
+
+    constructor() {}
 
     // initialize
     function initialize(address superTokenFactory) public {
@@ -98,8 +99,11 @@ contract SuperfluidClub is SuperTokenBase {
         uint8 sponsorLvl = _proteges[msg.sender].level;
         uint256 transferToNewProtege = fees(sponsorLvl);
 
-        require((!transferCoinToProtege && coinAmount >= FLAT_FEE_SPONSORSHIP)
-            || coinAmount >= transferToNewProtege + FLAT_FEE_SPONSORSHIP, "Not enough coin!");
+        require(
+            (!transferCoinToProtege && coinAmount >= FLAT_FEE_SPONSORSHIP)
+                || coinAmount >= transferToNewProtege + FLAT_FEE_SPONSORSHIP,
+            "Not enough coin!"
+        );
         require(sponsorLvl < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
 
         // @notice: we update storage already because when open a stream, that can trigger a callback from the new protege
@@ -125,7 +129,7 @@ contract SuperfluidClub is SuperTokenBase {
         // WIP - How to know the flow rate of the new protege? this is bound to level max output
         // @notice: this can trigger a callback
         ISuperToken(address(this)).createFlow(newProtege, getFlowRateAmount(sponsorLvl));
-        if(transferCoinToProtege) {
+        if (transferCoinToProtege) {
             // @notice: this can trigger a fallback
             newProtege.transfer(transferToNewProtege);
         }
@@ -198,6 +202,18 @@ contract SuperfluidClub is SuperTokenBase {
         } else {
             return 0.001 ether;
         }
+    }
+
+    /**
+     * @dev withdraws the fees from the contract
+     * @notice only the owner can call this function
+     */
+
+    function withdrawFees(address receiver, uint256 amount) external onlyOwner {
+        require(receiver != address(0), "Invalid receiver");
+        require(amount > 0, "Invalid amount");
+        require(address(this).balance >= amount, "Not enough balance");
+        payable(receiver).transfer(amount);
     }
 
     /**
