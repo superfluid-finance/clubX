@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import { Web3Provider } from "@ethersproject/providers";
 import { MagicConnectConnector } from "@magiclabs/wagmi-connector";
 import type { AppProps } from "next/app";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
@@ -10,23 +11,32 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
   [publicProvider()]
 );
 
+const magicConnector = new MagicConnectConnector({
+  chains,
+  options: {
+    apiKey: "pk_live_1C4195ECA42E5D43",
+  },
+});
+
+MagicConnectConnector.prototype.getProvider = () => {
+  const magic = magicConnector.getMagicSDK();
+  if (!magic) {
+    throw new Error("Magic not ininitialized properly");
+  }
+  return magic.wallet.getProvider();
+};
+
 const config = createConfig({
   autoConnect: false,
   publicClient,
   webSocketPublicClient,
-  connectors: [
-
-    new MagicConnectConnector({
-      chains,
-      options: {
-        apiKey: "pk_live_1C4195ECA42E5D43",
-      }
-    }),
-  ]
+  connectors: [magicConnector],
 });
 
 export default function App({ Component, pageProps }: AppProps) {
-  return <WagmiConfig config={config} >
-           <Component {...pageProps} />
-     </WagmiConfig>
+  return (
+    <WagmiConfig config={config}>
+      <Component {...pageProps} />
+    </WagmiConfig>
+  );
 }
