@@ -1,42 +1,40 @@
-import { FooterButton } from "@/components/FooterButton";
+import { FooterButton, FooterLink } from "@/components/FooterButton";
 import { PageContent, PageWrapper } from "@/components/Page";
-import { FC, useEffect } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { Html5Qrcode } from "html5-qrcode";
 import styled from "styled-components";
 
 const ReaderWrapper = styled.div`
   width: 100%;
-  /* height: 100px; */
 `;
 
 const Scan = () => {
-  useEffect(() => {
-    const html5QrCode = new Html5Qrcode("reader");
+  const cameraRef = useRef<HTMLDivElement | null>(null);
+  const QRCodeReader = useRef<Html5Qrcode>();
 
+  useEffect(() => {
+    if (!cameraRef.current) return;
+
+    QRCodeReader.current = new Html5Qrcode(cameraRef.current.id);
+  }, [cameraRef.current]);
+
+  useEffect(() => {
     Html5Qrcode.getCameras()
       .then((devices) => {
-        /**
-         * devices would be an array of objects of type:
-         * { id: "id", label: "label" }
-         */
-        if (devices && devices.length) {
-          var cameraId = devices[0].id;
+        if (!QRCodeReader.current) return;
 
-          html5QrCode
+        if (devices && devices.length) {
+          QRCodeReader.current
             .start(
-              cameraId,
+              { facingMode: "environment" },
               {
-                fps: 10, // Optional, frame per seconds for qr code scanning
-                qrbox: { width: 250, height: 250 }, // Optional, if you want bounded box UI
+                fps: 1,
+                qrbox: { width: 250, height: 250 },
               },
-              (decodedText, decodedResult) => {
+              (decodedText) => {
                 console.log("FOUND CODE", decodedText);
-                // do something when code is read
               },
-              (errorMessage) => {
-                console.log("Error", errorMessage);
-                // parse error, ignore it.
-              }
+              undefined
             )
             .catch((err) => {
               console.log("Starting failed", err);
@@ -48,15 +46,15 @@ const Scan = () => {
         console.log("Catching all them errors", err);
         // handle err
       });
-  }, []);
+  }, [QRCodeReader.current]);
 
   return (
     <PageWrapper>
       <PageContent>
         <div>Scan the code!</div>
-        <ReaderWrapper id="reader" />
+        <ReaderWrapper ref={cameraRef} id="reader" />
       </PageContent>
-      <FooterButton>Scan</FooterButton>
+      <FooterLink href="/">Cancel</FooterLink>
     </PageWrapper>
   );
 };

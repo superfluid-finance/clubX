@@ -1,12 +1,16 @@
-import { FooterLink } from "@/components/FooterButton";
+import { FooterButton, FooterLink } from "@/components/FooterButton";
 import { PageContent, PageWrapper } from "@/components/Page";
 import { Inter } from "next/font/google";
 import Head from "next/head";
 import QRCode from "react-qr-code";
+import { Login } from "../components/login";
+import { Logout } from "../components/logout";
+import { useUser } from "@/contexts/UserProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const { user } = useUser();
   return (
     <>
       <Head>
@@ -18,6 +22,7 @@ export default function Home() {
       <PageWrapper className={inter.className}>
         <PageContent>
           <div>Club SF</div>
+          <div>{user}</div>
           <p>
             To receive a stream and become immortal, please connect your wallet.
             You can use your own wallet or use custodial one via entering your
@@ -31,6 +36,8 @@ export default function Home() {
           />
         </PageContent>
         <FooterLink href="scan">Scan</FooterLink>
+        <br />
+        {user ? <Logout /> : <Login />}
       </PageWrapper>
     </>
   );
