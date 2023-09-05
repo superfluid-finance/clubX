@@ -1,0 +1,2018 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "CFA_NFT_APPROVE_CALLER_NOT_OWNER_OR_APPROVED_FOR_ALL",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "CFA_NFT_APPROVE_TO_CALLER",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "CFA_NFT_APPROVE_TO_CURRENT_OWNER",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "CFA_NFT_INVALID_TOKEN_ID",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "CFA_NFT_ONLY_SUPER_TOKEN_FACTORY",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "CFA_NFT_TRANSFER_CALLER_NOT_OWNER_OR_APPROVED_FOR_ALL",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "CFA_NFT_TRANSFER_FROM_INCORRECT_OWNER",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "CFA_NFT_TRANSFER_IS_NOT_ALLOWED",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "CFA_NFT_TRANSFER_TO_ZERO_ADDRESS",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "COF_NFT_INVALID_SUPER_TOKEN",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "COF_NFT_MINT_TO_AND_FLOW_RECEIVER_SAME",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "COF_NFT_MINT_TO_ZERO_ADDRESS",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "COF_NFT_ONLY_CONSTANT_INFLOW",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "COF_NFT_ONLY_FLOW_AGREEMENTS",
+      "type": "error"
+    },
+    {
+      "inputs": [],
+      "name": "COF_NFT_TOKEN_ALREADY_EXISTS",
+      "type": "error"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "approved",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Approval",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "bool",
+          "name": "approved",
+          "type": "bool"
+        }
+      ],
+      "name": "ApprovalForAll",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "MetadataUpdate",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "approve",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "balance",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "flowDataByTokenId",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "superToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "flowSender",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "flowReceiver",
+              "type": "address"
+            },
+            {
+              "internalType": "uint32",
+              "name": "flowStartDate",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct IFlowNFTBase.FlowNFTData",
+          "name": "flowData",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getApproved",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "superToken",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "flowSender",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "flowReceiver",
+          "type": "address"
+        }
+      ],
+      "name": "getTokenId",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "string",
+          "name": "nftName",
+          "type": "string"
+        },
+        {
+          "internalType": "string",
+          "name": "nftSymbol",
+          "type": "string"
+        }
+      ],
+      "name": "initialize",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        }
+      ],
+      "name": "isApprovedForAll",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract ISuperfluidToken",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "flowSender",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "flowReceiver",
+          "type": "address"
+        }
+      ],
+      "name": "onCreate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract ISuperfluidToken",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "flowSender",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "flowReceiver",
+          "type": "address"
+        }
+      ],
+      "name": "onDelete",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "contract ISuperfluidToken",
+          "name": "token",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "flowSender",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "flowReceiver",
+          "type": "address"
+        }
+      ],
+      "name": "onUpdate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "ownerOf",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "owner",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "safeTransferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "data",
+          "type": "bytes"
+        }
+      ],
+      "name": "safeTransferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "operator",
+          "type": "address"
+        },
+        {
+          "internalType": "bool",
+          "name": "approved",
+          "type": "bool"
+        }
+      ],
+      "name": "setApprovalForAll",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "interfaceId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "supportsInterface",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "tokenURI",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "triggerMetadataUpdate",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "approve(address,uint256)": "095ea7b3",
+    "balanceOf(address)": "70a08231",
+    "flowDataByTokenId(uint256)": "8d47859e",
+    "getApproved(uint256)": "081812fc",
+    "getTokenId(address,address,address)": "89f71d2d",
+    "initialize(string,string)": "4cd88b76",
+    "isApprovedForAll(address,address)": "e985e9c5",
+    "name()": "06fdde03",
+    "onCreate(address,address,address)": "f7e3d983",
+    "onDelete(address,address,address)": "ef1f0237",
+    "onUpdate(address,address,address)": "eb54a7ca",
+    "ownerOf(uint256)": "6352211e",
+    "safeTransferFrom(address,address,uint256)": "42842e0e",
+    "safeTransferFrom(address,address,uint256,bytes)": "b88d4fde",
+    "setApprovalForAll(address,bool)": "a22cb465",
+    "supportsInterface(bytes4)": "01ffc9a7",
+    "symbol()": "95d89b41",
+    "tokenURI(uint256)": "c87b56dd",
+    "transferFrom(address,address,uint256)": "23b872dd",
+    "triggerMetadataUpdate(uint256)": "2f388560"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"CFA_NFT_APPROVE_CALLER_NOT_OWNER_OR_APPROVED_FOR_ALL\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_APPROVE_TO_CALLER\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_APPROVE_TO_CURRENT_OWNER\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_INVALID_TOKEN_ID\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_ONLY_SUPER_TOKEN_FACTORY\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_TRANSFER_CALLER_NOT_OWNER_OR_APPROVED_FOR_ALL\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_TRANSFER_FROM_INCORRECT_OWNER\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_TRANSFER_IS_NOT_ALLOWED\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_TRANSFER_TO_ZERO_ADDRESS\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"COF_NFT_INVALID_SUPER_TOKEN\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"COF_NFT_MINT_TO_AND_FLOW_RECEIVER_SAME\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"COF_NFT_MINT_TO_ZERO_ADDRESS\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"COF_NFT_ONLY_CONSTANT_INFLOW\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"COF_NFT_ONLY_FLOW_AGREEMENTS\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"COF_NFT_TOKEN_ALREADY_EXISTS\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"MetadataUpdate\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"balance\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"flowDataByTokenId\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"superToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowSender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowReceiver\",\"type\":\"address\"},{\"internalType\":\"uint32\",\"name\":\"flowStartDate\",\"type\":\"uint32\"}],\"internalType\":\"struct IFlowNFTBase.FlowNFTData\",\"name\":\"flowData\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"superToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowSender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowReceiver\",\"type\":\"address\"}],\"name\":\"getTokenId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"nftName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"nftSymbol\",\"type\":\"string\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISuperfluidToken\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowSender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowReceiver\",\"type\":\"address\"}],\"name\":\"onCreate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISuperfluidToken\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowSender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowReceiver\",\"type\":\"address\"}],\"name\":\"onDelete\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISuperfluidToken\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowSender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowReceiver\",\"type\":\"address\"}],\"name\":\"onUpdate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"tokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"triggerMetadataUpdate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"Approval(address,address,uint256)\":{\"details\":\"Emitted when `owner` enables `approved` to manage the `tokenId` token.\"},\"ApprovalForAll(address,address,bool)\":{\"details\":\"Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets.\"},\"MetadataUpdate(uint256)\":{\"details\":\"This event comes from https://eips.ethereum.org/EIPS/eip-4906\",\"params\":{\"tokenId\":\"the id of the token that should have its metadata updated\"}},\"Transfer(address,address,uint256)\":{\"details\":\"Emitted when `tokenId` token is transferred from `from` to `to`.\"}},\"kind\":\"dev\",\"methods\":{\"approve(address,uint256)\":{\"details\":\"Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event.\"},\"balanceOf(address)\":{\"details\":\"Returns the number of tokens in ``owner``'s account.\"},\"flowDataByTokenId(uint256)\":{\"params\":{\"tokenId\":\"the token id\"},\"returns\":{\"flowData\":\"the flow data associated with `tokenId`\"}},\"getApproved(uint256)\":{\"details\":\"Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist.\"},\"getTokenId(address,address,address)\":{\"details\":\"tokenId = uint256(keccak256(abi.encode(block.chainId, superToken, flowSender, flowReceiver)))\",\"params\":{\"flowReceiver\":\"the flow receiver\",\"flowSender\":\"the flow sender\",\"superToken\":\"the super token\"},\"returns\":{\"_0\":\"tokenId the tokenId\"}},\"isApprovedForAll(address,address)\":{\"details\":\"Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}\"},\"name()\":{\"details\":\"Returns the token collection name.\"},\"onCreate(address,address,address)\":{\"params\":{\"flowReceiver\":\"the flow receiver\",\"flowSender\":\"the flow sender\",\"token\":\"the super token passed from the CFA (flowVars)\"}},\"onDelete(address,address,address)\":{\"params\":{\"flowReceiver\":\"the flow receiver\",\"flowSender\":\"the flow sender\",\"token\":\"the super token passed from the CFA (flowVars)\"}},\"onUpdate(address,address,address)\":{\"params\":{\"flowReceiver\":\"the flow receiver\",\"flowSender\":\"the flow sender\",\"token\":\"the super token passed from the CFA (flowVars)\"}},\"ownerOf(uint256)\":{\"details\":\"Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist.\"},\"safeTransferFrom(address,address,uint256)\":{\"details\":\"Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.\"},\"safeTransferFrom(address,address,uint256,bytes)\":{\"details\":\"Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.\"},\"setApprovalForAll(address,bool)\":{\"details\":\"Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event.\"},\"supportsInterface(bytes4)\":{\"details\":\"Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas.\"},\"symbol()\":{\"details\":\"Returns the token collection symbol.\"},\"tokenURI(uint256)\":{\"details\":\"Returns the Uniform Resource Identifier (URI) for `tokenId` token.\"},\"transferFrom(address,address,uint256)\":{\"details\":\"Transfers `tokenId` token from `from` to `to`. WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving ERC721 or else they may be permanently lost. Usage of {safeTransferFrom} prevents loss, though the caller must understand this adds an external call which potentially creates a reentrancy vulnerability. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"events\":{\"MetadataUpdate(uint256)\":{\"notice\":\"Informs third-party platforms that NFT metadata should be updated\"}},\"kind\":\"user\",\"methods\":{\"flowDataByTokenId(uint256)\":{\"notice\":\"An external function for querying flow data by `tokenId``\"},\"getTokenId(address,address,address)\":{\"notice\":\"An external function for computing the deterministic tokenId\"},\"onCreate(address,address,address)\":{\"notice\":\"The onCreate function is called when a new flow is created.\"},\"onDelete(address,address,address)\":{\"notice\":\"The onDelete function is called when a flow is deleted.\"},\"onUpdate(address,address,address)\":{\"notice\":\"The onUpdate function is called when a flow is updated.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantOutflowNFT.sol\":\"IConstantOutflowNFT\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x5bce51e11f7d194b79ea59fe00c9e8de9fa2c5530124960f29a24d4c740a3266\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e66dfde185df46104c11bc89d08fa0760737aa59a2b8546a656473d810a8ea4\",\"dweb:/ipfs/QmXvyqtXPaPss2PD7eqPoSao5Szm2n6UMoiG8TZZDjmChR\"]},\"lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol\":{\"keccak256\":\"0x75b829ff2f26c14355d1cba20e16fe7b29ca58eb5fef665ede48bc0f9c6c74b9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a0a107160525724f9e1bbbab031defc2f298296dd9e331f16a6f7130cec32146\",\"dweb:/ipfs/QmemujxSd7gX8A9M8UwmNbz4Ms3U9FG9QfudUgxwvTmPWf\"]},\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f\",\"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantOutflowNFT.sol\":{\"keccak256\":\"0x15799c1552fa7aad4c1a7197451cd02422a6c768b236ab2904e72f7158a4a2c2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c62bb88c0c43ad162c8c226aede16a75c352738aaaf6794fa0c2881dcf59ad42\",\"dweb:/ipfs/QmeWQdFDvzbN8JrCRSRRnZEuw5EbWVzRLM2duhJ515QUXK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol\":{\"keccak256\":\"0xa1600ee907288d7852678cc43f995498a039710a4f025a8785de288c4a4ceced\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d317bab758d3b73005ac27b87e2410a087ca8507538795f555d37bd2d97a028d\",\"dweb:/ipfs/QmSHDBjGYTC64LkDaTQj38DZUGNV9mzxhUYAAfaDLQYEmS\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol\":{\"keccak256\":\"0xba0407c47917aee8b6e7cea745332d2f7244cc3b91d249426f0105b365feb0ee\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4e8c38994af84e123476f8de8b81fe466e9a575374b13c38a4dc30bdd2d12c06\",\"dweb:/ipfs/QmfHrSyeMQN7wVn7qmD6aPH1wX4ugkhQXiR8te6xhADGaK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluidToken.sol\":{\"keccak256\":\"0x18ea972421ff57ce62103f90c820ee039f170f0189a4b3c73fd0ff09452d1dbf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dd24799269920b4b7925362b41650b5b968bb957dc0dec50b451f5382fe573c1\",\"dweb:/ipfs/QmbL19zzZZSbVu2gYA3FtJLu4kbCtk9BybxCU7oJfpUbE7\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.19+commit.7dd6d404"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "CFA_NFT_APPROVE_CALLER_NOT_OWNER_OR_APPROVED_FOR_ALL"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "CFA_NFT_APPROVE_TO_CALLER"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "CFA_NFT_APPROVE_TO_CURRENT_OWNER"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "CFA_NFT_INVALID_TOKEN_ID"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "CFA_NFT_ONLY_SUPER_TOKEN_FACTORY"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "CFA_NFT_TRANSFER_CALLER_NOT_OWNER_OR_APPROVED_FOR_ALL"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "CFA_NFT_TRANSFER_FROM_INCORRECT_OWNER"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "CFA_NFT_TRANSFER_IS_NOT_ALLOWED"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "CFA_NFT_TRANSFER_TO_ZERO_ADDRESS"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "COF_NFT_INVALID_SUPER_TOKEN"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "COF_NFT_MINT_TO_AND_FLOW_RECEIVER_SAME"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "COF_NFT_MINT_TO_ZERO_ADDRESS"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "COF_NFT_ONLY_CONSTANT_INFLOW"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "COF_NFT_ONLY_FLOW_AGREEMENTS"
+        },
+        {
+          "inputs": [],
+          "type": "error",
+          "name": "COF_NFT_TOKEN_ALREADY_EXISTS"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "approved",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "Approval",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "operator",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "bool",
+              "name": "approved",
+              "type": "bool",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "ApprovalForAll",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256",
+              "indexed": false
+            }
+          ],
+          "type": "event",
+          "name": "MetadataUpdate",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "from",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address",
+              "indexed": true
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256",
+              "indexed": true
+            }
+          ],
+          "type": "event",
+          "name": "Transfer",
+          "anonymous": false
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "approve"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "balanceOf",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "balance",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "flowDataByTokenId",
+          "outputs": [
+            {
+              "internalType": "struct IFlowNFTBase.FlowNFTData",
+              "name": "flowData",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "superToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "flowSender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "flowReceiver",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint32",
+                  "name": "flowStartDate",
+                  "type": "uint32"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getApproved",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "operator",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "superToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "flowSender",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "flowReceiver",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getTokenId",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "",
+              "type": "uint256"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "string",
+              "name": "nftName",
+              "type": "string"
+            },
+            {
+              "internalType": "string",
+              "name": "nftSymbol",
+              "type": "string"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "initialize"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "operator",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "isApprovedForAll",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "name",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ISuperfluidToken",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "flowSender",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "flowReceiver",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "onCreate"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ISuperfluidToken",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "flowSender",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "flowReceiver",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "onDelete"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "contract ISuperfluidToken",
+              "name": "token",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "flowSender",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "flowReceiver",
+              "type": "address"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "onUpdate"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "ownerOf",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "owner",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "safeTransferFrom"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "data",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "safeTransferFrom"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "operator",
+              "type": "address"
+            },
+            {
+              "internalType": "bool",
+              "name": "approved",
+              "type": "bool"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "setApprovalForAll"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes4",
+              "name": "interfaceId",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "supportsInterface",
+          "outputs": [
+            {
+              "internalType": "bool",
+              "name": "",
+              "type": "bool"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "symbol",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "tokenURI",
+          "outputs": [
+            {
+              "internalType": "string",
+              "name": "",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "address",
+              "name": "from",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "to",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "transferFrom"
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "uint256",
+              "name": "tokenId",
+              "type": "uint256"
+            }
+          ],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "triggerMetadataUpdate"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "approve(address,uint256)": {
+            "details": "Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event."
+          },
+          "balanceOf(address)": {
+            "details": "Returns the number of tokens in ``owner``'s account."
+          },
+          "flowDataByTokenId(uint256)": {
+            "params": {
+              "tokenId": "the token id"
+            },
+            "returns": {
+              "flowData": "the flow data associated with `tokenId`"
+            }
+          },
+          "getApproved(uint256)": {
+            "details": "Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist."
+          },
+          "getTokenId(address,address,address)": {
+            "details": "tokenId = uint256(keccak256(abi.encode(block.chainId, superToken, flowSender, flowReceiver)))",
+            "params": {
+              "flowReceiver": "the flow receiver",
+              "flowSender": "the flow sender",
+              "superToken": "the super token"
+            },
+            "returns": {
+              "_0": "tokenId the tokenId"
+            }
+          },
+          "isApprovedForAll(address,address)": {
+            "details": "Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}"
+          },
+          "name()": {
+            "details": "Returns the token collection name."
+          },
+          "onCreate(address,address,address)": {
+            "params": {
+              "flowReceiver": "the flow receiver",
+              "flowSender": "the flow sender",
+              "token": "the super token passed from the CFA (flowVars)"
+            }
+          },
+          "onDelete(address,address,address)": {
+            "params": {
+              "flowReceiver": "the flow receiver",
+              "flowSender": "the flow sender",
+              "token": "the super token passed from the CFA (flowVars)"
+            }
+          },
+          "onUpdate(address,address,address)": {
+            "params": {
+              "flowReceiver": "the flow receiver",
+              "flowSender": "the flow sender",
+              "token": "the super token passed from the CFA (flowVars)"
+            }
+          },
+          "ownerOf(uint256)": {
+            "details": "Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist."
+          },
+          "safeTransferFrom(address,address,uint256)": {
+            "details": "Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event."
+          },
+          "safeTransferFrom(address,address,uint256,bytes)": {
+            "details": "Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event."
+          },
+          "setApprovalForAll(address,bool)": {
+            "details": "Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event."
+          },
+          "supportsInterface(bytes4)": {
+            "details": "Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas."
+          },
+          "symbol()": {
+            "details": "Returns the token collection symbol."
+          },
+          "tokenURI(uint256)": {
+            "details": "Returns the Uniform Resource Identifier (URI) for `tokenId` token."
+          },
+          "transferFrom(address,address,uint256)": {
+            "details": "Transfers `tokenId` token from `from` to `to`. WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving ERC721 or else they may be permanently lost. Usage of {safeTransferFrom} prevents loss, though the caller must understand this adds an external call which potentially creates a reentrancy vulnerability. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event."
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {
+          "flowDataByTokenId(uint256)": {
+            "notice": "An external function for querying flow data by `tokenId``"
+          },
+          "getTokenId(address,address,address)": {
+            "notice": "An external function for computing the deterministic tokenId"
+          },
+          "onCreate(address,address,address)": {
+            "notice": "The onCreate function is called when a new flow is created."
+          },
+          "onDelete(address,address,address)": {
+            "notice": "The onDelete function is called when a flow is deleted."
+          },
+          "onUpdate(address,address,address)": {
+            "notice": "The onUpdate function is called when a flow is updated."
+          }
+        },
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":@openzeppelin/=lib/openzeppelin-contracts/",
+        ":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/",
+        ":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/",
+        ":custom-supertokens/=lib/custom-supertokens/contracts/",
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+        ":forge-std/=lib/forge-std/src/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/",
+        ":openzeppelin/=lib/openzeppelin-contracts/contracts/",
+        ":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantOutflowNFT.sol": "IConstantOutflowNFT"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol": {
+        "keccak256": "0x5bce51e11f7d194b79ea59fe00c9e8de9fa2c5530124960f29a24d4c740a3266",
+        "urls": [
+          "bzz-raw://7e66dfde185df46104c11bc89d08fa0760737aa59a2b8546a656473d810a8ea4",
+          "dweb:/ipfs/QmXvyqtXPaPss2PD7eqPoSao5Szm2n6UMoiG8TZZDjmChR"
+        ],
+        "license": "MIT"
+      },
+      "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
+        "keccak256": "0x75b829ff2f26c14355d1cba20e16fe7b29ca58eb5fef665ede48bc0f9c6c74b9",
+        "urls": [
+          "bzz-raw://a0a107160525724f9e1bbbab031defc2f298296dd9e331f16a6f7130cec32146",
+          "dweb:/ipfs/QmemujxSd7gX8A9M8UwmNbz4Ms3U9FG9QfudUgxwvTmPWf"
+        ],
+        "license": "MIT"
+      },
+      "lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol": {
+        "keccak256": "0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1",
+        "urls": [
+          "bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f",
+          "dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy"
+        ],
+        "license": "MIT"
+      },
+      "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantOutflowNFT.sol": {
+        "keccak256": "0x15799c1552fa7aad4c1a7197451cd02422a6c768b236ab2904e72f7158a4a2c2",
+        "urls": [
+          "bzz-raw://c62bb88c0c43ad162c8c226aede16a75c352738aaaf6794fa0c2881dcf59ad42",
+          "dweb:/ipfs/QmeWQdFDvzbN8JrCRSRRnZEuw5EbWVzRLM2duhJ515QUXK"
+        ],
+        "license": "MIT"
+      },
+      "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol": {
+        "keccak256": "0xa1600ee907288d7852678cc43f995498a039710a4f025a8785de288c4a4ceced",
+        "urls": [
+          "bzz-raw://d317bab758d3b73005ac27b87e2410a087ca8507538795f555d37bd2d97a028d",
+          "dweb:/ipfs/QmSHDBjGYTC64LkDaTQj38DZUGNV9mzxhUYAAfaDLQYEmS"
+        ],
+        "license": "MIT"
+      },
+      "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol": {
+        "keccak256": "0xba0407c47917aee8b6e7cea745332d2f7244cc3b91d249426f0105b365feb0ee",
+        "urls": [
+          "bzz-raw://4e8c38994af84e123476f8de8b81fe466e9a575374b13c38a4dc30bdd2d12c06",
+          "dweb:/ipfs/QmfHrSyeMQN7wVn7qmD6aPH1wX4ugkhQXiR8te6xhADGaK"
+        ],
+        "license": "MIT"
+      },
+      "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluidToken.sol": {
+        "keccak256": "0x18ea972421ff57ce62103f90c820ee039f170f0189a4b3c73fd0ff09452d1dbf",
+        "urls": [
+          "bzz-raw://dd24799269920b4b7925362b41650b5b968bb957dc0dec50b451f5382fe573c1",
+          "dweb:/ipfs/QmbL19zzZZSbVu2gYA3FtJLu4kbCtk9BybxCU7oJfpUbE7"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantOutflowNFT.sol",
+    "id": 48091,
+    "exportedSymbols": {
+      "IConstantOutflowNFT": [
+        48090
+      ],
+      "IFlowNFTBase": [
+        48162
+      ],
+      "ISuperfluidToken": [
+        49877
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:1936:33",
+    "nodes": [
+      {
+        "id": 48038,
+        "nodeType": "PragmaDirective",
+        "src": "32:25:33",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          ">=",
+          "0.8",
+          ".11"
+        ]
+      },
+      {
+        "id": 48040,
+        "nodeType": "ImportDirective",
+        "src": "59:58:33",
+        "nodes": [],
+        "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluidToken.sol",
+        "file": "./ISuperfluidToken.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 48091,
+        "sourceUnit": 49878,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 48039,
+              "name": "ISuperfluidToken",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 49877,
+              "src": "68:16:33",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 48042,
+        "nodeType": "ImportDirective",
+        "src": "118:50:33",
+        "nodes": [],
+        "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol",
+        "file": "./IFlowNFTBase.sol",
+        "nameLocation": "-1:-1:-1",
+        "scope": 48091,
+        "sourceUnit": 48163,
+        "symbolAliases": [
+          {
+            "foreign": {
+              "id": 48041,
+              "name": "IFlowNFTBase",
+              "nodeType": "Identifier",
+              "overloadedDeclarations": [],
+              "referencedDeclaration": 48162,
+              "src": "127:12:33",
+              "typeDescriptions": {}
+            },
+            "nameLocation": "-1:-1:-1"
+          }
+        ],
+        "unitAlias": ""
+      },
+      {
+        "id": 48090,
+        "nodeType": "ContractDefinition",
+        "src": "170:1797:33",
+        "nodes": [
+          {
+            "id": 48046,
+            "nodeType": "ErrorDefinition",
+            "src": "404:36:33",
+            "nodes": [],
+            "errorSelector": "6de98774",
+            "name": "COF_NFT_INVALID_SUPER_TOKEN",
+            "nameLocation": "410:27:33",
+            "parameters": {
+              "id": 48045,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "437:2:33"
+            }
+          },
+          {
+            "id": 48048,
+            "nodeType": "ErrorDefinition",
+            "src": "470:47:33",
+            "nodes": [],
+            "errorSelector": "a07fa909",
+            "name": "COF_NFT_MINT_TO_AND_FLOW_RECEIVER_SAME",
+            "nameLocation": "476:38:33",
+            "parameters": {
+              "id": 48047,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "514:2:33"
+            }
+          },
+          {
+            "id": 48050,
+            "nodeType": "ErrorDefinition",
+            "src": "536:37:33",
+            "nodes": [],
+            "errorSelector": "43d05e51",
+            "name": "COF_NFT_MINT_TO_ZERO_ADDRESS",
+            "nameLocation": "542:28:33",
+            "parameters": {
+              "id": 48049,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "570:2:33"
+            }
+          },
+          {
+            "id": 48052,
+            "nodeType": "ErrorDefinition",
+            "src": "602:37:33",
+            "nodes": [],
+            "errorSelector": "a495a718",
+            "name": "COF_NFT_ONLY_CONSTANT_INFLOW",
+            "nameLocation": "608:28:33",
+            "parameters": {
+              "id": 48051,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "636:2:33"
+            }
+          },
+          {
+            "id": 48054,
+            "nodeType": "ErrorDefinition",
+            "src": "668:37:33",
+            "nodes": [],
+            "errorSelector": "d367b64f",
+            "name": "COF_NFT_ONLY_FLOW_AGREEMENTS",
+            "nameLocation": "674:28:33",
+            "parameters": {
+              "id": 48053,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "702:2:33"
+            }
+          },
+          {
+            "id": 48056,
+            "nodeType": "ErrorDefinition",
+            "src": "734:37:33",
+            "nodes": [],
+            "errorSelector": "e2480183",
+            "name": "COF_NFT_TOKEN_ALREADY_EXISTS",
+            "nameLocation": "740:28:33",
+            "parameters": {
+              "id": 48055,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "768:2:33"
+            }
+          },
+          {
+            "id": 48067,
+            "nodeType": "FunctionDefinition",
+            "src": "1218:93:33",
+            "nodes": [],
+            "documentation": {
+              "id": 48057,
+              "nodeType": "StructuredDocumentation",
+              "src": "986:227:33",
+              "text": "@notice The onCreate function is called when a new flow is created.\n @param token the super token passed from the CFA (flowVars)\n @param flowSender the flow sender\n @param flowReceiver the flow receiver"
+            },
+            "functionSelector": "f7e3d983",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "onCreate",
+            "nameLocation": "1227:8:33",
+            "parameters": {
+              "id": 48065,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 48060,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "1253:5:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48067,
+                  "src": "1236:22:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ISuperfluidToken_$49877",
+                    "typeString": "contract ISuperfluidToken"
+                  },
+                  "typeName": {
+                    "id": 48059,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 48058,
+                      "name": "ISuperfluidToken",
+                      "nameLocations": [
+                        "1236:16:33"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 49877,
+                      "src": "1236:16:33"
+                    },
+                    "referencedDeclaration": 49877,
+                    "src": "1236:16:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ISuperfluidToken_$49877",
+                      "typeString": "contract ISuperfluidToken"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 48062,
+                  "mutability": "mutable",
+                  "name": "flowSender",
+                  "nameLocation": "1268:10:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48067,
+                  "src": "1260:18:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 48061,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1260:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 48064,
+                  "mutability": "mutable",
+                  "name": "flowReceiver",
+                  "nameLocation": "1288:12:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48067,
+                  "src": "1280:20:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 48063,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1280:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1235:66:33"
+            },
+            "returnParameters": {
+              "id": 48066,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1310:0:33"
+            },
+            "scope": 48090,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 48078,
+            "nodeType": "FunctionDefinition",
+            "src": "1545:93:33",
+            "nodes": [],
+            "documentation": {
+              "id": 48068,
+              "nodeType": "StructuredDocumentation",
+              "src": "1317:223:33",
+              "text": "@notice The onUpdate function is called when a flow is updated.\n @param token the super token passed from the CFA (flowVars)\n @param flowSender the flow sender\n @param flowReceiver the flow receiver"
+            },
+            "functionSelector": "eb54a7ca",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "onUpdate",
+            "nameLocation": "1554:8:33",
+            "parameters": {
+              "id": 48076,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 48071,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "1580:5:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48078,
+                  "src": "1563:22:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ISuperfluidToken_$49877",
+                    "typeString": "contract ISuperfluidToken"
+                  },
+                  "typeName": {
+                    "id": 48070,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 48069,
+                      "name": "ISuperfluidToken",
+                      "nameLocations": [
+                        "1563:16:33"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 49877,
+                      "src": "1563:16:33"
+                    },
+                    "referencedDeclaration": 49877,
+                    "src": "1563:16:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ISuperfluidToken_$49877",
+                      "typeString": "contract ISuperfluidToken"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 48073,
+                  "mutability": "mutable",
+                  "name": "flowSender",
+                  "nameLocation": "1595:10:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48078,
+                  "src": "1587:18:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 48072,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1587:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 48075,
+                  "mutability": "mutable",
+                  "name": "flowReceiver",
+                  "nameLocation": "1615:12:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48078,
+                  "src": "1607:20:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 48074,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1607:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1562:66:33"
+            },
+            "returnParameters": {
+              "id": 48077,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1637:0:33"
+            },
+            "scope": 48090,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 48089,
+            "nodeType": "FunctionDefinition",
+            "src": "1872:93:33",
+            "nodes": [],
+            "documentation": {
+              "id": 48079,
+              "nodeType": "StructuredDocumentation",
+              "src": "1644:223:33",
+              "text": "@notice The onDelete function is called when a flow is deleted.\n @param token the super token passed from the CFA (flowVars)\n @param flowSender the flow sender\n @param flowReceiver the flow receiver"
+            },
+            "functionSelector": "ef1f0237",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "onDelete",
+            "nameLocation": "1881:8:33",
+            "parameters": {
+              "id": 48087,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 48082,
+                  "mutability": "mutable",
+                  "name": "token",
+                  "nameLocation": "1907:5:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48089,
+                  "src": "1890:22:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_contract$_ISuperfluidToken_$49877",
+                    "typeString": "contract ISuperfluidToken"
+                  },
+                  "typeName": {
+                    "id": 48081,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 48080,
+                      "name": "ISuperfluidToken",
+                      "nameLocations": [
+                        "1890:16:33"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 49877,
+                      "src": "1890:16:33"
+                    },
+                    "referencedDeclaration": 49877,
+                    "src": "1890:16:33",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_contract$_ISuperfluidToken_$49877",
+                      "typeString": "contract ISuperfluidToken"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 48084,
+                  "mutability": "mutable",
+                  "name": "flowSender",
+                  "nameLocation": "1922:10:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48089,
+                  "src": "1914:18:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 48083,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1914:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 48086,
+                  "mutability": "mutable",
+                  "name": "flowReceiver",
+                  "nameLocation": "1942:12:33",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 48089,
+                  "src": "1934:20:33",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 48085,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "1934:7:33",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "1889:66:33"
+            },
+            "returnParameters": {
+              "id": 48088,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "1964:0:33"
+            },
+            "scope": 48090,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [
+          {
+            "baseName": {
+              "id": 48043,
+              "name": "IFlowNFTBase",
+              "nameLocations": [
+                "203:12:33"
+              ],
+              "nodeType": "IdentifierPath",
+              "referencedDeclaration": 48162,
+              "src": "203:12:33"
+            },
+            "id": 48044,
+            "nodeType": "InheritanceSpecifier",
+            "src": "203:12:33"
+          }
+        ],
+        "canonicalName": "IConstantOutflowNFT",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          48090,
+          48162,
+          43396,
+          43369,
+          43571
+        ],
+        "name": "IConstantOutflowNFT",
+        "nameLocation": "180:19:33",
+        "scope": 48091,
+        "usedErrors": [
+          48046,
+          48048,
+          48050,
+          48052,
+          48054,
+          48056,
+          48107,
+          48109,
+          48111,
+          48113,
+          48115,
+          48117,
+          48119,
+          48121,
+          48123
+        ]
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 33
+}
