@@ -3,6 +3,7 @@ import { PageContent, PageWrapper } from "@/components/Page";
 import { Inter } from "next/font/google";
 import Head from "next/head";
 import QRCode from "react-qr-code";
+import { Login } from "./login";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +17,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <PageWrapper className={inter.className}>
+        <Login />
         <PageContent>
           <div>Club SF</div>
           <p>
