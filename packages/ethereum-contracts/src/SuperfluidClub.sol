@@ -91,7 +91,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
      * @notice this function requires that sender send amount of coin to the contract
      * @param newProtege The address of the new protege
      */
-    function sponsor(address payable newProtege) external payable {
+    function sponsorship(address payable newProtege) external payable {
         require(!isProtege(newProtege), "Already a protege!");
         (address actualSponsor, bool root) = (msg.sender == owner()) ? (address(this), true) : (msg.sender, false);
         require(isProtege(actualSponsor) || root, "You are not a protege!");
