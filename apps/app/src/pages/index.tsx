@@ -3,8 +3,8 @@ import { PageContent, PageWrapper } from "@/components/Page";
 import { Inter } from "next/font/google";
 import Head from "next/head";
 import QRCode from "react-qr-code";
-import { Login } from "./login";
-import { Logout } from "./logout";
+import { Login } from "../components/login";
+import { Logout } from "../components/logout";
 import { useUser } from "@/contexts/UserProvider";
 
 const inter = Inter({ subsets: ["latin"] });
