@@ -4,9 +4,8 @@ pragma solidity ^0.8.19;
 import {ISuperfluid} from "@superfluid-finance/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluid.sol";
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
 import {SuperTokenBase, ISuperToken} from "@superfluid-finance/custom-supertokens/contracts/base/SuperTokenBase.sol";
-
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-
+import "forge-std/Test.sol";
 /**
  * @title Superfluid Club
  * @dev Contract that facilitates the operations of a superfluid club.
@@ -31,7 +30,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     uint256 public constant MAX_SPONSORSHIP_LEVEL = 6;
     uint256 public constant FLAT_FEE_SPONSORSHIP = 0.1 ether;
     uint256 public constant MAX_SPONSORSHIP_PATH_OUTFLOW = 720 ether;
-    uint256 private constant ALPHA = 1; // this can be removed if we don't want to use weighted factor
+    uint256 public constant SECONDS_IN_A_DAY = 86400;
 
     /**
      * @dev A structure that represents a protege in the superfluid club.
@@ -40,7 +39,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     struct Protege {
         address sponsor; // address of the sponsor
         uint8 level; // The level of the protege. Level 0 protege is also called the "root protege"
-        uint32 nProteges; // number of proteges under this protege.
+        uint32 protegeCount; // number of proteges under this protege.
     }
 
     // State variables
@@ -92,11 +91,12 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
      * @param newProtege The address of the new protege
      */
     function sponsor(address payable newProtege, bool transferCoinToProtege) external payable {
-        require(isProtege(msg.sender), "You are not a protege!");
         require(!isProtege(newProtege), "Already a protege!");
+        address actualSponsor = (msg.sender == owner()) ? address(this) : msg.sender;
+        require(isProtege(actualSponsor), "You are not a protege!");
 
         uint256 coinAmount = msg.value;
-        uint8 sponsorLvl = _proteges[msg.sender].level;
+        uint8 sponsorLvl = _proteges[actualSponsor].level;
         uint256 transferToNewProtege = fees(sponsorLvl);
 
         require(
@@ -107,20 +107,20 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         require(sponsorLvl < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
 
         // @notice: we update storage already because when open a stream, that can trigger a callback from the new protege
-        _proteges[newProtege] = Protege({sponsor: msg.sender, level: sponsorLvl + 1, nProteges: 0});
+        _proteges[newProtege] = Protege({sponsor: actualSponsor, level: sponsorLvl + 1, protegeCount: 0});
 
         uint256 totalAllocation = 0;
         uint8 totalAllocationLvl = sponsorLvl;
 
         {
-            address s = msg.sender;
+            address s = actualSponsor;
             while (isProtege(s)) {
-                _proteges[s].nProteges++;
+                _proteges[s].protegeCount++;
                 totalAllocation += getAllocation(totalAllocationLvl);
                 totalAllocationLvl--;
                 // @notice: this can also trigger a callback from sponsor
                 _createOrUpdateStream(
-                    s, calculateSponsorAmount(_proteges[s].level, _proteges[s].nProteges, totalAllocation)
+                    s, calculateSponsorAmount(_proteges[s].level, _proteges[s].protegeCount, totalAllocation)
                 );
                 s = _proteges[s].sponsor; // traversal link structure
             }
@@ -128,7 +128,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
 
         // WIP - How to know the flow rate of the new protege? this is bound to level max output
         // @notice: this can trigger a callback
-        ISuperToken(address(this)).createFlow(newProtege, getFlowRateAmount(sponsorLvl));
+        ISuperToken(address(this)).createFlow(newProtege, getFlowRateAmount(sponsorLvl + 1, 0));
         if (transferCoinToProtege) {
             // @notice: this can trigger a fallback
             newProtege.transfer(transferToNewProtege);
@@ -147,27 +147,27 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         pure
         returns (int96 flow)
     {
-        uint256 weightedFactor = getAllocation(level) + ALPHA * protegeCount;
-        flow = toInt96(((MAX_SPONSORSHIP_PATH_OUTFLOW * weightedFactor) / totalWeightedFactor) / 86400);
+        uint256 weightedFactor = getAllocation(level) * protegeCount;
+        flow = toInt96(((MAX_SPONSORSHIP_PATH_OUTFLOW * weightedFactor) / totalWeightedFactor) / SECONDS_IN_A_DAY);
     }
 
     /**
      * @notice gets the allocation for a given level
      * @param level The sponsorship level
-     * @return The allocation amount for the given level
+     * @return allocation amount for the given level
      */
-    function getAllocation(uint8 level) public pure returns (uint256) {
+    function getAllocation(uint8 level) public pure returns (uint256 allocation) {
         // magic number - we have a total amount for each sponsorship branch, we don't need to calculate it each time.
         uint256 a = 365.93 ether;
-        return a / (2 ** (level - 1));
+        return a / (2 ** level);
     }
 
     /**
      * @notice gets the fees based on sponsorship level
      * @param sponsorLvl The sponsorship level
-     * @return The fee amount for the given level
+     * @return fee amount for the given level
      */
-    function fees(uint8 sponsorLvl) public pure returns (uint256) {
+    function fees(uint8 sponsorLvl) public pure returns (uint256 fee) {
         if (sponsorLvl == 1) {
             return 0.3 ether;
         } else if (sponsorLvl == 2) {
@@ -184,11 +184,11 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     }
 
     /**
-     * @notice gets the flow rate amount for a given sponsorship level - WIP this must take into account the number of proteges of that sponsor
+     * @notice gets the flow rate amount for a given sponsorship level
      * @param sponsorLvl The sponsorship level
-     * @return The flow rate amount for the given level
+     * @return maxFlowRate amount for the given level
      */
-    function getFlowRateAmount(uint8 sponsorLvl) public pure returns (int96) {
+    function getMaxFlowRateByLevel(uint8 sponsorLvl) public pure returns (int96 maxFlowRate) {
         if (sponsorLvl == 1) {
             return 0.1 ether;
         } else if (sponsorLvl == 2) {
@@ -201,6 +201,30 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
             return 0.005 ether;
         } else {
             return 0.001 ether;
+        }
+    }
+
+    function getFlowRateAmount(uint8 protegeLvl, uint32 protegeCount) public view returns (int96 flowRate) {
+        int96 maxFlowRate = getMaxFlowRateByLevel(protegeLvl);
+        uint256 baseRate = (MAX_SPONSORSHIP_PATH_OUTFLOW * getProtegeLevelWeight(protegeLvl)) / 100;
+        uint256 totalRate = baseRate > toUint256(maxFlowRate) ? toUint256(maxFlowRate) : baseRate;
+        return toInt96(totalRate / SECONDS_IN_A_DAY);
+    }
+
+
+    function getProtegeLevelWeight(uint8 protegeLvl) public pure returns (uint256 levelWeight) {
+        if (protegeLvl == 1) {
+            return 50;
+        } else if (protegeLvl == 2) {
+            return 25;
+        } else if (protegeLvl == 3) {
+            return 12;
+        } else if (protegeLvl == 4) {
+            return 6;
+        } else if (protegeLvl == 5) {
+            return 3;
+        } else {
+            return 1;
         }
     }
 
@@ -234,7 +258,16 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
      * @return The converted int96 value
      */
     function toInt96(uint256 value) internal pure returns (int96) {
-        require(value > uint256(uint96(type(int96).max)), "overflow");
+        require(value <= uint256(uint96(type(int96).max)), "overflow");
         return int96(uint96(value));
+    }
+
+    /**
+     * @dev converts a int96 to uint256
+     * @param value The int96 value to convert
+     * @return The converted uint256 value
+     */
+    function toUint256(int96 value) internal pure returns (uint256) {
+        return uint256(uint96(value));
     }
 }
