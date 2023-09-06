@@ -1,9 +1,6 @@
 import { FooterLink } from "@/components/FooterButton";
-import { PageWrapper, PageContent } from "@/components/Layout";
-import { FC } from "react";
-import QRCode from "react-qr-code";
-import { Login } from "../components/login";
-import { Logout } from "../components/logout";
+
+import { PageContent, PageWrapper } from "@/components/Layout";
 
 const Home = () => {
   return (
