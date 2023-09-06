@@ -11,6 +11,8 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
     using SuperTokenV1Library for ISuperToken;
 
     uint256 public constant SECONDS_IN_A_DAY = 86400;
+    uint256 public constant MAX_SPONSORSHIP_LEVEL = 6;
+    uint256 public constant FLAT_COST_SPONSORSHIP = 0.01 ether;
 
     SuperfluidClub public club;
     ISuperToken public clubAsToken;
@@ -66,9 +68,7 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
 
     function testGetFlowRateAmount() public {
         for (uint8 i = 0; i < 7; i++) {
-            for (uint32 j = 0; j < 9; j++) {
-                club.getFlowRateAmount(i, j);
-            }
+            assertTrue(club.getFlowRateAmount(i) > 0);
         }
     }
 
@@ -117,7 +117,7 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         uint256 aliceReceivingFlow = uint256(uint96(clubAsToken.getFlowRate(address(club), alice)));
         uint256 aliceExpectedFlow = 0.1 ether / SECONDS_IN_A_DAY;
         assertEq(aliceReceivingFlow, aliceExpectedFlow);
-        assertEq(address(alice).balance, balanceBefore  + 0.09 ether);
+        assertEq(address(alice).balance, balanceBefore + 0.09 ether);
         assertEq(address(club).balance, 0.01 ether);
     }
 
@@ -127,11 +127,59 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         address payable bobAsPayable = payable(address(bob));
         club.sponsorship{value: 0.1 ether}(aliceAsPayable);
         vm.startPrank(alice);
-        club.sponsor{value: 0.01 ether}(bobAsPayable);
+        club.sponsorship{value: 0.01 ether}(bobAsPayable);
 
         uint256 bobReceivingFlow = uint256(uint96(clubAsToken.getFlowRate(address(club), bob)));
         uint256 bobExpectedFlow = 0.05 ether / SECONDS_IN_A_DAY;
         assertEq(bobReceivingFlow, bobExpectedFlow);
         assertEq(address(bob).balance, balanceBefore);
+    }
+
+    function testAddMultiProtegesL0() public {
+        uint256 baseAddress = uint256(0x421);
+        for (uint256 i = 1; i <= 100; i++) {
+            address payable protege = payable(address(uint160(baseAddress + i)));
+            club.sponsorship{value: 0.1 ether}(protege);
+            uint256 protegeReceivingFlow = uint256(uint96(clubAsToken.getFlowRate(address(club), protege)));
+            assertEq(protegeReceivingFlow, protegeReceivingFlow);
+        }
+    }
+
+    function testFillTree() public {
+        uint256 baseAddress = uint256(0x421);
+        uint256 currentAddress = baseAddress;
+
+        address payable[(3 ** MAX_SPONSORSHIP_LEVEL) * 3] memory sponsors;
+        sponsors[0] = payable(address(club.owner()));
+
+        uint256 currentSponsorIdx = 0;
+        uint256 nextSponsorIdx = 1;
+
+        for (uint256 level = 0; level < MAX_SPONSORSHIP_LEVEL; level++) {
+            uint256 sponsorsInCurrentLevel = 3 ** level;
+
+            for (uint256 s = 0; s < sponsorsInCurrentLevel; s++) {
+                address payable currentSponsor = sponsors[currentSponsorIdx++];
+
+                for (uint256 j = 0; j < 3; j++) {
+                    address payable protege = payable(address(uint160(currentAddress)));
+                    vm.startPrank(club.owner());
+                    if (club.owner() != currentSponsor) {
+                        currentSponsor.transfer(10 ether);
+                        protege.transfer(10 ether);
+                    } else {
+                        protege.transfer(100 ether);
+                    }
+                    vm.stopPrank();
+                    vm.startPrank(currentSponsor);
+                    club.sponsorship{value: 0.01 ether}(protege);
+                    uint256 protegeReceivingFlow = uint256(uint96(clubAsToken.getFlowRate(address(club), protege)));
+                    assertTrue(protegeReceivingFlow > 0);
+                    currentAddress += 1;
+                    vm.stopPrank();
+                    sponsors[nextSponsorIdx++] = protege; // protege as potential sponsor for the next level
+                }
+            }
+        }
     }
 }

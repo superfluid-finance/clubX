@@ -37,6 +37,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
      * @dev A structure that represents a protege in the superfluid club.
      * @notice: https://english.stackexchange.com/questions/206479/i-am-a-sponsor-do-i-call-the-person-i-sponsor-a-sponsee
      */
+
     struct Protege {
         address sponsor; // address of the sponsor
         uint8 level; // The level of the protege. Level 0 protege is also called the "root protege"
@@ -98,7 +99,6 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
 
         uint256 coinAmount = msg.value;
         uint8 sponsorLvl = _proteges[actualSponsor].level;
-
         require(coinAmount >= FLAT_COST_SPONSORSHIP, "Not enough coin!");
         coinAmount -= FLAT_COST_SPONSORSHIP;
         require(sponsorLvl < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
@@ -109,23 +109,21 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         uint256 totalAllocation = 0;
         uint8 totalAllocationLvl = sponsorLvl;
 
-        {
-            address s = actualSponsor;
-            while (isProtege(s)) {
-                _proteges[s].protegeCount++;
-                totalAllocation += getAllocation(totalAllocationLvl);
-                totalAllocationLvl--;
-                // @notice: this can also trigger a callback from sponsor
-                _createOrUpdateStream(
-                    s, calculateSponsorAmount(_proteges[s].level, _proteges[s].protegeCount, totalAllocation)
-                );
-                s = _proteges[s].sponsor; // traversal link structure
-            }
+        address s = actualSponsor;
+        while (isProtege(s)) {
+            // storage "pointer"
+            Protege storage sponsor = _proteges[s];
+            sponsor.protegeCount++;
+            totalAllocation += getAllocation(totalAllocationLvl);
+            totalAllocationLvl--;
+
+            // @notice: this can also trigger a callback from sponsor
+            _createOrUpdateStream(s, calculateSponsorAmount(sponsor.level, sponsor.protegeCount, totalAllocation));
+            s = sponsor.sponsor; // traversal link structure
         }
 
-        // WIP - How to know the flow rate of the new protege? this is bound to level max output
         // @notice: this can trigger a callback
-        ISuperToken(address(this)).createFlow(newProtege, getFlowRateAmount(sponsorLvl + 1, 0));
+        ISuperToken(address(this)).createFlow(newProtege, getFlowRateAmount(sponsorLvl + 1));
         if (coinAmount > 0) {
             // @notice: this can trigger a fallback
             newProtege.transfer(coinAmount);
@@ -178,7 +176,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         }
     }
 
-    function getFlowRateAmount(uint8 protegeLvl, uint32 protegeCount) public view returns (int96 flowRate) {
+    function getFlowRateAmount(uint8 protegeLvl) public pure returns (int96 flowRate) {
         int96 maxFlowRate = getMaxFlowRateByLevel(protegeLvl);
         uint256 baseRate = (MAX_SPONSORSHIP_PATH_OUTFLOW * getProtegeLevelWeight(protegeLvl)) / 100;
         uint256 totalRate = baseRate > toUint256(maxFlowRate) ? toUint256(maxFlowRate) : baseRate;
