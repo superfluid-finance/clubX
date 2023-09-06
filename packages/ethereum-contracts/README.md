@@ -1,66 +1,50 @@
-## Foundry
+# Superfluid Club Smart Contract
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+_This README will help users and developers understand the functionalities, data structures, and logic flow of the contract._
 
-Foundry consists of:
+The Superfluid Club contract is designed to facilitate the operations of a club using the Superfluid finance protocol.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+## Features:
 
-## Documentation
+- The club's operations revolve around "sponsorships" and "proteges".
+- A person can become a "protege" under another person's sponsorship, creating a sponsorship relationship.
+- Sponsorship can go up to a defined `MAX_SPONSORSHIP_LEVEL` (6 by default).
+- There are stream flows based on the level of sponsorship + count of proteges under a single sponsor.
 
-https://book.getfoundry.sh/
+## Formulas & Calculations:
 
-## Usage
+- **Allocation Calculation**: `allocation = FIRST_ELEMENT_PROGRESSION / (2 ** level);`
+  - This calculates the allocation for a given sponsorship level.
 
-### Build
+- **Flow Rate Calculation**: `baseRate = (MAX_SPONSORSHIP_PATH_OUTFLOW * getProtegeLevelWeight(protegeLvl)) / 100;`
+  - Based on the protege's level and the defined maximum outflow for the path, this determines the flow rate.
 
-```shell
-$ forge build
-```
+## Data Structures:
 
-### Test
+1. **Protege Struct**: Represents a member of the club.
+- `sponsor`: The address of the protege's sponsor.
+- `level`: The level of the protege in the sponsorship chain.
+- `protegeCount`: The number of proteges under this protege.
 
-```shell
-$ forge test
-```
+2. **State Variables**:
+- `_proteges`: A mapping that links an address to its corresponding Protege structure.
+- `init`: Ensures the contract's initialization occurs only once.
 
-### Format
+## Core Logic:
 
-```shell
-$ forge fmt
-```
+- **Initialization**: Initializes the contract, sets the token symbol and name, and mints a fixed amount of tokens to the contract address.
 
-### Gas Snapshots
+- **Sponsorship**: The function checks the eligibility of the sponsor and the new protege. Calculates the new flow rates for every sponsor up the chain and updates or creates a stream for each sponsor in the chain.
 
-```shell
-$ forge snapshot
-```
+- **Flow Rate Calculation**: The rate is determined based on the level of the protege and the number of proteges under a given sponsor.
 
-### Anvil
+- **Withdrawal and Mint**: The contract owner has the privilege to withdraw fees and mint new club tokens to the contract.
 
-```shell
-$ anvil
-```
+## Utility Functions:
 
-### Deploy
+- `isProtege()`: Checks if an address is a protege in the club.
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+- `getChainOfSponsors()`: Returns the chain of sponsors for a given protege address.
 
-### Cast
+- `toInt96()` & `toUint256()`: Utility functions for type conversion.
 
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
