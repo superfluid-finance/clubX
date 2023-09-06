@@ -26,9 +26,11 @@ const magicConnector = new MagicConnectConnector({
 
 MagicConnectConnector.prototype.getProvider = () => {
   const magic = magicConnector.getMagicSDK();
+
   if (!magic) {
     throw new Error("Magic not ininitialized properly");
   }
+
   return magic.wallet.getProvider();
 };
 

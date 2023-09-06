@@ -1,8 +1,10 @@
+import { useSponsor } from "@/core/Api";
 import { FooterButton, FooterLink } from "@/components/FooterButton";
 import { PageContent, PageWrapper } from "@/components/Layout";
-import { FC, useCallback, useEffect, useRef, useState } from "react";
 import { Html5Qrcode } from "html5-qrcode";
+import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
+import { Address, isAddress } from "viem";
 
 const ReaderWrapper = styled.div`
   width: 100%;
@@ -11,8 +13,12 @@ const ReaderWrapper = styled.div`
 const Scan = () => {
   const cameraRef = useRef<HTMLDivElement | null>(null);
   const QRCodeReader = useRef<Html5Qrcode>();
+  const [error, setError] = useState("");
 
-  const [scannedAddress, setScannedAddress] = useState<string | undefined>();
+  const [scannedAddress, setScannedAddress] = useState<Address | undefined>();
+
+  const [sponsorAddress, sponsorAddressLoading, sponsorAddressSuccess] =
+    useSponsor(scannedAddress);
 
   useEffect(() => {
     if (!cameraRef.current) return;
@@ -20,9 +26,20 @@ const Scan = () => {
     QRCodeReader.current = new Html5Qrcode(cameraRef.current.id);
   }, [cameraRef.current]);
 
-  const onSuccessfulScan = useCallback((decodedText: string) => {
-    setScannedAddress(decodedText);
-  }, []);
+  const onSuccessfulScan = useCallback(
+    (decodedText: string) => {
+      if (!isAddress(decodedText)) {
+        return setError("Invalid address!");
+      }
+      setError("");
+      setScannedAddress(decodedText);
+    },
+    [sponsorAddress]
+  );
+
+  useEffect(() => {
+    sponsorAddress && sponsorAddress();
+  }, [scannedAddress]);
 
   useEffect(() => {
     Html5Qrcode.getCameras()
@@ -56,15 +73,24 @@ const Scan = () => {
     <PageWrapper>
       <PageContent>
         <div>Scan the code!</div>
+
+        {sponsorAddressSuccess && (
+          <div>Successfully sponsored {scannedAddress}</div>
+        )}
+
         {scannedAddress && (
           <>
             <div>Scanned text:</div>
             <div>{scannedAddress}</div>
           </>
         )}
+
+        {error && <div>Error: {error}</div>}
+
         <ReaderWrapper ref={cameraRef} id="reader" />
       </PageContent>
-      <FooterLink href="/">Cancel</FooterLink>
+      {sponsorAddressLoading && <FooterButton>Loading...</FooterButton>}
+      {!sponsorAddressLoading && <FooterLink href="/">Cancel</FooterLink>}
     </PageWrapper>
   );
 };
