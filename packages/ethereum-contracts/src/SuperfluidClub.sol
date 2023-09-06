@@ -131,6 +131,16 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     }
 
     /**
+     * @notice restart a stream to a protege
+     */
+    function restartStream() external {
+        require(isProtege(msg.sender), "Not a protege!");
+        int96 flowRate = ISuperToken(address(this)).getFlowRate(address(this), msg.sender);
+        require(flowRate == 0, "Stream running");
+        ISuperToken(address(this)).createFlow(msg.sender, getFlowRateAmount(_proteges[msg.sender].level));
+    }
+
+    /**
      * @notice calculates the flow rate based on level and number of proteges
      * @param level The level of the sponsor
      * @param protegeCount The number of proteges under the sponsor

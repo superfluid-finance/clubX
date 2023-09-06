@@ -182,4 +182,17 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
             }
         }
     }
+
+    function testRestartStream() public {
+        address payable aliceAsPayable = payable(address(alice));
+        club.sponsorship{value: 0.1 ether}(aliceAsPayable);
+        int96 initialFlowRate = clubAsToken.getFlowRate(address(club), alice);
+        assertTrue(initialFlowRate > 0);
+        vm.startPrank(alice);
+        clubAsToken.deleteFlow(address(club), alice);
+        assertTrue(clubAsToken.getFlowRate(address(club), alice) == 0);
+        club.restartStream();
+        assertEq(clubAsToken.getFlowRate(address(club), alice), initialFlowRate);
+        vm.stopPrank();
+    }
 }
