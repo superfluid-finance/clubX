@@ -41,8 +41,6 @@ export default function Home() {
               value={user || ""}
               viewBox={`0 0 256 256`}
               style={{ background: "white", padding: "12px" }}
-              // bgColor="black"
-              // fgColor="white"
             />
           )}
 
