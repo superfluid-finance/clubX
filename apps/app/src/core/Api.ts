@@ -62,24 +62,7 @@ const fetchRealtimeBalance = async (
       contracts: [
         {
           chainId: network.id,
-          abi: [
-            {
-              stateMutability: "view",
-              type: "function",
-              inputs: [
-                {
-                  name: "token",
-                  internalType: "contract ISuperToken",
-                  type: "address",
-                },
-                { name: "account", internalType: "address", type: "address" },
-              ],
-              name: "getAccountFlowrate",
-              outputs: [
-                { name: "flowrate", internalType: "int96", type: "int96" },
-              ],
-            },
-          ],
+          abi: CFAv1ForwarderABI,
           functionName: "getAccountFlowrate",
           address: CFAv1ForwarderAddress,
           args: [superTokenAddress, accountAddress],
