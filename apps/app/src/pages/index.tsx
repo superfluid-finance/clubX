@@ -8,7 +8,8 @@ import Configuration from "@/core/Configuration";
 import Link from "next/link";
 import QRCode from "react-qr-code";
 import { styled } from "styled-components";
-import { useAccount, useNetwork } from "wagmi";
+import { useAccount, useNetwork, useSwitchNetwork } from "wagmi";
+import { useEffect } from "react";
 
 const { SuperfluidClubAddress } = Configuration;
 
@@ -24,6 +25,16 @@ const CenteredContent = styled.div`
 export default function Home() {
   const { isConnected, address } = useAccount();
   const { chain } = useNetwork();
+
+  const { switchNetwork } = useSwitchNetwork();
+
+  useEffect(() => {
+    if (!switchNetwork) return;
+    if(!address) return;
+    if (chain?.id !== Configuration.network.id) {
+      switchNetwork(Configuration.network.id);
+    }
+  }, [chain, switchNetwork, address]);
 
   const { data: realtimeBalanceData } = useRealtimeBalance(
     address,
