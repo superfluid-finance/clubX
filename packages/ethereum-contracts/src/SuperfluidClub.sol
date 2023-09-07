@@ -92,12 +92,11 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         coinAmount -= FLAT_COST_SPONSORSHIP;
         require(sponsorLvl < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
 
-        /// @notice: we update always the messiah node
+        /// @notice: we update always the messiah total counter
         _proteges[address(this)].totalProtegeCount++;
 
-        if (messiah) {
-            _proteges[address(this)].directTotalProtegeCount++;
-        }
+        _proteges[actualSponsor].directTotalProtegeCount++;
+
 
         // @notice: we update storage already because when open a stream, that can trigger a callback from the new protege
         _proteges[newProtege] =
