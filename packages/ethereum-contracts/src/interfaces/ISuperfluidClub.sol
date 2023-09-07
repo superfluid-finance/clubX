@@ -40,7 +40,8 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
     struct Protege {
         address sponsor; // address of the sponsor
         uint8 level; // The level of the protege. Level 0 protege is also called the "root protege"
-        uint32 protegeCount; // number of proteges under this protege.
+        uint32 totalProtegeCount; // number of proteges under this protege.
+        uint32 directTotalProtegeCount; // number of direct proteges under this sponsor.
     }
 
     /**
@@ -76,11 +77,11 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
     /**
      * @notice calculates the flow rate based on level and number of proteges
      * @param level The level of the sponsor
-     * @param protegeCount The number of proteges under the sponsor
+     * @param totalProtegeCount The number of proteges under the sponsor
      * @param totalWeightedFactor The total weighted factor for the sponsor
      * @return flow calculated flow rate
      */
-    function calculateSponsorAmount(uint8 level, uint32 protegeCount, uint256 totalWeightedFactor)
+    function calculateSponsorAmount(uint8 level, uint32 totalProtegeCount, uint256 totalWeightedFactor)
         external
         pure
         returns (int96 flow);

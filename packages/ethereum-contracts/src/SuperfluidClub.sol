@@ -35,8 +35,9 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     /// @dev ISuperfluidClub.Protege implementation
     struct Protege {
         address sponsor; // address of the sponsor
-        uint8 level; // The level of the protege. Level 0 protege is also called the "root protege"
-        uint32 protegeCount; // number of proteges under this protege.
+        uint8 level; // The level of the protege. Level 0 protege is also called the "messiah protege"
+        uint32 totalProtegeCount; // number of proteges under this protege.
+        uint32 directTotalProtegeCount; // number of direct proteges under this sponsor.
     }
 
     // State variables
@@ -82,8 +83,8 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     /// @dev ISuperfluidClub.sponsor implementation
     function sponsor(address payable newProtege) external payable {
         require(!isProtege(newProtege), "Already a protege!");
-        (address actualSponsor, bool root) = (msg.sender == owner()) ? (address(this), true) : (msg.sender, false);
-        require(isProtege(actualSponsor) || root, "You are not a protege!");
+        (address actualSponsor, bool messiah) = (msg.sender == owner()) ? (address(this), true) : (msg.sender, false);
+        require(isProtege(actualSponsor) || messiah, "You are not a protege!");
 
         uint256 coinAmount = msg.value;
         uint8 sponsorLvl = _proteges[actualSponsor].level;
@@ -92,10 +93,15 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         require(sponsorLvl < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
 
         /// @notice: we update always the messiah node
-        _proteges[address(this)].protegeCount++;
+        _proteges[address(this)].totalProtegeCount++;
+
+        if (messiah) {
+            _proteges[address(this)].directTotalProtegeCount++;
+        }
 
         // @notice: we update storage already because when open a stream, that can trigger a callback from the new protege
-        _proteges[newProtege] = Protege({sponsor: actualSponsor, level: sponsorLvl + 1, protegeCount: 0});
+        _proteges[newProtege] =
+            Protege({sponsor: actualSponsor, level: sponsorLvl + 1, totalProtegeCount: 0, directTotalProtegeCount: 0});
 
         uint256 totalAllocation = 0;
         uint8 totalAllocationLvl = sponsorLvl;
@@ -104,12 +110,14 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         while (isProtege(s)) {
             // storage "pointer"
             Protege storage sponsorInfo = _proteges[s];
-            sponsorInfo.protegeCount++;
+            sponsorInfo.totalProtegeCount++;
             totalAllocation += getAllocation(totalAllocationLvl);
             totalAllocationLvl--;
 
             // @notice: this can also trigger a callback from sponsor
-            _createOrUpdateStream(s, calculateSponsorAmount(sponsorInfo.level, sponsorInfo.protegeCount, totalAllocation));
+            _createOrUpdateStream(
+                s, calculateSponsorAmount(sponsorInfo.level, sponsorInfo.totalProtegeCount, totalAllocation)
+            );
             s = sponsorInfo.sponsor; // traversal link structure
         }
 
@@ -130,12 +138,12 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     }
 
     /// @dev ISuperfluidClub.calculateSponsorAmount implementation
-    function calculateSponsorAmount(uint8 level, uint32 protegeCount, uint256 totalWeightedFactor)
+    function calculateSponsorAmount(uint8 level, uint32 totalProtegeCount, uint256 totalWeightedFactor)
         public
         pure
         returns (int96 flow)
     {
-        uint256 weightedFactor = getAllocation(level) * protegeCount;
+        uint256 weightedFactor = getAllocation(level) * totalProtegeCount;
         flow = toInt96(((MAX_SPONSORSHIP_PATH_OUTFLOW * weightedFactor) / totalWeightedFactor) / SECONDS_IN_A_DAY);
     }
 

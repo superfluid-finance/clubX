@@ -12,7 +12,7 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
     using SuperTokenV1Library for ISuperfluidClub;
 
     uint256 public constant SECONDS_IN_A_DAY = 86400;
-    uint256 public constant MAX_sponsor_LEVEL = 6;
+    uint256 public constant MAX_SPONSOR_LEVEL = 6;
     uint256 public constant FLAT_COST_sponsor = 0.01 ether;
 
     ISuperfluidClub public club;
@@ -118,7 +118,8 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         assertEq(aliceReceivingFlow, aliceExpectedFlow);
         assertEq(address(alice).balance, balanceBefore + 0.09 ether);
         assertEq(address(club).balance, 0.01 ether);
-        assertEq(club.getProtege(address(club)).protegeCount, 1);
+        assertEq(club.getProtege(address(club)).totalProtegeCount, 1);
+        assertEq(club.getProtege(address(club)).directTotalProtegeCount, 1);
     }
 
     function testAddProtegeL1() public {
@@ -133,7 +134,8 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         uint256 bobExpectedFlow = 0.05 ether / SECONDS_IN_A_DAY;
         assertEq(bobReceivingFlow, bobExpectedFlow);
         assertEq(address(bob).balance, balanceBefore);
-        assertEq(club.getProtege(address(club)).protegeCount, 2);
+        assertEq(club.getProtege(address(club)).totalProtegeCount, 2);
+        assertEq(club.getProtege(address(club)).directTotalProtegeCount, 1);
     }
 
     function testAddMultiProtegesL0() public {
@@ -144,20 +146,23 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
             uint256 protegeReceivingFlow = uint256(uint96(club.getFlowRate(address(club), protege)));
             assertEq(protegeReceivingFlow, protegeReceivingFlow);
         }
-        assertEq(club.getProtege(address(club)).protegeCount, 100);
+        assertEq(club.getProtege(address(club)).totalProtegeCount, 100);
+        assertEq(club.getProtege(address(club)).directTotalProtegeCount, 100);
     }
 
     function testFillTree() public {
         uint256 baseAddress = uint256(0x421);
         uint256 currentAddress = baseAddress;
 
-        address payable[(3 ** MAX_sponsor_LEVEL) * 3] memory sponsors;
+        address payable[(3 ** MAX_SPONSOR_LEVEL) * 3] memory sponsors;
         sponsors[0] = payable(address(club.owner()));
 
         uint256 currentSponsorIdx = 0;
         uint256 nextSponsorIdx = 1;
 
-        for (uint256 level = 0; level < MAX_sponsor_LEVEL; level++) {
+        uint256 totalLoopRun = 0;
+
+        for (uint256 level = 0; level < MAX_SPONSOR_LEVEL; level++) {
             uint256 sponsorsInCurrentLevel = 3 ** level;
 
             for (uint256 s = 0; s < sponsorsInCurrentLevel; s++) {
@@ -175,6 +180,7 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
                     vm.stopPrank();
                     vm.startPrank(currentSponsor);
                     club.sponsor{value: 0.01 ether}(protege);
+                    totalLoopRun += 1;
                     uint256 protegeReceivingFlow = uint256(uint96(club.getFlowRate(address(club), protege)));
                     assertTrue(protegeReceivingFlow > 0);
                     currentAddress += 1;
@@ -183,6 +189,8 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
                 }
             }
         }
+        assertEq(club.getProtege(address(club)).totalProtegeCount, totalLoopRun);
+        assertEq(club.getProtege(address(club)).directTotalProtegeCount, 3);
     }
 
     function testRestartStream() public {
