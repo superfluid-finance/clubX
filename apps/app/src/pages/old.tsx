@@ -1,6 +1,5 @@
 import Configuration from "@/core/Configuration";
 import "@/styles/globals.css";
-import { MagicConnectConnector } from "@magiclabs/wagmi-connector";
 import type { AppProps } from "next/app";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
@@ -49,34 +48,34 @@ export const resolvedPublicClients = wagmiChains.reduce(
   {} as Record<number, ReturnType<typeof createPublicClient>>
 );
 
-const magicConnector = new MagicConnectConnector({
-  chains: wagmiChains,
-  options: {
-    apiKey: "pk_live_1C4195ECA42E5D43",
-    networks: [
-      {
-        chainId: network.id,
-        rpcUrl: rpcUrl,
-      },
-    ],
-  },
-});
+// const magicConnector = new MagicConnectConnector({
+//   chains: wagmiChains,
+//   options: {
+//     apiKey: "pk_live_1C4195ECA42E5D43",
+//     networks: [
+//       {
+//         chainId: network.id,
+//         rpcUrl: rpcUrl,
+//       },
+//     ],
+//   },
+// });
 
-MagicConnectConnector.prototype.getProvider = () => {
-  const magic = magicConnector.getMagicSDK();
-  if (!magic) {
-    throw new Error("Magic not ininitialized properly");
-  }
+// MagicConnectConnector.prototype.getProvider = () => {
+//   const magic = magicConnector.getMagicSDK();
+//   if (!magic) {
+//     throw new Error("Magic not ininitialized properly");
+//   }
 
-  return magic.wallet.getProvider();
-};
+//   return magic.wallet.getProvider();
+// };
 
 const config = createConfig({
   autoConnect: false,
   publicClient: (config) =>
     (config.chainId ? resolvedPublicClients[config.chainId] : null) ??
     createPublicClient(config),
-  connectors: [magicConnector],
+  connectors: [],
 });
 
 export default function App({ Component, pageProps }: AppProps) {
