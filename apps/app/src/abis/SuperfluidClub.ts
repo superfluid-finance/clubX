@@ -39,7 +39,20 @@ const SuperfluidClubABI = [
   },
   {
     inputs: [],
-    name: "FLAT_FEE_SPONSORSHIP",
+    name: "FIRST_ELEMENT_PROGRESSION",
+    outputs: [
+      {
+        internalType: "uint256",
+        name: "",
+        type: "uint256",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
+    name: "FLAT_COST_SPONSORSHIP",
     outputs: [
       {
         internalType: "uint256",
@@ -122,25 +135,6 @@ const SuperfluidClubABI = [
     inputs: [
       {
         internalType: "uint8",
-        name: "sponsorLvl",
-        type: "uint8",
-      },
-    ],
-    name: "fees",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "fee",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "pure",
-    type: "function",
-  },
-  {
-    inputs: [
-      {
-        internalType: "uint8",
         name: "level",
         type: "uint8",
       },
@@ -199,11 +193,6 @@ const SuperfluidClubABI = [
         name: "protegeLvl",
         type: "uint8",
       },
-      {
-        internalType: "uint32",
-        name: "protegeCount",
-        type: "uint32",
-      },
     ],
     name: "getFlowRateAmount",
     outputs: [
@@ -213,7 +202,7 @@ const SuperfluidClubABI = [
         type: "int96",
       },
     ],
-    stateMutability: "view",
+    stateMutability: "pure",
     type: "function",
   },
   {
@@ -333,19 +322,21 @@ const SuperfluidClubABI = [
     type: "function",
   },
   {
+    inputs: [],
+    name: "restartStream",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
     inputs: [
       {
         internalType: "address payable",
         name: "newProtege",
         type: "address",
       },
-      {
-        internalType: "bool",
-        name: "transferCoinToProtege",
-        type: "bool",
-      },
     ],
-    name: "sponsor",
+    name: "sponsorship",
     outputs: [],
     stateMutability: "payable",
     type: "function",
@@ -376,7 +367,7 @@ const SuperfluidClubABI = [
         type: "uint256",
       },
     ],
-    name: "withdrawFees",
+    name: "withdraw",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",

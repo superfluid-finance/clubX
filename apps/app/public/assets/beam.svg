@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="69" height="10" viewBox="0 0 69 10" fill="none">
+  <g filter="url(#filter0_f_64_4033)">
+    <path d="M64 5L5 5" stroke="#1DB227" stroke-width="3.09385" stroke-linecap="round" style="mix-blend-mode:color-dodge"/>
+  </g>
+  <g filter="url(#filter1_f_64_4033)">
+    <path d="M64 5L5 5" stroke="#1DB227" stroke-width="1.54693" stroke-linecap="round" style="mix-blend-mode:color-dodge"/>
+  </g>
+  <path d="M64 5L5 5" stroke="white" stroke-width="0.773463" stroke-linecap="round"/>
+  <defs>
+    <filter id="filter0_f_64_4033" x="0.359274" y="0.359274" width="68.2815" height="9.28145" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="1.54693" result="effect1_foregroundBlur_64_4033"/>
+    </filter>
+    <filter id="filter1_f_64_4033" x="1.13271" y="1.13271" width="66.7346" height="7.73458" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+      <feGaussianBlur stdDeviation="1.54693" result="effect1_foregroundBlur_64_4033"/>
+    </filter>
+  </defs>
+</svg>

@@ -47,8 +47,9 @@ export default class MyDocument extends Document {
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-          {/* <meta name="viewport" content="viewport-fit=cover" /> */}
           <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+
+          <link rel="manifest" href="/manifest.json" />
 
           <title>SF Club</title>
           <meta name="description" content="The most exclusive club in web3." />

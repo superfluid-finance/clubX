@@ -1,20 +1,17 @@
-import { useRealtimeBalance } from "@/core/Api";
+import Amount from "@/components/Amount";
 import Disconnect from "@/components/Disconnect";
-import { FooterLink } from "@/components/FooterButton";
+import FlowingBalance from "@/components/FlowingBalance";
 import { Header, PageContent, PageWrapper } from "@/components/Layout";
 import SignIn from "@/components/SignIn";
-import { Inter } from "next/font/google";
+import { useRealtimeBalance } from "@/core/Api";
+import Configuration from "@/core/Configuration";
 import Link from "next/link";
 import QRCode from "react-qr-code";
 import { styled } from "styled-components";
-import { useAccount } from "wagmi";
-import FlowingBalance from "@/components/FlowingBalance";
-import Amount from "@/components/Amount";
-import Configuration from "@/core/Configuration";
+import { useAccount, useNetwork, useSwitchNetwork } from "wagmi";
+import { useEffect } from "react";
 
 const { SuperfluidClubAddress } = Configuration;
-
-const inter = Inter({ subsets: ["latin"] });
 
 const CenteredContent = styled.div`
   padding: 32px 24px;
@@ -27,6 +24,17 @@ const CenteredContent = styled.div`
 
 export default function Home() {
   const { isConnected, address } = useAccount();
+  const { chain } = useNetwork();
+
+  const { switchNetwork } = useSwitchNetwork();
+
+  useEffect(() => {
+    if (!switchNetwork) return;
+    if(!address) return;
+    if (chain?.id !== Configuration.network.id) {
+      switchNetwork(Configuration.network.id);
+    }
+  }, [chain, switchNetwork, address]);
 
   const { data: realtimeBalanceData } = useRealtimeBalance(
     address,
@@ -34,7 +42,7 @@ export default function Home() {
   );
 
   return (
-    <PageWrapper className={inter.className}>
+    <PageWrapper>
       <Header>{isConnected && address}</Header>
 
       <PageContent>

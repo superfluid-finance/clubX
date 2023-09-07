@@ -11,9 +11,9 @@ import {
   useWaitForTransaction,
 } from "wagmi";
 import Configuration from "./Configuration";
+import { formatEther, parseEther } from "viem";
 
-const { SuperfluidClubAddress, NetworkID, CFAv1ForwarderAddress } =
-  Configuration;
+const { SuperfluidClubAddress, network, CFAv1ForwarderAddress } = Configuration;
 
 export const useSponsor = (
   address?: Address
@@ -21,11 +21,12 @@ export const useSponsor = (
   const sponsorConfig = usePrepareContractWrite(
     address
       ? {
+          chainId: network.id,
           abi: SuperfluidClubABI,
           address: SuperfluidClubAddress,
-          functionName: "sponsor",
-          value: BigInt(0.03),
-          args: [address, false],
+          functionName: "sponsorship",
+          value: parseEther("0.01"),
+          args: [address],
         }
       : {}
   );
@@ -45,13 +46,13 @@ export const useRealtimeBalance = (
 ) =>
   useQuery(["RealTimeBalance", accountAddress, superTokenAddress], {
     queryFn: async () =>
-      fetchRealtimeBalance(superTokenAddress, accountAddress),
+      fetchRealtimeBalance(accountAddress, superTokenAddress),
     enabled: !!accountAddress && !!superTokenAddress,
   });
 
 const fetchRealtimeBalance = async (
-  superTokenAddress?: Address,
-  accountAddress?: Address
+  accountAddress?: Address,
+  superTokenAddress?: Address
 ) => {
   if (!superTokenAddress || !accountAddress) return Promise.reject();
 
@@ -60,14 +61,14 @@ const fetchRealtimeBalance = async (
       allowFailure: false,
       contracts: [
         {
-          chainId: NetworkID,
+          chainId: network.id,
           abi: CFAv1ForwarderABI,
           functionName: "getAccountFlowrate",
           address: CFAv1ForwarderAddress,
           args: [superTokenAddress, accountAddress],
         },
         {
-          chainId: NetworkID,
+          chainId: network.id,
           abi: SuperTokenABI,
           functionName: "realtimeBalanceOfNow",
           address: SuperfluidClubAddress,

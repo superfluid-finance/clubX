@@ -28,6 +28,8 @@ const Scan = () => {
 
   const onSuccessfulScan = useCallback(
     (decodedText: string) => {
+      console.log("Read address", decodedText);
+
       if (!isAddress(decodedText)) {
         return setError("Invalid address!");
       }
