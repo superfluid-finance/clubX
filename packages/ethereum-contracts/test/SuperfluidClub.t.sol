@@ -118,6 +118,7 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         assertEq(aliceReceivingFlow, aliceExpectedFlow);
         assertEq(address(alice).balance, balanceBefore + 0.09 ether);
         assertEq(address(club).balance, 0.01 ether);
+        assertEq(club.getProtege(address(club)).protegeCount, 1);
     }
 
     function testAddProtegeL1() public {
@@ -132,6 +133,7 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         uint256 bobExpectedFlow = 0.05 ether / SECONDS_IN_A_DAY;
         assertEq(bobReceivingFlow, bobExpectedFlow);
         assertEq(address(bob).balance, balanceBefore);
+        assertEq(club.getProtege(address(club)).protegeCount, 2);
     }
 
     function testAddMultiProtegesL0() public {
@@ -142,6 +144,7 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
             uint256 protegeReceivingFlow = uint256(uint96(club.getFlowRate(address(club), protege)));
             assertEq(protegeReceivingFlow, protegeReceivingFlow);
         }
+        assertEq(club.getProtege(address(club)).protegeCount, 100);
     }
 
     function testFillTree() public {

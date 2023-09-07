@@ -55,6 +55,14 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
      * @return sponsors array of Protege structures representing the sponsors
      */
     function getChainOfSponsors(address protege) external view returns (Protege[] memory sponsors);
+
+    /**
+     * @notice gets the protege for a given address
+     * @param protege The protege's address
+     * @return Protege structure representing the protege
+     */
+    function getProtege(address protege) external view returns (Protege memory);
+
     /**
      * @dev internal function to create or update a stream
      * @notice this function requires that sender send amount of coin to the contract

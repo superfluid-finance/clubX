@@ -61,6 +61,11 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         }
     }
 
+    /// @dev ISuperfluidClub.getProtege
+    function getProtege(address protege) external view returns (Protege memory) {
+        return _proteges[protege];
+    }
+
     /**
      * @dev internal function to create or update a stream
      * @param receiver The address of the stream receiver
@@ -85,6 +90,9 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         require(coinAmount >= FLAT_COST_SPONSORSHIP, "Not enough coin!");
         coinAmount -= FLAT_COST_SPONSORSHIP;
         require(sponsorLvl < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
+
+        /// @notice: we update always the messiah node
+        _proteges[address(this)].protegeCount++;
 
         // @notice: we update storage already because when open a stream, that can trigger a callback from the new protege
         _proteges[newProtege] = Protege({sponsor: actualSponsor, level: sponsorLvl + 1, protegeCount: 0});
@@ -160,8 +168,8 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         uint256 totalRate = baseRate > toUint256(maxFlowRate) ? toUint256(maxFlowRate) : baseRate;
         return toInt96(totalRate / SECONDS_IN_A_DAY);
     }
-    /// @dev ISuperfluidClub.getProtegeLevelWeight implementation
 
+    /// @dev ISuperfluidClub.getProtegeLevelWeight implementation
     function getProtegeLevelWeight(uint8 protegeLvl) public pure returns (uint256 levelWeight) {
         if (protegeLvl == 1) {
             return 50;
