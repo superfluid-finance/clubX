@@ -1,20 +1,16 @@
-import { useRealtimeBalance } from "@/core/Api";
+import Amount from "@/components/Amount";
 import Disconnect from "@/components/Disconnect";
-import { FooterLink } from "@/components/FooterButton";
+import FlowingBalance from "@/components/FlowingBalance";
 import { Header, PageContent, PageWrapper } from "@/components/Layout";
 import SignIn from "@/components/SignIn";
-import { Inter } from "next/font/google";
+import { useRealtimeBalance } from "@/core/Api";
+import Configuration from "@/core/Configuration";
 import Link from "next/link";
 import QRCode from "react-qr-code";
 import { styled } from "styled-components";
 import { useAccount, useNetwork } from "wagmi";
-import FlowingBalance from "@/components/FlowingBalance";
-import Amount from "@/components/Amount";
-import Configuration from "@/core/Configuration";
 
 const { SuperfluidClubAddress } = Configuration;
-
-const inter = Inter({ subsets: ["latin"] });
 
 const CenteredContent = styled.div`
   padding: 32px 24px;
@@ -35,7 +31,7 @@ export default function Home() {
   );
 
   return (
-    <PageWrapper className={inter.className}>
+    <PageWrapper>
       <Header>{isConnected && address}</Header>
 
       <PageContent>
