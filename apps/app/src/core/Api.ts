@@ -16,6 +16,11 @@ import { formatEther, parseEther } from "viem";
 
 const { SuperfluidClubAddress, network, CFAv1ForwarderAddress } = Configuration;
 
+// 1. Fetch your level (getProtegeLevelWeight)
+// 2. Fetch the fee for your level
+// 3. Add utility to calculate the sponsor Amount
+// 4. change sponsor() value to fee + sponsor amount
+
 export const useSponsor = (
   address?: Address
 ): [(() => void) | undefined, boolean, boolean] => {
@@ -26,7 +31,7 @@ export const useSponsor = (
           abi: SuperfluidClubABI,
           address: SuperfluidClubAddress,
           functionName: "sponsor",
-          value: parseEther("0.03"),
+          value: parseEther("0.03"), //fee + sponsor amount
           args: [address],
         }
       : {}
