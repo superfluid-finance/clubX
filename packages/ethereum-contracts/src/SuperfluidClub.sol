@@ -1,7 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import {ISuperfluid} from "@superfluid-finance/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluid.sol";
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
 import {SuperTokenBase, ISuperToken} from "@superfluid-finance/custom-supertokens/contracts/base/SuperTokenBase.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
@@ -18,7 +17,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
 
     constructor() {}
 
-    // initialize
+    /// @dev ISuperfluidClub.initialize implementation
     function initialize(address superTokenFactory) public {
         require(!init, "Already initialized");
         init = true;
@@ -30,14 +29,10 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     uint256 public constant MAX_SPONSORSHIP_LEVEL = 6;
     uint256 public constant FLAT_COST_SPONSORSHIP = 0.01 ether;
     uint256 public constant MAX_SPONSORSHIP_PATH_OUTFLOW = 720 ether;
-    uint256 public constant SECONDS_IN_A_DAY = 86400;
+    uint256 internal constant SECONDS_IN_A_DAY = 86400;
     uint256 public constant FIRST_ELEMENT_PROGRESSION = 365.93 ether; // geometric progression to calculate the allocation
 
-    /**
-     * @dev A structure that represents a protege in the superfluid club.
-     * @notice: https://english.stackexchange.com/questions/206479/i-am-a-sponsor-do-i-call-the-person-i-sponsor-a-sponsee
-     */
-
+    /// @dev ISuperfluidClub.Protege implementation
     struct Protege {
         address sponsor; // address of the sponsor
         uint8 level; // The level of the protege. Level 0 protege is also called the "root protege"
@@ -47,20 +42,12 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     // State variables
     mapping(address => Protege) internal _proteges;
 
-    /**
-     * @notice checks if an address is a protege
-     * @param protege The address to check
-     * @return True if the address is a protege, false otherwise
-     */
+    /// @dev ISuperfluidClub.isProtege implementation
     function isProtege(address protege) public view returns (bool) {
         return _proteges[protege].sponsor != address(0);
     }
 
-    /**
-     * @notice gets the chain of sponsors for a protege
-     * @param protege The protege's address
-     * @return sponsors array of Protege structures representing the sponsors
-     */
+    /// @dev ISuperfluidClub.getChainOfSponsors implementation
     function getChainOfSponsors(address protege)
         external
         view
@@ -87,12 +74,8 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         }
     }
 
-    /**
-     * @dev internal function to create or update a stream
-     * @notice this function requires that sender send amount of coin to the contract
-     * @param newProtege The address of the new protege
-     */
-    function sponsorship(address payable newProtege) external payable {
+    /// @dev ISuperfluidClub.sponsor implementation
+    function sponsor(address payable newProtege) external payable {
         require(!isProtege(newProtege), "Already a protege!");
         (address actualSponsor, bool root) = (msg.sender == owner()) ? (address(this), true) : (msg.sender, false);
         require(isProtege(actualSponsor) || root, "You are not a protege!");
@@ -112,14 +95,14 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         address s = actualSponsor;
         while (isProtege(s)) {
             // storage "pointer"
-            Protege storage sponsor = _proteges[s];
-            sponsor.protegeCount++;
+            Protege storage sponsorInfo = _proteges[s];
+            sponsorInfo.protegeCount++;
             totalAllocation += getAllocation(totalAllocationLvl);
             totalAllocationLvl--;
 
             // @notice: this can also trigger a callback from sponsor
-            _createOrUpdateStream(s, calculateSponsorAmount(sponsor.level, sponsor.protegeCount, totalAllocation));
-            s = sponsor.sponsor; // traversal link structure
+            _createOrUpdateStream(s, calculateSponsorAmount(sponsorInfo.level, sponsorInfo.protegeCount, totalAllocation));
+            s = sponsorInfo.sponsor; // traversal link structure
         }
 
         // @notice: this can trigger a callback
@@ -130,9 +113,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         }
     }
 
-    /**
-     * @notice restart a stream to a protege
-     */
+    /// @dev ISuperfluidClub.sponsor implementation
     function restartStream() external {
         require(isProtege(msg.sender), "Not a protege!");
         int96 flowRate = ISuperToken(address(this)).getFlowRate(address(this), msg.sender);
@@ -140,13 +121,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         ISuperToken(address(this)).createFlow(msg.sender, getFlowRateAmount(_proteges[msg.sender].level));
     }
 
-    /**
-     * @notice calculates the flow rate based on level and number of proteges
-     * @param level The level of the sponsor
-     * @param protegeCount The number of proteges under the sponsor
-     * @param totalWeightedFactor The total weighted factor for the sponsor
-     * @return flow calculated flow rate
-     */
+    /// @dev ISuperfluidClub.calculateSponsorAmount implementation
     function calculateSponsorAmount(uint8 level, uint32 protegeCount, uint256 totalWeightedFactor)
         public
         pure
@@ -156,20 +131,12 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         flow = toInt96(((MAX_SPONSORSHIP_PATH_OUTFLOW * weightedFactor) / totalWeightedFactor) / SECONDS_IN_A_DAY);
     }
 
-    /**
-     * @notice gets the allocation for a given level
-     * @param level The sponsorship level
-     * @return allocation amount for the given level
-     */
+    /// @dev ISuperfluidClub.getAllocation implementation
     function getAllocation(uint8 level) public pure returns (uint256 allocation) {
         allocation = FIRST_ELEMENT_PROGRESSION / (2 ** level);
     }
 
-    /**
-     * @notice gets the flow rate amount for a given sponsorship level
-     * @param sponsorLvl The sponsorship level
-     * @return maxFlowRate amount for the given level
-     */
+    /// @dev ISuperfluidClub.getMaxFlowRateByLevel implementation
     function getMaxFlowRateByLevel(uint8 sponsorLvl) public pure returns (int96 maxFlowRate) {
         if (sponsorLvl == 1) {
             return 0.1 ether;
@@ -186,12 +153,14 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         }
     }
 
+    /// @dev ISuperfluidClub.getFlowRateAmount implementation
     function getFlowRateAmount(uint8 protegeLvl) public pure returns (int96 flowRate) {
         int96 maxFlowRate = getMaxFlowRateByLevel(protegeLvl);
         uint256 baseRate = (MAX_SPONSORSHIP_PATH_OUTFLOW * getProtegeLevelWeight(protegeLvl)) / 100;
         uint256 totalRate = baseRate > toUint256(maxFlowRate) ? toUint256(maxFlowRate) : baseRate;
         return toInt96(totalRate / SECONDS_IN_A_DAY);
     }
+    /// @dev ISuperfluidClub.getProtegeLevelWeight implementation
 
     function getProtegeLevelWeight(uint8 protegeLvl) public pure returns (uint256 levelWeight) {
         if (protegeLvl == 1) {
@@ -209,10 +178,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         }
     }
 
-    /**
-     * @dev withdraws the fees from the contract
-     * @notice only the owner can call this function
-     */
+    /// @dev ISuperfluidClub.withdraw implementation
     function withdraw(address receiver, uint256 amount) external onlyOwner {
         require(receiver != address(0), "Invalid receiver");
         require(amount > 0, "Invalid amount");
@@ -220,10 +186,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         payable(receiver).transfer(amount);
     }
 
-    /**
-     * @dev mint club tokens to the contract
-     * @notice only the owner can call this function
-     */
+    /// @dev ISuperfluidClub.mint implementation
     function mint(uint256 amount) external onlyOwner {
         _mint(address(this), amount, new bytes(0));
     }

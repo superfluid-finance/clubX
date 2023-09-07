@@ -3,32 +3,31 @@ pragma solidity ^0.8.13;
 
 import {Test, console2} from "forge-std/Test.sol";
 import {SuperfluidClub} from "../src/SuperfluidClub.sol";
+import {ISuperfluidClub} from "../src/interfaces/ISuperfluidClub.sol";
 import {ISuperToken} from "@superfluid-finance/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluid.sol";
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
 import "@superfluid-finance/ethereum-contracts/test/foundry/FoundrySuperfluidTester.sol";
 
 contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
-    using SuperTokenV1Library for ISuperToken;
+    using SuperTokenV1Library for ISuperfluidClub;
 
     uint256 public constant SECONDS_IN_A_DAY = 86400;
-    uint256 public constant MAX_SPONSORSHIP_LEVEL = 6;
-    uint256 public constant FLAT_COST_SPONSORSHIP = 0.01 ether;
+    uint256 public constant MAX_sponsor_LEVEL = 6;
+    uint256 public constant FLAT_COST_sponsor = 0.01 ether;
 
-    SuperfluidClub public club;
-    ISuperToken public clubAsToken;
+    ISuperfluidClub public club;
 
     function setUp() public override {
         super.setUp();
-        club = new SuperfluidClub();
+        club = ISuperfluidClub(address(new SuperfluidClub()));
         club.initialize(address(sf.superTokenFactory));
-        clubAsToken = ISuperToken(address(club));
     }
 
     function testDeployment() public {
-        assertEq(clubAsToken.name(), "ClubX");
-        assertEq(clubAsToken.symbol(), "ClubX");
-        assertEq(clubAsToken.totalSupply(), 100000000000000000000000 ether);
-        assertEq(clubAsToken.balanceOf(address(club)), 100000000000000000000000 ether);
+        assertEq(club.name(), "ClubX");
+        assertEq(club.symbol(), "ClubX");
+        assertEq(club.totalSupply(), 100000000000000000000000 ether);
+        assertEq(club.balanceOf(address(club)), 100000000000000000000000 ether);
         // test owner for club
         assertEq(club.owner(), address(this));
     }
@@ -105,16 +104,16 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
 
         // mint 1000 tokens to the contract
         club.mint(1000 ether);
-        assertEq(clubAsToken.totalSupply(), 100000000000000000000000 ether + 1000 ether);
-        assertEq(clubAsToken.balanceOf(address(club)), 100000000000000000000000 ether + 1000 ether);
+        assertEq(club.totalSupply(), 100000000000000000000000 ether + 1000 ether);
+        assertEq(club.balanceOf(address(club)), 100000000000000000000000 ether + 1000 ether);
     }
 
     function testAddProtegeL0() public {
         uint256 balanceBefore = address(alice).balance;
         address payable aliceAsPayable = payable(address(alice));
-        club.sponsorship{value: 0.1 ether}(aliceAsPayable);
+        club.sponsor{value: 0.1 ether}(aliceAsPayable);
 
-        uint256 aliceReceivingFlow = uint256(uint96(clubAsToken.getFlowRate(address(club), alice)));
+        uint256 aliceReceivingFlow = uint256(uint96(club.getFlowRate(address(club), alice)));
         uint256 aliceExpectedFlow = 0.1 ether / SECONDS_IN_A_DAY;
         assertEq(aliceReceivingFlow, aliceExpectedFlow);
         assertEq(address(alice).balance, balanceBefore + 0.09 ether);
@@ -125,11 +124,11 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         uint256 balanceBefore = address(bob).balance;
         address payable aliceAsPayable = payable(address(alice));
         address payable bobAsPayable = payable(address(bob));
-        club.sponsorship{value: 0.1 ether}(aliceAsPayable);
+        club.sponsor{value: 0.1 ether}(aliceAsPayable);
         vm.startPrank(alice);
-        club.sponsorship{value: 0.01 ether}(bobAsPayable);
+        club.sponsor{value: 0.01 ether}(bobAsPayable);
 
-        uint256 bobReceivingFlow = uint256(uint96(clubAsToken.getFlowRate(address(club), bob)));
+        uint256 bobReceivingFlow = uint256(uint96(club.getFlowRate(address(club), bob)));
         uint256 bobExpectedFlow = 0.05 ether / SECONDS_IN_A_DAY;
         assertEq(bobReceivingFlow, bobExpectedFlow);
         assertEq(address(bob).balance, balanceBefore);
@@ -139,8 +138,8 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         uint256 baseAddress = uint256(0x421);
         for (uint256 i = 1; i <= 100; i++) {
             address payable protege = payable(address(uint160(baseAddress + i)));
-            club.sponsorship{value: 0.1 ether}(protege);
-            uint256 protegeReceivingFlow = uint256(uint96(clubAsToken.getFlowRate(address(club), protege)));
+            club.sponsor{value: 0.1 ether}(protege);
+            uint256 protegeReceivingFlow = uint256(uint96(club.getFlowRate(address(club), protege)));
             assertEq(protegeReceivingFlow, protegeReceivingFlow);
         }
     }
@@ -149,13 +148,13 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         uint256 baseAddress = uint256(0x421);
         uint256 currentAddress = baseAddress;
 
-        address payable[(3 ** MAX_SPONSORSHIP_LEVEL) * 3] memory sponsors;
+        address payable[(3 ** MAX_sponsor_LEVEL) * 3] memory sponsors;
         sponsors[0] = payable(address(club.owner()));
 
         uint256 currentSponsorIdx = 0;
         uint256 nextSponsorIdx = 1;
 
-        for (uint256 level = 0; level < MAX_SPONSORSHIP_LEVEL; level++) {
+        for (uint256 level = 0; level < MAX_sponsor_LEVEL; level++) {
             uint256 sponsorsInCurrentLevel = 3 ** level;
 
             for (uint256 s = 0; s < sponsorsInCurrentLevel; s++) {
@@ -172,8 +171,8 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
                     }
                     vm.stopPrank();
                     vm.startPrank(currentSponsor);
-                    club.sponsorship{value: 0.01 ether}(protege);
-                    uint256 protegeReceivingFlow = uint256(uint96(clubAsToken.getFlowRate(address(club), protege)));
+                    club.sponsor{value: 0.01 ether}(protege);
+                    uint256 protegeReceivingFlow = uint256(uint96(club.getFlowRate(address(club), protege)));
                     assertTrue(protegeReceivingFlow > 0);
                     currentAddress += 1;
                     vm.stopPrank();
@@ -185,14 +184,14 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
 
     function testRestartStream() public {
         address payable aliceAsPayable = payable(address(alice));
-        club.sponsorship{value: 0.1 ether}(aliceAsPayable);
-        int96 initialFlowRate = clubAsToken.getFlowRate(address(club), alice);
+        club.sponsor{value: 0.1 ether}(aliceAsPayable);
+        int96 initialFlowRate = club.getFlowRate(address(club), alice);
         assertTrue(initialFlowRate > 0);
         vm.startPrank(alice);
-        clubAsToken.deleteFlow(address(club), alice);
-        assertTrue(clubAsToken.getFlowRate(address(club), alice) == 0);
+        club.deleteFlow(address(club), alice);
+        assertTrue(club.getFlowRate(address(club), alice) == 0);
         club.restartStream();
-        assertEq(clubAsToken.getFlowRate(address(club), alice), initialFlowRate);
+        assertEq(club.getFlowRate(address(club), alice), initialFlowRate);
         vm.stopPrank();
     }
 }
