@@ -1,13 +1,15 @@
+import Configuration from "@/core/Configuration";
 import "@/styles/globals.css";
-import { Web3Provider } from "@ethersproject/providers";
 import { MagicConnectConnector } from "@magiclabs/wagmi-connector";
 import type { AppProps } from "next/app";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
-import { polygon, polygonMumbai } from "wagmi/chains";
+import { polygonMumbai } from "wagmi/chains";
 import { publicProvider } from "wagmi/providers/public";
 
+const { network, rpcUrl } = Configuration;
+
 const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [polygon],
+  [network],
   [publicProvider()]
 );
 
@@ -17,8 +19,8 @@ const magicConnector = new MagicConnectConnector({
     apiKey: "pk_live_1C4195ECA42E5D43",
     networks: [
       {
-        chainId: polygon.id,
-        rpcUrl: "https://polygon-rpc.com",
+        chainId: network.id,
+        rpcUrl,
       },
     ],
   },
