@@ -5,6 +5,7 @@ import fromUnixTime from "date-fns/fromUnixTime";
 import {
   Address,
   readContracts,
+  useContractRead,
   useContractWrite,
   usePrepareContractWrite,
   useQuery,
@@ -24,7 +25,7 @@ export const useSponsor = (
           chainId: network.id,
           abi: SuperfluidClubABI,
           address: SuperfluidClubAddress,
-          functionName: "sponsorship",
+          functionName: "sponsor",
           value: parseEther("0.01"),
           args: [address],
         }
@@ -39,6 +40,16 @@ export const useSponsor = (
 
   return [write, isLoading, isSuccess];
 };
+
+export const useIsProtege = (address?: Address) =>
+  useContractRead({
+    chainId: network.id,
+    abi: SuperfluidClubABI,
+    address: SuperfluidClubAddress,
+    functionName: "isProtege",
+    args: [address!],
+    enabled: !!address,
+  });
 
 export const useRealtimeBalance = (
   accountAddress?: Address,

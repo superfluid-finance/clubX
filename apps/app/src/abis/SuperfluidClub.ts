@@ -34,6 +34,43 @@ const SuperfluidClubABI = [
     type: "event",
   },
   {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "sponsor",
+        type: "address",
+      },
+      {
+        indexed: true,
+        internalType: "address",
+        name: "protege",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint8",
+        name: "level",
+        type: "uint8",
+      },
+      {
+        indexed: false,
+        internalType: "uint32",
+        name: "totalProtegeCount",
+        type: "uint32",
+      },
+      {
+        indexed: false,
+        internalType: "uint32",
+        name: "directTotalProtegeCount",
+        type: "uint32",
+      },
+    ],
+    name: "PROTEGE_UPDATED",
+    type: "event",
+  },
+  {
     stateMutability: "payable",
     type: "fallback",
   },
@@ -90,19 +127,6 @@ const SuperfluidClubABI = [
     type: "function",
   },
   {
-    inputs: [],
-    name: "SECONDS_IN_A_DAY",
-    outputs: [
-      {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
-    ],
-    stateMutability: "view",
-    type: "function",
-  },
-  {
     inputs: [
       {
         internalType: "uint8",
@@ -111,7 +135,7 @@ const SuperfluidClubABI = [
       },
       {
         internalType: "uint32",
-        name: "protegeCount",
+        name: "totalProtegeCount",
         type: "uint32",
       },
       {
@@ -174,7 +198,12 @@ const SuperfluidClubABI = [
           },
           {
             internalType: "uint32",
-            name: "protegeCount",
+            name: "totalProtegeCount",
+            type: "uint32",
+          },
+          {
+            internalType: "uint32",
+            name: "directTotalProtegeCount",
             type: "uint32",
           },
         ],
@@ -222,6 +251,47 @@ const SuperfluidClubABI = [
       },
     ],
     stateMutability: "pure",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address",
+        name: "protege",
+        type: "address",
+      },
+    ],
+    name: "getProtege",
+    outputs: [
+      {
+        components: [
+          {
+            internalType: "address",
+            name: "sponsor",
+            type: "address",
+          },
+          {
+            internalType: "uint8",
+            name: "level",
+            type: "uint8",
+          },
+          {
+            internalType: "uint32",
+            name: "totalProtegeCount",
+            type: "uint32",
+          },
+          {
+            internalType: "uint32",
+            name: "directTotalProtegeCount",
+            type: "uint32",
+          },
+        ],
+        internalType: "struct SuperfluidClub.Protege",
+        name: "",
+        type: "tuple",
+      },
+    ],
+    stateMutability: "view",
     type: "function",
   },
   {
@@ -336,7 +406,7 @@ const SuperfluidClubABI = [
         type: "address",
       },
     ],
-    name: "sponsorship",
+    name: "sponsor",
     outputs: [],
     stateMutability: "payable",
     type: "function",

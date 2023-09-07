@@ -1,6 +1,7 @@
 import Flex from "@/components/Flex";
 import { SnapScrollContent, SnapScrollWrapper } from "@/components/SnapScroll";
 import { CaptionStyle, H1, H2, H3, Subtitle2 } from "@/components/Typography";
+import { useIsProtege } from "@/core/Api";
 import { useWeb3Modal } from "@web3modal/react";
 import QRCode from "react-qr-code";
 import { styled } from "styled-components";
@@ -128,9 +129,31 @@ const ConnectedSection = styled(SnapScrollContent)`
   background-position: center;
 `;
 
+const ProtegeSection = styled(SnapScrollContent)`
+  display: flex;
+  flex-direction: column;
+  padding-top: 23dvh;
+  padding-bottom: 5dvh;
+  background-image: url("/assets/bg6.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
 const Intro = () => {
   const { open } = useWeb3Modal();
   const { address } = useAccount();
+  const result = useIsProtege(address);
+
+  if (result.data === true) {
+    return (
+      <SnapScrollWrapper>
+        <ProtegeSection>
+          <div>Scan</div>
+        </ProtegeSection>
+      </SnapScrollWrapper>
+    );
+  }
 
   if (address) {
     return (
