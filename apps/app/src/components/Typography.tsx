@@ -1,17 +1,49 @@
-import { css } from "styled-components";
+import { css, styled } from "styled-components";
 
-const H1Styles = css`
+export const H1Styles = css`
   font-size: 42px;
   font-weight: bold;
 `;
 
-// 28px
-
-const Subtitle1 = css`
-  font-size: 16px;
+export const H2Styles = css`
+  font-size: 28px;
   font-weight: bold;
 `;
 
-const Paragraph = css`
-  font-weight: 16px;
+export const H3Styles = css`
+  font-size: 24px;
+  font-weight: bold;
+`;
+
+export const Subtitle1Styles = css`
+  font-size: 18px;
+  font-weight: bold;
+`;
+
+export const Subtitle2Styles = css`
+  font-size: 18px;
+`;
+
+export const H1 = styled.h1`
+  ${H1Styles}
+`;
+
+export const H2 = styled.h2`
+  ${H2Styles}
+`;
+
+export const H3 = styled.h3`
+  ${H3Styles}
+`;
+
+export const Subtitle1 = styled.div`
+  ${Subtitle1Styles}
+`;
+
+export const Subtitle2 = styled.div`
+  ${Subtitle2Styles}
+`;
+
+export const CaptionStyle = css`
+  font-size: 13px;
 `;

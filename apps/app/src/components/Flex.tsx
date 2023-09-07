@@ -1,3 +1,5 @@
+import { Property } from "csstype";
+import { CSSProperties } from "react";
 import { styled } from "styled-components";
 
 interface FlexProps {
@@ -5,15 +7,17 @@ interface FlexProps {
   gap?: string;
   align?: string;
   justify?: string;
+  text?: Property.TextAlign;
 }
 
 const Flex = styled.div<FlexProps>(
-  ({ direction = "column", gap, align, justify }) => ({
+  ({ direction = "column", gap, align, justify, text }) => ({
     display: "flex",
     flexDirection: direction,
     gap,
     alignItems: align,
     justifyContent: justify,
+    textAlign: text,
   })
 );
 
