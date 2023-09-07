@@ -1,88 +1,45 @@
 import Configuration from "@/core/Configuration";
 import "@/styles/globals.css";
 import { MagicConnectConnector } from "@magiclabs/wagmi-connector";
+import {
+  w3mProvider,
+  w3mConnectors,
+  EthereumClient,
+} from "@web3modal/ethereum";
+import { Web3Modal } from "@web3modal/react";
 import type { AppProps } from "next/app";
+import config from "next/config";
+import { polygonMumbai } from "viem/chains";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 
-const { rpcUrl, network } = Configuration;
+const { rpcUrl, network, WalletConnectID } = Configuration;
 
-export const { chains: wagmiChains, publicClient: createPublicClient } =
-  configureChains(
-    [
-      {
-        ...network,
-        rpcUrls: {
-          ...network.rpcUrls,
-          default: {
-            http: [rpcUrl],
-          },
-          public: {
-            http: [rpcUrl],
-          },
-        },
-      },
-    ],
-    [
-      jsonRpcProvider({
-        rpc: (chain) => ({
-          http: rpcUrl,
-        }),
-      }),
-    ],
-    {
-      batch: {
-        // NOTE: It is very important to enable the multicall support, otherwise token balance queries will run into rate limits.
-        multicall: {
-          wait: 100,
-        },
-      },
-    }
-  );
+const SupportedNetworks = [polygonMumbai];
 
-// Note: We need to create the public clients and re-use them to have the automatic multicall batching work.
-export const resolvedPublicClients = wagmiChains.reduce(
-  (acc, current) => {
-    acc[current.id] = createPublicClient({ chainId: current.id });
-    return acc;
-  },
-  {} as Record<number, ReturnType<typeof createPublicClient>>
-);
+// TODO: If automatically signing fails then fall back to manual signing
+export const { publicClient } = configureChains(SupportedNetworks, [
+  w3mProvider({ projectId: WalletConnectID }),
+]);
 
-const magicConnector = new MagicConnectConnector({
-  chains: wagmiChains,
-  options: {
-    apiKey: "pk_live_1C4195ECA42E5D43",
-    networks: [
-      {
-        chainId: network.id,
-        rpcUrl: rpcUrl,
-      },
-    ],
-  },
-});
-
-MagicConnectConnector.prototype.getProvider = () => {
-  const magic = magicConnector.getMagicSDK();
-  if (!magic) {
-    throw new Error("Magic not ininitialized properly");
-  }
-
-  return magic.wallet.getProvider();
-};
-
-const config = createConfig({
+const wagmiConfig = createConfig({
   autoConnect: false,
-  publicClient: (config) =>
-    (config.chainId ? resolvedPublicClients[config.chainId] : null) ??
-    createPublicClient(config),
-  connectors: [magicConnector],
+  connectors: w3mConnectors({
+    projectId: WalletConnectID,
+    chains: SupportedNetworks,
+  }),
+  publicClient,
 });
+
+const ethereumClient = new EthereumClient(wagmiConfig, SupportedNetworks);
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <WagmiConfig config={config}>
-      <Component {...pageProps} />
-    </WagmiConfig>
+    <>
+      <WagmiConfig config={wagmiConfig}>
+        <Component {...pageProps} />
+      </WagmiConfig>
+      <Web3Modal projectId={WalletConnectID} ethereumClient={ethereumClient} />
+    </>
   );
 }

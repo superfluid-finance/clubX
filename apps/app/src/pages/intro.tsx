@@ -1,7 +1,10 @@
 import Flex from "@/components/Flex";
 import { SnapScrollContent, SnapScrollWrapper } from "@/components/SnapScroll";
 import { CaptionStyle, H1, H2, H3, Subtitle2 } from "@/components/Typography";
+import { useWeb3Modal } from "@web3modal/react";
+import QRCode from "react-qr-code";
 import { styled } from "styled-components";
+import { useAccount } from "wagmi";
 
 const ScrollImg = styled.img`
   height: 38px;
@@ -126,6 +129,35 @@ const ConnectedSection = styled(SnapScrollContent)`
 `;
 
 const Intro = () => {
+  const { open } = useWeb3Modal();
+  const { address } = useAccount();
+
+  if (address) {
+    return (
+      <SnapScrollWrapper>
+        <ConnectedSection>
+          <Flex gap="8px" align="center">
+            <H1>Join CLUBx</H1>
+            <p>Refer people to get a higher Flow Rate</p>
+            <div>{address}</div>
+            <QRCode
+              size={256}
+              value={address}
+              viewBox={`0 0 256 256`}
+              style={{
+                background: "white",
+                padding: "8px",
+                borderRadius: "8px",
+                marginTop: "24px",
+                // fill: `linear-gradient(180deg, #1DB227 5%, #0C6412 95%)`,
+              }}
+            />
+          </Flex>
+        </ConnectedSection>
+      </SnapScrollWrapper>
+    );
+  }
+
   return (
     <SnapScrollWrapper>
       <HeroSection>
@@ -220,15 +252,8 @@ const Intro = () => {
       </ValuePropSection>
 
       <ConnectSection>
-        <div>Connect</div>
+        <div onClick={open}>Connect</div>
       </ConnectSection>
-
-      <ConnectedSection>
-        <Flex gap="8px" align="center">
-          <H1>Join CLUBx</H1>
-          <p>Refer people to get a higher Flow Rate</p>
-        </Flex>
-      </ConnectedSection>
     </SnapScrollWrapper>
   );
 };
