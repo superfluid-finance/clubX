@@ -26,14 +26,16 @@ export const useSponsor = (
           abi: SuperfluidClubABI,
           address: SuperfluidClubAddress,
           functionName: "sponsor",
-          value: parseEther("0.01"),
+          value: parseEther("0.03"),
           args: [address],
         }
       : {}
   );
 
+  console.log("Prepared", sponsorConfig.config);
   const { data, write } = useContractWrite(sponsorConfig.config);
 
+  console.log("Tx hash", data?.hash);
   const { isLoading, isSuccess } = useWaitForTransaction({
     hash: data?.hash,
   });
@@ -91,6 +93,6 @@ const fetchRealtimeBalance = async (
   return {
     flowrate,
     currentBalance,
-    date: fromUnixTime(Number(timestamp)),
+    timestamp: Number(timestamp),
   };
 };

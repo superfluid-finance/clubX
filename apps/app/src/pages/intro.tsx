@@ -1,8 +1,12 @@
+import Amount from "@/components/Amount";
 import Flex from "@/components/Flex";
+import FlowingBalance from "@/components/FlowingBalance";
 import { SnapScrollContent, SnapScrollWrapper } from "@/components/SnapScroll";
 import { CaptionStyle, H1, H2, H3, Subtitle2 } from "@/components/Typography";
-import { useIsProtege } from "@/core/Api";
+import { useIsProtege, useRealtimeBalance } from "@/core/Api";
+import Configuration from "@/core/Configuration";
 import { useWeb3Modal } from "@web3modal/react";
+import { fromUnixTime } from "date-fns";
 import QRCode from "react-qr-code";
 import { styled } from "styled-components";
 import { useAccount } from "wagmi";
@@ -139,16 +143,38 @@ const ProtegeSection = styled(SnapScrollContent)`
   background-repeat: no-repeat;
   background-position: center;
 `;
-
+const { SuperfluidClubAddress } = Configuration;
 const Intro = () => {
   const { open } = useWeb3Modal();
   const { address } = useAccount();
   const result = useIsProtege(address);
 
+  const { data: realtimeBalanceData } = useRealtimeBalance(
+    address,
+    SuperfluidClubAddress
+  );
+
+  console.log({ ...(realtimeBalanceData || {}) });
   if (result.data === true) {
     return (
       <SnapScrollWrapper>
         <ProtegeSection>
+          {realtimeBalanceData && (
+            <>
+              {realtimeBalanceData.flowrate === BigInt(0) ? (
+                <Amount wei={realtimeBalanceData.currentBalance} />
+              ) : (
+                <FlowingBalance
+                  flowRate={realtimeBalanceData.flowrate}
+                  startingBalance={realtimeBalanceData.currentBalance}
+                  startingBalanceDate={fromUnixTime(
+                    realtimeBalanceData.timestamp
+                  )}
+                />
+              )}
+            </>
+          )}
+
           <div>Scan</div>
         </ProtegeSection>
       </SnapScrollWrapper>

@@ -40,6 +40,8 @@ const Scan = () => {
   );
 
   useEffect(() => {
+    console.log("Sponsoring...");
+    if (!scannedAddress) return;
     sponsorAddress && sponsorAddress();
   }, [scannedAddress]);
 
