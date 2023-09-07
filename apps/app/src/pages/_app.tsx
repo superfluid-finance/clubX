@@ -3,26 +3,26 @@ import "@/styles/globals.css";
 import { MagicConnectConnector } from "@magiclabs/wagmi-connector";
 import type { AppProps } from "next/app";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
-import { polygonMumbai } from "wagmi/chains";
 import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 
-const { rpcUrl } = Configuration;
+const { rpcUrl, network } = Configuration;
 
 export const { chains: wagmiChains, publicClient: createPublicClient } =
   configureChains(
-    [{
-
-      ...polygonMumbai,
-      rpcUrls: {
-        ...polygonMumbai.rpcUrls,
-        default: {
-          http: [rpcUrl],
+    [
+      {
+        ...network,
+        rpcUrls: {
+          ...network.rpcUrls,
+          default: {
+            http: [rpcUrl],
+          },
+          public: {
+            http: [rpcUrl],
+          },
         },
-        public: {
-          http: [rpcUrl],
-        },
-      }
-    }],
+      },
+    ],
     [
       jsonRpcProvider({
         rpc: (chain) => ({
@@ -41,11 +41,13 @@ export const { chains: wagmiChains, publicClient: createPublicClient } =
   );
 
 // Note: We need to create the public clients and re-use them to have the automatic multicall batching work.
-export const resolvedPublicClients = wagmiChains.reduce((acc, current) => {
-  acc[current.id] = createPublicClient({ chainId: current.id });
-  return acc;
-}, {} as Record<number, ReturnType<typeof createPublicClient>>);
-
+export const resolvedPublicClients = wagmiChains.reduce(
+  (acc, current) => {
+    acc[current.id] = createPublicClient({ chainId: current.id });
+    return acc;
+  },
+  {} as Record<number, ReturnType<typeof createPublicClient>>
+);
 
 const magicConnector = new MagicConnectConnector({
   chains: wagmiChains,
@@ -53,7 +55,7 @@ const magicConnector = new MagicConnectConnector({
     apiKey: "pk_live_1C4195ECA42E5D43",
     networks: [
       {
-        chainId: polygonMumbai.id,
+        chainId: network.id,
         rpcUrl: rpcUrl,
       },
     ],
@@ -73,8 +75,8 @@ MagicConnectConnector.prototype.getProvider = () => {
 const config = createConfig({
   autoConnect: false,
   publicClient: (config) =>
-  (config.chainId ? resolvedPublicClients[config.chainId] : null) ??
-  createPublicClient(config),
+    (config.chainId ? resolvedPublicClients[config.chainId] : null) ??
+    createPublicClient(config),
   connectors: [magicConnector],
 });
 

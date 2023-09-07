@@ -27,21 +27,12 @@ const CenteredContent = styled.div`
 
 export default function Home() {
   const { isConnected, address } = useAccount();
-  const  {
-chain
-
-  } = useNetwork();
-
-
-  console.log(chain,  address,
-    SuperfluidClubAddress)
-
+  const { chain } = useNetwork();
 
   const { data: realtimeBalanceData } = useRealtimeBalance(
     address,
     SuperfluidClubAddress
   );
-  console.log(realtimeBalanceData)
 
   return (
     <PageWrapper className={inter.className}>

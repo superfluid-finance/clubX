@@ -67,12 +67,18 @@ const fetchRealtimeBalance = async (
               stateMutability: "view",
               type: "function",
               inputs: [
-                { name: "token", internalType: "contract ISuperToken", type: "address" },
+                {
+                  name: "token",
+                  internalType: "contract ISuperToken",
+                  type: "address",
+                },
                 { name: "account", internalType: "address", type: "address" },
               ],
               name: "getAccountFlowrate",
-              outputs: [{ name: "flowrate", internalType: "int96", type: "int96" }],
-            }
+              outputs: [
+                { name: "flowrate", internalType: "int96", type: "int96" },
+              ],
+            },
           ],
           functionName: "getAccountFlowrate",
           address: CFAv1ForwarderAddress,
