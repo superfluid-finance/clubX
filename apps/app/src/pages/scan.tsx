@@ -1,10 +1,24 @@
-import { useSponsor } from "@/core/Api";
+import { useIsProtege, useSponsor } from "@/core/Api";
 import { FooterButton, FooterLink } from "@/components/FooterButton";
-import { PageContent, PageWrapper } from "@/components/Layout";
+import { Footer, PageContent, PageWrapper } from "@/components/Layout";
 import { Html5Qrcode } from "html5-qrcode";
 import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Address, isAddress } from "viem";
+
+const FooterInfo = styled.footer(() => ({
+  width: "100%",
+  lineHeight: "64px",
+  color: "white",
+}));
+
+export const Warning = styled(FooterInfo)`
+  background: orange;
+`;
+
+export const Error = styled(FooterInfo)`
+  background: red;
+`;
 
 const ReaderWrapper = styled.div`
   width: 100%;
@@ -17,6 +31,8 @@ const Scan = () => {
 
   const [scannedAddress, setScannedAddress] = useState<Address | undefined>();
 
+  const protegeResult = useIsProtege(scannedAddress);
+
   const [sponsorAddress, sponsorAddressLoading, sponsorAddressSuccess] =
     useSponsor(scannedAddress);
 
@@ -26,13 +42,28 @@ const Scan = () => {
     QRCodeReader.current = new Html5Qrcode(cameraRef.current.id);
   }, [cameraRef.current]);
 
+  // Render errors for 3 seconds
+  useEffect(() => {
+    let timeout: number;
+
+    if (error) {
+      timeout = window.setTimeout(() => {
+        setError("");
+      }, 3000);
+    }
+
+    return () => {
+      if (timeout) window.clearTimeout(timeout);
+    };
+  }, [error]);
+
   const onSuccessfulScan = useCallback(
     (decodedText: string) => {
-      console.log("Read address", decodedText);
-
       if (!isAddress(decodedText)) {
-        return setError("Invalid address!");
+        setError("Invalid address!");
+        return;
       }
+
       setError("");
       setScannedAddress(decodedText);
     },
@@ -40,10 +71,17 @@ const Scan = () => {
   );
 
   useEffect(() => {
+    if (protegeResult.data === true) {
+      setError("Address is already protege!");
+      setScannedAddress(undefined);
+      return;
+    }
+
+    if (!(protegeResult.data !== false)) return;
+
     console.log("Sponsoring...");
-    if (!scannedAddress) return;
     sponsorAddress && sponsorAddress();
-  }, [scannedAddress]);
+  }, [protegeResult.data]);
 
   useEffect(() => {
     Html5Qrcode.getCameras()
@@ -76,25 +114,22 @@ const Scan = () => {
   return (
     <PageWrapper>
       <PageContent>
-        <div>Scan the code!</div>
-
-        {sponsorAddressSuccess && (
-          <div>Successfully sponsored {scannedAddress}</div>
-        )}
-
-        {scannedAddress && (
-          <>
-            <div>Scanned text:</div>
-            <div>{scannedAddress}</div>
-          </>
-        )}
-
-        {error && <div>Error: {error}</div>}
-
         <ReaderWrapper ref={cameraRef} id="reader" />
       </PageContent>
-      {sponsorAddressLoading && <FooterButton>Loading...</FooterButton>}
-      {!sponsorAddressLoading && <FooterLink href="/">Cancel</FooterLink>}
+      {sponsorAddressSuccess && (
+        <div>Successfully sponsored {scannedAddress}</div>
+      )}
+      {sponsorAddressLoading ||
+        (protegeResult.isLoading && <Footer>Loading...</Footer>)}
+      {!sponsorAddressLoading && (
+        <>
+          {error ? (
+            <Error>{error}</Error>
+          ) : (
+            <FooterLink href="/">Cancel</FooterLink>
+          )}
+        </>
+      )}
     </PageWrapper>
   );
 };
