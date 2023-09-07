@@ -46,13 +46,13 @@ export const useRealtimeBalance = (
 ) =>
   useQuery(["RealTimeBalance", accountAddress, superTokenAddress], {
     queryFn: async () =>
-      fetchRealtimeBalance(superTokenAddress, accountAddress),
+      fetchRealtimeBalance(accountAddress, superTokenAddress),
     enabled: !!accountAddress && !!superTokenAddress,
   });
 
 const fetchRealtimeBalance = async (
-  superTokenAddress?: Address,
-  accountAddress?: Address
+  accountAddress?: Address,
+  superTokenAddress?: Address
 ) => {
   if (!superTokenAddress || !accountAddress) return Promise.reject();
 
@@ -62,7 +62,18 @@ const fetchRealtimeBalance = async (
       contracts: [
         {
           chainId: network.id,
-          abi: CFAv1ForwarderABI,
+          abi: [
+            {
+              stateMutability: "view",
+              type: "function",
+              inputs: [
+                { name: "token", internalType: "contract ISuperToken", type: "address" },
+                { name: "account", internalType: "address", type: "address" },
+              ],
+              name: "getAccountFlowrate",
+              outputs: [{ name: "flowrate", internalType: "int96", type: "int96" }],
+            }
+          ],
           functionName: "getAccountFlowrate",
           address: CFAv1ForwarderAddress,
           args: [superTokenAddress, accountAddress],

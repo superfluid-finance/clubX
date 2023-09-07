@@ -4,23 +4,57 @@ import { MagicConnectConnector } from "@magiclabs/wagmi-connector";
 import type { AppProps } from "next/app";
 import { WagmiConfig, configureChains, createConfig } from "wagmi";
 import { polygonMumbai } from "wagmi/chains";
-import { publicProvider } from "wagmi/providers/public";
+import { jsonRpcProvider } from "wagmi/providers/jsonRpc";
 
-const { network, rpcUrl } = Configuration;
+const { rpcUrl } = Configuration;
 
-const { chains, publicClient, webSocketPublicClient } = configureChains(
-  [network],
-  [publicProvider()]
-);
+export const { chains: wagmiChains, publicClient: createPublicClient } =
+  configureChains(
+    [{
+
+      ...polygonMumbai,
+      rpcUrls: {
+        ...polygonMumbai.rpcUrls,
+        default: {
+          http: [rpcUrl],
+        },
+        public: {
+          http: [rpcUrl],
+        },
+      }
+    }],
+    [
+      jsonRpcProvider({
+        rpc: (chain) => ({
+          http: rpcUrl,
+        }),
+      }),
+    ],
+    {
+      batch: {
+        // NOTE: It is very important to enable the multicall support, otherwise token balance queries will run into rate limits.
+        multicall: {
+          wait: 100,
+        },
+      },
+    }
+  );
+
+// Note: We need to create the public clients and re-use them to have the automatic multicall batching work.
+export const resolvedPublicClients = wagmiChains.reduce((acc, current) => {
+  acc[current.id] = createPublicClient({ chainId: current.id });
+  return acc;
+}, {} as Record<number, ReturnType<typeof createPublicClient>>);
+
 
 const magicConnector = new MagicConnectConnector({
-  chains,
+  chains: wagmiChains,
   options: {
     apiKey: "pk_live_1C4195ECA42E5D43",
     networks: [
       {
-        chainId: network.id,
-        rpcUrl,
+        chainId: polygonMumbai.id,
+        rpcUrl: rpcUrl,
       },
     ],
   },
@@ -38,8 +72,9 @@ MagicConnectConnector.prototype.getProvider = () => {
 
 const config = createConfig({
   autoConnect: false,
-  publicClient,
-  webSocketPublicClient,
+  publicClient: (config) =>
+  (config.chainId ? resolvedPublicClients[config.chainId] : null) ??
+  createPublicClient(config),
   connectors: [magicConnector],
 });
 

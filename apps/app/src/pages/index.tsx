@@ -7,7 +7,7 @@ import { Inter } from "next/font/google";
 import Link from "next/link";
 import QRCode from "react-qr-code";
 import { styled } from "styled-components";
-import { useAccount } from "wagmi";
+import { useAccount, useNetwork } from "wagmi";
 import FlowingBalance from "@/components/FlowingBalance";
 import Amount from "@/components/Amount";
 import Configuration from "@/core/Configuration";
@@ -27,11 +27,21 @@ const CenteredContent = styled.div`
 
 export default function Home() {
   const { isConnected, address } = useAccount();
+  const  {
+chain
+
+  } = useNetwork();
+
+
+  console.log(chain,  address,
+    SuperfluidClubAddress)
+
 
   const { data: realtimeBalanceData } = useRealtimeBalance(
     address,
     SuperfluidClubAddress
   );
+  console.log(realtimeBalanceData)
 
   return (
     <PageWrapper className={inter.className}>
