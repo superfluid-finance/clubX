@@ -26,7 +26,16 @@ interface IOwnable {
 }
 
 interface ISuperfluidClub is ISuperToken, IOwnable {
-    // Constants
+    /// Events
+    event PROTEGE_UPDATED(
+        address indexed sponsor,
+        address indexed protege,
+        uint8 level,
+        uint32 totalProtegeCount,
+        uint32 directTotalProtegeCount
+    );
+
+    /// Constants
     function MAX_SPONSORSHIP_LEVEL() external pure returns (uint256);
     function FLAT_COST_SPONSORSHIP() external pure returns (uint256);
     function MAX_SPONSORSHIP_PATH_OUTFLOW() external pure returns (uint256);

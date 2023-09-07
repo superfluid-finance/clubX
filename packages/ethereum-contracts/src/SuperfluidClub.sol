@@ -13,6 +13,14 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 contract SuperfluidClub is SuperTokenBase, Ownable {
     using SuperTokenV1Library for ISuperToken;
 
+    event PROTEGE_UPDATED(
+        address indexed sponsor,
+        address indexed protege,
+        uint8 level,
+        uint32 totalProtegeCount,
+        uint32 directTotalProtegeCount
+    );
+
     bool private init;
 
     constructor() {}
@@ -97,7 +105,6 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
 
         _proteges[actualSponsor].directTotalProtegeCount++;
 
-
         // @notice: we update storage already because when open a stream, that can trigger a callback from the new protege
         _proteges[newProtege] =
             Protege({sponsor: actualSponsor, level: sponsorLvl + 1, totalProtegeCount: 0, directTotalProtegeCount: 0});
@@ -116,6 +123,14 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
             // @notice: this can also trigger a callback from sponsor
             _createOrUpdateStream(
                 s, calculateSponsorAmount(sponsorInfo.level, sponsorInfo.totalProtegeCount, totalAllocation)
+            );
+
+            emit PROTEGE_UPDATED(
+                sponsorInfo.sponsor,
+                s,
+                _proteges[address(this)].level,
+                _proteges[address(this)].totalProtegeCount,
+                _proteges[address(this)].directTotalProtegeCount
             );
             s = sponsorInfo.sponsor; // traversal link structure
         }
