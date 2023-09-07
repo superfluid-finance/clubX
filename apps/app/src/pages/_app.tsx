@@ -88,20 +88,6 @@ const config = createConfig({
     (config.chainId ? resolvedPublicClients[config.chainId] : null) ??
     createPublicClient(config),
   connectors: [
-    new WalletConnectConnector({
-      chains:wagmiChains,
-      options: {
-        projectId: "3314f39613059cb687432d249f1658d2",
-        showQrModal: true,
-      },
-    }),
-    new InjectedConnector({
-      chains:wagmiChains,
-      options: {
-        name: "Injected",
-        shimDisconnect: true,
-      },
-    }),
     Web3AuthConnectorInstance(wagmiChains) as any,
   ],
 });
