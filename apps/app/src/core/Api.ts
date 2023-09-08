@@ -1,7 +1,7 @@
 import CFAv1ForwarderABI from "@/abis/CFAv1Forwarder";
 import SuperTokenABI from "@/abis/SuperToken";
 import SuperfluidClubABI from "@/abis/SuperfluidClub";
-import fromUnixTime from "date-fns/fromUnixTime";
+import { parseEther } from "viem";
 import {
   Address,
   readContracts,
@@ -12,33 +12,28 @@ import {
   useWaitForTransaction,
 } from "wagmi";
 import Configuration from "./Configuration";
-import { formatEther, parseEther } from "viem";
 
 const { SuperfluidClubAddress, network, CFAv1ForwarderAddress } = Configuration;
 
-
-
-
-
 export const useGetFee = (directProtegeCount: number = 1) =>
-useContractRead({
-  chainId: network.id,
-  abi: SuperfluidClubABI,
-  address: SuperfluidClubAddress,
-  functionName: "fee",
-  args: [directProtegeCount],
-  enabled: true,
-}); 
+  useContractRead({
+    chainId: network.id,
+    abi: SuperfluidClubABI,
+    address: SuperfluidClubAddress,
+    functionName: "fee",
+    args: [directProtegeCount],
+    enabled: true,
+  });
 
 export const useGetChainOfSponsors = (address?: Address) =>
-useContractRead({
-  chainId: network.id,
-  abi: SuperfluidClubABI,
-  address: SuperfluidClubAddress,
-  functionName: "getChainOfSponsors",
-  args: [address!],
-  enabled: !!address,
-});
+  useContractRead({
+    chainId: network.id,
+    abi: SuperfluidClubABI,
+    address: SuperfluidClubAddress,
+    functionName: "getChainOfSponsors",
+    args: [address!],
+    enabled: !!address,
+  });
 
 export const useGetProtege = (address?: Address) =>
   useContractRead({
@@ -48,13 +43,12 @@ export const useGetProtege = (address?: Address) =>
     functionName: "getProtege",
     args: [address!],
     enabled: !!address,
-  })
+  });
 
 export const useSponsor = (
-  address?: Address, 
-  ether?: number, 
+  address?: Address,
+  ether?: number
 ): [(() => void) | undefined, boolean, boolean] => {
-  
   console.log("sponsor amount", ether);
 
   const sponsorConfig = usePrepareContractWrite(
@@ -83,6 +77,7 @@ export const useSponsor = (
 
 export const useIsProtege = (address?: Address) =>
   useContractRead({
+    scopeKey: "IsProtege",
     chainId: network.id,
     abi: SuperfluidClubABI,
     address: SuperfluidClubAddress,
@@ -134,5 +129,3 @@ const fetchRealtimeBalance = async (
     timestamp: Number(timestamp),
   };
 };
-
-

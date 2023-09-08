@@ -1,5 +1,5 @@
 import Amount from "@/components/Amount";
-import { LinkButton } from "@/components/Button";
+import { Button, LinkButton } from "@/components/Button";
 import Flex from "@/components/Flex";
 import FlowingBalance from "@/components/FlowingBalance";
 import SignIn from "@/components/SignIn";
@@ -13,7 +13,7 @@ import { fromUnixTime } from "date-fns";
 import { useCallback } from "react";
 import QRCode from "react-qr-code";
 import { styled } from "styled-components";
-import { useAccount, useDisconnect } from "wagmi";
+import { useAccount, useDisconnect, useQueryClient } from "wagmi";
 
 const ScrollImg = styled.img`
   height: 38px;
@@ -130,7 +130,7 @@ const ConnectedSection = styled(SnapScrollContent)`
   display: flex;
   flex-direction: column;
   padding-top: 23dvh;
-  padding-bottom: 5dvh;
+  padding-bottom: 10dvh;
   background-image: url("/assets/bg6.png");
   background-size: cover;
   background-repeat: no-repeat;
@@ -166,6 +166,7 @@ const Intro = () => {
   const { address } = useAccount();
   const result = useIsProtege(address);
   const { disconnect } = useDisconnect();
+  const queryClient = useQueryClient();
 
   const onDisconnect = useCallback(() => {
     disconnect();
@@ -175,6 +176,12 @@ const Intro = () => {
     address,
     SuperfluidClubAddress
   );
+
+  const onClearCache = () => {
+    queryClient.invalidateQueries({
+      queryKey: [{ scopeKey: "RealTimeBalance" }, { scopeKey: "IsProtege" }],
+    });
+  };
 
   if (result.data === true) {
     return (
@@ -256,6 +263,7 @@ const Intro = () => {
               }}
             />
           </Flex>
+          <Button onClick={onClearCache}>Refresh</Button>
         </ConnectedSection>
       </SnapScrollWrapper>
     );

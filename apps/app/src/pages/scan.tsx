@@ -36,13 +36,16 @@ const Scan = () => {
   const protegeResult = useIsProtege(scannedAddress);
 
   const { data: protege } = useGetProtege(scannedAddress);
-  
-  const {data: fee} = useGetFee(protege?.directTotalProtegeCount);
+
+  const { data: fee } = useGetFee(protege?.directTotalProtegeCount);
 
   const sponsorAmount = getDefaultSponsorAmount(protege?.level);
 
   const [sponsorAddress, sponsorAddressLoading, sponsorAddressSuccess] =
-    useSponsor(scannedAddress, calculateTotalSponsorAmountWithFee(sponsorAmount, fee));
+    useSponsor(
+      scannedAddress,
+      calculateTotalSponsorAmountWithFee(sponsorAmount, fee)
+    );
 
   useEffect(() => {
     if (!cameraRef.current) return;
@@ -85,10 +88,10 @@ const Scan = () => {
       return;
     }
 
-    if (!(protegeResult.data !== false)) return;
-
-    console.log("Sponsoring...");
-    sponsorAddress && sponsorAddress();
+    if (protegeResult.data === false) {
+      console.log("Sponsoring...");
+      sponsorAddress && sponsorAddress();
+    }
   }, [protegeResult.data]);
 
   useEffect(() => {
