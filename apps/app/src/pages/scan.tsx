@@ -91,6 +91,15 @@ const Scan = () => {
     });
 
   const onSponsor = async () => {
+    console.log(
+      "Sponsoring...",
+      scannedAddress,
+      Number(
+        parseEther(
+          calculateTotalSponsorAmountWithFee(sponsorAmount, fee).toString()
+        )
+      )
+    );
     const result = await sponsorAddress(
       scannedAddress!,
       Number(
@@ -99,7 +108,7 @@ const Scan = () => {
         )
       )
     );
-
+    console.log("Received hash");
     setHash(result.hash);
   };
 
