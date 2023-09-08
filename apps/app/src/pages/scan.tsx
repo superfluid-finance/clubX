@@ -1,6 +1,6 @@
-import { useIsProtege, useSponsor } from "@/core/Api";
-import { FooterButton, FooterLink } from "@/components/FooterButton";
+import { FooterLink } from "@/components/FooterButton";
 import { Footer, PageContent, PageWrapper } from "@/components/Layout";
+import { useIsProtege, useSponsor } from "@/core/Api";
 import { Html5Qrcode } from "html5-qrcode";
 import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";

@@ -2,26 +2,30 @@ import { css, styled } from "styled-components";
 
 export const H1Styles = css`
   font-size: 42px;
-  font-weight: bold;
+  font-weight: 500;
 `;
 
 export const H2Styles = css`
   font-size: 28px;
-  font-weight: bold;
+  font-weight: 500;
 `;
 
 export const H3Styles = css`
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 500;
 `;
 
 export const Subtitle1Styles = css`
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 500;
 `;
 
 export const Subtitle2Styles = css`
   font-size: 18px;
+`;
+
+export const CaptionStyle = css`
+  font-size: 13px;
 `;
 
 export const H1 = styled.h1`
@@ -42,8 +46,4 @@ export const Subtitle1 = styled.div`
 
 export const Subtitle2 = styled.div`
   ${Subtitle2Styles}
-`;
-
-export const CaptionStyle = css`
-  font-size: 13px;
 `;

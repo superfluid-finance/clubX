@@ -1,15 +1,19 @@
 import Amount from "@/components/Amount";
+import { LinkButton } from "@/components/Button";
 import Flex from "@/components/Flex";
 import FlowingBalance from "@/components/FlowingBalance";
+import SignIn from "@/components/SignIn";
 import { SnapScrollContent, SnapScrollWrapper } from "@/components/SnapScroll";
 import { CaptionStyle, H1, H2, H3, Subtitle2 } from "@/components/Typography";
 import { useIsProtege, useRealtimeBalance } from "@/core/Api";
 import Configuration from "@/core/Configuration";
-import { useWeb3Modal } from "@web3modal/react";
+import { UnitOfTime } from "@/utils/NumberUtils";
+import { shortenHex } from "@/utils/StringUtils";
 import { fromUnixTime } from "date-fns";
+import { useCallback } from "react";
 import QRCode from "react-qr-code";
 import { styled } from "styled-components";
-import { useAccount } from "wagmi";
+import { useAccount, useDisconnect } from "wagmi";
 
 const ScrollImg = styled.img`
   height: 38px;
@@ -18,7 +22,7 @@ const ScrollImg = styled.img`
 const ScrollDownBtn = () => {
   return (
     <Flex align="center" gap="12px">
-      <b>Next</b>
+      <b style={{ fontWeight: 500 }}>Next</b>
       <ScrollImg src="/assets/scroll-down.svg" />
     </Flex>
   );
@@ -69,7 +73,7 @@ const StreamSection = styled(SnapScrollContent)`
   justify-content: space-between;
 `;
 
-const PoweredByBadge = styled(Flex)`
+const WhiteBox = styled(Flex)`
   display: inline-flex;
   border-radius: 8px;
   border: 1px solid #e9ebef;
@@ -137,45 +141,93 @@ const ProtegeSection = styled(SnapScrollContent)`
   display: flex;
   flex-direction: column;
   padding-top: 23dvh;
-  padding-bottom: 5dvh;
+  padding-bottom: 10dvh;
+  justify-content: space-between;
   background-image: url("/assets/bg6.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 `;
+
+const AccountBox = styled.div`
+  background-image: url("/assets/account-bg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  position: fixed;
+  top: 0;
+  right: 10%;
+  padding: 8px 20px;
+`;
+
 const { SuperfluidClubAddress } = Configuration;
+
 const Intro = () => {
-  const { open } = useWeb3Modal();
   const { address } = useAccount();
   const result = useIsProtege(address);
+  const { disconnect } = useDisconnect();
+
+  const onDisconnect = useCallback(() => {
+    disconnect();
+  }, [disconnect]);
 
   const { data: realtimeBalanceData } = useRealtimeBalance(
     address,
     SuperfluidClubAddress
   );
 
-  console.log({ ...(realtimeBalanceData || {}) });
   if (result.data === true) {
     return (
       <SnapScrollWrapper>
-        <ProtegeSection>
-          {realtimeBalanceData && (
-            <>
-              {realtimeBalanceData.flowrate === BigInt(0) ? (
-                <Amount wei={realtimeBalanceData.currentBalance} />
-              ) : (
-                <FlowingBalance
-                  flowRate={realtimeBalanceData.flowrate}
-                  startingBalance={realtimeBalanceData.currentBalance}
-                  startingBalanceDate={fromUnixTime(
-                    realtimeBalanceData.timestamp
-                  )}
-                />
-              )}
-            </>
-          )}
+        <AccountBox onClick={onDisconnect}>
+          {shortenHex(address || "")}
+        </AccountBox>
 
-          <div>Scan</div>
+        <ProtegeSection>
+          <Flex align="center" gap="8px">
+            <GreenBox gap="8px" align="center">
+              <div style={{ fontSize: "12px", fontWeight: 500 }}>
+                YOU HAVE RECEIVED
+              </div>
+              <Flex direction="row" align="end" gap="8px" justify="center">
+                <H2 style={{ fontVariantNumeric: "tabular-nums" }}>
+                  {realtimeBalanceData && (
+                    <>
+                      {realtimeBalanceData.flowrate === BigInt(0) ? (
+                        <Amount wei={realtimeBalanceData.currentBalance} />
+                      ) : (
+                        <FlowingBalance
+                          flowRate={realtimeBalanceData.flowrate}
+                          startingBalance={realtimeBalanceData.currentBalance}
+                          startingBalanceDate={fromUnixTime(
+                            realtimeBalanceData.timestamp
+                          )}
+                        />
+                      )}
+                    </>
+                  )}
+                </H2>
+                <b style={{ paddingBottom: "2px" }}>CLUBx</b>
+              </Flex>
+            </GreenBox>
+            <WhiteBox
+              direction="row"
+              align="center"
+              gap="4px"
+              style={{ fontSize: "13px", fontWeight: 700 }}
+            >
+              {realtimeBalanceData && (
+                <Amount
+                  wei={realtimeBalanceData.flowrate * BigInt(UnitOfTime.Month)}
+                >
+                  {` CLUBx`}
+                </Amount>
+              )}
+              <span style={{ fontWeight: 400 }}>/month</span>
+            </WhiteBox>
+          </Flex>
+
+          <LinkButton href="/scan">Scan</LinkButton>
         </ProtegeSection>
       </SnapScrollWrapper>
     );
@@ -231,10 +283,10 @@ const Intro = () => {
             </H2>
             <p>(until you cancel)</p>
           </GreenBox>
-          <PoweredByBadge direction="row" align="center" gap="4px">
+          <WhiteBox direction="row" align="center" gap="4px">
             <div>Powered by</div>
             <img src="/assets/sf-logo.svg" />
-          </PoweredByBadge>
+          </WhiteBox>
         </Flex>
         <ScrollDownBtn />
       </PoweredBySection>
@@ -301,7 +353,7 @@ const Intro = () => {
       </ValuePropSection>
 
       <ConnectSection>
-        <div onClick={open}>Connect</div>
+        <SignIn />
       </ConnectSection>
     </SnapScrollWrapper>
   );

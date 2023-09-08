@@ -1,5 +1,15 @@
 import Decimal from "decimal.js";
 
+export enum UnitOfTime {
+  Second = 1,
+  Minute = 60,
+  Hour = 3600,
+  Day = 86400,
+  Week = 604800,
+  Month = 2628000,
+  Year = 31536000,
+}
+
 export const absoluteValue = (n: bigint) => {
   return n >= 0 ? n : -n;
 };
