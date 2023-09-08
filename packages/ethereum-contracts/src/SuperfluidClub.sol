@@ -38,7 +38,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     uint256 public constant FLAT_COST_SPONSORSHIP = 0.01 ether;
     uint256 public constant MAX_SPONSORSHIP_PATH_OUTFLOW = 720 ether;
     uint256 internal constant SECONDS_IN_A_DAY = 86400;
-    uint256 public constant FIRST_ELEMENT_PROGRESSION = 365.93 ether; // geometric progression to calculate the allocation
+    uint256 internal constant FLOW_RATE_BASE = 1 ether;
 
     /// @dev ISuperfluidClub.Protege implementation
     struct Protege {
@@ -46,6 +46,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         uint8 level; // The level of the protege. Level 0 protege is also called the "messiah protege"
         uint32 totalProtegeCount; // number of proteges under this protege.
         uint32 directTotalProtegeCount; // number of direct proteges under this sponsor.
+        int96 desiredFlowRate; // desired flow rate for the protege
     }
 
     // State variables
@@ -91,14 +92,18 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     /// @dev ISuperfluidClub.sponsor implementation
     function sponsor(address payable newProtege) external payable {
         require(!isProtege(newProtege), "Already a protege!");
+        // the path of The One, is made of the many
         (address actualSponsor, bool messiah) = (msg.sender == owner()) ? (address(this), true) : (msg.sender, false);
         require(isProtege(actualSponsor) || messiah, "You are not a protege!");
 
         uint256 coinAmount = msg.value;
-        uint8 sponsorLvl = _proteges[actualSponsor].level;
-        require(coinAmount >= FLAT_COST_SPONSORSHIP, "Not enough coin!");
-        coinAmount -= FLAT_COST_SPONSORSHIP;
-        require(sponsorLvl < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
+        Protege memory sponsorInfo = _proteges[actualSponsor];
+
+        uint256 fee = fee(sponsorInfo.directTotalProtegeCount);
+        require(coinAmount >= fee, "Not enough coin!");
+
+        coinAmount -= fee;
+        require(sponsorInfo.level < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
 
         /// @notice: we update always the messiah total counter
         _proteges[address(this)].totalProtegeCount++;
@@ -106,24 +111,24 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         _proteges[actualSponsor].directTotalProtegeCount++;
 
         // @notice: we update storage already because when open a stream, that can trigger a callback from the new protege
-        _proteges[newProtege] =
-            Protege({sponsor: actualSponsor, level: sponsorLvl + 1, totalProtegeCount: 0, directTotalProtegeCount: 0});
-
-        uint256 totalAllocation = 0;
-        uint8 totalAllocationLvl = sponsorLvl;
+        _proteges[newProtege] = Protege({
+            sponsor: actualSponsor,
+            level: sponsorInfo.level + 1,
+            totalProtegeCount: 0,
+            directTotalProtegeCount: 0,
+            desiredFlowRate: calculateFlowRate(
+                sponsorInfo.totalProtegeCount + 1, sponsorInfo.level
+            )
+        });
 
         address s = actualSponsor;
         while (isProtege(s)) {
             // storage "pointer"
-            Protege storage sponsorInfo = _proteges[s];
-            sponsorInfo.totalProtegeCount++;
-            totalAllocation += getAllocation(totalAllocationLvl);
-            totalAllocationLvl--;
-
+            Protege storage sponsorChainInfo = _proteges[s];
+            sponsorChainInfo.totalProtegeCount++;
+            sponsorChainInfo.desiredFlowRate = calculateFlowRate(sponsorChainInfo.totalProtegeCount, sponsorChainInfo.level) / 2;
             // @notice: this can also trigger a callback from sponsor
-            _createOrUpdateStream(
-                s, calculateSponsorAmount(sponsorInfo.level, sponsorInfo.totalProtegeCount, totalAllocation)
-            );
+            _createOrUpdateStream(s, sponsorChainInfo.desiredFlowRate);
 
             emit PROTEGE_UPDATED(
                 sponsorInfo.sponsor,
@@ -132,79 +137,88 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
                 _proteges[address(this)].totalProtegeCount,
                 _proteges[address(this)].directTotalProtegeCount
             );
-            s = sponsorInfo.sponsor; // traversal link structure
+            s = sponsorChainInfo.sponsor; // traversal link structure
         }
 
         // @notice: this can trigger a callback
-        ISuperToken(address(this)).createFlow(newProtege, getFlowRateAmount(sponsorLvl + 1));
+        ISuperToken(address(this)).createFlow(newProtege, _proteges[newProtege].desiredFlowRate);
         if (coinAmount > 0) {
             // @notice: this can trigger a fallback
             newProtege.transfer(coinAmount);
         }
     }
 
-    /// @dev ISuperfluidClub.sponsor implementation
-    function restartStream() external {
-        require(isProtege(msg.sender), "Not a protege!");
-        int96 flowRate = ISuperToken(address(this)).getFlowRate(address(this), msg.sender);
-        require(flowRate == 0, "Stream running");
-        ISuperToken(address(this)).createFlow(msg.sender, getFlowRateAmount(_proteges[msg.sender].level));
-    }
+    function remove(address oldProtege) external {
+        require(isProtege(oldProtege), "Not a protege!");
+        address actualSponsor = (msg.sender == owner()) ? address(this) : msg.sender;
+        Protege memory protegeInfo = _proteges[oldProtege];
+        delete _proteges[oldProtege];
 
-    /// @dev ISuperfluidClub.calculateSponsorAmount implementation
-    function calculateSponsorAmount(uint8 level, uint32 totalProtegeCount, uint256 totalWeightedFactor)
-        public
-        pure
-        returns (int96 flow)
-    {
-        uint256 weightedFactor = getAllocation(level) * totalProtegeCount;
-        flow = toInt96(((MAX_SPONSORSHIP_PATH_OUTFLOW * weightedFactor) / totalWeightedFactor) / SECONDS_IN_A_DAY);
-    }
+        // stop flow
+        if (ISuperToken(address(this)).getFlowRate(address(this), oldProtege) > 0) {
+            ISuperToken(address(this)).deleteFlow(address(this), oldProtege);
+        }
 
-    /// @dev ISuperfluidClub.getAllocation implementation
-    function getAllocation(uint8 level) public pure returns (uint256 allocation) {
-        allocation = FIRST_ELEMENT_PROGRESSION / (2 ** level);
-    }
+        // remove from global counter
+        _proteges[address(this)].totalProtegeCount--;
 
-    /// @dev ISuperfluidClub.getMaxFlowRateByLevel implementation
-    function getMaxFlowRateByLevel(uint8 sponsorLvl) public pure returns (int96 maxFlowRate) {
-        if (sponsorLvl == 1) {
-            return 0.1 ether;
-        } else if (sponsorLvl == 2) {
-            return 0.05 ether;
-        } else if (sponsorLvl == 3) {
-            return 0.02 ether;
-        } else if (sponsorLvl == 4) {
-            return 0.01 ether;
-        } else if (sponsorLvl == 5) {
-            return 0.005 ether;
-        } else {
-            return 0.001 ether;
+        _proteges[protegeInfo.sponsor].directTotalProtegeCount--;
+
+        uint32 totalProtegeCount = _proteges[actualSponsor].totalProtegeCount;
+        address s = protegeInfo.sponsor;
+        while (isProtege(s)) {
+            // storage "pointer"
+            Protege storage sponsorChainInfo = _proteges[s];
+            sponsorChainInfo.totalProtegeCount--;
+            sponsorChainInfo.desiredFlowRate = calculateFlowRate(totalProtegeCount, sponsorChainInfo.level);
+            // if flowRate is 0, delete flow
+            if (sponsorChainInfo.desiredFlowRate == 0) {
+                ISuperToken(address(this)).deleteFlow(s, oldProtege);
+            } else {
+                _createOrUpdateStream(s, sponsorChainInfo.desiredFlowRate);
+            }
         }
     }
 
-    /// @dev ISuperfluidClub.getFlowRateAmount implementation
-    function getFlowRateAmount(uint8 protegeLvl) public pure returns (int96 flowRate) {
-        int96 maxFlowRate = getMaxFlowRateByLevel(protegeLvl);
-        uint256 baseRate = (MAX_SPONSORSHIP_PATH_OUTFLOW * getProtegeLevelWeight(protegeLvl)) / 100;
-        uint256 totalRate = baseRate > toUint256(maxFlowRate) ? toUint256(maxFlowRate) : baseRate;
-        return toInt96(totalRate / SECONDS_IN_A_DAY);
+    /// @dev ISuperfluidClub.sponsor implementation - WRONG
+    function restartStream() external {
+        require(isProtege(msg.sender), "Not a protege!");
+        int96 desiredFlowRate = _proteges[msg.sender].desiredFlowRate;
+        _createOrUpdateStream(msg.sender, desiredFlowRate);
     }
 
-    /// @dev ISuperfluidClub.getProtegeLevelWeight implementation
-    function getProtegeLevelWeight(uint8 protegeLvl) public pure returns (uint256 levelWeight) {
-        if (protegeLvl == 1) {
-            return 50;
-        } else if (protegeLvl == 2) {
-            return 25;
-        } else if (protegeLvl == 3) {
-            return 12;
-        } else if (protegeLvl == 4) {
-            return 6;
-        } else if (protegeLvl == 5) {
-            return 3;
+    /// @dev ISuperfluidClub.calculateSponsorFlowRate implementation
+    function calculateFlowRate(uint32 totalProtegeCount, uint8 level) public view returns (int96 flowRate) {
+        uint256 allocation = getAllocationForLevel(level);
+        flowRate = toInt96(
+            ((MAX_SPONSORSHIP_PATH_OUTFLOW * allocation) / (FLOW_RATE_BASE * totalProtegeCount)) / SECONDS_IN_A_DAY
+        );
+    }
+
+    /// @dev ISuperfluidClub.getAllocation implementation
+    function getAllocationForLevel(uint8 level) public pure returns (uint256 allocation) {
+        allocation = MAX_SPONSORSHIP_PATH_OUTFLOW / (2 ** level);
+    }
+
+    /// @dev ISuperfluidClub.fee implementation
+    function fee(uint32 directProtegeCount) public pure returns (uint256 feeAmount) {
+        if (directProtegeCount <= 12) {
+            /// [0;12]
+            return 0.01 ether;
+        } else if (directProtegeCount <= 24) {
+            /// [13;24]
+            return 0.1 ether;
+        } else if (directProtegeCount <= 36) {
+            /// [25;36]
+            return 0.2 ether;
+        } else if (directProtegeCount <= 48) {
+            /// [37;48]
+            return 0.3 ether;
+        } else if (directProtegeCount <= 60) {
+            /// [49;60]
+            return 0.4 ether;
         } else {
-            return 1;
+            return 1 ether; // 61+
         }
     }
 

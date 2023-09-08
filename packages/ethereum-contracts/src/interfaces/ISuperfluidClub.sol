@@ -37,10 +37,8 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
 
     /// Constants
     function MAX_SPONSORSHIP_LEVEL() external pure returns (uint256);
-    function FLAT_COST_SPONSORSHIP() external pure returns (uint256);
     function MAX_SPONSORSHIP_PATH_OUTFLOW() external pure returns (uint256);
     function SECONDS_IN_A_DAY() external pure returns (uint256);
-    function FIRST_ELEMENT_PROGRESSION() external pure returns (uint256);
 
     /**
      * @dev A structure that represents a protege in the superfluid club.
@@ -49,8 +47,9 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
     struct Protege {
         address sponsor; // address of the sponsor
         uint8 level; // The level of the protege. Level 0 protege is also called the "root protege"
-        uint32 totalProtegeCount; // number of proteges under this protege.
-        uint32 directTotalProtegeCount; // number of direct proteges under this sponsor.
+        uint32 totalProtegeCount; // number of proteges under this protege
+        uint32 directTotalProtegeCount; // number of direct proteges under this sponsor
+        int96 desiredFlowRate; // desired flow rate for the protege
     }
 
     /**
@@ -79,47 +78,34 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
      * @param newProtege The address of the new protege
      */
     function sponsor(address payable newProtege) external payable;
+
+    /// @dev test function
+    function remove(address oldProtege) external;
+
     /**
      * @notice restart a stream to a protege
      */
     function restartStream() external;
     /**
      * @notice calculates the flow rate based on level and number of proteges
-     * @param level The level of the sponsor
      * @param totalProtegeCount The number of proteges under the sponsor
-     * @param totalWeightedFactor The total weighted factor for the sponsor
-     * @return flow calculated flow rate
+     * @param level The level of the sponsor
+     * @return flowRate calculated flow rate
      */
-    function calculateSponsorAmount(uint8 level, uint32 totalProtegeCount, uint256 totalWeightedFactor)
-        external
-        pure
-        returns (int96 flow);
+    function calculateFlowRate(uint32 totalProtegeCount, uint8 level) external pure returns (int96 flowRate);
     /**
      * @notice gets the allocation for a given level
      * @param level The sponsorship level
      * @return allocation amount for the given level
      */
-    function getAllocation(uint8 level) external pure returns (uint256 allocation);
-    /**
-     * @notice gets the flow rate amount for a given sponsorship level
-     * @param sponsorLvl The sponsorship level
-     * @return maxFlowRate amount for the given level
-     */
-    function getMaxFlowRateByLevel(uint8 sponsorLvl) external pure returns (int96 maxFlowRate);
+    function getAllocationForLevel(uint8 level) external pure returns (uint256 allocation);
 
     /**
-     * @notice gets the flow rate amount for a given protege level
-     * @param protegeLvl The sponsorship level
-     * @return flowRate amount for the given level
+     * @notice gets the fee amount for a given protege level
+     * @param directProtegeCount count of direct proteges
+     * @return feeAmount amount needed to be paid
      */
-    function getFlowRateAmount(uint8 protegeLvl) external pure returns (int96 flowRate);
-
-    /**
-     * @notice gets the weight given protege level
-     * @param protegeLvl The protege level
-     * @return levelWeight weight for the given level
-     */
-    function getProtegeLevelWeight(uint8 protegeLvl) external pure returns (uint256 levelWeight);
+    function fee(uint32 directProtegeCount) external pure returns (uint256 feeAmount);
 
     /**
      * @dev withdraws the fees from the contract
