@@ -102,11 +102,7 @@ const Scan = () => {
     );
     const result = await sponsorAddress(
       scannedAddress!,
-      Number(
-        parseEther(
-          calculateTotalSponsorAmountWithFee(sponsorAmount, fee).toString()
-        )
-      )
+      calculateTotalSponsorAmountWithFee(sponsorAmount, fee)
     );
     console.log("Received hash");
     setHash(result.hash);
