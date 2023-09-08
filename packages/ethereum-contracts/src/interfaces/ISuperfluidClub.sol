@@ -89,10 +89,9 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
     /**
      * @notice calculates the flow rate based on level and number of proteges
      * @param totalProtegeCount The number of proteges under the sponsor
-     * @param level The level of the sponsor
      * @return flowRate calculated flow rate
      */
-    function calculateFlowRate(uint32 totalProtegeCount, uint8 level) external pure returns (int96 flowRate);
+    function calculateFlowRate(uint32 totalProtegeCount) external pure returns (int96 flowRate);
     /**
      * @notice gets the allocation for a given level
      * @param level The sponsorship level

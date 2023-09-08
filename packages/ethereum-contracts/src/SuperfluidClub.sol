@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
 import {SuperTokenBase, ISuperToken} from "@superfluid-finance/custom-supertokens/contracts/base/SuperTokenBase.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-
+import "forge-std/Test.sol";
 /**
  * @title Superfluid Club
  * @dev Contract that facilitates the operations of a superfluid club.
@@ -38,7 +38,6 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     uint256 public constant FLAT_COST_SPONSORSHIP = 0.01 ether;
     uint256 public constant MAX_SPONSORSHIP_PATH_OUTFLOW = 720 ether;
     uint256 internal constant SECONDS_IN_A_DAY = 86400;
-    uint256 internal constant FLOW_RATE_BASE = 1 ether;
 
     /// @dev ISuperfluidClub.Protege implementation
     struct Protege {
@@ -97,48 +96,50 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         require(isProtege(actualSponsor) || messiah, "You are not a protege!");
 
         uint256 coinAmount = msg.value;
-        Protege memory sponsorInfo = _proteges[actualSponsor];
 
-        uint256 fee = fee(sponsorInfo.directTotalProtegeCount);
+
+        uint256 fee = fee(_proteges[actualSponsor].directTotalProtegeCount);
         require(coinAmount >= fee, "Not enough coin!");
 
         coinAmount -= fee;
-        require(sponsorInfo.level < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
+        require(_proteges[actualSponsor].level < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
 
         /// @notice: we update always the messiah total counter
         _proteges[address(this)].totalProtegeCount++;
 
         _proteges[actualSponsor].directTotalProtegeCount++;
 
-        // @notice: we update storage already because when open a stream, that can trigger a callback from the new protege
-        _proteges[newProtege] = Protege({
-            sponsor: actualSponsor,
-            level: sponsorInfo.level + 1,
-            totalProtegeCount: 0,
-            directTotalProtegeCount: 0,
-            desiredFlowRate: calculateFlowRate(
-                sponsorInfo.totalProtegeCount + 1, sponsorInfo.level
-            )
-        });
-
+        uint32 lastSponsorProtegeCount = _proteges[actualSponsor].totalProtegeCount;
         address s = actualSponsor;
         while (isProtege(s)) {
             // storage "pointer"
             Protege storage sponsorChainInfo = _proteges[s];
             sponsorChainInfo.totalProtegeCount++;
-            sponsorChainInfo.desiredFlowRate = calculateFlowRate(sponsorChainInfo.totalProtegeCount, sponsorChainInfo.level) / 2;
+            sponsorChainInfo.desiredFlowRate +=
+                calculateFlowRate(sponsorChainInfo.totalProtegeCount);
             // @notice: this can also trigger a callback from sponsor
             _createOrUpdateStream(s, sponsorChainInfo.desiredFlowRate);
 
             emit PROTEGE_UPDATED(
-                sponsorInfo.sponsor,
+                _proteges[actualSponsor].sponsor,
                 s,
                 _proteges[address(this)].level,
                 _proteges[address(this)].totalProtegeCount,
                 _proteges[address(this)].directTotalProtegeCount
             );
+            lastSponsorProtegeCount = sponsorChainInfo.totalProtegeCount;
             s = sponsorChainInfo.sponsor; // traversal link structure
         }
+
+        // last sponsor protege count is the total protege count of the last sponsor + itself
+        lastSponsorProtegeCount = messiah ? lastSponsorProtegeCount : lastSponsorProtegeCount + 1;
+        _proteges[newProtege] = Protege({
+            sponsor: actualSponsor,
+            level: _proteges[actualSponsor].level + 1,
+            totalProtegeCount: 0,
+            directTotalProtegeCount: 0,
+            desiredFlowRate: calculateFlowRate(lastSponsorProtegeCount)
+        });
 
         // @notice: this can trigger a callback
         ISuperToken(address(this)).createFlow(newProtege, _proteges[newProtege].desiredFlowRate);
@@ -170,7 +171,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
             // storage "pointer"
             Protege storage sponsorChainInfo = _proteges[s];
             sponsorChainInfo.totalProtegeCount--;
-            sponsorChainInfo.desiredFlowRate = calculateFlowRate(totalProtegeCount, sponsorChainInfo.level);
+            sponsorChainInfo.desiredFlowRate -= calculateFlowRate(totalProtegeCount);
             // if flowRate is 0, delete flow
             if (sponsorChainInfo.desiredFlowRate == 0) {
                 ISuperToken(address(this)).deleteFlow(s, oldProtege);
@@ -188,11 +189,8 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     }
 
     /// @dev ISuperfluidClub.calculateSponsorFlowRate implementation
-    function calculateFlowRate(uint32 totalProtegeCount, uint8 level) public view returns (int96 flowRate) {
-        uint256 allocation = getAllocationForLevel(level);
-        flowRate = toInt96(
-            ((MAX_SPONSORSHIP_PATH_OUTFLOW * allocation) / (FLOW_RATE_BASE * totalProtegeCount)) / SECONDS_IN_A_DAY
-        );
+    function calculateFlowRate(uint32 totalProtegeCount) public view returns (int96 flowRate) {
+        flowRate = toInt96(MAX_SPONSORSHIP_PATH_OUTFLOW / totalProtegeCount);
     }
 
     /// @dev ISuperfluidClub.getAllocation implementation
