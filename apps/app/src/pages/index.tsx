@@ -10,6 +10,7 @@ import QRCode from "react-qr-code";
 import { styled } from "styled-components";
 import { useAccount, useNetwork, useSwitchNetwork } from "wagmi";
 import { useEffect } from "react";
+import { fromUnixTime } from "date-fns";
 
 const { SuperfluidClubAddress } = Configuration;
 
@@ -30,7 +31,7 @@ export default function Home() {
 
   useEffect(() => {
     if (!switchNetwork) return;
-    if(!address) return;
+    if (!address) return;
     if (chain?.id !== Configuration.network.id) {
       switchNetwork(Configuration.network.id);
     }
@@ -55,7 +56,9 @@ export default function Home() {
                 <FlowingBalance
                   flowRate={realtimeBalanceData.flowrate}
                   startingBalance={realtimeBalanceData.currentBalance}
-                  startingBalanceDate={realtimeBalanceData.date}
+                  startingBalanceDate={fromUnixTime(
+                    realtimeBalanceData.timestamp
+                  )}
                 />
               )}
             </>

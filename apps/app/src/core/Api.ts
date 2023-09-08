@@ -5,6 +5,7 @@ import fromUnixTime from "date-fns/fromUnixTime";
 import {
   Address,
   readContracts,
+  useContractRead,
   useContractWrite,
   usePrepareContractWrite,
   useQuery,
@@ -15,6 +16,11 @@ import { formatEther, parseEther } from "viem";
 
 const { SuperfluidClubAddress, network, CFAv1ForwarderAddress } = Configuration;
 
+// 1. Fetch your level (getProtegeLevelWeight)
+// 2. Fetch the fee for your level
+// 3. Add utility to calculate the sponsor Amount
+// 4. change sponsor() value to fee + sponsor amount
+
 export const useSponsor = (
   address?: Address
 ): [(() => void) | undefined, boolean, boolean] => {
@@ -24,21 +30,33 @@ export const useSponsor = (
           chainId: network.id,
           abi: SuperfluidClubABI,
           address: SuperfluidClubAddress,
-          functionName: "sponsorship",
-          value: parseEther("0.01"),
+          functionName: "sponsor",
+          value: parseEther("0.03"), //fee + sponsor amount
           args: [address],
         }
       : {}
   );
 
+  console.log("Prepared", sponsorConfig.config);
   const { data, write } = useContractWrite(sponsorConfig.config);
 
+  console.log("Tx hash", data?.hash);
   const { isLoading, isSuccess } = useWaitForTransaction({
     hash: data?.hash,
   });
 
   return [write, isLoading, isSuccess];
 };
+
+export const useIsProtege = (address?: Address) =>
+  useContractRead({
+    chainId: network.id,
+    abi: SuperfluidClubABI,
+    address: SuperfluidClubAddress,
+    functionName: "isProtege",
+    args: [address!],
+    enabled: !!address,
+  });
 
 export const useRealtimeBalance = (
   accountAddress?: Address,
@@ -80,6 +98,6 @@ const fetchRealtimeBalance = async (
   return {
     flowrate,
     currentBalance,
-    date: fromUnixTime(Number(timestamp)),
+    timestamp: Number(timestamp),
   };
 };
