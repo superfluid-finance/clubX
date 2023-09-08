@@ -182,7 +182,11 @@ const Intro = () => {
     queryClient.invalidateQueries({
       queryKey: [{ scopeKey: "RealTimeBalance" }, { scopeKey: "IsProtege" }],
     });
+    queryClient.clear();
+    console.log("Cleared cache");
   };
+
+  console.log("Protege loading", result.isLoading);
 
   if (result.data === true) {
     return (
