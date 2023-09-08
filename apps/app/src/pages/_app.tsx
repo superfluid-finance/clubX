@@ -54,34 +54,6 @@ export const resolvedPublicClients = wagmiChains.reduce(
 );
 
 
-// const magicConnector = new MagicConnectConnector({
-//   chains: wagmiChains,
-//   options: {
-//     apiKey: "pk_live_1C4195ECA42E5D43",
-//     magicSdkConfiguration:{
-//       network:{
-//         chainId: network.id,
-//         rpcUrl: rpcUrl,
-//       }
-//     },
-//     networks: [
-//       {
-//         chainId: network.id,
-//         rpcUrl: rpcUrl,
-//       },
-//     ],
-//   },
-// });
-
-// MagicConnectConnector.prototype.getProvider = () => {
-//   const magic = magicConnector.getMagicSDK();
-//   if (!magic) {
-//     throw new Error("Magic not ininitialized properly");
-//   }
-
-//   return magic.wallet.getProvider();
-// };
-
 const config = createConfig({
   autoConnect: false,
   publicClient: (config) =>
