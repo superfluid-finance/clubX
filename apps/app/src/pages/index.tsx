@@ -177,13 +177,7 @@ const Intro = () => {
     SuperfluidClubAddress
   );
 
-  const onClearCache = () => {
-    queryClient.invalidateQueries({
-      queryKey: [{ scopeKey: "RealTimeBalance" }, { scopeKey: "IsProtege" }],
-    });
-  };
-
-  if (result.data === true) {
+  if (result.data) {
     return (
       <SnapScrollWrapper>
         <AccountBox onClick={onDisconnect}>
