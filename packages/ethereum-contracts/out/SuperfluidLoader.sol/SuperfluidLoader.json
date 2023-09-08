@@ -55,15 +55,15 @@
   ],
   "bytecode": {
     "object": "0x60a060405234801561001057600080fd5b506040516104ea3803806104ea83398101604081905261002f91610040565b6001600160a01b0316608052610070565b60006020828403121561005257600080fd5b81516001600160a01b038116811461006957600080fd5b9392505050565b60805161046061008a600039600060b501526104606000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c8063f490e2f014610030575b600080fd5b61004361003e366004610307565b61008f565b604051610086919081516001600160a01b039081168252602080840151821690830152604080840151821690830152606092830151169181019190915260800190565b60405180910390f35b6040805160808101825260008082526020820181905291810182905260608101919091527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663693ec85e84846040516020016100f5929190610379565b6040516020818303038152906040526040518263ffffffff1660e01b815260040161012091906103a0565b602060405180830381865afa15801561013d573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101619190610406565b6001600160a01b03168082526040805163398d76b760e11b8152905163731aed6e916004808201926020929091908290030181865afa1580156101a8573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101cc9190610406565b6001600160a01b0390811660208301528151604051635b69006f60e11b81527fa9214cc96615e0085d3bb077758db69497dc2dce3b2b1e97bc93c3d18d83efd3600482015291169063b6d200de90602401602060405180830381865afa15801561023a573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061025e9190610406565b6001600160a01b0390811660408381019190915282519051635b69006f60e11b81527f8aedc3b5d4bf031e11a7e2940f7251c005698405d58e02e1c247fed3b1b3a674600482015291169063b6d200de90602401602060405180830381865afa1580156102cf573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102f39190610406565b6001600160a01b0316606082015292915050565b6000806020838503121561031a57600080fd5b823567ffffffffffffffff8082111561033257600080fd5b818501915085601f83011261034657600080fd5b81358181111561035557600080fd5b86602082850101111561036757600080fd5b60209290920196919550909350505050565b6a29bab832b933363ab4b21760a91b81528183600b83013760009101600b01908152919050565b600060208083528351808285015260005b818110156103cd578581018301518582016040015282016103b1565b506000604082860101526040601f19601f8301168501019250505092915050565b6001600160a01b038116811461040357600080fd5b50565b60006020828403121561041857600080fd5b8151610423816103ee565b939250505056fea264697066735822122006b30778f9699547b5591ded8046168a6298d8161aa7d701d5268cb6749be96564736f6c63430008130033",
-    "sourceMap": "579:1172:107:-:0;;;844:69;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;886:20:107;;;579:1172;;14:309:115;103:6;156:2;144:9;135:7;131:23;127:32;124:52;;;172:1;169;162:12;124:52;198:16;;-1:-1:-1;;;;;243:31:115;;233:42;;223:70;;289:1;286;279:12;223:70;312:5;14:309;-1:-1:-1;;;14:309:115:o;:::-;579:1172:107;;;;;;;;;;;;",
+    "sourceMap": "579:1172:108:-:0;;;844:69;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;886:20:108;;;579:1172;;14:309:118;103:6;156:2;144:9;135:7;131:23;127:32;124:52;;;172:1;169;162:12;124:52;198:16;;-1:-1:-1;;;;;243:31:118;;233:42;;223:70;;289:1;286;279:12;223:70;312:5;14:309;-1:-1:-1;;;14:309:118:o;:::-;579:1172:108;;;;;;;;;;;;",
     "linkReferences": {}
   },
   "deployedBytecode": {
     "object": "0x608060405234801561001057600080fd5b506004361061002b5760003560e01c8063f490e2f014610030575b600080fd5b61004361003e366004610307565b61008f565b604051610086919081516001600160a01b039081168252602080840151821690830152604080840151821690830152606092830151169181019190915260800190565b60405180910390f35b6040805160808101825260008082526020820181905291810182905260608101919091527f00000000000000000000000000000000000000000000000000000000000000006001600160a01b031663693ec85e84846040516020016100f5929190610379565b6040516020818303038152906040526040518263ffffffff1660e01b815260040161012091906103a0565b602060405180830381865afa15801561013d573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101619190610406565b6001600160a01b03168082526040805163398d76b760e11b8152905163731aed6e916004808201926020929091908290030181865afa1580156101a8573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906101cc9190610406565b6001600160a01b0390811660208301528151604051635b69006f60e11b81527fa9214cc96615e0085d3bb077758db69497dc2dce3b2b1e97bc93c3d18d83efd3600482015291169063b6d200de90602401602060405180830381865afa15801561023a573d6000803e3d6000fd5b505050506040513d601f19601f8201168201806040525081019061025e9190610406565b6001600160a01b0390811660408381019190915282519051635b69006f60e11b81527f8aedc3b5d4bf031e11a7e2940f7251c005698405d58e02e1c247fed3b1b3a674600482015291169063b6d200de90602401602060405180830381865afa1580156102cf573d6000803e3d6000fd5b505050506040513d601f19601f820116820180604052508101906102f39190610406565b6001600160a01b0316606082015292915050565b6000806020838503121561031a57600080fd5b823567ffffffffffffffff8082111561033257600080fd5b818501915085601f83011261034657600080fd5b81358181111561035557600080fd5b86602082850101111561036757600080fd5b60209290920196919550909350505050565b6a29bab832b933363ab4b21760a91b81528183600b83013760009101600b01908152919050565b600060208083528351808285015260005b818110156103cd578581018301518582016040015282016103b1565b506000604082860101526040601f19601f8301168501019250505092915050565b6001600160a01b038116811461040357600080fd5b50565b60006020828403121561041857600080fd5b8151610423816103ee565b939250505056fea264697066735822122006b30778f9699547b5591ded8046168a6298d8161aa7d701d5268cb6749be96564736f6c63430008130033",
-    "sourceMap": "579:1172:107:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1042:707;;;;;;:::i;:::-;;:::i;:::-;;;;;;874:13:115;;-1:-1:-1;;;;;870:22:115;;;852:41;;953:4;941:17;;;935:24;931:33;;909:20;;;902:63;1025:4;1013:17;;;1007:24;1003:33;;981:20;;;974:63;1097:4;1085:17;;;1079:24;1075:33;1053:20;;;1046:63;;;;801:3;786:19;;611:504;1042:707:107;;;;;;;;;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1248:9:107;-1:-1:-1;;;;;1248:13:107;;1304:14;;1275:44;;;;;;;;;:::i;:::-;;;;;;;;;;;;;1248:81;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;1216:114:107;;;;1367:40;;;-1:-1:-1;;;1367:40:107;;;;:38;;:40;;;;;;;;;;;;;;;1216:114;1367:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;1340:67:107;;;:24;;;:67;1441:17;;:130;;-1:-1:-1;;;1441:130:107;;1490:71;1441:130;;;2917:25:115;1441:35:107;;;;;2890:18:115;;1441:130:107;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;1417:154:107;;;:21;;;;:154;;;;1605:17;;:137;;-1:-1:-1;;;1605:137:107;;1654:78;1605:137;;;2917:25:115;1605:35:107;;;;;2890:18:115;;1605:137:107;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;1581:161:107;:21;;;:161;:6;1042:707;-1:-1:-1;;1042:707:107:o;14:592:115:-;85:6;93;146:2;134:9;125:7;121:23;117:32;114:52;;;162:1;159;152:12;114:52;202:9;189:23;231:18;272:2;264:6;261:14;258:34;;;288:1;285;278:12;258:34;326:6;315:9;311:22;301:32;;371:7;364:4;360:2;356:13;352:27;342:55;;393:1;390;383:12;342:55;433:2;420:16;459:2;451:6;448:14;445:34;;;475:1;472;465:12;445:34;520:7;515:2;506:6;502:2;498:15;494:24;491:37;488:57;;;541:1;538;531:12;488:57;572:2;564:11;;;;;594:6;;-1:-1:-1;14:592:115;;-1:-1:-1;;;;14:592:115:o;1120:417::-;-1:-1:-1;;;1377:3:115;1370:26;1440:6;1432;1427:2;1422:3;1418:12;1405:42;1352:3;1470:16;;1488:2;1466:25;1500:13;;;1466:25;1120:417;-1:-1:-1;1120:417:115:o;1542:548::-;1654:4;1683:2;1712;1701:9;1694:21;1744:6;1738:13;1787:6;1782:2;1771:9;1767:18;1760:34;1812:1;1822:140;1836:6;1833:1;1830:13;1822:140;;;1931:14;;;1927:23;;1921:30;1897:17;;;1916:2;1893:26;1886:66;1851:10;;1822:140;;;1826:3;2011:1;2006:2;1997:6;1986:9;1982:22;1978:31;1971:42;2081:2;2074;2070:7;2065:2;2057:6;2053:15;2049:29;2038:9;2034:45;2030:54;2022:62;;;;1542:548;;;;:::o;2095:131::-;-1:-1:-1;;;;;2170:31:115;;2160:42;;2150:70;;2216:1;2213;2206:12;2150:70;2095:131;:::o;2231:251::-;2301:6;2354:2;2342:9;2333:7;2329:23;2325:32;2322:52;;;2370:1;2367;2360:12;2322:52;2402:9;2396:16;2421:31;2446:5;2421:31;:::i;:::-;2471:5;2231:251;-1:-1:-1;;;2231:251:115:o",
+    "sourceMap": "579:1172:108:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1042:707;;;;;;:::i;:::-;;:::i;:::-;;;;;;874:13:118;;-1:-1:-1;;;;;870:22:118;;;852:41;;953:4;941:17;;;935:24;931:33;;909:20;;;902:63;1025:4;1013:17;;;1007:24;1003:33;;981:20;;;974:63;1097:4;1085:17;;;1079:24;1075:33;1053:20;;;1046:63;;;;801:3;786:19;;611:504;1042:707:108;;;;;;;;;-1:-1:-1;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1248:9:108;-1:-1:-1;;;;;1248:13:108;;1304:14;;1275:44;;;;;;;;;:::i;:::-;;;;;;;;;;;;;1248:81;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;1216:114:108;;;;1367:40;;;-1:-1:-1;;;1367:40:108;;;;:38;;:40;;;;;;;;;;;;;;;1216:114;1367:40;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;1340:67:108;;;:24;;;:67;1441:17;;:130;;-1:-1:-1;;;1441:130:108;;1490:71;1441:130;;;2917:25:118;1441:35:108;;;;;2890:18:118;;1441:130:108;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;1417:154:108;;;:21;;;;:154;;;;1605:17;;:137;;-1:-1:-1;;;1605:137:108;;1654:78;1605:137;;;2917:25:118;1605:35:108;;;;;2890:18:118;;1605:137:108;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;-1:-1:-1;;;;;1581:161:108;:21;;;:161;:6;1042:707;-1:-1:-1;;1042:707:108:o;14:592:118:-;85:6;93;146:2;134:9;125:7;121:23;117:32;114:52;;;162:1;159;152:12;114:52;202:9;189:23;231:18;272:2;264:6;261:14;258:34;;;288:1;285;278:12;258:34;326:6;315:9;311:22;301:32;;371:7;364:4;360:2;356:13;352:27;342:55;;393:1;390;383:12;342:55;433:2;420:16;459:2;451:6;448:14;445:34;;;475:1;472;465:12;445:34;520:7;515:2;506:6;502:2;498:15;494:24;491:37;488:57;;;541:1;538;531:12;488:57;572:2;564:11;;;;;594:6;;-1:-1:-1;14:592:118;;-1:-1:-1;;;;14:592:118:o;1120:417::-;-1:-1:-1;;;1377:3:118;1370:26;1440:6;1432;1427:2;1422:3;1418:12;1405:42;1352:3;1470:16;;1488:2;1466:25;1500:13;;;1466:25;1120:417;-1:-1:-1;1120:417:118:o;1542:548::-;1654:4;1683:2;1712;1701:9;1694:21;1744:6;1738:13;1787:6;1782:2;1771:9;1767:18;1760:34;1812:1;1822:140;1836:6;1833:1;1830:13;1822:140;;;1931:14;;;1927:23;;1921:30;1897:17;;;1916:2;1893:26;1886:66;1851:10;;1822:140;;;1826:3;2011:1;2006:2;1997:6;1986:9;1982:22;1978:31;1971:42;2081:2;2074;2070:7;2065:2;2057:6;2053:15;2049:29;2038:9;2034:45;2030:54;2022:62;;;;1542:548;;;;:::o;2095:131::-;-1:-1:-1;;;;;2170:31:118;;2160:42;;2150:70;;2216:1;2213;2206:12;2150:70;2095:131;:::o;2231:251::-;2301:6;2354:2;2342:9;2333:7;2329:23;2325:32;2322:52;;;2370:1;2367;2360:12;2322:52;2402:9;2396:16;2421:31;2446:5;2421:31;:::i;:::-;2471:5;2231:251;-1:-1:-1;;;2231:251:118:o",
     "linkReferences": {},
     "immutableReferences": {
-      "81242": [
+      "81281": [
         {
           "start": 181,
           "length": 32
@@ -384,31 +384,31 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/utils/SuperfluidLoader.sol",
-    "id": 81327,
+    "id": 81366,
     "exportedSymbols": {
       "IResolver": [
-        68221
+        68260
       ],
       "ISuperAgreement": [
-        66417
+        66456
       ],
       "ISuperTokenFactory": [
-        67129
+        67168
       ],
       "ISuperfluid": [
-        67672
+        67711
       ],
       "SuperfluidLoader": [
-        81326
+        81365
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:1720:107",
+    "src": "32:1720:108",
     "nodes": [
       {
-        "id": 81232,
+        "id": 81271,
         "nodeType": "PragmaDirective",
-        "src": "32:25:107",
+        "src": "32:25:108",
         "nodes": [],
         "literals": [
           "solidity",
@@ -418,24 +418,24 @@
         ]
       },
       {
-        "id": 81234,
+        "id": 81273,
         "nodeType": "ImportDirective",
-        "src": "59:62:107",
+        "src": "59:62:108",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/utils/IResolver.sol",
         "file": "../interfaces/utils/IResolver.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 81327,
-        "sourceUnit": 68222,
+        "scope": 81366,
+        "sourceUnit": 68261,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 81233,
+              "id": 81272,
               "name": "IResolver",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 68221,
-              "src": "68:9:107",
+              "referencedDeclaration": 68260,
+              "src": "68:9:108",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -444,48 +444,48 @@
         "unitAlias": ""
       },
       {
-        "id": 81238,
+        "id": 81277,
         "nodeType": "ImportDirective",
-        "src": "122:120:107",
+        "src": "122:120:108",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluid.sol",
         "file": "../interfaces/superfluid/ISuperfluid.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 81327,
-        "sourceUnit": 67673,
+        "scope": 81366,
+        "sourceUnit": 67712,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 81235,
+              "id": 81274,
               "name": "ISuperfluid",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 67672,
-              "src": "135:11:107",
+              "referencedDeclaration": 67711,
+              "src": "135:11:108",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
           },
           {
             "foreign": {
-              "id": 81236,
+              "id": 81275,
               "name": "ISuperTokenFactory",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 67129,
-              "src": "152:18:107",
+              "referencedDeclaration": 67168,
+              "src": "152:18:108",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
           },
           {
             "foreign": {
-              "id": 81237,
+              "id": 81276,
               "name": "ISuperAgreement",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 66417,
-              "src": "176:15:107",
+              "referencedDeclaration": 66456,
+              "src": "176:15:108",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -494,87 +494,87 @@
         "unitAlias": ""
       },
       {
-        "id": 81326,
+        "id": 81365,
         "nodeType": "ContractDefinition",
-        "src": "579:1172:107",
+        "src": "579:1172:108",
         "nodes": [
           {
-            "id": 81242,
+            "id": 81281,
             "nodeType": "VariableDeclaration",
-            "src": "612:37:107",
+            "src": "612:37:108",
             "nodes": [],
             "constant": false,
             "mutability": "immutable",
             "name": "_resolver",
-            "nameLocation": "640:9:107",
-            "scope": 81326,
+            "nameLocation": "640:9:108",
+            "scope": 81365,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IResolver_$68221",
+              "typeIdentifier": "t_contract$_IResolver_$68260",
               "typeString": "contract IResolver"
             },
             "typeName": {
-              "id": 81241,
+              "id": 81280,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 81240,
+                "id": 81279,
                 "name": "IResolver",
                 "nameLocations": [
-                  "612:9:107"
+                  "612:9:108"
                 ],
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 68221,
-                "src": "612:9:107"
+                "referencedDeclaration": 68260,
+                "src": "612:9:108"
               },
-              "referencedDeclaration": 68221,
-              "src": "612:9:107",
+              "referencedDeclaration": 68260,
+              "src": "612:9:108",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IResolver_$68221",
+                "typeIdentifier": "t_contract$_IResolver_$68260",
                 "typeString": "contract IResolver"
               }
             },
             "visibility": "private"
           },
           {
-            "id": 81255,
+            "id": 81294,
             "nodeType": "StructDefinition",
-            "src": "656:182:107",
+            "src": "656:182:108",
             "nodes": [],
             "canonicalName": "SuperfluidLoader.Framework",
             "members": [
               {
                 "constant": false,
-                "id": 81245,
+                "id": 81284,
                 "mutability": "mutable",
                 "name": "superfluid",
-                "nameLocation": "695:10:107",
+                "nameLocation": "695:10:108",
                 "nodeType": "VariableDeclaration",
-                "scope": 81255,
-                "src": "683:22:107",
+                "scope": 81294,
+                "src": "683:22:108",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_ISuperfluid_$67672",
+                  "typeIdentifier": "t_contract$_ISuperfluid_$67711",
                   "typeString": "contract ISuperfluid"
                 },
                 "typeName": {
-                  "id": 81244,
+                  "id": 81283,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 81243,
+                    "id": 81282,
                     "name": "ISuperfluid",
                     "nameLocations": [
-                      "683:11:107"
+                      "683:11:108"
                     ],
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 67672,
-                    "src": "683:11:107"
+                    "referencedDeclaration": 67711,
+                    "src": "683:11:108"
                   },
-                  "referencedDeclaration": 67672,
-                  "src": "683:11:107",
+                  "referencedDeclaration": 67711,
+                  "src": "683:11:108",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperfluid_$67672",
+                    "typeIdentifier": "t_contract$_ISuperfluid_$67711",
                     "typeString": "contract ISuperfluid"
                   }
                 },
@@ -582,36 +582,36 @@
               },
               {
                 "constant": false,
-                "id": 81248,
+                "id": 81287,
                 "mutability": "mutable",
                 "name": "superTokenFactory",
-                "nameLocation": "734:17:107",
+                "nameLocation": "734:17:108",
                 "nodeType": "VariableDeclaration",
-                "scope": 81255,
-                "src": "715:36:107",
+                "scope": 81294,
+                "src": "715:36:108",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_ISuperTokenFactory_$67129",
+                  "typeIdentifier": "t_contract$_ISuperTokenFactory_$67168",
                   "typeString": "contract ISuperTokenFactory"
                 },
                 "typeName": {
-                  "id": 81247,
+                  "id": 81286,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 81246,
+                    "id": 81285,
                     "name": "ISuperTokenFactory",
                     "nameLocations": [
-                      "715:18:107"
+                      "715:18:108"
                     ],
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 67129,
-                    "src": "715:18:107"
+                    "referencedDeclaration": 67168,
+                    "src": "715:18:108"
                   },
-                  "referencedDeclaration": 67129,
-                  "src": "715:18:107",
+                  "referencedDeclaration": 67168,
+                  "src": "715:18:108",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperTokenFactory_$67129",
+                    "typeIdentifier": "t_contract$_ISuperTokenFactory_$67168",
                     "typeString": "contract ISuperTokenFactory"
                   }
                 },
@@ -619,36 +619,36 @@
               },
               {
                 "constant": false,
-                "id": 81251,
+                "id": 81290,
                 "mutability": "mutable",
                 "name": "agreementCFAv1",
-                "nameLocation": "777:14:107",
+                "nameLocation": "777:14:108",
                 "nodeType": "VariableDeclaration",
-                "scope": 81255,
-                "src": "761:30:107",
+                "scope": 81294,
+                "src": "761:30:108",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_ISuperAgreement_$66417",
+                  "typeIdentifier": "t_contract$_ISuperAgreement_$66456",
                   "typeString": "contract ISuperAgreement"
                 },
                 "typeName": {
-                  "id": 81250,
+                  "id": 81289,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 81249,
+                    "id": 81288,
                     "name": "ISuperAgreement",
                     "nameLocations": [
-                      "761:15:107"
+                      "761:15:108"
                     ],
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 66417,
-                    "src": "761:15:107"
+                    "referencedDeclaration": 66456,
+                    "src": "761:15:108"
                   },
-                  "referencedDeclaration": 66417,
-                  "src": "761:15:107",
+                  "referencedDeclaration": 66456,
+                  "src": "761:15:108",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperAgreement_$66417",
+                    "typeIdentifier": "t_contract$_ISuperAgreement_$66456",
                     "typeString": "contract ISuperAgreement"
                   }
                 },
@@ -656,36 +656,36 @@
               },
               {
                 "constant": false,
-                "id": 81254,
+                "id": 81293,
                 "mutability": "mutable",
                 "name": "agreementIDAv1",
-                "nameLocation": "817:14:107",
+                "nameLocation": "817:14:108",
                 "nodeType": "VariableDeclaration",
-                "scope": 81255,
-                "src": "801:30:107",
+                "scope": 81294,
+                "src": "801:30:108",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_contract$_ISuperAgreement_$66417",
+                  "typeIdentifier": "t_contract$_ISuperAgreement_$66456",
                   "typeString": "contract ISuperAgreement"
                 },
                 "typeName": {
-                  "id": 81253,
+                  "id": 81292,
                   "nodeType": "UserDefinedTypeName",
                   "pathNode": {
-                    "id": 81252,
+                    "id": 81291,
                     "name": "ISuperAgreement",
                     "nameLocations": [
-                      "801:15:107"
+                      "801:15:108"
                     ],
                     "nodeType": "IdentifierPath",
-                    "referencedDeclaration": 66417,
-                    "src": "801:15:107"
+                    "referencedDeclaration": 66456,
+                    "src": "801:15:108"
                   },
-                  "referencedDeclaration": 66417,
-                  "src": "801:15:107",
+                  "referencedDeclaration": 66456,
+                  "src": "801:15:108",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperAgreement_$66417",
+                    "typeIdentifier": "t_contract$_ISuperAgreement_$66456",
                     "typeString": "contract ISuperAgreement"
                   }
                 },
@@ -693,63 +693,63 @@
               }
             ],
             "name": "Framework",
-            "nameLocation": "663:9:107",
-            "scope": 81326,
+            "nameLocation": "663:9:108",
+            "scope": 81365,
             "visibility": "public"
           },
           {
-            "id": 81266,
+            "id": 81305,
             "nodeType": "FunctionDefinition",
-            "src": "844:69:107",
+            "src": "844:69:108",
             "nodes": [],
             "body": {
-              "id": 81265,
+              "id": 81304,
               "nodeType": "Block",
-              "src": "876:37:107",
+              "src": "876:37:108",
               "nodes": [],
               "statements": [
                 {
                   "expression": {
-                    "id": 81263,
+                    "id": 81302,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 81261,
+                      "id": 81300,
                       "name": "_resolver",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 81242,
-                      "src": "886:9:107",
+                      "referencedDeclaration": 81281,
+                      "src": "886:9:108",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IResolver_$68221",
+                        "typeIdentifier": "t_contract$_IResolver_$68260",
                         "typeString": "contract IResolver"
                       }
                     },
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 81262,
+                      "id": 81301,
                       "name": "resolver",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 81258,
-                      "src": "898:8:107",
+                      "referencedDeclaration": 81297,
+                      "src": "898:8:108",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_IResolver_$68221",
+                        "typeIdentifier": "t_contract$_IResolver_$68260",
                         "typeString": "contract IResolver"
                       }
                     },
-                    "src": "886:20:107",
+                    "src": "886:20:108",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IResolver_$68221",
+                      "typeIdentifier": "t_contract$_IResolver_$68260",
                       "typeString": "contract IResolver"
                     }
                   },
-                  "id": 81264,
+                  "id": 81303,
                   "nodeType": "ExpressionStatement",
-                  "src": "886:20:107"
+                  "src": "886:20:108"
                 }
               ]
             },
@@ -759,103 +759,103 @@
             "name": "",
             "nameLocation": "-1:-1:-1",
             "parameters": {
-              "id": 81259,
+              "id": 81298,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 81258,
+                  "id": 81297,
                   "mutability": "mutable",
                   "name": "resolver",
-                  "nameLocation": "866:8:107",
+                  "nameLocation": "866:8:108",
                   "nodeType": "VariableDeclaration",
-                  "scope": 81266,
-                  "src": "856:18:107",
+                  "scope": 81305,
+                  "src": "856:18:108",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IResolver_$68221",
+                    "typeIdentifier": "t_contract$_IResolver_$68260",
                     "typeString": "contract IResolver"
                   },
                   "typeName": {
-                    "id": 81257,
+                    "id": 81296,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 81256,
+                      "id": 81295,
                       "name": "IResolver",
                       "nameLocations": [
-                        "856:9:107"
+                        "856:9:108"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 68221,
-                      "src": "856:9:107"
+                      "referencedDeclaration": 68260,
+                      "src": "856:9:108"
                     },
-                    "referencedDeclaration": 68221,
-                    "src": "856:9:107",
+                    "referencedDeclaration": 68260,
+                    "src": "856:9:108",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IResolver_$68221",
+                      "typeIdentifier": "t_contract$_IResolver_$68260",
                       "typeString": "contract IResolver"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "855:20:107"
+              "src": "855:20:108"
             },
             "returnParameters": {
-              "id": 81260,
+              "id": 81299,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "876:0:107"
+              "src": "876:0:108"
             },
-            "scope": 81326,
+            "scope": 81365,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "public"
           },
           {
-            "id": 81325,
+            "id": 81364,
             "nodeType": "FunctionDefinition",
-            "src": "1042:707:107",
+            "src": "1042:707:108",
             "nodes": [],
             "body": {
-              "id": 81324,
+              "id": 81363,
               "nodeType": "Block",
-              "src": "1165:584:107",
+              "src": "1165:584:108",
               "nodes": [],
               "statements": [
                 {
                   "expression": {
-                    "id": 81289,
+                    "id": 81328,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 81275,
+                        "id": 81314,
                         "name": "result",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 81273,
-                        "src": "1216:6:107",
+                        "referencedDeclaration": 81312,
+                        "src": "1216:6:108",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Framework_$81255_memory_ptr",
+                          "typeIdentifier": "t_struct$_Framework_$81294_memory_ptr",
                           "typeString": "struct SuperfluidLoader.Framework memory"
                         }
                       },
-                      "id": 81277,
+                      "id": 81316,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
-                      "memberLocation": "1223:10:107",
+                      "memberLocation": "1223:10:108",
                       "memberName": "superfluid",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 81245,
-                      "src": "1216:17:107",
+                      "referencedDeclaration": 81284,
+                      "src": "1216:17:108",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ISuperfluid_$67672",
+                        "typeIdentifier": "t_contract$_ISuperfluid_$67711",
                         "typeString": "contract ISuperfluid"
                       }
                     },
@@ -869,14 +869,14 @@
                               "arguments": [
                                 {
                                   "hexValue": "5375706572666c7569642e",
-                                  "id": 81284,
+                                  "id": 81323,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
                                   "kind": "string",
                                   "lValueRequested": false,
                                   "nodeType": "Literal",
-                                  "src": "1289:13:107",
+                                  "src": "1289:13:108",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_stringliteral_ccf6210afbd487f8aa94c84f25b982d4a329b89ca8db9ab89edc2e3792dd405e",
                                     "typeString": "literal_string \"Superfluid.\""
@@ -884,12 +884,12 @@
                                   "value": "Superfluid."
                                 },
                                 {
-                                  "id": 81285,
+                                  "id": 81324,
                                   "name": "releaseVersion",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 81269,
-                                  "src": "1304:14:107",
+                                  "referencedDeclaration": 81308,
+                                  "src": "1304:14:108",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_string_calldata_ptr",
                                     "typeString": "string calldata"
@@ -908,40 +908,40 @@
                                   }
                                 ],
                                 "expression": {
-                                  "id": 81282,
+                                  "id": 81321,
                                   "isConstant": false,
                                   "isLValue": false,
                                   "isPure": true,
                                   "lValueRequested": false,
                                   "nodeType": "ElementaryTypeNameExpression",
-                                  "src": "1275:6:107",
+                                  "src": "1275:6:108",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_type$_t_string_storage_ptr_$",
                                     "typeString": "type(string storage pointer)"
                                   },
                                   "typeName": {
-                                    "id": 81281,
+                                    "id": 81320,
                                     "name": "string",
                                     "nodeType": "ElementaryTypeName",
-                                    "src": "1275:6:107",
+                                    "src": "1275:6:108",
                                     "typeDescriptions": {}
                                   }
                                 },
-                                "id": 81283,
+                                "id": 81322,
                                 "isConstant": false,
                                 "isLValue": false,
                                 "isPure": false,
                                 "lValueRequested": false,
-                                "memberLocation": "1282:6:107",
+                                "memberLocation": "1282:6:108",
                                 "memberName": "concat",
                                 "nodeType": "MemberAccess",
-                                "src": "1275:13:107",
+                                "src": "1275:13:108",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_function_stringconcat_pure$__$returns$_t_string_memory_ptr_$",
                                   "typeString": "function () pure returns (string memory)"
                                 }
                               },
-                              "id": 81286,
+                              "id": 81325,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -950,7 +950,7 @@
                               "nameLocations": [],
                               "names": [],
                               "nodeType": "FunctionCall",
-                              "src": "1275:44:107",
+                              "src": "1275:44:108",
                               "tryCall": false,
                               "typeDescriptions": {
                                 "typeIdentifier": "t_string_memory_ptr",
@@ -966,33 +966,33 @@
                               }
                             ],
                             "expression": {
-                              "id": 81279,
+                              "id": 81318,
                               "name": "_resolver",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 81242,
-                              "src": "1248:9:107",
+                              "referencedDeclaration": 81281,
+                              "src": "1248:9:108",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_contract$_IResolver_$68221",
+                                "typeIdentifier": "t_contract$_IResolver_$68260",
                                 "typeString": "contract IResolver"
                               }
                             },
-                            "id": 81280,
+                            "id": 81319,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
                             "lValueRequested": false,
-                            "memberLocation": "1258:3:107",
+                            "memberLocation": "1258:3:108",
                             "memberName": "get",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 68220,
-                            "src": "1248:13:107",
+                            "referencedDeclaration": 68259,
+                            "src": "1248:13:108",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_external_view$_t_string_memory_ptr_$returns$_t_address_$",
                               "typeString": "function (string memory) view external returns (address)"
                             }
                           },
-                          "id": 81287,
+                          "id": 81326,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1001,7 +1001,7 @@
                           "nameLocations": [],
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "1248:81:107",
+                          "src": "1248:81:108",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
@@ -1016,18 +1016,18 @@
                             "typeString": "address"
                           }
                         ],
-                        "id": 81278,
+                        "id": 81317,
                         "name": "ISuperfluid",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 67672,
-                        "src": "1236:11:107",
+                        "referencedDeclaration": 67711,
+                        "src": "1236:11:108",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_type$_t_contract$_ISuperfluid_$67672_$",
+                          "typeIdentifier": "t_type$_t_contract$_ISuperfluid_$67711_$",
                           "typeString": "type(contract ISuperfluid)"
                         }
                       },
-                      "id": 81288,
+                      "id": 81327,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1036,55 +1036,55 @@
                       "nameLocations": [],
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "1236:94:107",
+                      "src": "1236:94:108",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ISuperfluid_$67672",
+                        "typeIdentifier": "t_contract$_ISuperfluid_$67711",
                         "typeString": "contract ISuperfluid"
                       }
                     },
-                    "src": "1216:114:107",
+                    "src": "1216:114:108",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperfluid_$67672",
+                      "typeIdentifier": "t_contract$_ISuperfluid_$67711",
                       "typeString": "contract ISuperfluid"
                     }
                   },
-                  "id": 81290,
+                  "id": 81329,
                   "nodeType": "ExpressionStatement",
-                  "src": "1216:114:107"
+                  "src": "1216:114:108"
                 },
                 {
                   "expression": {
-                    "id": 81298,
+                    "id": 81337,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 81291,
+                        "id": 81330,
                         "name": "result",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 81273,
-                        "src": "1340:6:107",
+                        "referencedDeclaration": 81312,
+                        "src": "1340:6:108",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Framework_$81255_memory_ptr",
+                          "typeIdentifier": "t_struct$_Framework_$81294_memory_ptr",
                           "typeString": "struct SuperfluidLoader.Framework memory"
                         }
                       },
-                      "id": 81293,
+                      "id": 81332,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
-                      "memberLocation": "1347:17:107",
+                      "memberLocation": "1347:17:108",
                       "memberName": "superTokenFactory",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 81248,
-                      "src": "1340:24:107",
+                      "referencedDeclaration": 81287,
+                      "src": "1340:24:108",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ISuperTokenFactory_$67129",
+                        "typeIdentifier": "t_contract$_ISuperTokenFactory_$67168",
                         "typeString": "contract ISuperTokenFactory"
                       }
                     },
@@ -1096,48 +1096,48 @@
                         "argumentTypes": [],
                         "expression": {
                           "expression": {
-                            "id": 81294,
+                            "id": 81333,
                             "name": "result",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 81273,
-                            "src": "1367:6:107",
+                            "referencedDeclaration": 81312,
+                            "src": "1367:6:108",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Framework_$81255_memory_ptr",
+                              "typeIdentifier": "t_struct$_Framework_$81294_memory_ptr",
                               "typeString": "struct SuperfluidLoader.Framework memory"
                             }
                           },
-                          "id": 81295,
+                          "id": 81334,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
-                          "memberLocation": "1374:10:107",
+                          "memberLocation": "1374:10:108",
                           "memberName": "superfluid",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 81245,
-                          "src": "1367:17:107",
+                          "referencedDeclaration": 81284,
+                          "src": "1367:17:108",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_ISuperfluid_$67672",
+                            "typeIdentifier": "t_contract$_ISuperfluid_$67711",
                             "typeString": "contract ISuperfluid"
                           }
                         },
-                        "id": 81296,
+                        "id": 81335,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
-                        "memberLocation": "1385:20:107",
+                        "memberLocation": "1385:20:108",
                         "memberName": "getSuperTokenFactory",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 67344,
-                        "src": "1367:38:107",
+                        "referencedDeclaration": 67383,
+                        "src": "1367:38:108",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_external_view$__$returns$_t_contract$_ISuperTokenFactory_$67129_$",
+                          "typeIdentifier": "t_function_external_view$__$returns$_t_contract$_ISuperTokenFactory_$67168_$",
                           "typeString": "function () view external returns (contract ISuperTokenFactory)"
                         }
                       },
-                      "id": 81297,
+                      "id": 81336,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1146,55 +1146,55 @@
                       "nameLocations": [],
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "1367:40:107",
+                      "src": "1367:40:108",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ISuperTokenFactory_$67129",
+                        "typeIdentifier": "t_contract$_ISuperTokenFactory_$67168",
                         "typeString": "contract ISuperTokenFactory"
                       }
                     },
-                    "src": "1340:67:107",
+                    "src": "1340:67:108",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperTokenFactory_$67129",
+                      "typeIdentifier": "t_contract$_ISuperTokenFactory_$67168",
                       "typeString": "contract ISuperTokenFactory"
                     }
                   },
-                  "id": 81299,
+                  "id": 81338,
                   "nodeType": "ExpressionStatement",
-                  "src": "1340:67:107"
+                  "src": "1340:67:108"
                 },
                 {
                   "expression": {
-                    "id": 81310,
+                    "id": 81349,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 81300,
+                        "id": 81339,
                         "name": "result",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 81273,
-                        "src": "1417:6:107",
+                        "referencedDeclaration": 81312,
+                        "src": "1417:6:108",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Framework_$81255_memory_ptr",
+                          "typeIdentifier": "t_struct$_Framework_$81294_memory_ptr",
                           "typeString": "struct SuperfluidLoader.Framework memory"
                         }
                       },
-                      "id": 81302,
+                      "id": 81341,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
-                      "memberLocation": "1424:14:107",
+                      "memberLocation": "1424:14:108",
                       "memberName": "agreementCFAv1",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 81251,
-                      "src": "1417:21:107",
+                      "referencedDeclaration": 81290,
+                      "src": "1417:21:108",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ISuperAgreement_$66417",
+                        "typeIdentifier": "t_contract$_ISuperAgreement_$66456",
                         "typeString": "contract ISuperAgreement"
                       }
                     },
@@ -1206,14 +1206,14 @@
                           "arguments": [
                             {
                               "hexValue": "6f72672e7375706572666c7569642d66696e616e63652e61677265656d656e74732e436f6e7374616e74466c6f7741677265656d656e742e7631",
-                              "id": 81307,
+                              "id": 81346,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "kind": "string",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "1500:60:107",
+                              "src": "1500:60:108",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_stringliteral_a9214cc96615e0085d3bb077758db69497dc2dce3b2b1e97bc93c3d18d83efd3",
                                 "typeString": "literal_string \"org.superfluid-finance.agreements.ConstantFlowAgreement.v1\""
@@ -1228,18 +1228,18 @@
                                 "typeString": "literal_string \"org.superfluid-finance.agreements.ConstantFlowAgreement.v1\""
                               }
                             ],
-                            "id": 81306,
+                            "id": 81345,
                             "name": "keccak256",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": -8,
-                            "src": "1490:9:107",
+                            "src": "1490:9:108",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                               "typeString": "function (bytes memory) pure returns (bytes32)"
                             }
                           },
-                          "id": 81308,
+                          "id": 81347,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1248,7 +1248,7 @@
                           "nameLocations": [],
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "1490:71:107",
+                          "src": "1490:71:108",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -1265,48 +1265,48 @@
                         ],
                         "expression": {
                           "expression": {
-                            "id": 81303,
+                            "id": 81342,
                             "name": "result",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 81273,
-                            "src": "1441:6:107",
+                            "referencedDeclaration": 81312,
+                            "src": "1441:6:108",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Framework_$81255_memory_ptr",
+                              "typeIdentifier": "t_struct$_Framework_$81294_memory_ptr",
                               "typeString": "struct SuperfluidLoader.Framework memory"
                             }
                           },
-                          "id": 81304,
+                          "id": 81343,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
-                          "memberLocation": "1448:10:107",
+                          "memberLocation": "1448:10:108",
                           "memberName": "superfluid",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 81245,
-                          "src": "1441:17:107",
+                          "referencedDeclaration": 81284,
+                          "src": "1441:17:108",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_ISuperfluid_$67672",
+                            "typeIdentifier": "t_contract$_ISuperfluid_$67711",
                             "typeString": "contract ISuperfluid"
                           }
                         },
-                        "id": 81305,
+                        "id": 81344,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
-                        "memberLocation": "1459:17:107",
+                        "memberLocation": "1459:17:108",
                         "memberName": "getAgreementClass",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 67307,
-                        "src": "1441:35:107",
+                        "referencedDeclaration": 67346,
+                        "src": "1441:35:108",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_contract$_ISuperAgreement_$66417_$",
+                          "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_contract$_ISuperAgreement_$66456_$",
                           "typeString": "function (bytes32) view external returns (contract ISuperAgreement)"
                         }
                       },
-                      "id": 81309,
+                      "id": 81348,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1315,55 +1315,55 @@
                       "nameLocations": [],
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "1441:130:107",
+                      "src": "1441:130:108",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ISuperAgreement_$66417",
+                        "typeIdentifier": "t_contract$_ISuperAgreement_$66456",
                         "typeString": "contract ISuperAgreement"
                       }
                     },
-                    "src": "1417:154:107",
+                    "src": "1417:154:108",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperAgreement_$66417",
+                      "typeIdentifier": "t_contract$_ISuperAgreement_$66456",
                       "typeString": "contract ISuperAgreement"
                     }
                   },
-                  "id": 81311,
+                  "id": 81350,
                   "nodeType": "ExpressionStatement",
-                  "src": "1417:154:107"
+                  "src": "1417:154:108"
                 },
                 {
                   "expression": {
-                    "id": 81322,
+                    "id": 81361,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 81312,
+                        "id": 81351,
                         "name": "result",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 81273,
-                        "src": "1581:6:107",
+                        "referencedDeclaration": 81312,
+                        "src": "1581:6:108",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Framework_$81255_memory_ptr",
+                          "typeIdentifier": "t_struct$_Framework_$81294_memory_ptr",
                           "typeString": "struct SuperfluidLoader.Framework memory"
                         }
                       },
-                      "id": 81314,
+                      "id": 81353,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
-                      "memberLocation": "1588:14:107",
+                      "memberLocation": "1588:14:108",
                       "memberName": "agreementIDAv1",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 81254,
-                      "src": "1581:21:107",
+                      "referencedDeclaration": 81293,
+                      "src": "1581:21:108",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ISuperAgreement_$66417",
+                        "typeIdentifier": "t_contract$_ISuperAgreement_$66456",
                         "typeString": "contract ISuperAgreement"
                       }
                     },
@@ -1375,14 +1375,14 @@
                           "arguments": [
                             {
                               "hexValue": "6f72672e7375706572666c7569642d66696e616e63652e61677265656d656e74732e496e7374616e74446973747269627574696f6e41677265656d656e742e7631",
-                              "id": 81319,
+                              "id": 81358,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": true,
                               "kind": "string",
                               "lValueRequested": false,
                               "nodeType": "Literal",
-                              "src": "1664:67:107",
+                              "src": "1664:67:108",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_stringliteral_8aedc3b5d4bf031e11a7e2940f7251c005698405d58e02e1c247fed3b1b3a674",
                                 "typeString": "literal_string \"org.superfluid-finance.agreements.InstantDistributionAgreement.v1\""
@@ -1397,18 +1397,18 @@
                                 "typeString": "literal_string \"org.superfluid-finance.agreements.InstantDistributionAgreement.v1\""
                               }
                             ],
-                            "id": 81318,
+                            "id": 81357,
                             "name": "keccak256",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": -8,
-                            "src": "1654:9:107",
+                            "src": "1654:9:108",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                               "typeString": "function (bytes memory) pure returns (bytes32)"
                             }
                           },
-                          "id": 81320,
+                          "id": 81359,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
@@ -1417,7 +1417,7 @@
                           "nameLocations": [],
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "1654:78:107",
+                          "src": "1654:78:108",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_bytes32",
@@ -1434,48 +1434,48 @@
                         ],
                         "expression": {
                           "expression": {
-                            "id": 81315,
+                            "id": 81354,
                             "name": "result",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 81273,
-                            "src": "1605:6:107",
+                            "referencedDeclaration": 81312,
+                            "src": "1605:6:108",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Framework_$81255_memory_ptr",
+                              "typeIdentifier": "t_struct$_Framework_$81294_memory_ptr",
                               "typeString": "struct SuperfluidLoader.Framework memory"
                             }
                           },
-                          "id": 81316,
+                          "id": 81355,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
-                          "memberLocation": "1612:10:107",
+                          "memberLocation": "1612:10:108",
                           "memberName": "superfluid",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 81245,
-                          "src": "1605:17:107",
+                          "referencedDeclaration": 81284,
+                          "src": "1605:17:108",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_ISuperfluid_$67672",
+                            "typeIdentifier": "t_contract$_ISuperfluid_$67711",
                             "typeString": "contract ISuperfluid"
                           }
                         },
-                        "id": 81317,
+                        "id": 81356,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
-                        "memberLocation": "1623:17:107",
+                        "memberLocation": "1623:17:108",
                         "memberName": "getAgreementClass",
                         "nodeType": "MemberAccess",
-                        "referencedDeclaration": 67307,
-                        "src": "1605:35:107",
+                        "referencedDeclaration": 67346,
+                        "src": "1605:35:108",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_contract$_ISuperAgreement_$66417_$",
+                          "typeIdentifier": "t_function_external_view$_t_bytes32_$returns$_t_contract$_ISuperAgreement_$66456_$",
                           "typeString": "function (bytes32) view external returns (contract ISuperAgreement)"
                         }
                       },
-                      "id": 81321,
+                      "id": 81360,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1484,29 +1484,29 @@
                       "nameLocations": [],
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "1605:137:107",
+                      "src": "1605:137:108",
                       "tryCall": false,
                       "typeDescriptions": {
-                        "typeIdentifier": "t_contract$_ISuperAgreement_$66417",
+                        "typeIdentifier": "t_contract$_ISuperAgreement_$66456",
                         "typeString": "contract ISuperAgreement"
                       }
                     },
-                    "src": "1581:161:107",
+                    "src": "1581:161:108",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperAgreement_$66417",
+                      "typeIdentifier": "t_contract$_ISuperAgreement_$66456",
                       "typeString": "contract ISuperAgreement"
                     }
                   },
-                  "id": 81323,
+                  "id": 81362,
                   "nodeType": "ExpressionStatement",
-                  "src": "1581:161:107"
+                  "src": "1581:161:108"
                 }
               ]
             },
             "documentation": {
-              "id": 81267,
+              "id": 81306,
               "nodeType": "StructuredDocumentation",
-              "src": "919:118:107",
+              "src": "919:118:108",
               "text": " @dev Load framework objects\n @param releaseVersion Protocol release version of the deployment"
             },
             "functionSelector": "f490e2f0",
@@ -1514,20 +1514,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "loadFramework",
-            "nameLocation": "1051:13:107",
+            "nameLocation": "1051:13:108",
             "parameters": {
-              "id": 81270,
+              "id": 81309,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 81269,
+                  "id": 81308,
                   "mutability": "mutable",
                   "name": "releaseVersion",
-                  "nameLocation": "1081:14:107",
+                  "nameLocation": "1081:14:108",
                   "nodeType": "VariableDeclaration",
-                  "scope": 81325,
-                  "src": "1065:30:107",
+                  "scope": 81364,
+                  "src": "1065:30:108",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1535,10 +1535,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 81268,
+                    "id": 81307,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1065:6:107",
+                    "src": "1065:6:108",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1547,53 +1547,53 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1064:32:107"
+              "src": "1064:32:108"
             },
             "returnParameters": {
-              "id": 81274,
+              "id": 81313,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 81273,
+                  "id": 81312,
                   "mutability": "mutable",
                   "name": "result",
-                  "nameLocation": "1153:6:107",
+                  "nameLocation": "1153:6:108",
                   "nodeType": "VariableDeclaration",
-                  "scope": 81325,
-                  "src": "1136:23:107",
+                  "scope": 81364,
+                  "src": "1136:23:108",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Framework_$81255_memory_ptr",
+                    "typeIdentifier": "t_struct$_Framework_$81294_memory_ptr",
                     "typeString": "struct SuperfluidLoader.Framework"
                   },
                   "typeName": {
-                    "id": 81272,
+                    "id": 81311,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 81271,
+                      "id": 81310,
                       "name": "Framework",
                       "nameLocations": [
-                        "1136:9:107"
+                        "1136:9:108"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 81255,
-                      "src": "1136:9:107"
+                      "referencedDeclaration": 81294,
+                      "src": "1136:9:108"
                     },
-                    "referencedDeclaration": 81255,
-                    "src": "1136:9:107",
+                    "referencedDeclaration": 81294,
+                    "src": "1136:9:108",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Framework_$81255_storage_ptr",
+                      "typeIdentifier": "t_struct$_Framework_$81294_storage_ptr",
                       "typeString": "struct SuperfluidLoader.Framework"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1135:25:107"
+              "src": "1135:25:108"
             },
-            "scope": 81326,
+            "scope": 81365,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -1605,22 +1605,22 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": {
-          "id": 81239,
+          "id": 81278,
           "nodeType": "StructuredDocumentation",
-          "src": "244:334:107",
+          "src": "244:334:108",
           "text": " @title Superfluid loader contract\n @author Superfluid\n @dev A on-chain utility contract for loading framework objects in one view function.\n NOTE:\n Q: Why don't we just use https://www.npmjs.com/package/ethereum-multicall?\n A: Well, no strong reason other than also allowing on-chain one view function loading."
         },
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          81326
+          81365
         ],
         "name": "SuperfluidLoader",
-        "nameLocation": "588:16:107",
-        "scope": 81327,
+        "nameLocation": "588:16:108",
+        "scope": 81366,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 107
+  "id": 108
 }

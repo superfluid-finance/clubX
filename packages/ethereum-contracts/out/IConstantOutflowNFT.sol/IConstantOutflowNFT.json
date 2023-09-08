@@ -1402,25 +1402,25 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantOutflowNFT.sol",
-    "id": 48091,
+    "id": 66350,
     "exportedSymbols": {
       "IConstantOutflowNFT": [
-        48090
+        66349
       ],
       "IFlowNFTBase": [
-        48162
+        66421
       ],
       "ISuperfluidToken": [
-        49877
+        68136
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:1936:33",
+    "src": "32:1936:63",
     "nodes": [
       {
-        "id": 48038,
+        "id": 66297,
         "nodeType": "PragmaDirective",
-        "src": "32:25:33",
+        "src": "32:25:63",
         "nodes": [],
         "literals": [
           "solidity",
@@ -1430,24 +1430,24 @@
         ]
       },
       {
-        "id": 48040,
+        "id": 66299,
         "nodeType": "ImportDirective",
-        "src": "59:58:33",
+        "src": "59:58:63",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluidToken.sol",
         "file": "./ISuperfluidToken.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 48091,
-        "sourceUnit": 49878,
+        "scope": 66350,
+        "sourceUnit": 68137,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 48039,
+              "id": 66298,
               "name": "ISuperfluidToken",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 49877,
-              "src": "68:16:33",
+              "referencedDeclaration": 68136,
+              "src": "68:16:63",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -1456,24 +1456,24 @@
         "unitAlias": ""
       },
       {
-        "id": 48042,
+        "id": 66301,
         "nodeType": "ImportDirective",
-        "src": "118:50:33",
+        "src": "118:50:63",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol",
         "file": "./IFlowNFTBase.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 48091,
-        "sourceUnit": 48163,
+        "scope": 66350,
+        "sourceUnit": 66422,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 48041,
+              "id": 66300,
               "name": "IFlowNFTBase",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 48162,
-              "src": "127:12:33",
+              "referencedDeclaration": 66421,
+              "src": "127:12:63",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -1482,109 +1482,109 @@
         "unitAlias": ""
       },
       {
-        "id": 48090,
+        "id": 66349,
         "nodeType": "ContractDefinition",
-        "src": "170:1797:33",
+        "src": "170:1797:63",
         "nodes": [
           {
-            "id": 48046,
+            "id": 66305,
             "nodeType": "ErrorDefinition",
-            "src": "404:36:33",
+            "src": "404:36:63",
             "nodes": [],
             "errorSelector": "6de98774",
             "name": "COF_NFT_INVALID_SUPER_TOKEN",
-            "nameLocation": "410:27:33",
+            "nameLocation": "410:27:63",
             "parameters": {
-              "id": 48045,
+              "id": 66304,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "437:2:33"
+              "src": "437:2:63"
             }
           },
           {
-            "id": 48048,
+            "id": 66307,
             "nodeType": "ErrorDefinition",
-            "src": "470:47:33",
+            "src": "470:47:63",
             "nodes": [],
             "errorSelector": "a07fa909",
             "name": "COF_NFT_MINT_TO_AND_FLOW_RECEIVER_SAME",
-            "nameLocation": "476:38:33",
+            "nameLocation": "476:38:63",
             "parameters": {
-              "id": 48047,
+              "id": 66306,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "514:2:33"
+              "src": "514:2:63"
             }
           },
           {
-            "id": 48050,
+            "id": 66309,
             "nodeType": "ErrorDefinition",
-            "src": "536:37:33",
+            "src": "536:37:63",
             "nodes": [],
             "errorSelector": "43d05e51",
             "name": "COF_NFT_MINT_TO_ZERO_ADDRESS",
-            "nameLocation": "542:28:33",
+            "nameLocation": "542:28:63",
             "parameters": {
-              "id": 48049,
+              "id": 66308,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "570:2:33"
+              "src": "570:2:63"
             }
           },
           {
-            "id": 48052,
+            "id": 66311,
             "nodeType": "ErrorDefinition",
-            "src": "602:37:33",
+            "src": "602:37:63",
             "nodes": [],
             "errorSelector": "a495a718",
             "name": "COF_NFT_ONLY_CONSTANT_INFLOW",
-            "nameLocation": "608:28:33",
+            "nameLocation": "608:28:63",
             "parameters": {
-              "id": 48051,
+              "id": 66310,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "636:2:33"
+              "src": "636:2:63"
             }
           },
           {
-            "id": 48054,
+            "id": 66313,
             "nodeType": "ErrorDefinition",
-            "src": "668:37:33",
+            "src": "668:37:63",
             "nodes": [],
             "errorSelector": "d367b64f",
             "name": "COF_NFT_ONLY_FLOW_AGREEMENTS",
-            "nameLocation": "674:28:33",
+            "nameLocation": "674:28:63",
             "parameters": {
-              "id": 48053,
+              "id": 66312,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "702:2:33"
+              "src": "702:2:63"
             }
           },
           {
-            "id": 48056,
+            "id": 66315,
             "nodeType": "ErrorDefinition",
-            "src": "734:37:33",
+            "src": "734:37:63",
             "nodes": [],
             "errorSelector": "e2480183",
             "name": "COF_NFT_TOKEN_ALREADY_EXISTS",
-            "nameLocation": "740:28:33",
+            "nameLocation": "740:28:63",
             "parameters": {
-              "id": 48055,
+              "id": 66314,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "768:2:33"
+              "src": "768:2:63"
             }
           },
           {
-            "id": 48067,
+            "id": 66326,
             "nodeType": "FunctionDefinition",
-            "src": "1218:93:33",
+            "src": "1218:93:63",
             "nodes": [],
             "documentation": {
-              "id": 48057,
+              "id": 66316,
               "nodeType": "StructuredDocumentation",
-              "src": "986:227:33",
+              "src": "986:227:63",
               "text": "@notice The onCreate function is called when a new flow is created.\n @param token the super token passed from the CFA (flowVars)\n @param flowSender the flow sender\n @param flowReceiver the flow receiver"
             },
             "functionSelector": "f7e3d983",
@@ -1592,43 +1592,43 @@
             "kind": "function",
             "modifiers": [],
             "name": "onCreate",
-            "nameLocation": "1227:8:33",
+            "nameLocation": "1227:8:63",
             "parameters": {
-              "id": 48065,
+              "id": 66324,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 48060,
+                  "id": 66319,
                   "mutability": "mutable",
                   "name": "token",
-                  "nameLocation": "1253:5:33",
+                  "nameLocation": "1253:5:63",
                   "nodeType": "VariableDeclaration",
-                  "scope": 48067,
-                  "src": "1236:22:33",
+                  "scope": 66326,
+                  "src": "1236:22:63",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperfluidToken_$49877",
+                    "typeIdentifier": "t_contract$_ISuperfluidToken_$68136",
                     "typeString": "contract ISuperfluidToken"
                   },
                   "typeName": {
-                    "id": 48059,
+                    "id": 66318,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 48058,
+                      "id": 66317,
                       "name": "ISuperfluidToken",
                       "nameLocations": [
-                        "1236:16:33"
+                        "1236:16:63"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 49877,
-                      "src": "1236:16:33"
+                      "referencedDeclaration": 68136,
+                      "src": "1236:16:63"
                     },
-                    "referencedDeclaration": 49877,
-                    "src": "1236:16:33",
+                    "referencedDeclaration": 68136,
+                    "src": "1236:16:63",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperfluidToken_$49877",
+                      "typeIdentifier": "t_contract$_ISuperfluidToken_$68136",
                       "typeString": "contract ISuperfluidToken"
                     }
                   },
@@ -1636,13 +1636,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 48062,
+                  "id": 66321,
                   "mutability": "mutable",
                   "name": "flowSender",
-                  "nameLocation": "1268:10:33",
+                  "nameLocation": "1268:10:63",
                   "nodeType": "VariableDeclaration",
-                  "scope": 48067,
-                  "src": "1260:18:33",
+                  "scope": 66326,
+                  "src": "1260:18:63",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1650,10 +1650,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 48061,
+                    "id": 66320,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1260:7:33",
+                    "src": "1260:7:63",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1664,13 +1664,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 48064,
+                  "id": 66323,
                   "mutability": "mutable",
                   "name": "flowReceiver",
-                  "nameLocation": "1288:12:33",
+                  "nameLocation": "1288:12:63",
                   "nodeType": "VariableDeclaration",
-                  "scope": 48067,
-                  "src": "1280:20:33",
+                  "scope": 66326,
+                  "src": "1280:20:63",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1678,10 +1678,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 48063,
+                    "id": 66322,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1280:7:33",
+                    "src": "1280:7:63",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1691,28 +1691,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1235:66:33"
+              "src": "1235:66:63"
             },
             "returnParameters": {
-              "id": 48066,
+              "id": 66325,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1310:0:33"
+              "src": "1310:0:63"
             },
-            "scope": 48090,
+            "scope": 66349,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 48078,
+            "id": 66337,
             "nodeType": "FunctionDefinition",
-            "src": "1545:93:33",
+            "src": "1545:93:63",
             "nodes": [],
             "documentation": {
-              "id": 48068,
+              "id": 66327,
               "nodeType": "StructuredDocumentation",
-              "src": "1317:223:33",
+              "src": "1317:223:63",
               "text": "@notice The onUpdate function is called when a flow is updated.\n @param token the super token passed from the CFA (flowVars)\n @param flowSender the flow sender\n @param flowReceiver the flow receiver"
             },
             "functionSelector": "eb54a7ca",
@@ -1720,43 +1720,43 @@
             "kind": "function",
             "modifiers": [],
             "name": "onUpdate",
-            "nameLocation": "1554:8:33",
+            "nameLocation": "1554:8:63",
             "parameters": {
-              "id": 48076,
+              "id": 66335,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 48071,
+                  "id": 66330,
                   "mutability": "mutable",
                   "name": "token",
-                  "nameLocation": "1580:5:33",
+                  "nameLocation": "1580:5:63",
                   "nodeType": "VariableDeclaration",
-                  "scope": 48078,
-                  "src": "1563:22:33",
+                  "scope": 66337,
+                  "src": "1563:22:63",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperfluidToken_$49877",
+                    "typeIdentifier": "t_contract$_ISuperfluidToken_$68136",
                     "typeString": "contract ISuperfluidToken"
                   },
                   "typeName": {
-                    "id": 48070,
+                    "id": 66329,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 48069,
+                      "id": 66328,
                       "name": "ISuperfluidToken",
                       "nameLocations": [
-                        "1563:16:33"
+                        "1563:16:63"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 49877,
-                      "src": "1563:16:33"
+                      "referencedDeclaration": 68136,
+                      "src": "1563:16:63"
                     },
-                    "referencedDeclaration": 49877,
-                    "src": "1563:16:33",
+                    "referencedDeclaration": 68136,
+                    "src": "1563:16:63",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperfluidToken_$49877",
+                      "typeIdentifier": "t_contract$_ISuperfluidToken_$68136",
                       "typeString": "contract ISuperfluidToken"
                     }
                   },
@@ -1764,13 +1764,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 48073,
+                  "id": 66332,
                   "mutability": "mutable",
                   "name": "flowSender",
-                  "nameLocation": "1595:10:33",
+                  "nameLocation": "1595:10:63",
                   "nodeType": "VariableDeclaration",
-                  "scope": 48078,
-                  "src": "1587:18:33",
+                  "scope": 66337,
+                  "src": "1587:18:63",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1778,10 +1778,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 48072,
+                    "id": 66331,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1587:7:33",
+                    "src": "1587:7:63",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1792,13 +1792,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 48075,
+                  "id": 66334,
                   "mutability": "mutable",
                   "name": "flowReceiver",
-                  "nameLocation": "1615:12:33",
+                  "nameLocation": "1615:12:63",
                   "nodeType": "VariableDeclaration",
-                  "scope": 48078,
-                  "src": "1607:20:33",
+                  "scope": 66337,
+                  "src": "1607:20:63",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1806,10 +1806,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 48074,
+                    "id": 66333,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1607:7:33",
+                    "src": "1607:7:63",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1819,28 +1819,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1562:66:33"
+              "src": "1562:66:63"
             },
             "returnParameters": {
-              "id": 48077,
+              "id": 66336,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1637:0:33"
+              "src": "1637:0:63"
             },
-            "scope": 48090,
+            "scope": 66349,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 48089,
+            "id": 66348,
             "nodeType": "FunctionDefinition",
-            "src": "1872:93:33",
+            "src": "1872:93:63",
             "nodes": [],
             "documentation": {
-              "id": 48079,
+              "id": 66338,
               "nodeType": "StructuredDocumentation",
-              "src": "1644:223:33",
+              "src": "1644:223:63",
               "text": "@notice The onDelete function is called when a flow is deleted.\n @param token the super token passed from the CFA (flowVars)\n @param flowSender the flow sender\n @param flowReceiver the flow receiver"
             },
             "functionSelector": "ef1f0237",
@@ -1848,43 +1848,43 @@
             "kind": "function",
             "modifiers": [],
             "name": "onDelete",
-            "nameLocation": "1881:8:33",
+            "nameLocation": "1881:8:63",
             "parameters": {
-              "id": 48087,
+              "id": 66346,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 48082,
+                  "id": 66341,
                   "mutability": "mutable",
                   "name": "token",
-                  "nameLocation": "1907:5:33",
+                  "nameLocation": "1907:5:63",
                   "nodeType": "VariableDeclaration",
-                  "scope": 48089,
-                  "src": "1890:22:33",
+                  "scope": 66348,
+                  "src": "1890:22:63",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperfluidToken_$49877",
+                    "typeIdentifier": "t_contract$_ISuperfluidToken_$68136",
                     "typeString": "contract ISuperfluidToken"
                   },
                   "typeName": {
-                    "id": 48081,
+                    "id": 66340,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 48080,
+                      "id": 66339,
                       "name": "ISuperfluidToken",
                       "nameLocations": [
-                        "1890:16:33"
+                        "1890:16:63"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 49877,
-                      "src": "1890:16:33"
+                      "referencedDeclaration": 68136,
+                      "src": "1890:16:63"
                     },
-                    "referencedDeclaration": 49877,
-                    "src": "1890:16:33",
+                    "referencedDeclaration": 68136,
+                    "src": "1890:16:63",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperfluidToken_$49877",
+                      "typeIdentifier": "t_contract$_ISuperfluidToken_$68136",
                       "typeString": "contract ISuperfluidToken"
                     }
                   },
@@ -1892,13 +1892,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 48084,
+                  "id": 66343,
                   "mutability": "mutable",
                   "name": "flowSender",
-                  "nameLocation": "1922:10:33",
+                  "nameLocation": "1922:10:63",
                   "nodeType": "VariableDeclaration",
-                  "scope": 48089,
-                  "src": "1914:18:33",
+                  "scope": 66348,
+                  "src": "1914:18:63",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1906,10 +1906,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 48083,
+                    "id": 66342,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1914:7:33",
+                    "src": "1914:7:63",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1920,13 +1920,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 48086,
+                  "id": 66345,
                   "mutability": "mutable",
                   "name": "flowReceiver",
-                  "nameLocation": "1942:12:33",
+                  "nameLocation": "1942:12:63",
                   "nodeType": "VariableDeclaration",
-                  "scope": 48089,
-                  "src": "1934:20:33",
+                  "scope": 66348,
+                  "src": "1934:20:63",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1934,10 +1934,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 48085,
+                    "id": 66344,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1934:7:33",
+                    "src": "1934:7:63",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1947,15 +1947,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1889:66:33"
+              "src": "1889:66:63"
             },
             "returnParameters": {
-              "id": 48088,
+              "id": 66347,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1964:0:33"
+              "src": "1964:0:63"
             },
-            "scope": 48090,
+            "scope": 66349,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1965,18 +1965,18 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 48043,
+              "id": 66302,
               "name": "IFlowNFTBase",
               "nameLocations": [
-                "203:12:33"
+                "203:12:63"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 48162,
-              "src": "203:12:33"
+              "referencedDeclaration": 66421,
+              "src": "203:12:63"
             },
-            "id": 48044,
+            "id": 66303,
             "nodeType": "InheritanceSpecifier",
-            "src": "203:12:33"
+            "src": "203:12:63"
           }
         ],
         "canonicalName": "IConstantOutflowNFT",
@@ -1984,35 +1984,35 @@
         "contractKind": "interface",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          48090,
-          48162,
-          43396,
-          43369,
-          43571
+          66349,
+          66421,
+          45241,
+          45214,
+          46061
         ],
         "name": "IConstantOutflowNFT",
-        "nameLocation": "180:19:33",
-        "scope": 48091,
+        "nameLocation": "180:19:63",
+        "scope": 66350,
         "usedErrors": [
-          48046,
-          48048,
-          48050,
-          48052,
-          48054,
-          48056,
-          48107,
-          48109,
-          48111,
-          48113,
-          48115,
-          48117,
-          48119,
-          48121,
-          48123
+          66305,
+          66307,
+          66309,
+          66311,
+          66313,
+          66315,
+          66366,
+          66368,
+          66370,
+          66372,
+          66374,
+          66376,
+          66378,
+          66380,
+          66382
         ]
       }
     ],
     "license": "MIT"
   },
-  "id": 33
+  "id": 63
 }

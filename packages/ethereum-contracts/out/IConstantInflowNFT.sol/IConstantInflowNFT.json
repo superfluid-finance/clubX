@@ -1249,22 +1249,22 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantInflowNFT.sol",
-    "id": 48037,
+    "id": 66296,
     "exportedSymbols": {
       "IConstantInflowNFT": [
-        48036
+        66295
       ],
       "IFlowNFTBase": [
-        48162
+        66421
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:1281:32",
+    "src": "32:1281:62",
     "nodes": [
       {
-        "id": 48015,
+        "id": 66274,
         "nodeType": "PragmaDirective",
-        "src": "32:25:32",
+        "src": "32:25:62",
         "nodes": [],
         "literals": [
           "solidity",
@@ -1274,24 +1274,24 @@
         ]
       },
       {
-        "id": 48017,
+        "id": 66276,
         "nodeType": "ImportDirective",
-        "src": "59:50:32",
+        "src": "59:50:62",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol",
         "file": "./IFlowNFTBase.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 48037,
-        "sourceUnit": 48163,
+        "scope": 66296,
+        "sourceUnit": 66422,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 48016,
+              "id": 66275,
               "name": "IFlowNFTBase",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 48162,
-              "src": "68:12:32",
+              "referencedDeclaration": 66421,
+              "src": "68:12:62",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -1300,34 +1300,34 @@
         "unitAlias": ""
       },
       {
-        "id": 48036,
+        "id": 66295,
         "nodeType": "ContractDefinition",
-        "src": "111:1201:32",
+        "src": "111:1201:62",
         "nodes": [
           {
-            "id": 48021,
+            "id": 66280,
             "nodeType": "ErrorDefinition",
-            "src": "343:38:32",
+            "src": "343:38:62",
             "nodes": [],
             "errorSelector": "e81ef57a",
             "name": "CIF_NFT_ONLY_CONSTANT_OUTFLOW",
-            "nameLocation": "349:29:32",
+            "nameLocation": "349:29:62",
             "parameters": {
-              "id": 48020,
+              "id": 66279,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "378:2:32"
+              "src": "378:2:62"
             }
           },
           {
-            "id": 48029,
+            "id": 66288,
             "nodeType": "FunctionDefinition",
-            "src": "923:55:32",
+            "src": "923:55:62",
             "nodes": [],
             "documentation": {
-              "id": 48022,
+              "id": 66281,
               "nodeType": "StructuredDocumentation",
-              "src": "585:333:32",
+              "src": "585:333:62",
               "text": "@notice The mint function emits the \"mint\" `Transfer` event.\n @dev We don't modify storage as this is handled in ConstantOutflowNFT.sol and this function's sole purpose\n is to inform clients that search for events.\n @param to the flow receiver (inflow NFT receiver)\n @param newTokenId the new token id"
             },
             "functionSelector": "40c10f19",
@@ -1335,20 +1335,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "mint",
-            "nameLocation": "932:4:32",
+            "nameLocation": "932:4:62",
             "parameters": {
-              "id": 48027,
+              "id": 66286,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 48024,
+                  "id": 66283,
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "945:2:32",
+                  "nameLocation": "945:2:62",
                   "nodeType": "VariableDeclaration",
-                  "scope": 48029,
-                  "src": "937:10:32",
+                  "scope": 66288,
+                  "src": "937:10:62",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1356,10 +1356,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 48023,
+                    "id": 66282,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "937:7:32",
+                    "src": "937:7:62",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1370,13 +1370,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 48026,
+                  "id": 66285,
                   "mutability": "mutable",
                   "name": "newTokenId",
-                  "nameLocation": "957:10:32",
+                  "nameLocation": "957:10:62",
                   "nodeType": "VariableDeclaration",
-                  "scope": 48029,
-                  "src": "949:18:32",
+                  "scope": 66288,
+                  "src": "949:18:62",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1384,10 +1384,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 48025,
+                    "id": 66284,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "949:7:32",
+                    "src": "949:7:62",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1396,28 +1396,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "936:32:32"
+              "src": "936:32:62"
             },
             "returnParameters": {
-              "id": 48028,
+              "id": 66287,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "977:0:32"
+              "src": "977:0:62"
             },
-            "scope": 48036,
+            "scope": 66295,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 48035,
+            "id": 66294,
             "nodeType": "FunctionDefinition",
-            "src": "1270:40:32",
+            "src": "1270:40:62",
             "nodes": [],
             "documentation": {
-              "id": 48030,
+              "id": 66289,
               "nodeType": "StructuredDocumentation",
-              "src": "984:281:32",
+              "src": "984:281:62",
               "text": "@notice This burn function emits the \"burn\" `Transfer` event.\n @dev We don't modify storage as this is handled in ConstantOutflowNFT.sol and this function's sole purpose\n is to inform clients that search for events.\n @param tokenId desired token id to burn"
             },
             "functionSelector": "42966c68",
@@ -1425,20 +1425,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "burn",
-            "nameLocation": "1279:4:32",
+            "nameLocation": "1279:4:62",
             "parameters": {
-              "id": 48033,
+              "id": 66292,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 48032,
+                  "id": 66291,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "1292:7:32",
+                  "nameLocation": "1292:7:62",
                   "nodeType": "VariableDeclaration",
-                  "scope": 48035,
-                  "src": "1284:15:32",
+                  "scope": 66294,
+                  "src": "1284:15:62",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1446,10 +1446,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 48031,
+                    "id": 66290,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1284:7:32",
+                    "src": "1284:7:62",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1458,15 +1458,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1283:17:32"
+              "src": "1283:17:62"
             },
             "returnParameters": {
-              "id": 48034,
+              "id": 66293,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1309:0:32"
+              "src": "1309:0:62"
             },
-            "scope": 48036,
+            "scope": 66295,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1476,18 +1476,18 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 48018,
+              "id": 66277,
               "name": "IFlowNFTBase",
               "nameLocations": [
-                "143:12:32"
+                "143:12:62"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 48162,
-              "src": "143:12:32"
+              "referencedDeclaration": 66421,
+              "src": "143:12:62"
             },
-            "id": 48019,
+            "id": 66278,
             "nodeType": "InheritanceSpecifier",
-            "src": "143:12:32"
+            "src": "143:12:62"
           }
         ],
         "canonicalName": "IConstantInflowNFT",
@@ -1495,30 +1495,30 @@
         "contractKind": "interface",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          48036,
-          48162,
-          43396,
-          43369,
-          43571
+          66295,
+          66421,
+          45241,
+          45214,
+          46061
         ],
         "name": "IConstantInflowNFT",
-        "nameLocation": "121:18:32",
-        "scope": 48037,
+        "nameLocation": "121:18:62",
+        "scope": 66296,
         "usedErrors": [
-          48021,
-          48107,
-          48109,
-          48111,
-          48113,
-          48115,
-          48117,
-          48119,
-          48121,
-          48123
+          66280,
+          66366,
+          66368,
+          66370,
+          66372,
+          66374,
+          66376,
+          66378,
+          66380,
+          66382
         ]
       }
     ],
     "license": "MIT"
   },
-  "id": 32
+  "id": 62
 }

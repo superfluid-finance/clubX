@@ -286,13 +286,13 @@
     "id": 168,
     "exportedSymbols": {
       "IERC20": [
-        43253
+        44661
       ],
       "ISuperToken": [
-        48779
+        67038
       ],
       "ISuperTokenFactory": [
-        48909
+        67168
       ],
       "SuperTokenBase": [
         167
@@ -380,7 +380,7 @@
         "file": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
         "nameLocation": "-1:-1:-1",
         "scope": 168,
-        "sourceUnit": 43254,
+        "sourceUnit": 44662,
         "symbolAliases": [
           {
             "foreign": {
@@ -388,7 +388,7 @@
               "name": "IERC20",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 43253,
+              "referencedDeclaration": 44661,
               "src": "183:6:0",
               "typeDescriptions": {}
             },
@@ -406,7 +406,7 @@
         "file": "@superfluid-finance/ethereum-contracts/contracts/interfaces/superfluid/ISuperToken.sol",
         "nameLocation": "-1:-1:-1",
         "scope": 168,
-        "sourceUnit": 48780,
+        "sourceUnit": 67039,
         "symbolAliases": [
           {
             "foreign": {
@@ -414,7 +414,7 @@
               "name": "ISuperToken",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 48779,
+              "referencedDeclaration": 67038,
               "src": "254:11:0",
               "typeDescriptions": {}
             },
@@ -432,7 +432,7 @@
         "file": "@superfluid-finance/ethereum-contracts/contracts/interfaces/superfluid/ISuperTokenFactory.sol",
         "nameLocation": "-1:-1:-1",
         "scope": 168,
-        "sourceUnit": 48910,
+        "sourceUnit": 67169,
         "symbolAliases": [
           {
             "foreign": {
@@ -440,7 +440,7 @@
               "name": "ISuperTokenFactory",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 48909,
+              "referencedDeclaration": 67168,
               "src": "370:18:0",
               "typeDescriptions": {}
             },
@@ -559,10 +559,10 @@
                           "name": "ISuperTokenFactory",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 48909,
+                          "referencedDeclaration": 67168,
                           "src": "1114:18:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ISuperTokenFactory_$48909_$",
+                            "typeIdentifier": "t_type$_t_contract$_ISuperTokenFactory_$67168_$",
                             "typeString": "type(contract ISuperTokenFactory)"
                           }
                         },
@@ -578,7 +578,7 @@
                         "src": "1114:27:0",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ISuperTokenFactory_$48909",
+                          "typeIdentifier": "t_contract$_ISuperTokenFactory_$67168",
                           "typeString": "contract ISuperTokenFactory"
                         }
                       },
@@ -590,7 +590,7 @@
                       "memberLocation": "1142:26:0",
                       "memberName": "initializeCustomSuperToken",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 48890,
+                      "referencedDeclaration": 67149,
                       "src": "1114:54:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$__$",
@@ -695,10 +695,10 @@
                           "name": "IERC20",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 43253,
+                          "referencedDeclaration": 44661,
                           "src": "1225:6:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_IERC20_$43253_$",
+                            "typeIdentifier": "t_type$_t_contract$_IERC20_$44661_$",
                             "typeString": "type(contract IERC20)"
                           }
                         },
@@ -714,7 +714,7 @@
                         "src": "1225:18:0",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IERC20_$43253",
+                          "typeIdentifier": "t_contract$_IERC20_$44661",
                           "typeString": "contract IERC20"
                         }
                       },
@@ -762,7 +762,7 @@
                     "expression": {
                       "argumentTypes": [
                         {
-                          "typeIdentifier": "t_contract$_IERC20_$43253",
+                          "typeIdentifier": "t_contract$_IERC20_$44661",
                           "typeString": "contract IERC20"
                         },
                         {
@@ -849,10 +849,10 @@
                           "name": "ISuperToken",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 48779,
+                          "referencedDeclaration": 67038,
                           "src": "1187:11:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ISuperToken_$48779_$",
+                            "typeIdentifier": "t_type$_t_contract$_ISuperToken_$67038_$",
                             "typeString": "type(contract ISuperToken)"
                           }
                         },
@@ -868,7 +868,7 @@
                         "src": "1187:26:0",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ISuperToken_$48779",
+                          "typeIdentifier": "t_contract$_ISuperToken_$67038",
                           "typeString": "contract ISuperToken"
                         }
                       },
@@ -880,10 +880,10 @@
                       "memberLocation": "1214:10:0",
                       "memberName": "initialize",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 48375,
+                      "referencedDeclaration": 66634,
                       "src": "1187:37:0",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_function_external_nonpayable$_t_contract$_IERC20_$43253_$_t_uint8_$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
+                        "typeIdentifier": "t_function_external_nonpayable$_t_contract$_IERC20_$44661_$_t_uint8_$_t_string_memory_ptr_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (contract IERC20,uint8,string memory,string memory) external"
                       }
                     },
@@ -1107,10 +1107,10 @@
                           "name": "ISuperToken",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 48779,
+                          "referencedDeclaration": 67038,
                           "src": "1393:11:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ISuperToken_$48779_$",
+                            "typeIdentifier": "t_type$_t_contract$_ISuperToken_$67038_$",
                             "typeString": "type(contract ISuperToken)"
                           }
                         },
@@ -1126,7 +1126,7 @@
                         "src": "1393:26:0",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ISuperToken_$48779",
+                          "typeIdentifier": "t_contract$_ISuperToken_$67038",
                           "typeString": "contract ISuperToken"
                         }
                       },
@@ -1138,7 +1138,7 @@
                       "memberLocation": "1420:11:0",
                       "memberName": "totalSupply",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 48422,
+                      "referencedDeclaration": 66681,
                       "src": "1393:38:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$__$returns$_t_uint256_$",
@@ -1361,10 +1361,10 @@
                           "name": "ISuperToken",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 48779,
+                          "referencedDeclaration": 67038,
                           "src": "1760:11:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ISuperToken_$48779_$",
+                            "typeIdentifier": "t_type$_t_contract$_ISuperToken_$67038_$",
                             "typeString": "type(contract ISuperToken)"
                           }
                         },
@@ -1380,7 +1380,7 @@
                         "src": "1760:26:0",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ISuperToken_$48779",
+                          "typeIdentifier": "t_contract$_ISuperToken_$67038",
                           "typeString": "contract ISuperToken"
                         }
                       },
@@ -1392,7 +1392,7 @@
                       "memberLocation": "1787:8:0",
                       "memberName": "selfMint",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 48610,
+                      "referencedDeclaration": 66869,
                       "src": "1760:35:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$_t_bytes_memory_ptr_$returns$__$",
@@ -1669,10 +1669,10 @@
                           "name": "ISuperToken",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 48779,
+                          "referencedDeclaration": 67038,
                           "src": "2136:11:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ISuperToken_$48779_$",
+                            "typeIdentifier": "t_type$_t_contract$_ISuperToken_$67038_$",
                             "typeString": "type(contract ISuperToken)"
                           }
                         },
@@ -1688,7 +1688,7 @@
                         "src": "2136:26:0",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ISuperToken_$48779",
+                          "typeIdentifier": "t_contract$_ISuperToken_$67038",
                           "typeString": "contract ISuperToken"
                         }
                       },
@@ -1700,7 +1700,7 @@
                       "memberLocation": "2163:8:0",
                       "memberName": "selfBurn",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 48620,
+                      "referencedDeclaration": 66879,
                       "src": "2136:35:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_uint256_$_t_bytes_memory_ptr_$returns$__$",
@@ -1977,10 +1977,10 @@
                           "name": "ISuperToken",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 48779,
+                          "referencedDeclaration": 67038,
                           "src": "2490:11:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ISuperToken_$48779_$",
+                            "typeIdentifier": "t_type$_t_contract$_ISuperToken_$67038_$",
                             "typeString": "type(contract ISuperToken)"
                           }
                         },
@@ -1996,7 +1996,7 @@
                         "src": "2490:26:0",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ISuperToken_$48779",
+                          "typeIdentifier": "t_contract$_ISuperToken_$67038",
                           "typeString": "contract ISuperToken"
                         }
                       },
@@ -2008,7 +2008,7 @@
                       "memberLocation": "2517:14:0",
                       "memberName": "selfApproveFor",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 48642,
+                      "referencedDeclaration": 66901,
                       "src": "2490:41:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -2302,10 +2302,10 @@
                           "name": "ISuperToken",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 48779,
+                          "referencedDeclaration": 67038,
                           "src": "2973:11:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ISuperToken_$48779_$",
+                            "typeIdentifier": "t_type$_t_contract$_ISuperToken_$67038_$",
                             "typeString": "type(contract ISuperToken)"
                           }
                         },
@@ -2321,7 +2321,7 @@
                         "src": "2973:26:0",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ISuperToken_$48779",
+                          "typeIdentifier": "t_contract$_ISuperToken_$67038",
                           "typeString": "contract ISuperToken"
                         }
                       },
@@ -2333,7 +2333,7 @@
                       "memberLocation": "3000:16:0",
                       "memberName": "selfTransferFrom",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 48632,
+                      "referencedDeclaration": 66891,
                       "src": "2973:43:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_address_$_t_address_$_t_uint256_$returns$__$",
@@ -2549,7 +2549,7 @@
         "linearizedBaseContracts": [
           167,
           231,
-          43175,
+          43827,
           175
         ],
         "name": "SuperTokenBase",

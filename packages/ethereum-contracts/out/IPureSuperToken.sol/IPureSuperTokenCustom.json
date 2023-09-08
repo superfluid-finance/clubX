@@ -214,25 +214,25 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/IPureSuperToken.sol",
-    "id": 68131,
+    "id": 68170,
     "exportedSymbols": {
       "IPureSuperToken": [
-        68130
+        68169
       ],
       "IPureSuperTokenCustom": [
-        68124
+        68163
       ],
       "ISuperToken": [
-        66999
+        67038
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:483:74",
+    "src": "32:483:75",
     "nodes": [
       {
-        "id": 68111,
+        "id": 68150,
         "nodeType": "PragmaDirective",
-        "src": "32:26:74",
+        "src": "32:26:75",
         "nodes": [],
         "literals": [
           "solidity",
@@ -242,24 +242,24 @@
         ]
       },
       {
-        "id": 68113,
+        "id": 68152,
         "nodeType": "ImportDirective",
-        "src": "60:60:74",
+        "src": "60:60:75",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperToken.sol",
         "file": "../superfluid/ISuperToken.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 68131,
-        "sourceUnit": 67000,
+        "scope": 68170,
+        "sourceUnit": 67039,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 68112,
+              "id": 68151,
               "name": "ISuperToken",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 66999,
-              "src": "69:11:74",
+              "referencedDeclaration": 67038,
+              "src": "69:11:75",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -268,34 +268,34 @@
         "unitAlias": ""
       },
       {
-        "id": 68124,
+        "id": 68163,
         "nodeType": "ContractDefinition",
-        "src": "196:138:74",
+        "src": "196:138:75",
         "nodes": [
           {
-            "id": 68123,
+            "id": 68162,
             "nodeType": "FunctionDefinition",
-            "src": "234:98:74",
+            "src": "234:98:75",
             "nodes": [],
             "functionSelector": "b119490e",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "initialize",
-            "nameLocation": "243:10:74",
+            "nameLocation": "243:10:75",
             "parameters": {
-              "id": 68121,
+              "id": 68160,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68116,
+                  "id": 68155,
                   "mutability": "mutable",
                   "name": "name",
-                  "nameLocation": "270:4:74",
+                  "nameLocation": "270:4:75",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68123,
-                  "src": "254:20:74",
+                  "scope": 68162,
+                  "src": "254:20:75",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -303,10 +303,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 68115,
+                    "id": 68154,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "254:6:74",
+                    "src": "254:6:75",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -316,13 +316,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 68118,
+                  "id": 68157,
                   "mutability": "mutable",
                   "name": "symbol",
-                  "nameLocation": "292:6:74",
+                  "nameLocation": "292:6:75",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68123,
-                  "src": "276:22:74",
+                  "scope": 68162,
+                  "src": "276:22:75",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -330,10 +330,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 68117,
+                    "id": 68156,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "276:6:74",
+                    "src": "276:6:75",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -343,13 +343,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 68120,
+                  "id": 68159,
                   "mutability": "mutable",
                   "name": "initialSupply",
-                  "nameLocation": "308:13:74",
+                  "nameLocation": "308:13:75",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68123,
-                  "src": "300:21:74",
+                  "scope": 68162,
+                  "src": "300:21:75",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -357,10 +357,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 68119,
+                    "id": 68158,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "300:7:74",
+                    "src": "300:7:75",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -369,15 +369,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "253:69:74"
+              "src": "253:69:75"
             },
             "returnParameters": {
-              "id": 68122,
+              "id": 68161,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "331:0:74"
+              "src": "331:0:75"
             },
-            "scope": 68124,
+            "scope": 68163,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -389,105 +389,105 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 68114,
+          "id": 68153,
           "nodeType": "StructuredDocumentation",
-          "src": "122:73:74",
+          "src": "122:73:75",
           "text": " @title Pure Super Token custom interface\n @author Superfluid"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          68124
+          68163
         ],
         "name": "IPureSuperTokenCustom",
-        "nameLocation": "206:21:74",
-        "scope": 68131,
+        "nameLocation": "206:21:75",
+        "scope": 68170,
         "usedErrors": []
       },
       {
-        "id": 68130,
+        "id": 68169,
         "nodeType": "ContractDefinition",
-        "src": "448:66:74",
+        "src": "448:66:75",
         "nodes": [],
         "abstract": false,
         "baseContracts": [
           {
             "baseName": {
-              "id": 68126,
+              "id": 68165,
               "name": "IPureSuperTokenCustom",
               "nameLocations": [
-                "477:21:74"
+                "477:21:75"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 68124,
-              "src": "477:21:74"
+              "referencedDeclaration": 68163,
+              "src": "477:21:75"
             },
-            "id": 68127,
+            "id": 68166,
             "nodeType": "InheritanceSpecifier",
-            "src": "477:21:74"
+            "src": "477:21:75"
           },
           {
             "baseName": {
-              "id": 68128,
+              "id": 68167,
               "name": "ISuperToken",
               "nameLocations": [
-                "500:11:74"
+                "500:11:75"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 66999,
-              "src": "500:11:74"
+              "referencedDeclaration": 67038,
+              "src": "500:11:75"
             },
-            "id": 68129,
+            "id": 68168,
             "nodeType": "InheritanceSpecifier",
-            "src": "500:11:74"
+            "src": "500:11:75"
           }
         ],
         "canonicalName": "IPureSuperToken",
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 68125,
+          "id": 68164,
           "nodeType": "StructuredDocumentation",
-          "src": "336:66:74",
+          "src": "336:66:75",
           "text": " @title Pure Super Token interface\n @author Superfluid"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          68130,
-          66999,
-          45365,
-          44622,
-          68177,
-          68097,
-          68124
+          68169,
+          67038,
+          45404,
+          44661,
+          68216,
+          68136,
+          68163
         ],
         "name": "IPureSuperToken",
-        "nameLocation": "458:15:74",
-        "scope": 68131,
+        "nameLocation": "458:15:75",
+        "scope": 68170,
         "usedErrors": [
-          66556,
-          66558,
-          66560,
-          66562,
-          66564,
-          66566,
-          66568,
-          66570,
-          66572,
-          66574,
-          66576,
-          66578,
-          66580,
-          66582,
-          67818,
-          67820,
-          67822,
-          67824,
-          67826,
-          67828
+          66595,
+          66597,
+          66599,
+          66601,
+          66603,
+          66605,
+          66607,
+          66609,
+          66611,
+          66613,
+          66615,
+          66617,
+          66619,
+          66621,
+          67857,
+          67859,
+          67861,
+          67863,
+          67865,
+          67867
         ]
       }
     ],
     "license": "MIT"
   },
-  "id": 74
+  "id": 75
 }

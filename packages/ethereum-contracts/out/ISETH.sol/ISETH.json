@@ -4249,25 +4249,25 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/ISETH.sol",
-    "id": 49915,
+    "id": 68195,
     "exportedSymbols": {
       "ISETH": [
-        49914
+        68194
       ],
       "ISETHCustom": [
-        49908
+        68188
       ],
       "ISuperToken": [
-        48779
+        67038
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:540:45",
+    "src": "32:540:76",
     "nodes": [
       {
-        "id": 49891,
+        "id": 68171,
         "nodeType": "PragmaDirective",
-        "src": "32:26:45",
+        "src": "32:26:76",
         "nodes": [],
         "literals": [
           "solidity",
@@ -4277,24 +4277,24 @@
         ]
       },
       {
-        "id": 49893,
+        "id": 68173,
         "nodeType": "ImportDirective",
-        "src": "60:60:45",
+        "src": "60:60:76",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperToken.sol",
         "file": "../superfluid/ISuperToken.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 49915,
-        "sourceUnit": 48780,
+        "scope": 68195,
+        "sourceUnit": 67039,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 49892,
+              "id": 68172,
               "name": "ISuperToken",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 48779,
-              "src": "69:11:45",
+              "referencedDeclaration": 67038,
+              "src": "69:11:76",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -4303,62 +4303,62 @@
         "unitAlias": ""
       },
       {
-        "id": 49908,
+        "id": 68188,
         "nodeType": "ContractDefinition",
-        "src": "203:203:45",
+        "src": "203:203:76",
         "nodes": [
           {
-            "id": 49897,
+            "id": 68177,
             "nodeType": "FunctionDefinition",
-            "src": "257:41:45",
+            "src": "257:41:76",
             "nodes": [],
             "functionSelector": "cf81464b",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "upgradeByETH",
-            "nameLocation": "266:12:45",
+            "nameLocation": "266:12:76",
             "parameters": {
-              "id": 49895,
+              "id": 68175,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "278:2:45"
+              "src": "278:2:76"
             },
             "returnParameters": {
-              "id": 49896,
+              "id": 68176,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "297:0:45"
+              "src": "297:0:76"
             },
-            "scope": 49908,
+            "scope": 68188,
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 49902,
+            "id": 68182,
             "nodeType": "FunctionDefinition",
-            "src": "303:53:45",
+            "src": "303:53:76",
             "nodes": [],
             "functionSelector": "7687d19b",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "upgradeByETHTo",
-            "nameLocation": "312:14:45",
+            "nameLocation": "312:14:76",
             "parameters": {
-              "id": 49900,
+              "id": 68180,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 49899,
+                  "id": 68179,
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "335:2:45",
+                  "nameLocation": "335:2:76",
                   "nodeType": "VariableDeclaration",
-                  "scope": 49902,
-                  "src": "327:10:45",
+                  "scope": 68182,
+                  "src": "327:10:76",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4366,10 +4366,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 49898,
+                    "id": 68178,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "327:7:45",
+                    "src": "327:7:76",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -4379,43 +4379,43 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "326:12:45"
+              "src": "326:12:76"
             },
             "returnParameters": {
-              "id": 49901,
+              "id": 68181,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "355:0:45"
+              "src": "355:0:76"
             },
-            "scope": 49908,
+            "scope": 68188,
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 49907,
+            "id": 68187,
             "nodeType": "FunctionDefinition",
-            "src": "361:43:45",
+            "src": "361:43:76",
             "nodes": [],
             "functionSelector": "160e8be3",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "downgradeToETH",
-            "nameLocation": "370:14:45",
+            "nameLocation": "370:14:76",
             "parameters": {
-              "id": 49905,
+              "id": 68185,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 49904,
+                  "id": 68184,
                   "mutability": "mutable",
                   "name": "wad",
-                  "nameLocation": "390:3:45",
+                  "nameLocation": "390:3:76",
                   "nodeType": "VariableDeclaration",
-                  "scope": 49907,
-                  "src": "385:8:45",
+                  "scope": 68187,
+                  "src": "385:8:76",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -4423,10 +4423,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 49903,
+                    "id": 68183,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "385:4:45",
+                    "src": "385:4:76",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -4435,15 +4435,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "384:10:45"
+              "src": "384:10:76"
             },
             "returnParameters": {
-              "id": 49906,
+              "id": 68186,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "403:0:45"
+              "src": "403:0:76"
             },
-            "scope": 49908,
+            "scope": 68188,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -4455,105 +4455,105 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 49894,
+          "id": 68174,
           "nodeType": "StructuredDocumentation",
-          "src": "123:79:45",
+          "src": "123:79:76",
           "text": " @title Super ETH (SETH) custom token interface\n @author Superfluid"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          49908
+          68188
         ],
         "name": "ISETHCustom",
-        "nameLocation": "213:11:45",
-        "scope": 49915,
+        "nameLocation": "213:11:76",
+        "scope": 68195,
         "usedErrors": []
       },
       {
-        "id": 49914,
+        "id": 68194,
         "nodeType": "ContractDefinition",
-        "src": "525:46:45",
+        "src": "525:46:76",
         "nodes": [],
         "abstract": false,
         "baseContracts": [
           {
             "baseName": {
-              "id": 49910,
+              "id": 68190,
               "name": "ISETHCustom",
               "nameLocations": [
-                "544:11:45"
+                "544:11:76"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 49908,
-              "src": "544:11:45"
+              "referencedDeclaration": 68188,
+              "src": "544:11:76"
             },
-            "id": 49911,
+            "id": 68191,
             "nodeType": "InheritanceSpecifier",
-            "src": "544:11:45"
+            "src": "544:11:76"
           },
           {
             "baseName": {
-              "id": 49912,
+              "id": 68192,
               "name": "ISuperToken",
               "nameLocations": [
-                "557:11:45"
+                "557:11:76"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 48779,
-              "src": "557:11:45"
+              "referencedDeclaration": 67038,
+              "src": "557:11:76"
             },
-            "id": 49913,
+            "id": 68193,
             "nodeType": "InheritanceSpecifier",
-            "src": "557:11:45"
+            "src": "557:11:76"
           }
         ],
         "canonicalName": "ISETH",
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 49909,
+          "id": 68189,
           "nodeType": "StructuredDocumentation",
-          "src": "408:71:45",
+          "src": "408:71:76",
           "text": " @title Super ETH (SETH) full interface\n @author Superfluid"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          49914,
-          48779,
-          43559,
-          43253,
-          49936,
-          49877,
-          49908
+          68194,
+          67038,
+          45404,
+          44661,
+          68216,
+          68136,
+          68188
         ],
         "name": "ISETH",
-        "nameLocation": "535:5:45",
-        "scope": 49915,
+        "nameLocation": "535:5:76",
+        "scope": 68195,
         "usedErrors": [
-          48336,
-          48338,
-          48340,
-          48342,
-          48344,
-          48346,
-          48348,
-          48350,
-          48352,
-          48354,
-          48356,
-          48358,
-          48360,
-          48362,
-          49598,
-          49600,
-          49602,
-          49604,
-          49606,
-          49608
+          66595,
+          66597,
+          66599,
+          66601,
+          66603,
+          66605,
+          66607,
+          66609,
+          66611,
+          66613,
+          66615,
+          66617,
+          66619,
+          66621,
+          67857,
+          67859,
+          67861,
+          67863,
+          67865,
+          67867
         ]
       }
     ],
     "license": "MIT"
   },
-  "id": 45
+  "id": 76
 }

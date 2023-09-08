@@ -69,19 +69,19 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IPoolMemberNFT.sol",
-    "id": 48169,
+    "id": 66428,
     "exportedSymbols": {
       "IPoolMemberNFT": [
-        48168
+        66427
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:108:36",
+    "src": "32:108:66",
     "nodes": [
       {
-        "id": 48167,
+        "id": 66426,
         "nodeType": "PragmaDirective",
-        "src": "32:25:36",
+        "src": "32:25:66",
         "nodes": [],
         "literals": [
           "solidity",
@@ -91,9 +91,9 @@
         ]
       },
       {
-        "id": 48168,
+        "id": 66427,
         "nodeType": "ContractDefinition",
-        "src": "112:27:36",
+        "src": "112:27:66",
         "nodes": [],
         "abstract": false,
         "baseContracts": [],
@@ -102,15 +102,15 @@
         "contractKind": "interface",
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          48168
+          66427
         ],
         "name": "IPoolMemberNFT",
-        "nameLocation": "122:14:36",
-        "scope": 48169,
+        "nameLocation": "122:14:66",
+        "scope": 66428,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 36
+  "id": 66
 }

@@ -69,19 +69,19 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IPoolAdminNFT.sol",
-    "id": 48166,
+    "id": 66425,
     "exportedSymbols": {
       "IPoolAdminNFT": [
-        48165
+        66424
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:107:35",
+    "src": "32:107:65",
     "nodes": [
       {
-        "id": 48164,
+        "id": 66423,
         "nodeType": "PragmaDirective",
-        "src": "32:25:35",
+        "src": "32:25:65",
         "nodes": [],
         "literals": [
           "solidity",
@@ -91,9 +91,9 @@
         ]
       },
       {
-        "id": 48165,
+        "id": 66424,
         "nodeType": "ContractDefinition",
-        "src": "112:26:35",
+        "src": "112:26:65",
         "nodes": [],
         "abstract": false,
         "baseContracts": [],
@@ -102,15 +102,15 @@
         "contractKind": "interface",
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          48165
+          66424
         ],
         "name": "IPoolAdminNFT",
-        "nameLocation": "122:13:35",
-        "scope": 48166,
+        "nameLocation": "122:13:65",
+        "scope": 66425,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 35
+  "id": 65
 }

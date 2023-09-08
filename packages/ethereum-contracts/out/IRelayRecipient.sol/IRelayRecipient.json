@@ -149,19 +149,19 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/utils/IRelayRecipient.sol",
-    "id": 68196,
+    "id": 68235,
     "exportedSymbols": {
       "IRelayRecipient": [
-        68195
+        68234
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:988:77",
+    "src": "32:988:78",
     "nodes": [
       {
-        "id": 68179,
+        "id": 68218,
         "nodeType": "PragmaDirective",
-        "src": "32:26:77",
+        "src": "32:26:78",
         "nodes": [],
         "literals": [
           "solidity",
@@ -171,19 +171,19 @@
         ]
       },
       {
-        "id": 68195,
+        "id": 68234,
         "nodeType": "ContractDefinition",
-        "src": "402:617:77",
+        "src": "402:617:78",
         "nodes": [
           {
-            "id": 68188,
+            "id": 68227,
             "nodeType": "FunctionDefinition",
-            "src": "662:75:77",
+            "src": "662:75:78",
             "nodes": [],
             "documentation": {
-              "id": 68181,
+              "id": 68220,
               "nodeType": "StructuredDocumentation",
-              "src": "435:222:77",
+              "src": "435:222:78",
               "text": " @notice Returns if the forwarder is trusted to forward relayed transactions to us.\n @dev the forwarder is required to verify the sender's signature, and verify\n      the call is not a replay."
             },
             "functionSelector": "572b6c05",
@@ -191,20 +191,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "isTrustedForwarder",
-            "nameLocation": "671:18:77",
+            "nameLocation": "671:18:78",
             "parameters": {
-              "id": 68184,
+              "id": 68223,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68183,
+                  "id": 68222,
                   "mutability": "mutable",
                   "name": "forwarder",
-                  "nameLocation": "698:9:77",
+                  "nameLocation": "698:9:78",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68188,
-                  "src": "690:17:77",
+                  "scope": 68227,
+                  "src": "690:17:78",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -212,10 +212,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 68182,
+                    "id": 68221,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "690:7:77",
+                    "src": "690:7:78",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -225,21 +225,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "689:19:77"
+              "src": "689:19:78"
             },
             "returnParameters": {
-              "id": 68187,
+              "id": 68226,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68186,
+                  "id": 68225,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68188,
-                  "src": "731:4:77",
+                  "scope": 68227,
+                  "src": "731:4:78",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -247,10 +247,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 68185,
+                    "id": 68224,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "731:4:77",
+                    "src": "731:4:78",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -259,22 +259,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "730:6:77"
+              "src": "730:6:78"
             },
-            "scope": 68195,
+            "scope": 68234,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 68194,
+            "id": 68233,
             "nodeType": "FunctionDefinition",
-            "src": "951:66:77",
+            "src": "951:66:78",
             "nodes": [],
             "documentation": {
-              "id": 68189,
+              "id": 68228,
               "nodeType": "StructuredDocumentation",
-              "src": "743:203:77",
+              "src": "743:203:78",
               "text": " @dev EIP 2771 version\n NOTE:\n - It is not clear if it is actually from the EIP 2771....\n - https://docs.biconomy.io/guides/enable-gasless-transactions/eip-2771"
             },
             "functionSelector": "486ff0cd",
@@ -282,26 +282,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "versionRecipient",
-            "nameLocation": "960:16:77",
+            "nameLocation": "960:16:78",
             "parameters": {
-              "id": 68190,
+              "id": 68229,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "976:2:77"
+              "src": "976:2:78"
             },
             "returnParameters": {
-              "id": 68193,
+              "id": 68232,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68192,
+                  "id": 68231,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68194,
-                  "src": "1002:13:77",
+                  "scope": 68233,
+                  "src": "1002:13:78",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -309,10 +309,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 68191,
+                    "id": 68230,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1002:6:77",
+                    "src": "1002:6:78",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -321,9 +321,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1001:15:77"
+              "src": "1001:15:78"
             },
-            "scope": 68195,
+            "scope": 68234,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -335,22 +335,22 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 68180,
+          "id": 68219,
           "nodeType": "StructuredDocumentation",
-          "src": "169:232:77",
+          "src": "169:232:78",
           "text": " @title Relay recipient interface\n @author Superfluid\n @dev A contract must implement this interface in order to support relayed transactions\n @dev It is better to inherit the BaseRelayRecipient as its implementation"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          68195
+          68234
         ],
         "name": "IRelayRecipient",
-        "nameLocation": "412:15:77",
-        "scope": 68196,
+        "nameLocation": "412:15:78",
+        "scope": 68235,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 77
+  "id": 78
 }

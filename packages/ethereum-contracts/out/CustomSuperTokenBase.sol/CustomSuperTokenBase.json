@@ -165,22 +165,22 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/CustomSuperTokenBase.sol",
-    "id": 65761,
+    "id": 65800,
     "exportedSymbols": {
       "CustomSuperTokenBase": [
-        65760
+        65799
       ],
       "ISuperToken": [
-        66999
+        67038
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:887:59",
+    "src": "32:887:60",
     "nodes": [
       {
-        "id": 65752,
+        "id": 65791,
         "nodeType": "PragmaDirective",
-        "src": "32:26:59",
+        "src": "32:26:60",
         "nodes": [],
         "literals": [
           "solidity",
@@ -190,24 +190,24 @@
         ]
       },
       {
-        "id": 65754,
+        "id": 65793,
         "nodeType": "ImportDirective",
-        "src": "182:74:59",
+        "src": "182:74:60",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperToken.sol",
         "file": "../../interfaces/superfluid/ISuperToken.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 65761,
-        "sourceUnit": 67000,
+        "scope": 65800,
+        "sourceUnit": 67039,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 65753,
+              "id": 65792,
               "name": "ISuperToken",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 66999,
-              "src": "191:11:59",
+              "referencedDeclaration": 67038,
+              "src": "191:11:60",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -216,20 +216,20 @@
         "unitAlias": ""
       },
       {
-        "id": 65760,
+        "id": 65799,
         "nodeType": "ContractDefinition",
-        "src": "750:168:59",
+        "src": "750:168:60",
         "nodes": [
           {
-            "id": 65759,
+            "id": 65798,
             "nodeType": "VariableDeclaration",
-            "src": "878:37:59",
+            "src": "878:37:60",
             "nodes": [],
             "constant": false,
             "mutability": "mutable",
             "name": "_storagePaddings",
-            "nameLocation": "899:16:59",
-            "scope": 65760,
+            "nameLocation": "899:16:60",
+            "scope": 65799,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -238,26 +238,26 @@
             },
             "typeName": {
               "baseType": {
-                "id": 65756,
+                "id": 65795,
                 "name": "uint256",
                 "nodeType": "ElementaryTypeName",
-                "src": "878:7:59",
+                "src": "878:7:60",
                 "typeDescriptions": {
                   "typeIdentifier": "t_uint256",
                   "typeString": "uint256"
                 }
               },
-              "id": 65758,
+              "id": 65797,
               "length": {
                 "hexValue": "3332",
-                "id": 65757,
+                "id": 65796,
                 "isConstant": false,
                 "isLValue": false,
                 "isPure": true,
                 "kind": "number",
                 "lValueRequested": false,
                 "nodeType": "Literal",
-                "src": "886:2:59",
+                "src": "886:2:60",
                 "typeDescriptions": {
                   "typeIdentifier": "t_rational_32_by_1",
                   "typeString": "int_const 32"
@@ -265,7 +265,7 @@
                 "value": "32"
               },
               "nodeType": "ArrayTypeName",
-              "src": "878:11:59",
+              "src": "878:11:60",
               "typeDescriptions": {
                 "typeIdentifier": "t_array$_t_uint256_$32_storage_ptr",
                 "typeString": "uint256[32]"
@@ -280,22 +280,22 @@
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": {
-          "id": 65755,
+          "id": 65794,
           "nodeType": "StructuredDocumentation",
-          "src": "258:491:59",
+          "src": "258:491:60",
           "text": " @title Custom super token base contract\n @author Superfluid\n NOTE:\n - Because of how solidity lays out its storage variables and how custom\n   super tokens inherit the SuperToken standard implementation, it is\n   required that the custom token proxy pads its implementation\n   with reserved storage used by the Super Token implementation.\n - You will need to append your own proxy implementation after the base\n   - Refer to SETH.sol for an example how it is used."
         },
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          65760
+          65799
         ],
         "name": "CustomSuperTokenBase",
-        "nameLocation": "768:20:59",
-        "scope": 65761,
+        "nameLocation": "768:20:60",
+        "scope": 65800,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 59
+  "id": 60
 }
