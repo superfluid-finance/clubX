@@ -131,6 +131,7 @@ const ConnectedSection = styled(SnapScrollContent)`
   flex-direction: column;
   padding-top: 23dvh;
   padding-bottom: 10dvh;
+  justify-content: space-between;
   background-image: url("/assets/bg6.png");
   background-size: cover;
   background-repeat: no-repeat;
