@@ -1,4 +1,10 @@
-import { useGetFee, useGetProtege, useIsProtege, useSponsor } from "@/core/Api";
+import {
+  sponsorAddress,
+  useGetFee,
+  useGetProtege,
+  useIsProtege,
+  useSponsor,
+} from "@/core/Api";
 import { FooterButton, FooterLink } from "@/components/FooterButton";
 import { Footer, PageContent, PageWrapper } from "@/components/Layout";
 import { Html5Qrcode } from "html5-qrcode";
@@ -48,7 +54,7 @@ const Scan = () => {
 
   const [error, setError] = useState("");
   const [scannedAddress, setScannedAddress] = useState<Address | undefined>();
-
+  const [hash, setHash] = useState<`0x${string}` | undefined>(undefined);
   const protegeResult = useIsProtege(scannedAddress);
 
   const { data: protege } = useGetProtege(scannedAddress);
@@ -62,45 +68,60 @@ const Scan = () => {
     scannedAddress,
     isProtege: protegeResult.data,
   });
-  const sponsorConfig = usePrepareContractWrite({
-    chainId: network.id,
-    abi: SuperfluidClubABI,
-    address: SuperfluidClubAddress,
-    functionName: "sponsor",
-    value: parseEther(
-      calculateTotalSponsorAmountWithFee(sponsorAmount, fee).toString()
-    ), //fee + sponsor amount
-    args: [scannedAddress!],
-    enabled: !!address && !!scannedAddress && protegeResult.data === false,
-  });
 
-  const { write, data, isLoading, isError, isSuccess, status } =
-    useContractWrite(sponsorConfig.config);
+  // const sponsorConfig = usePrepareContractWrite({
+  //   chainId: network.id,
+  //   abi: SuperfluidClubABI,
+  //   address: SuperfluidClubAddress,
+  //   functionName: "sponsor",
+  //   value: parseEther(
+  //     calculateTotalSponsorAmountWithFee(sponsorAmount, fee).toString()
+  //   ), //fee + sponsor amount
+  //   args: [scannedAddress!],
+  //   enabled: !!address && !!scannedAddress && protegeResult.data === false,
+  // });
+
+  // const { write, data, isLoading, isError, isSuccess, status } =
+  //   useContractWrite(sponsorConfig.config);
 
   const { isLoading: sponsorAddressLoading, isSuccess: sponsorAddressSuccess } =
     useWaitForTransaction({
-      hash: data?.hash,
+      hash: hash!,
+      enabled: !!hash,
     });
 
-  useEffect(() => {
-    if (isError) {
-      setScannedAddress(undefined);
-    }
-  }, [isError]);
+  const onSponsor = async () => {
+    const result = await sponsorAddress(
+      scannedAddress!,
+      Number(
+        parseEther(
+          calculateTotalSponsorAmountWithFee(sponsorAmount, fee).toString()
+        )
+      )
+    );
 
-  useEffect(() => {
-    if (
-      !!address &&
-      !!scannedAddress &&
-      protegeResult.data === false &&
-      write &&
-      !isLoading &&
-      !isSuccess
-    ) {
-      console.log("SPONSORING");
-      write && write();
-    }
-  }, [address, scannedAddress, protegeResult.data, write, isLoading, isError]);
+    setHash(result.hash);
+  };
+
+  // useEffect(() => {
+  //   if (isError) {
+  //     setScannedAddress(undefined);
+  //   }
+  // }, [isError]);
+
+  // useEffect(() => {
+  //   if (
+  //     !!address &&
+  //     !!scannedAddress &&
+  //     protegeResult.data === false &&
+  //     write &&
+  //     !isLoading &&
+  //     !isSuccess
+  //   ) {
+  //     console.log("SPONSORING");
+  //     write && write();
+  //   }
+  // }, [address, scannedAddress, protegeResult.data, write, isLoading, isError]);
 
   useEffect(() => {
     if (!cameraRef.current) return;
@@ -184,6 +205,9 @@ const Scan = () => {
       <PageContent>
         <ReaderWrapper ref={cameraRef} id="reader" />
       </PageContent>
+      {scannedAddress && (
+        <FooterButton onClick={onSponsor}>Sponsor</FooterButton>
+      )}
       {sponsorAddressSuccess && (
         <div>Successfully sponsored {scannedAddress}</div>
       )}

@@ -12,6 +12,7 @@ import {
   useWaitForTransaction,
 } from "wagmi";
 import Configuration from "./Configuration";
+import { writeContract } from "wagmi/actions";
 
 const { SuperfluidClubAddress, network, CFAv1ForwarderAddress } = Configuration;
 
@@ -45,6 +46,17 @@ export const useGetProtege = (address?: Address) =>
     enabled: !!address,
     staleTime: 30000,
   });
+
+export const sponsorAddress = (address: Address, ether: number) => {
+  return writeContract({
+    chainId: network.id,
+    abi: SuperfluidClubABI,
+    address: SuperfluidClubAddress,
+    functionName: "sponsor",
+    value: parseEther(ether.toString()), //fee + sponsor amount
+    args: [address],
+  });
+};
 
 export const useSponsor = (
   address?: Address,
