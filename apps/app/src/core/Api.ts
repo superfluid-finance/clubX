@@ -20,16 +20,15 @@ const { SuperfluidClubAddress, network, CFAv1ForwarderAddress } = Configuration;
 
 
 
-// export const useGetFee = (totalProtegeCount: number = 1,
-//   directTotalProtegeCount: number = 1) =>
-// useContractRead({
-//   chainId: network.id,
-//   abi: SuperfluidClubABI,
-//   address: SuperfluidClubAddress,
-//   functionName: "fee",
-//   args: [totalProtegeCount, directTotalProtegeCount],
-//   enabled: true,
-// }); 
+export const useGetFee = (directProtegeCount: number = 1) =>
+useContractRead({
+  chainId: network.id,
+  abi: SuperfluidClubABI,
+  address: SuperfluidClubAddress,
+  functionName: "fee",
+  args: [directProtegeCount],
+  enabled: true,
+}); 
 
 export const useGetChainOfSponsors = (address?: Address) =>
 useContractRead({
@@ -55,6 +54,9 @@ export const useSponsor = (
   address?: Address, 
   ether?: number, 
 ): [(() => void) | undefined, boolean, boolean] => {
+  
+  console.log("sponsor amount", ether);
+
   const sponsorConfig = usePrepareContractWrite(
     address && ether
       ? {

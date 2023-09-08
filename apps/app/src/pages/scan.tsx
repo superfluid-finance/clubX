@@ -1,16 +1,12 @@
-<<<<<<< HEAD
-import { FooterLink } from "@/components/FooterButton";
-=======
-import { useGetProtege, useIsProtege, useSponsor } from "@/core/Api";
+import { useGetFee, useGetProtege, useIsProtege, useSponsor } from "@/core/Api";
 import { FooterButton, FooterLink } from "@/components/FooterButton";
->>>>>>> 18c08b6 (added few more view calls)
 import { Footer, PageContent, PageWrapper } from "@/components/Layout";
-import { useIsProtege, useSponsor } from "@/core/Api";
 import { Html5Qrcode } from "html5-qrcode";
 import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Address, isAddress } from "viem";
 import getDefaultSponsorAmount from "@/utils/DefaultSponsorAmount";
+import calculateTotalSponsorAmountWithFee from "@/utils/CalculateTotalSponsorAmountWithFee";
 
 const FooterInfo = styled.footer(() => ({
   width: "100%",
@@ -40,11 +36,13 @@ const Scan = () => {
   const protegeResult = useIsProtege(scannedAddress);
 
   const { data: protege } = useGetProtege(scannedAddress);
+  
+  const {data: fee} = useGetFee(protege?.directTotalProtegeCount);
 
   const sponsorAmount = getDefaultSponsorAmount(protege?.level);
 
   const [sponsorAddress, sponsorAddressLoading, sponsorAddressSuccess] =
-    useSponsor(scannedAddress, sponsorAmount);
+    useSponsor(scannedAddress, calculateTotalSponsorAmountWithFee(sponsorAmount, fee));
 
   useEffect(() => {
     if (!cameraRef.current) return;
