@@ -165,7 +165,7 @@ const { SuperfluidClubAddress } = Configuration;
 
 const Intro = () => {
   const { address } = useAccount();
-  const result = useIsProtege(address);
+  const { data, isLoading, refetch: refetchIsProtege } = useIsProtege(address);
   const { disconnect } = useDisconnect();
   const queryClient = useQueryClient();
 
@@ -173,22 +173,19 @@ const Intro = () => {
     disconnect();
   }, [disconnect]);
 
-  const { data: realtimeBalanceData } = useRealtimeBalance(
-    address,
-    SuperfluidClubAddress
-  );
+  const { data: realtimeBalanceData, refetch: refetchRealtimeBalance } =
+    useRealtimeBalance(address, SuperfluidClubAddress);
 
   const onClearCache = () => {
     queryClient.invalidateQueries({
       queryKey: [{ scopeKey: "RealTimeBalance" }, { scopeKey: "IsProtege" }],
     });
     queryClient.clear();
-    console.log("Cleared cache");
+    refetchIsProtege();
+    refetchRealtimeBalance();
   };
 
-  console.log("Protege loading", result.isLoading);
-
-  if (result.data === true) {
+  if (data === true) {
     return (
       <SnapScrollWrapper>
         <AccountBox onClick={onDisconnect}>

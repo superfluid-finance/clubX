@@ -43,6 +43,7 @@ export const useGetProtege = (address?: Address) =>
     functionName: "getProtege",
     args: [address!],
     enabled: !!address,
+    staleTime: 30000,
   });
 
 export const useSponsor = (
@@ -94,6 +95,7 @@ export const useRealtimeBalance = (
     queryFn: async () =>
       fetchRealtimeBalance(accountAddress, superTokenAddress),
     enabled: !!accountAddress && !!superTokenAddress,
+    staleTime: 30000,
   });
 
 const fetchRealtimeBalance = async (

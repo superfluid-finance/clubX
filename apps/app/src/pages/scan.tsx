@@ -4,9 +4,17 @@ import { Footer, PageContent, PageWrapper } from "@/components/Layout";
 import { Html5Qrcode } from "html5-qrcode";
 import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import { Address, isAddress } from "viem";
+import { Address, isAddress, parseEther } from "viem";
 import getDefaultSponsorAmount from "@/utils/DefaultSponsorAmount";
 import calculateTotalSponsorAmountWithFee from "@/utils/CalculateTotalSponsorAmountWithFee";
+import Configuration from "@/core/Configuration";
+import SuperfluidClubABI from "@/abis/SuperfluidClub";
+import {
+  useAccount,
+  useContractWrite,
+  usePrepareContractWrite,
+  useWaitForTransaction,
+} from "wagmi";
 
 const FooterInfo = styled.footer(() => ({
   width: "100%",
@@ -30,11 +38,15 @@ const ReaderWrapper = styled.div`
   width: 100%;
 `;
 
+const { network, SuperfluidClubAddress } = Configuration;
+
 const Scan = () => {
   const cameraRef = useRef<HTMLDivElement | null>(null);
   const QRCodeReader = useRef<Html5Qrcode>();
-  const [error, setError] = useState("");
 
+  const { address } = useAccount();
+
+  const [error, setError] = useState("");
   const [scannedAddress, setScannedAddress] = useState<Address | undefined>();
 
   const protegeResult = useIsProtege(scannedAddress);
@@ -45,11 +57,50 @@ const Scan = () => {
 
   const sponsorAmount = getDefaultSponsorAmount(protege?.level);
 
-  const [sponsorAddress, sponsorAddressLoading, sponsorAddressSuccess] =
-    useSponsor(
-      scannedAddress,
-      calculateTotalSponsorAmountWithFee(sponsorAmount, fee)
-    );
+  console.log("CONFIG", {
+    address,
+    scannedAddress,
+    isProtege: protegeResult.data,
+  });
+  const sponsorConfig = usePrepareContractWrite({
+    chainId: network.id,
+    abi: SuperfluidClubABI,
+    address: SuperfluidClubAddress,
+    functionName: "sponsor",
+    value: parseEther(
+      calculateTotalSponsorAmountWithFee(sponsorAmount, fee).toString()
+    ), //fee + sponsor amount
+    args: [scannedAddress!],
+    enabled: !!address && !!scannedAddress && protegeResult.data === false,
+  });
+
+  const { write, data, isLoading, isError, isSuccess, status } =
+    useContractWrite(sponsorConfig.config);
+
+  const { isLoading: sponsorAddressLoading, isSuccess: sponsorAddressSuccess } =
+    useWaitForTransaction({
+      hash: data?.hash,
+    });
+
+  useEffect(() => {
+    if (isError) {
+      setScannedAddress(undefined);
+    }
+  }, [isError]);
+
+  useEffect(() => {
+    if (
+      !!address &&
+      !!scannedAddress &&
+      protegeResult.data === false &&
+      write &&
+      !isLoading &&
+      !isSuccess
+    ) {
+      console.log("SPONSORING");
+      write && write();
+    }
+  }, [address, scannedAddress, protegeResult.data, write, isLoading, isError]);
 
   useEffect(() => {
     if (!cameraRef.current) return;
@@ -82,21 +133,21 @@ const Scan = () => {
       setError("");
       setScannedAddress(decodedText);
     },
-    [sponsorAddress]
+    [scannedAddress]
   );
 
-  useEffect(() => {
-    if (protegeResult.data === true) {
-      setError("Address is already protege!");
-      setScannedAddress(undefined);
-      return;
-    }
+  // useEffect(() => {
+  //   if (protegeResult.data === true) {
+  //     setError("Address is already protege!");
+  //     setScannedAddress(undefined);
+  //     return;
+  //   }
 
-    if (protegeResult.data === false) {
-      console.log("Sponsoring...");
-      sponsorAddress && sponsorAddress();
-    }
-  }, [protegeResult.data]);
+  //   if (protegeResult.data === false) {
+  //     console.log("Sponsoring...");
+  //     write && write();
+  //   }
+  // }, [protegeResult.data]);
 
   useEffect(() => {
     Html5Qrcode.getCameras()
