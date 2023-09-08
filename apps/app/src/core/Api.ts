@@ -16,22 +16,53 @@ import { formatEther, parseEther } from "viem";
 
 const { SuperfluidClubAddress, network, CFAv1ForwarderAddress } = Configuration;
 
-// 1. Fetch your level (getProtegeLevelWeight)
-// 2. Fetch the fee for your level
-// 3. Add utility to calculate the sponsor Amount
-// 4. change sponsor() value to fee + sponsor amount
+
+
+
+
+// export const useGetFee = (totalProtegeCount: number = 1,
+//   directTotalProtegeCount: number = 1) =>
+// useContractRead({
+//   chainId: network.id,
+//   abi: SuperfluidClubABI,
+//   address: SuperfluidClubAddress,
+//   functionName: "fee",
+//   args: [totalProtegeCount, directTotalProtegeCount],
+//   enabled: true,
+// }); 
+
+export const useGetChainOfSponsors = (address?: Address) =>
+useContractRead({
+  chainId: network.id,
+  abi: SuperfluidClubABI,
+  address: SuperfluidClubAddress,
+  functionName: "getChainOfSponsors",
+  args: [address!],
+  enabled: !!address,
+});
+
+export const useGetProtege = (address?: Address) =>
+  useContractRead({
+    chainId: network.id,
+    abi: SuperfluidClubABI,
+    address: SuperfluidClubAddress,
+    functionName: "getProtege",
+    args: [address!],
+    enabled: !!address,
+  })
 
 export const useSponsor = (
-  address?: Address
+  address?: Address, 
+  ether?: number, 
 ): [(() => void) | undefined, boolean, boolean] => {
   const sponsorConfig = usePrepareContractWrite(
-    address
+    address && ether
       ? {
           chainId: network.id,
           abi: SuperfluidClubABI,
           address: SuperfluidClubAddress,
           functionName: "sponsor",
-          value: parseEther("0.03"), //fee + sponsor amount
+          value: parseEther(ether.toString()), //fee + sponsor amount
           args: [address],
         }
       : {}
@@ -101,3 +132,5 @@ const fetchRealtimeBalance = async (
     timestamp: Number(timestamp),
   };
 };
+
+
