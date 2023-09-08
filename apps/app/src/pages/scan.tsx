@@ -22,6 +22,10 @@ export const Error = styled(FooterInfo)`
   background: red;
 `;
 
+export const Info = styled(FooterInfo)`
+  background: blue;
+`;
+
 const ReaderWrapper = styled.div`
   width: 100%;
 `;
@@ -122,6 +126,8 @@ const Scan = () => {
       });
   }, [QRCodeReader.current]);
 
+  console.log({ sponsorAddressLoading, sponsorAddressSuccess });
+
   return (
     <PageWrapper>
       <PageContent>
@@ -131,7 +137,7 @@ const Scan = () => {
         <div>Successfully sponsored {scannedAddress}</div>
       )}
       {sponsorAddressLoading ||
-        (protegeResult.isLoading && <Footer>Loading...</Footer>)}
+        (protegeResult.isLoading && <Info>Loading...</Info>)}
       {!sponsorAddressLoading && (
         <>
           {error ? (
