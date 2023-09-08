@@ -92,15 +92,16 @@ const config = createConfig({
   ],
 });
 
-export default function App({ Component, pageProps }: AppProps) {
-  return (
-    <WagmiConfig config={config}>
-      <ConnectionBoundary expectedNetwork={network} >
-      <Component {...pageProps} />
-      </ConnectionBoundary>
-    </WagmiConfig>
-  );
-}
+// export default function App({ Component, pageProps }: AppProps) {
+//   return (
+//     <WagmiConfig config={config}>
+//       <ConnectionBoundary expectedNetwork={network} >
+//       <Component {...pageProps} />
+//       </ConnectionBoundary>
+//     </WagmiConfig>
+//   );
+// }
+
 
 // import Configuration from "@/core/Configuration";
 // import "@/styles/globals.css";

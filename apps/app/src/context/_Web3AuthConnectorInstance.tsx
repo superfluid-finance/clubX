@@ -22,7 +22,7 @@ export default function Web3AuthConnectorInstance(chains: Chain[]) {
     }
 
     const web3AuthInstance = new Web3Auth({
-    clientId: "BNQOxDHVydE_L1qNTcGdt_YnBpgIjT6e5LkGMwWPJ9KyU4fU-KwmH1TK-1ak3kHhfWzdoMIeLZlvpLP_xNaPi2A",
+    clientId: "BInwQaWcBMBhHR0F1OmWs5vSeyTgyRp-GTfNTkME-QR-6eO68073V-W7F50ybVCjp8M3Ve2eU-lOhyFd311b1Ys",
     chainConfig,
     uiConfig: {
         appName: name,
