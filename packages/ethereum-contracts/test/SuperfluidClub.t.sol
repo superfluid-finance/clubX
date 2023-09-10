@@ -63,12 +63,6 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         assertEq(address(club).balance, balanceBefore + 1000);
     }
 
-    function testAllocation() public {
-        for (uint8 i = 0; i < 7; i++) {
-            assertEq(club.getAllocationForLevel(i), 720 ether / (2 ** i));
-        }
-    }
-
     function testWithdraw() public {
         vm.startPrank(alice);
         vm.expectRevert("Ownable: caller is not the owner");
@@ -213,6 +207,18 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         club.restartStream();
         assertEq(club.getFlowRate(address(club), alice), initialFlowRate);
         vm.stopPrank();
+    }
+
+    function testTransferOwnershipToProtege() public {
+        address payable aliceAsPayable = payable(address(alice));
+        club.sponsor{value: 0.1 ether}(aliceAsPayable);
+        vm.expectRevert("Club protege cannot be owner");
+        club.transferOwnership(alice);
+    }
+
+    function testTransferOwnershipToNonProtege() public {
+        club.transferOwnership(bob);
+        assertEq(club.owner(), bob);
     }
 
 }

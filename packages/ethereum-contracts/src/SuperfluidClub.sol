@@ -4,7 +4,7 @@ pragma solidity ^0.8.19;
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
 import {SuperTokenBase, ISuperToken} from "@superfluid-finance/custom-supertokens/contracts/base/SuperTokenBase.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import "forge-std/Test.sol";
+
 /**
  * @title Superfluid Club
  * @dev Contract that facilitates the operations of a superfluid club.
@@ -42,8 +42,8 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     /// @dev ISuperfluidClub.Protege implementation
     struct Protege {
         address sponsor; // address of the sponsor
-        uint8 level; // The level of the protege. Level 0 protege is also called the "messiah protege"
-        uint32 totalProtegeCount; // number of proteges under this protege.
+        uint8 level; // The level of the protege. Level 0 protege is also called the "messiah"
+        uint32 totalProtegeCount; // number of proteges under this protege chain.
         uint32 directTotalProtegeCount; // number of direct proteges under this sponsor.
         int96 desiredFlowRate; // desired flow rate for the protege
     }
@@ -96,8 +96,6 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         require(isProtege(actualSponsor) || messiah, "You are not a protege!");
 
         uint256 coinAmount = msg.value;
-
-
         uint256 fee = fee(_proteges[actualSponsor].directTotalProtegeCount);
         require(coinAmount >= fee, "Not enough coin!");
 
@@ -184,18 +182,15 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     /// @dev ISuperfluidClub.sponsor implementation - WRONG
     function restartStream() external {
         require(isProtege(msg.sender), "Not a protege!");
-        int96 desiredFlowRate = _proteges[msg.sender].desiredFlowRate;
-        _createOrUpdateStream(msg.sender, desiredFlowRate);
+        _createOrUpdateStream(
+            msg.sender,
+            _proteges[msg.sender].desiredFlowRate
+        );
     }
 
     /// @dev ISuperfluidClub.calculateSponsorFlowRate implementation
     function calculateFlowRate(uint32 totalProtegeCount) public view returns (int96 flowRate) {
         flowRate = toInt96(MAX_SPONSORSHIP_PATH_OUTFLOW / totalProtegeCount);
-    }
-
-    /// @dev ISuperfluidClub.getAllocation implementation
-    function getAllocationForLevel(uint8 level) public pure returns (uint256 allocation) {
-        allocation = MAX_SPONSORSHIP_PATH_OUTFLOW / (2 ** level);
     }
 
     /// @dev ISuperfluidClub.fee implementation
@@ -218,6 +213,12 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         } else {
             return 1 ether; // 61+
         }
+    }
+
+    function transferOwnership(address newOwner) public override onlyOwner {
+        // call base transferOwnership from Ownable
+        require(!isProtege(newOwner), "Club protege cannot be owner");
+        Ownable.transferOwnership(newOwner);
     }
 
     /// @dev ISuperfluidClub.withdraw implementation
