@@ -63,27 +63,6 @@ const Scan = () => {
 
   const sponsorAmount = getDefaultSponsorAmount(protege?.level);
 
-  console.log("CONFIG", {
-    address,
-    scannedAddress,
-    isProtege: protegeResult.data,
-  });
-
-  // const sponsorConfig = usePrepareContractWrite({
-  //   chainId: network.id,
-  //   abi: SuperfluidClubABI,
-  //   address: SuperfluidClubAddress,
-  //   functionName: "sponsor",
-  //   value: parseEther(
-  //     calculateTotalSponsorAmountWithFee(sponsorAmount, fee).toString()
-  //   ), //fee + sponsor amount
-  //   args: [scannedAddress!],
-  //   enabled: !!address && !!scannedAddress && protegeResult.data === false,
-  // });
-
-  // const { write, data, isLoading, isError, isSuccess, status } =
-  //   useContractWrite(sponsorConfig.config);
-
   const { isLoading: sponsorAddressLoading, isSuccess: sponsorAddressSuccess } =
     useWaitForTransaction({
       hash: hash!,
@@ -107,26 +86,6 @@ const Scan = () => {
     console.log("Received hash");
     setHash(result.hash);
   };
-
-  // useEffect(() => {
-  //   if (isError) {
-  //     setScannedAddress(undefined);
-  //   }
-  // }, [isError]);
-
-  // useEffect(() => {
-  //   if (
-  //     !!address &&
-  //     !!scannedAddress &&
-  //     protegeResult.data === false &&
-  //     write &&
-  //     !isLoading &&
-  //     !isSuccess
-  //   ) {
-  //     console.log("SPONSORING");
-  //     write && write();
-  //   }
-  // }, [address, scannedAddress, protegeResult.data, write, isLoading, isError]);
 
   useEffect(() => {
     if (!cameraRef.current) return;
@@ -162,19 +121,6 @@ const Scan = () => {
     [scannedAddress]
   );
 
-  // useEffect(() => {
-  //   if (protegeResult.data === true) {
-  //     setError("Address is already protege!");
-  //     setScannedAddress(undefined);
-  //     return;
-  //   }
-
-  //   if (protegeResult.data === false) {
-  //     console.log("Sponsoring...");
-  //     write && write();
-  //   }
-  // }, [protegeResult.data]);
-
   useEffect(() => {
     Html5Qrcode.getCameras()
       .then((devices) => {
@@ -202,8 +148,6 @@ const Scan = () => {
         // handle err
       });
   }, [QRCodeReader.current]);
-
-  console.log({ sponsorAddressLoading, sponsorAddressSuccess });
 
   return (
     <PageWrapper>

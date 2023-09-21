@@ -22,7 +22,7 @@ const ButtonStyles = css`
   background: radial-gradient(
     circle,
     rgba(166, 0, 224, 1) 0%,
-    rgba(241, 202, 255, 1) 100%
+    rgba(241, 202, 255, 1) 110%
   );
   color: white;
   font-size: 18px;

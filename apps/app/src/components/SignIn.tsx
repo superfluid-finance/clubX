@@ -1,12 +1,10 @@
-import { FooterButton } from "@/components/FooterButton";
-import { useConnect } from "wagmi";
-import { Button } from "./Button";
 import { useWeb3Modal } from "@web3modal/react";
+import { Button } from "./Button";
 
 const SignIn = () => {
   const { open } = useWeb3Modal();
 
-  return <Button onClick={open}>Connect</Button>;
+  return <Button onClick={open}>Join</Button>;
 };
 
 export default SignIn;

@@ -6,6 +6,7 @@ export const SnapScrollWrapper = styled.div`
   overflow-y: auto;
   scroll-snap-type: y mandatory;
   scroll-padding: 0;
+  position: relative;
 `;
 
 export const SnapScrollContent = styled.section`
@@ -13,4 +14,5 @@ export const SnapScrollContent = styled.section`
   width: 100%;
   /* border: 1px solid red; */
   scroll-snap-align: center;
+  position: relative;
 `;
