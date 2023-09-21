@@ -137,7 +137,6 @@ const Scan = () => {
     return () => {
       if (QRCodeReader.current && QRCodeReader.current.isScanning) {
         QRCodeReader.current.stop();
-        QRCodeReader.current.clear();
       }
     };
   }, [QRCodeReader.current]);
