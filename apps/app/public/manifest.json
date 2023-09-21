@@ -13,6 +13,11 @@
     },
     {
       "src": "/icon.svg",
+      "sizes": "64x64",
+      "type": "image/svg"
+    },
+    {
+      "src": "/icon.svg",
       "type": "image/svg",
       "sizes": "512x512"
     }
