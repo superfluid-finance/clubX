@@ -7,6 +7,7 @@ import {
   readContracts,
   useContractRead,
   useContractWrite,
+  useMutation,
   usePrepareContractWrite,
   useQuery,
   useWaitForTransaction,
@@ -47,45 +48,35 @@ export const useGetProtege = (address?: Address) =>
     staleTime: 30000,
   });
 
-export const sponsorAddress = (address: Address, ether: number) => {
-  return writeContract({
-    chainId: network.id,
-    abi: SuperfluidClubABI,
-    address: SuperfluidClubAddress,
-    functionName: "sponsor",
-    value: parseEther(ether.toString()), //fee + sponsor amount
-    args: [address],
+// export const sponsorAddress = (address: Address, ether: number) => {
+//   return writeContract({
+//     chainId: network.id,
+//     abi: SuperfluidClubABI,
+//     address: SuperfluidClubAddress,
+//     functionName: "sponsor",
+//     value: parseEther(ether.toString()), //fee + sponsor amount
+//     args: [address],
+//   });
+// };
+
+export const useSponsor = () => {
+  return useMutation({
+    mutationFn: async ({
+      address,
+      amount,
+    }: {
+      address: Address;
+      amount: bigint;
+    }) =>
+      writeContract({
+        chainId: network.id,
+        abi: SuperfluidClubABI,
+        address: SuperfluidClubAddress,
+        functionName: "sponsor",
+        value: amount,
+        args: [address!],
+      }),
   });
-};
-
-export const useSponsor = (
-  address?: Address,
-  ether?: number
-): [(() => void) | undefined, boolean, boolean] => {
-  console.log("sponsor amount", ether);
-
-  const sponsorConfig = usePrepareContractWrite(
-    address && ether
-      ? {
-          chainId: network.id,
-          abi: SuperfluidClubABI,
-          address: SuperfluidClubAddress,
-          functionName: "sponsor",
-          value: parseEther(ether.toString()), //fee + sponsor amount
-          args: [address],
-        }
-      : {}
-  );
-
-  console.log("Prepared", sponsorConfig.config);
-  const { data, write } = useContractWrite(sponsorConfig.config);
-
-  console.log("Tx hash", data?.hash);
-  const { isLoading, isSuccess } = useWaitForTransaction({
-    hash: data?.hash,
-  });
-
-  return [write, isLoading, isSuccess];
 };
 
 export const useIsProtege = (address?: Address) =>

@@ -1,4 +1,4 @@
-import { useWeb3Modal } from "@web3modal/react";
+import { useWeb3Modal } from "@web3modal/wagmi/react";
 import styled from "styled-components";
 import { Button } from "./Button";
 import Flex from "./Flex";
@@ -71,38 +71,49 @@ const PoweredBySection = styled(SnapScrollContent)`
   position: relative;
 `;
 
-// const StreamSection = styled(SnapScrollContent)`
-//   background-image: url("/assets/bg4.png");
-//   background-size: cover;
-//   background-position: center;
-//   display: flex;
-//   flex-direction: column;
-//   padding-top: 15dvh;
-//   padding-bottom: 10dvh;
-//   justify-content: space-between;
-// `;
+const PinkBoxWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  width: 100vw;
+`;
 
 const PinkBox = styled(Flex)`
   position: relative;
-  background-image: url("/assets/box-pink.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
   padding: 32px 45px;
   text-align: center;
   text-shadow: 0 0 10px #ea00e0dd;
+
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow:
+    0 0 4px 2px #ea00e0dd,
+    inset 0 0 4px 2px #ea00e0dd;
+  z-index: 2;
 `;
 
-// const ValuePropSection = styled(SnapScrollContent)`
-//   background-image: url("/assets/bg5.png");
-//   background-size: 100% 100%;
-//   background-position-y: -111px;
-//   display: flex;
-//   flex-direction: column;
-//   padding-top: 10dvh;
-//   padding-bottom: 10dvh;
-//   justify-content: space-between;
-// `;
+const PinkBoxLines = styled.div`
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(90deg, #06062b, #b5b5ff);
+    z-index: 1;
+  }
+
+  &::before {
+    top: 20%;
+  }
+
+  &::after {
+    bottom: 20%;
+  }
+`;
 
 const ValuePropList = styled.div`
   display: flex;
@@ -113,34 +124,73 @@ const ValuePropList = styled.div`
   padding-bottom: 10dvh;
 `;
 
-// const ConnectSection = styled(SnapScrollContent)`
-//   background-image: url("/assets/bg6.png");
-//   background-size: contain;
-//   background-position: center;
-//   background-repeat: no-repeat;
-//   display: flex;
-//   flex-direction: column;
-//   justify-content: center;
-//   align-items: center;
-// `;
-
-const GreenBox = styled(Flex)`
-  position: relative;
-  background-image: url("/assets/box-green.svg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  padding: 32px 45px;
-  text-align: center;
-  text-shadow: 0 0 10px #1db227;
+const GreenBoxWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  width: 100vw;
 `;
 
-const WhiteBox = styled(Flex)`
+const GreenBox = styled(Flex)`
+  padding: 24px 40px;
+  text-align: center;
+  text-shadow: 0 0 10px #1db227;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 8px;
+  box-shadow:
+    0 0 4px 2px #1db227,
+    inset 0 0 4px 2px #1db227;
+  z-index: 2;
+`;
+
+const GreenBoxLines = styled.div`
+  position: relative;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(270deg, #06062b, #b5b5ff);
+    z-index: 1;
+  }
+
+  &::before {
+    top: 20%;
+  }
+
+  &::after {
+    bottom: 20%;
+  }
+`;
+
+const PoweredByBox = styled(Flex)`
   display: inline-flex;
   border-radius: 8px;
-  border: 1px solid #e9ebef;
+  border: 1.5px solid #e9ebef;
   padding: 10px 24px;
   ${CaptionStyle}
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: -15px;
+    width: 2px;
+    height: 15px;
+    background: linear-gradient(180deg, #06062b, #b5b5ff);
+  }
+
+  &::before {
+    left: 20%;
+  }
+
+  &::after {
+    right: 20%;
+  }
 `;
 
 const ConnectCard = styled.div`
@@ -180,6 +230,10 @@ const ConnectCard = styled.div`
 const IntroScreens = () => {
   const { open } = useWeb3Modal();
 
+  const onClickJoin = () => {
+    open();
+  };
+
   return (
     <SnapScrollWrapper>
       <HeroSectionWrapper>
@@ -196,19 +250,23 @@ const IntroScreens = () => {
       </HeroSectionWrapper>
 
       <PoweredBySection>
-        <Flex gap="12px" align="center">
-          <GreenBox gap="8px" align="center">
-            <H2>
-              One transaction,
-              <br />
-              flows indefinitely
-            </H2>
-            <p>(until you cancel)</p>
-          </GreenBox>
-          <WhiteBox direction="row" align="center" gap="4px">
+        <Flex gap="15px" align="center">
+          <GreenBoxWrapper>
+            <div></div>
+            <GreenBox gap="8px" align="center">
+              <H2>
+                One transaction,
+                <br />
+                flows indefinitely
+              </H2>
+              <p>(until you cancel)</p>
+            </GreenBox>
+            <GreenBoxLines />
+          </GreenBoxWrapper>
+          <PoweredByBox direction="row" align="center" gap="4px">
             <div>Powered by</div>
             <img src="/assets/sf-logo.svg" />
-          </WhiteBox>
+          </PoweredByBox>
         </Flex>
         <ScrollDownBtn />
       </PoweredBySection>
@@ -236,19 +294,23 @@ const IntroScreens = () => {
             </div>
           </Flex>
 
-          <PinkBox gap="8px" align="center">
-            <Flex direction="row" align="end" gap="8px" justify="center">
-              <H2 style={{ fontVariantNumeric: "tabular-nums" }}>
-                <FlowingBalance
-                  flowRate={BigInt(9385712843748234)}
-                  startingBalance={BigInt(12095746250000000000)}
-                  startingBalanceDate={new Date()}
-                />
-              </H2>
-              <b style={{ paddingBottom: "2px" }}>CLUBx</b>
-            </Flex>
-            <p>Total amount streamed</p>
-          </PinkBox>
+          <PinkBoxWrapper>
+            <PinkBoxLines />
+            <PinkBox gap="8px" align="center">
+              <Flex direction="row" align="end" gap="8px" justify="center">
+                <H2 style={{ fontVariantNumeric: "tabular-nums" }}>
+                  <FlowingBalance
+                    flowRate={BigInt(9385712843748234)}
+                    startingBalance={BigInt(12095746250000000000)}
+                    startingBalanceDate={new Date()}
+                  />
+                </H2>
+                <b style={{ paddingBottom: "2px" }}>CLUBx</b>
+              </Flex>
+              <p>Total amount streamed</p>
+            </PinkBox>
+            <div />
+          </PinkBoxWrapper>
         </Flex>
         <ScrollDownBtn />
       </SnapScrollContent>
@@ -315,7 +377,7 @@ const IntroScreens = () => {
             <p>Refer people to get a higher Flow Rate</p>
           </div>
           <img src="/assets/glowing-logo.png" />
-          <Button onClick={open}>Join</Button>
+          <Button onClick={onClickJoin}>Join</Button>
         </ConnectCard>
       </SnapScrollContent>
     </SnapScrollWrapper>

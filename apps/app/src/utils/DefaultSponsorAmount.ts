@@ -1,16 +1,16 @@
-const getDefaultSponsorAmount = (sponsorLvl: number | undefined = 1): number => {
+const getDefaultSponsorAmount = (sponsorLvl: number | undefined = 1) => {
   if (sponsorLvl == 1) {
-    return 0.1;
+    return 100000000000000000n;
   } else if (sponsorLvl == 2) {
-    return 0.05;
+    return 50000000000000000n;
   } else if (sponsorLvl == 3) {
-    return 0.02;
+    return 20000000000000000n;
   } else if (sponsorLvl == 4) {
-    return 0.01;
+    return 10000000000000000n;
   } else if (sponsorLvl == 5) {
-    return 0.005;
+    return 5000000000000000n;
   } else {
-    return 0.001;
+    return 1000000000000000n;
   }
 };
 

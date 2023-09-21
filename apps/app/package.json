@@ -9,19 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@ethersproject/providers": "^5.7.2",
     "@types/node": "20.5.9",
     "@types/react": "18.2.21",
     "@types/react-dom": "18.2.7",
-    "@web3modal/ethereum": "^2.7.1",
-    "@web3modal/react": "^2.7.1",
+    "@web3modal/wagmi": "3.0.0-beta.4",
     "csstype": "^3.1.2",
-    "@web3auth/base": "^6.0.0",
-    "@web3auth/ethereum-provider": "^6.0.0",
-    "@web3auth/modal": "^6.0.0",
-    "@web3auth/openlogin-adapter": "^6.0.0",
-    "@web3auth/torus-wallet-connector-plugin": "^6.0.0",
-    "@web3auth/web3auth-wagmi-connector": "^4.0.1",
     "date-fns": "^2.30.0",
     "decimal.js": "^10.4.3",
     "ethers": "^6.7.1",
@@ -32,7 +24,7 @@
     "react-qr-code": "^2.0.12",
     "styled-components": "^6.0.7",
     "typescript": "5.2.2",
-    "viem": "^1.10.4",
-    "wagmi": "^1.4.1"
+    "viem": "^1.11.1",
+    "wagmi": "^1.4.2"
   }
 }
