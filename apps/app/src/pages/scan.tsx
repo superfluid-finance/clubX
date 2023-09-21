@@ -1,5 +1,6 @@
 import Amount from "@/components/Amount";
 import { Button } from "@/components/Button";
+import ConnectionGateBtn from "@/components/ConnectionGateBtn";
 import Flex from "@/components/Flex";
 import { FooterLink } from "@/components/FooterButton";
 import { PageContent, PageWrapper } from "@/components/Layout";
@@ -197,14 +198,19 @@ const Scan = () => {
                 )}
 
                 {isProtegeResult.data === false && !sponsorTxSuccess && (
-                  <Button
+                  <ConnectionGateBtn
+                    expectedNetwork={network}
                     disabled={sponsorMutation.isLoading || sponsorTxLoading}
-                    onClick={onSponsor}
                   >
-                    {sponsorMutation.isLoading || sponsorTxLoading
-                      ? "Loading..."
-                      : "Sponsor"}
-                  </Button>
+                    <Button
+                      disabled={sponsorMutation.isLoading || sponsorTxLoading}
+                      onClick={onSponsor}
+                    >
+                      {sponsorMutation.isLoading || sponsorTxLoading
+                        ? "Loading..."
+                        : "Sponsor"}
+                    </Button>
+                  </ConnectionGateBtn>
                 )}
 
                 {sponsorTxSuccess && (
