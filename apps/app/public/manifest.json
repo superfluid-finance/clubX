@@ -2,9 +2,10 @@
   "name": "Superfluid Club",
   "short_name": "CLUBx",
   "description": "The most exclusive club in web3!",
-  "start_url": "/index.html",
+  "start_url": "/",
   "iconPath": "/icon.svg",
   "display": "fullscreen",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "/icon.svg",
@@ -13,12 +14,13 @@
     },
     {
       "src": "/icon.svg",
-      "sizes": "64x64",
-      "type": "image/svg"
+      "sizes": "32x32",
+      "type": "image/svg",
+      "purpose": "any maskable"
     },
     {
-      "src": "/icon.svg",
-      "type": "image/svg",
+      "src": "/Logo.png",
+      "type": "image/png",
       "sizes": "512x512"
     }
   ],

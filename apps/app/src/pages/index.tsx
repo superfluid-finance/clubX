@@ -6,7 +6,7 @@ import { useAccount } from "wagmi";
 
 const Intro = () => {
   const { address } = useAccount();
-  const { data, isLoading } = useIsProtege(address);
+  const { data } = useIsProtege(address);
 
   if (data === true) {
     return <HomeView />;
