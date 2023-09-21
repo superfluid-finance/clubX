@@ -42,9 +42,7 @@ const Scan = () => {
   const cameraRef = useRef<HTMLDivElement | null>(null);
   const QRCodeReader = useRef<Html5Qrcode>();
 
-  const [scannedAddress, setScannedAddress] = useState<Address | undefined>(
-    "0x15205437ea70662483a6ef0232310A88D5eb2c0f"
-  );
+  const [scannedAddress, setScannedAddress] = useState<Address | undefined>();
   const [error, setError] = useState("");
 
   const { address } = useAccount();
