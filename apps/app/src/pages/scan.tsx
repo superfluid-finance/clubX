@@ -12,7 +12,7 @@ import { Html5Qrcode } from "html5-qrcode";
 import { useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Address, isAddress } from "viem";
-import { useAccount, useWaitForTransaction } from "wagmi";
+import { useAccount, useBalance, useWaitForTransaction } from "wagmi";
 
 const FooterInfo = styled.footer(() => ({
   width: "100%",
@@ -42,22 +42,17 @@ const Scan = () => {
   const cameraRef = useRef<HTMLDivElement | null>(null);
   const QRCodeReader = useRef<Html5Qrcode>();
 
-  const { address } = useAccount();
-
-  const sponsorMutation = useSponsor();
-
-  const [error, setError] = useState("");
-
   const [scannedAddress, setScannedAddress] = useState<Address | undefined>(
     "0x15205437ea70662483a6ef0232310A88D5eb2c0f"
   );
+  const [error, setError] = useState("");
 
+  const { address } = useAccount();
+  const sponsorMutation = useSponsor();
   const isProtegeResult = useIsProtege(scannedAddress);
-
   const { data: protege } = useGetProtege(address);
-  console.log({ protege });
-
   const { data: fee } = useGetFee(protege?.directTotalProtegeCount);
+  const nativeBalance = useBalance({ address });
 
   const sponsorAmount = getDefaultSponsorAmount(protege?.level);
 
@@ -186,6 +181,15 @@ const Scan = () => {
                   <div>Total cost</div>
                   <Subtitle1>
                     <Amount wei={fee + sponsorAmount} /> MATIC
+                  </Subtitle1>
+                </div>
+              )}
+
+              {nativeBalance.data && (
+                <div>
+                  <div>Available balance</div>
+                  <Subtitle1>
+                    <Amount wei={nativeBalance.data.value} /> MATIC
                   </Subtitle1>
                 </div>
               )}

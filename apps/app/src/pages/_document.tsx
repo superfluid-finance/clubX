@@ -54,7 +54,7 @@ export default class MyDocument extends Document {
           <title>SF Club</title>
           <meta name="description" content="The most exclusive club in web3." />
 
-          <link rel="icon" href="/favicon.ico" />
+          <link rel="icon" href="/icon.svg" />
         </Head>
         <body>
           <Main />

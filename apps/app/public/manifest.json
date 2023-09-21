@@ -2,6 +2,14 @@
   "name": "Superfluid Club",
   "short_name": "CLUBx",
   "start_url": "/",
-  "iconPath": "/next.svg",
-  "description": "The most exclusive club in web3!"
+  "iconPath": "/icon.svg",
+  "description": "The most exclusive club in web3!",
+  "display": "fullscreen",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "type": "image/svg",
+      "sizes": "512x512"
+    }
+  ]
 }
