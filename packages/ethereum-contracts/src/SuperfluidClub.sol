@@ -1,6 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
+import { UUPSProxy } from "./upgradability/UUPSProxy.sol";
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
 import {SuperTokenBase, ISuperToken} from "@superfluid-finance/custom-supertokens/contracts/base/SuperTokenBase.sol";
 import {SuperToken, ISuperfluid, IConstantOutflowNFT, IConstantInflowNFT, IERC20} from "./superToken/SuperToken.sol";
@@ -12,7 +13,7 @@ import {ISuperfluidClub} from "./interfaces/ISuperfluidClub.sol";
  * @dev Contract that facilitates the operations of a superfluid club.
  */
 
-contract SuperfluidClub is SuperToken, Ownable {
+contract SuperfluidClub is SuperToken, UUPSProxy,Ownable {
     using SuperTokenV1Library for ISuperToken;
 
     event PROTEGE_UPDATED(
@@ -36,6 +37,8 @@ contract SuperfluidClub is SuperToken, Ownable {
         this.initialize(IERC20(address(0)), 0, clubName, clubSymbol);
         this.selfMint(address(this), 100000000000000000000000 ether, new bytes(0));
     }
+
+
 
     // Constants
     uint256 public constant MAX_SPONSORSHIP_LEVEL = 6;
@@ -237,7 +240,7 @@ contract SuperfluidClub is SuperToken, Ownable {
     /**
      * @dev receive ethers
      */
-    receive() external payable {}
+    receive() external override payable {}
 
     /**
      * @dev converts a uint256 to int96
