@@ -103,6 +103,8 @@ contract SuperToken is SuperfluidToken, ISuperToken {
         external
         override
     {
+        require(bytes(_name).length == 0, "SuperToken: already initialized");
+        require(bytes(n).length != 0, "SuperToken: empty name");
         _underlyingToken = underlyingToken;
         _underlyingDecimals = underlyingDecimals;
 
