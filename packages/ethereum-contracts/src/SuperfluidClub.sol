@@ -3,14 +3,16 @@ pragma solidity ^0.8.19;
 
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
 import {SuperTokenBase, ISuperToken} from "@superfluid-finance/custom-supertokens/contracts/base/SuperTokenBase.sol";
+import {SuperToken, ISuperfluid, IConstantOutflowNFT, IConstantInflowNFT, IERC20} from "./superToken/SuperToken.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import {ISuperfluidClub} from "./interfaces/ISuperfluidClub.sol";
 
 /**
  * @title Superfluid Club
  * @dev Contract that facilitates the operations of a superfluid club.
  */
 
-contract SuperfluidClub is SuperTokenBase, Ownable {
+contract SuperfluidClub is SuperToken, Ownable {
     using SuperTokenV1Library for ISuperToken;
 
     event PROTEGE_UPDATED(
@@ -23,14 +25,16 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
 
     bool private init;
 
-    constructor() {}
+    constructor(ISuperfluid host, IConstantOutflowNFT constantOutflowNFT, IConstantInflowNFT constantInflowNFT)
+        SuperToken(host, constantOutflowNFT, constantInflowNFT)
+    {}
 
     /// @dev ISuperfluidClub.initialize implementation
-    function initialize(address superTokenFactory) public {
+    function _initialize(string calldata clubName, string calldata clubSymbol) public {
         require(!init, "Already initialized");
         init = true;
-        _initialize(superTokenFactory, "ClubX", "ClubX");
-        _mint(address(this), 100000000000000000000000 ether, new bytes(0));
+        this.initialize(IERC20(address(0)), 0, clubName, clubSymbol);
+        this.selfMint(address(this), 100000000000000000000000 ether, new bytes(0));
     }
 
     // Constants
@@ -96,10 +100,10 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
         require(isProtege(actualSponsor) || messiah, "You are not a protege!");
 
         uint256 coinAmount = msg.value;
-        uint256 fee = fee(_proteges[actualSponsor].directTotalProtegeCount);
-        require(coinAmount >= fee, "Not enough coin!");
+        uint256 feeAmount = fee(_proteges[actualSponsor].directTotalProtegeCount);
+        require(coinAmount >= feeAmount, "Not enough coin!");
 
-        coinAmount -= fee;
+        coinAmount -= feeAmount;
         require(_proteges[actualSponsor].level < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
 
         /// @notice: we update always the messiah total counter
@@ -113,8 +117,7 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
             // storage "pointer"
             Protege storage sponsorChainInfo = _proteges[s];
             sponsorChainInfo.totalProtegeCount++;
-            sponsorChainInfo.desiredFlowRate +=
-                calculateFlowRate(sponsorChainInfo.totalProtegeCount);
+            sponsorChainInfo.desiredFlowRate += calculateFlowRate(sponsorChainInfo.totalProtegeCount);
             // @notice: this can also trigger a callback from sponsor
             _createOrUpdateStream(s, sponsorChainInfo.desiredFlowRate);
 
@@ -182,14 +185,11 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
     /// @dev ISuperfluidClub.sponsor implementation - WRONG
     function restartStream() external {
         require(isProtege(msg.sender), "Not a protege!");
-        _createOrUpdateStream(
-            msg.sender,
-            _proteges[msg.sender].desiredFlowRate
-        );
+        _createOrUpdateStream(msg.sender, _proteges[msg.sender].desiredFlowRate);
     }
 
     /// @dev ISuperfluidClub.calculateSponsorFlowRate implementation
-    function calculateFlowRate(uint32 totalProtegeCount) public view returns (int96 flowRate) {
+    function calculateFlowRate(uint32 totalProtegeCount) public pure returns (int96 flowRate) {
         flowRate = toInt96(MAX_SPONSORSHIP_PATH_OUTFLOW / totalProtegeCount);
     }
 
@@ -231,13 +231,13 @@ contract SuperfluidClub is SuperTokenBase, Ownable {
 
     /// @dev ISuperfluidClub.mint implementation
     function mint(uint256 amount) external onlyOwner {
-        _mint(address(this), amount, new bytes(0));
+        this.selfMint(address(this), amount, new bytes(0));
     }
 
     /**
      * @dev receive ethers
      */
-    receive() external payable override {}
+    receive() external payable {}
 
     /**
      * @dev converts a uint256 to int96

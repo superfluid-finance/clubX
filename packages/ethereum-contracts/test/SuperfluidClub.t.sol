@@ -2,7 +2,7 @@
 pragma solidity ^0.8.13;
 
 import {Test, console2} from "forge-std/Test.sol";
-import {SuperfluidClub} from "../src/SuperfluidClub.sol";
+import {SuperfluidClub, ISuperfluid, IConstantOutflowNFT, IConstantInflowNFT} from "../src/SuperfluidClub.sol";
 import {ISuperfluidClub} from "../src/interfaces/ISuperfluidClub.sol";
 import {ISuperToken} from "@superfluid-finance/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluid.sol";
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
@@ -13,27 +13,32 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
 
     uint256 public constant SECONDS_IN_A_DAY = 86400;
     uint256 public constant MAX_SPONSOR_LEVEL = 6;
-
+    SuperfluidClub public clubApp;
     ISuperfluidClub public club;
+
+    IConstantOutflowNFT outNFT = IConstantOutflowNFT(address(0));
+    IConstantInflowNFT inNFT = IConstantInflowNFT(address(0));
 
     function setUp() public override {
         super.setUp();
-        club = ISuperfluidClub(address(new SuperfluidClub()));
-        club.initialize(address(sf.superTokenFactory));
+
+        clubApp = new SuperfluidClub(sf.host, outNFT, inNFT);
+        clubApp._initialize("ClubX", "ClubX");
+        club = ISuperfluidClub(address(clubApp));
     }
 
-    function _getFee(address sponsor) internal returns (uint256) {
+    function _getFee(address sponsor) internal view returns (uint256) {
         ISuperfluidClub.Protege memory protege = club.getProtege(sponsor);
         return club.fee(protege.directTotalProtegeCount);
     }
 
-    function _getFlowRate(address sponsor) internal returns (int96) {
-        ISuperfluidClub.Protege memory sponsor = club.getProtege(sponsor);
-        bool messiah = sponsor.sponsor == address(0);
-        if(messiah) {
-            return club.calculateFlowRate(sponsor.totalProtegeCount);
+    function _getFlowRate(address spAddr) internal view returns (int96) {
+        ISuperfluidClub.Protege memory sp = club.getProtege(spAddr);
+        bool messiah = sp.sponsor == address(0);
+        if (messiah) {
+            return club.calculateFlowRate(sp.totalProtegeCount);
         }
-        return club.calculateFlowRate(sponsor.totalProtegeCount + 1);
+        return club.calculateFlowRate(sp.totalProtegeCount + 1);
     }
 
     function testDeployment() public {
@@ -47,7 +52,7 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
 
     function testInitOnlyOnce() public {
         vm.expectRevert("Already initialized");
-        club.initialize(address(sf.superTokenFactory));
+        club._initialize("ClubX", "ClubX");
     }
 
     function testOnlyOwnerCanTransferOwnership() public {
@@ -110,7 +115,7 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         uint256 aliceReceivingFlow = uint256(uint96(club.getFlowRate(address(club), alice)));
         uint256 aliceExpectedFlow = uint256(uint96(_getFlowRate((address(club)))));
 
-        assertEq(aliceReceivingFlow,aliceExpectedFlow);
+        assertEq(aliceReceivingFlow, aliceExpectedFlow);
         assertEq(address(alice).balance, balanceBefore + messiahIsNice);
         assertEq(address(club).balance, messiahFee);
         assertEq(club.getProtege(address(club)).totalProtegeCount, 1);
@@ -220,5 +225,4 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         club.transferOwnership(bob);
         assertEq(club.owner(), bob);
     }
-
 }

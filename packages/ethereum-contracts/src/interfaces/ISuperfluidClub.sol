@@ -1,7 +1,13 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import {ISuperToken} from "@superfluid-finance/custom-supertokens/contracts/base/SuperTokenBase.sol";
+import {
+ISuperfluid,
+ISuperToken,
+IERC20,
+IConstantOutflowNFT,
+IConstantInflowNFT
+} from "@superfluid-finance/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluid.sol";
 
 interface IOwnable {
     /**
@@ -114,7 +120,8 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
 
     /**
      * @dev initialize the contract
-     * @param superTokenFactory superfluid token factory
+     * @param clubName token name
+        * @param clubSymbol token symbol
      */
-    function initialize(address superTokenFactory) external;
+    function _initialize(string calldata clubName, string calldata clubSymbol) external;
 }
