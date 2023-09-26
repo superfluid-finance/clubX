@@ -3,6 +3,7 @@ pragma solidity ^0.8.13;
 
 import {Test, console2} from "forge-std/Test.sol";
 import {SuperfluidClub, ISuperfluid, IConstantOutflowNFT, IConstantInflowNFT} from "../src/SuperfluidClub.sol";
+import {ClubFactory} from "../src/ClubFactory.sol";
 import {ISuperfluidClub} from "../src/interfaces/ISuperfluidClub.sol";
 import {ISuperToken} from "@superfluid-finance/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluid.sol";
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
@@ -10,6 +11,18 @@ import "@superfluid-finance/ethereum-contracts/test/foundry/FoundrySuperfluidTes
 
 contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
     using SuperTokenV1Library for ISuperfluidClub;
+
+
+    error CLUB_NFT_PROXY_ADDRESS_CHANGED();
+    error NOT_OWNER();
+    error NOT_PROTEGE();
+    error ALREADY_PROTEGE();
+    error CLUB_PROTEGE_CANNOT_BE_OWNER();
+    error NOT_ENOUGH_COIN();
+    error MAX_SPONSORSHIP_LEVEL_REACHED();
+    error INVALID_AMOUNT();
+    error NOT_ENOUGH_BALANCE();
+    error ZERO_ADDRESS();
 
     uint256 public constant SECONDS_IN_A_DAY = 86400;
     uint256 public constant MAX_SPONSOR_LEVEL = 6;
@@ -22,9 +35,10 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
     function setUp() public override {
         super.setUp();
 
-        clubApp = new SuperfluidClub(sf.host, outNFT, inNFT);
-        clubApp._initialize("ClubX", "ClubX");
-        club = ISuperfluidClub(address(clubApp));
+        // deploy club factory
+        ClubFactory factory = new ClubFactory(sf.host, outNFT, inNFT);
+        factory.initialize();
+        club = factory.createNewClub("ClubX", "ClubX");
     }
 
     function _getFee(address sponsor) internal view returns (uint256) {
@@ -46,18 +60,17 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
         assertEq(club.symbol(), "ClubX");
         assertEq(club.totalSupply(), 100000000000000000000000 ether);
         assertEq(club.balanceOf(address(club)), 100000000000000000000000 ether);
-        // test owner for club
         assertEq(club.owner(), address(this));
     }
 
     function testInitOnlyOnce() public {
-        vm.expectRevert("Already initialized");
-        club._initialize("ClubX", "ClubX");
+        vm.expectRevert("Initializable: contract is already initialized");
+        club.initialize("ClubX", "ClubX", admin);
     }
 
     function testOnlyOwnerCanTransferOwnership() public {
         vm.startPrank(alice);
-        vm.expectRevert("Ownable: caller is not the owner");
+        vm.expectRevert(NOT_OWNER.selector);
         club.transferOwnership(bob);
     }
 
@@ -70,17 +83,17 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
 
     function testWithdraw() public {
         vm.startPrank(alice);
-        vm.expectRevert("Ownable: caller is not the owner");
+        vm.expectRevert(NOT_OWNER.selector);
         club.withdraw(alice, 1000);
         vm.stopPrank();
 
-        vm.expectRevert("Invalid receiver");
+        vm.expectRevert(ZERO_ADDRESS.selector);
         club.withdraw(address(0), 1000);
 
-        vm.expectRevert("Invalid amount");
+        vm.expectRevert(INVALID_AMOUNT.selector);
         club.withdraw(bob, 0);
 
-        vm.expectRevert("Not enough balance");
+        vm.expectRevert(NOT_ENOUGH_BALANCE.selector);
         club.withdraw(bob, 10000);
 
         // fund the club contract
@@ -95,7 +108,7 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
 
     function testMint() public {
         vm.startPrank(alice);
-        vm.expectRevert("Ownable: caller is not the owner");
+        vm.expectRevert(NOT_OWNER.selector);
         club.mint(1000);
         vm.stopPrank();
 
@@ -217,7 +230,7 @@ contract SuperfluidClubTest is FoundrySuperfluidTester(10) {
     function testTransferOwnershipToProtege() public {
         address payable aliceAsPayable = payable(address(alice));
         club.sponsor{value: 0.1 ether}(aliceAsPayable);
-        vm.expectRevert("Club protege cannot be owner");
+        vm.expectRevert(CLUB_PROTEGE_CANNOT_BE_OWNER.selector);
         club.transferOwnership(alice);
     }
 
