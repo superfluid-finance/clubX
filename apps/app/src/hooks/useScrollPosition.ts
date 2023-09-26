@@ -12,7 +12,7 @@ export default function useScrollPosition(
     setPosition(newPos);
   }, []);
 
-  const throttledScrollCallback = throttle(50, onScroll);
+  const throttledScrollCallback = throttle(30, onScroll);
 
   useEffect(() => {
     if (scrollElement)

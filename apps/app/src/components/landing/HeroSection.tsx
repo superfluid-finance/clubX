@@ -39,10 +39,9 @@ const CitySection = styled(SnapScrollContent)`
 const CityBuildings = styled.img`
   display: block;
   position: absolute;
-  top: calc(105dvh);
+  top: calc(110dvh);
   width: 100%;
   z-index: 2;
-  transition: all 50ms linear;
 `;
 
 interface HeroSectionProps {
@@ -50,7 +49,7 @@ interface HeroSectionProps {
 }
 
 const HeroSection: FC<HeroSectionProps> = ({ scrollWrapper }) => {
-  const pos = useScrollPosition(scrollWrapper, 0.25);
+  const pos = useScrollPosition(scrollWrapper, 0.15);
 
   return (
     <Wrapper>
