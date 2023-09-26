@@ -1,35 +1,8 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.0;
 
-import {
-ISuperfluid,
-ISuperToken,
-IERC20,
-IConstantOutflowNFT,
-IConstantInflowNFT
-} from "@superfluid-finance/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluid.sol";
-
-interface IOwnable {
-    /**
-     * @dev Returns the address of the current owner.
-     */
-    function owner() external view returns (address);
-
-    /**
-     * @dev Leaves the contract without owner. It will not be possible to call
-     * `onlyOwner` functions. Can only be called by the current owner.
-     *
-     * NOTE: Renouncing ownership will leave the contract without an owner,
-     * thereby disabling any functionality that is only available to the owner.
-     */
-    function renounceOwnership() external;
-
-    /**
-     * @dev Transfers ownership of the contract to a new account (`newOwner`).
-     * Can only be called by the current owner.
-     */
-    function transferOwnership(address newOwner) external;
-}
+import {ISuperToken} from "@superfluid-finance/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluid.sol";
+import {IOwnable} from "./IOwnable.sol";
 
 interface ISuperfluidClub is ISuperToken, IOwnable {
     /// Events
@@ -44,7 +17,6 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
     /// Constants
     function MAX_SPONSORSHIP_LEVEL() external pure returns (uint256);
     function MAX_SPONSORSHIP_PATH_OUTFLOW() external pure returns (uint256);
-    function SECONDS_IN_A_DAY() external pure returns (uint256);
 
     /**
      * @dev A structure that represents a protege in the superfluid club.
@@ -120,8 +92,10 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
 
     /**
      * @dev initialize the contract
-     * @param clubName token name
-        * @param clubSymbol token symbol
+     * @param name token name
+     * @param symbol token symbol
      */
-    function _initialize(string calldata clubName, string calldata clubSymbol) external;
+    function initialize(string calldata name, string calldata symbol, address newOwner) external;
+
+    receive() external payable;
 }
