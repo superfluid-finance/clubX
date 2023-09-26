@@ -78,7 +78,6 @@ contract ClubFactory is UUPSProxiable, IClubFactory {
         address payable proxyAsPayable = payable(address(proxy));
         newClub = ISuperfluidClub(proxyAsPayable);
         newClub.initialize(name, symbol, msg.sender);
-       // newClub.transferOwnership(msg.sender);
         //emit ClubCreated(address(club), name, symbol);
     }
 }

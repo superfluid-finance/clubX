@@ -2,12 +2,9 @@
 pragma solidity ^0.8.19;
 
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
-import {SuperTokenBase, ISuperToken} from "@superfluid-finance/custom-supertokens/contracts/base/SuperTokenBase.sol";
 import {SuperToken, ISuperfluid, IConstantOutflowNFT, IConstantInflowNFT, IERC20} from "./superToken/SuperToken.sol";
-import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
-import {ISuperfluidClub} from "./interfaces/ISuperfluidClub.sol";
+import {ISuperfluidClub, ISuperToken} from "./interfaces/ISuperfluidClub.sol";
 import {UUPSProxiable} from "@superfluid-finance/ethereum-contracts/contracts/upgradability/UUPSProxiable.sol";
-import "openzeppelin-contracts/contracts/access/Ownable.sol";
 
 /**
  * @title Superfluid Club
