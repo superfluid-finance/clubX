@@ -1,65 +1,66 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.19;
 
-import { UUPSProxy } from "./upgradability/UUPSProxy.sol";
 import {SuperTokenV1Library} from "@superfluid-finance/ethereum-contracts/contracts/apps/SuperTokenV1Library.sol";
 import {SuperTokenBase, ISuperToken} from "@superfluid-finance/custom-supertokens/contracts/base/SuperTokenBase.sol";
 import {SuperToken, ISuperfluid, IConstantOutflowNFT, IConstantInflowNFT, IERC20} from "./superToken/SuperToken.sol";
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 import {ISuperfluidClub} from "./interfaces/ISuperfluidClub.sol";
+import {UUPSProxiable} from "@superfluid-finance/ethereum-contracts/contracts/upgradability/UUPSProxiable.sol";
+import "openzeppelin-contracts/contracts/access/Ownable.sol";
 
 /**
  * @title Superfluid Club
  * @dev Contract that facilitates the operations of a superfluid club.
  */
 
-contract SuperfluidClub is SuperToken, UUPSProxy,Ownable {
+contract SuperfluidClub is ISuperfluidClub, SuperToken, UUPSProxiable {
     using SuperTokenV1Library for ISuperToken;
 
-    event PROTEGE_UPDATED(
-        address indexed sponsor,
-        address indexed protege,
-        uint8 level,
-        uint32 totalProtegeCount,
-        uint32 directTotalProtegeCount
-    );
+    error CLUB_NFT_PROXY_ADDRESS_CHANGED();
+    error NOT_OWNER();
+    error NOT_PROTEGE();
+    error ALREADY_PROTEGE();
+    error CLUB_PROTEGE_CANNOT_BE_OWNER();
+    error NOT_ENOUGH_COIN();
+    error MAX_SPONSORSHIP_LEVEL_REACHED();
+    error INVALID_AMOUNT();
+    error NOT_ENOUGH_BALANCE();
+    error ZERO_ADDRESS();
 
-    bool private init;
+    modifier onlyOwner() {
+        if (msg.sender != owner) {
+            revert NOT_OWNER();
+        }
+        _;
+    }
+
+    address public owner;
+
+    event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
 
     constructor(ISuperfluid host, IConstantOutflowNFT constantOutflowNFT, IConstantInflowNFT constantInflowNFT)
         SuperToken(host, constantOutflowNFT, constantInflowNFT)
     {}
 
     /// @dev ISuperfluidClub.initialize implementation
-    function _initialize(string calldata clubName, string calldata clubSymbol) public {
-        require(!init, "Already initialized");
-        init = true;
-        this.initialize(IERC20(address(0)), 0, clubName, clubSymbol);
+    function initialize(string calldata name, string calldata symbol, address newOwner) public override {
+        _transferOwnership(newOwner);
+        this.castrate();
+        this.initialize(IERC20(address(0)), 0, name, symbol);
         this.selfMint(address(this), 100000000000000000000000 ether, new bytes(0));
     }
-
-
 
     // Constants
     uint256 public constant MAX_SPONSORSHIP_LEVEL = 6;
     uint256 public constant FLAT_COST_SPONSORSHIP = 0.01 ether;
     uint256 public constant MAX_SPONSORSHIP_PATH_OUTFLOW = 720 ether;
-    uint256 internal constant SECONDS_IN_A_DAY = 86400;
-
-    /// @dev ISuperfluidClub.Protege implementation
-    struct Protege {
-        address sponsor; // address of the sponsor
-        uint8 level; // The level of the protege. Level 0 protege is also called the "messiah"
-        uint32 totalProtegeCount; // number of proteges under this protege chain.
-        uint32 directTotalProtegeCount; // number of direct proteges under this sponsor.
-        int96 desiredFlowRate; // desired flow rate for the protege
-    }
 
     // State variables
-    mapping(address => Protege) internal _proteges;
+    mapping(address => ISuperfluidClub.Protege) internal _proteges;
 
     /// @dev ISuperfluidClub.isProtege implementation
-    function isProtege(address protege) public view returns (bool) {
+    function isProtege(address protege) public view override returns (bool) {
         return _proteges[protege].sponsor != address(0);
     }
 
@@ -67,7 +68,8 @@ contract SuperfluidClub is SuperToken, UUPSProxy,Ownable {
     function getChainOfSponsors(address protege)
         external
         view
-        returns (Protege[MAX_SPONSORSHIP_LEVEL] memory sponsors)
+        override
+        returns (ISuperfluidClub.Protege[] memory sponsors)
     {
         address p = protege;
         uint256 i = 0;
@@ -78,7 +80,7 @@ contract SuperfluidClub is SuperToken, UUPSProxy,Ownable {
     }
 
     /// @dev ISuperfluidClub.getProtege
-    function getProtege(address protege) external view returns (Protege memory) {
+    function getProtege(address protege) external view override returns (ISuperfluidClub.Protege memory) {
         return _proteges[protege];
     }
 
@@ -96,18 +98,27 @@ contract SuperfluidClub is SuperToken, UUPSProxy,Ownable {
     }
 
     /// @dev ISuperfluidClub.sponsor implementation
-    function sponsor(address payable newProtege) external payable {
-        require(!isProtege(newProtege), "Already a protege!");
+    function sponsor(address payable newProtege) external payable override {
+        if (isProtege(newProtege)) {
+            revert ALREADY_PROTEGE();
+        }
         // the path of The One, is made of the many
-        (address actualSponsor, bool messiah) = (msg.sender == owner()) ? (address(this), true) : (msg.sender, false);
-        require(isProtege(actualSponsor) || messiah, "You are not a protege!");
+        (address actualSponsor, bool messiah) = (msg.sender == owner) ? (address(this), true) : (msg.sender, false);
+        // use if and avoid next require
+        if (!isProtege(actualSponsor) && !messiah) {
+            revert NOT_PROTEGE();
+        }
 
         uint256 coinAmount = msg.value;
         uint256 feeAmount = fee(_proteges[actualSponsor].directTotalProtegeCount);
-        require(coinAmount >= feeAmount, "Not enough coin!");
+        if (coinAmount < feeAmount) {
+            revert NOT_ENOUGH_COIN();
+        }
 
         coinAmount -= feeAmount;
-        require(_proteges[actualSponsor].level < MAX_SPONSORSHIP_LEVEL, "Max sponsorship level reached!");
+        if (_proteges[actualSponsor].level >= MAX_SPONSORSHIP_LEVEL) {
+            revert MAX_SPONSORSHIP_LEVEL_REACHED();
+        }
 
         /// @notice: we update always the messiah total counter
         _proteges[address(this)].totalProtegeCount++;
@@ -153,9 +164,11 @@ contract SuperfluidClub is SuperToken, UUPSProxy,Ownable {
         }
     }
 
-    function remove(address oldProtege) external {
-        require(isProtege(oldProtege), "Not a protege!");
-        address actualSponsor = (msg.sender == owner()) ? address(this) : msg.sender;
+    function remove(address oldProtege) external override {
+        if (!isProtege(oldProtege)) {
+            revert NOT_PROTEGE();
+        }
+        address actualSponsor = (msg.sender == owner) ? address(this) : msg.sender;
         Protege memory protegeInfo = _proteges[oldProtege];
         delete _proteges[oldProtege];
 
@@ -187,17 +200,19 @@ contract SuperfluidClub is SuperToken, UUPSProxy,Ownable {
 
     /// @dev ISuperfluidClub.sponsor implementation - WRONG
     function restartStream() external {
-        require(isProtege(msg.sender), "Not a protege!");
+        if (!isProtege(msg.sender)) {
+            revert NOT_PROTEGE();
+        }
         _createOrUpdateStream(msg.sender, _proteges[msg.sender].desiredFlowRate);
     }
 
     /// @dev ISuperfluidClub.calculateSponsorFlowRate implementation
-    function calculateFlowRate(uint32 totalProtegeCount) public pure returns (int96 flowRate) {
+    function calculateFlowRate(uint32 totalProtegeCount) public pure override returns (int96 flowRate) {
         flowRate = toInt96(MAX_SPONSORSHIP_PATH_OUTFLOW / totalProtegeCount);
     }
 
     /// @dev ISuperfluidClub.fee implementation
-    function fee(uint32 directProtegeCount) public pure returns (uint256 feeAmount) {
+    function fee(uint32 directProtegeCount) public pure override returns (uint256 feeAmount) {
         if (directProtegeCount <= 12) {
             /// [0;12]
             return 0.01 ether;
@@ -219,16 +234,32 @@ contract SuperfluidClub is SuperToken, UUPSProxy,Ownable {
     }
 
     function transferOwnership(address newOwner) public override onlyOwner {
-        // call base transferOwnership from Ownable
-        require(!isProtege(newOwner), "Club protege cannot be owner");
-        Ownable.transferOwnership(newOwner);
+        if (newOwner == address(0)) {
+            revert ZERO_ADDRESS();
+        }
+        if (isProtege(newOwner)) {
+            revert CLUB_PROTEGE_CANNOT_BE_OWNER();
+        }
+        _transferOwnership(newOwner);
+    }
+
+    function _transferOwnership(address newOwner) internal {
+        address oldOwner = owner;
+        owner = newOwner;
+        emit OwnershipTransferred(oldOwner, newOwner);
     }
 
     /// @dev ISuperfluidClub.withdraw implementation
-    function withdraw(address receiver, uint256 amount) external onlyOwner {
-        require(receiver != address(0), "Invalid receiver");
-        require(amount > 0, "Invalid amount");
-        require(address(this).balance >= amount, "Not enough balance");
+    function withdraw(address receiver, uint256 amount) external override onlyOwner {
+        if (receiver == address(0)) {
+            revert ZERO_ADDRESS();
+        }
+        if (amount <= 0) {
+            revert INVALID_AMOUNT();
+        }
+        if (address(this).balance < amount) {
+            revert NOT_ENOUGH_BALANCE();
+        }
         payable(receiver).transfer(amount);
     }
 
@@ -237,10 +268,28 @@ contract SuperfluidClub is SuperToken, UUPSProxy,Ownable {
         this.selfMint(address(this), amount, new bytes(0));
     }
 
+    function proxiableUUID() public pure virtual override returns (bytes32) {
+        return keccak256("org.superfluid-finance.contracts.club.implementation");
+    }
+
+    function updateCode(address newAddress) external override onlyOwner {
+        UUPSProxiable._updateCodeAddress(newAddress);
+
+        // @note This is another check to ensure that when updating to a new SuperToken logic contract
+        // that we have passed the correct NFT proxy contracts in the construction of the new SuperToken
+        // logic contract
+        if (
+            CONSTANT_OUTFLOW_NFT != SuperToken(newAddress).CONSTANT_OUTFLOW_NFT()
+                || CONSTANT_INFLOW_NFT != SuperToken(newAddress).CONSTANT_INFLOW_NFT()
+        ) {
+            revert CLUB_NFT_PROXY_ADDRESS_CHANGED();
+        }
+    }
+
     /**
      * @dev receive ethers
      */
-    receive() external override payable {}
+    receive() external payable override {}
 
     /**
      * @dev converts a uint256 to int96
