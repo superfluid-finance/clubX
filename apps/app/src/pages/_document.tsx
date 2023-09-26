@@ -82,7 +82,7 @@ export default class MyDocument extends Document {
           <link
             rel="mask-icon"
             href="/icons/safari-pinned-tab.svg"
-            color="#000000"
+            color="#000009"
           />
           <link rel="shortcut icon" href="/icon.svg" />
 

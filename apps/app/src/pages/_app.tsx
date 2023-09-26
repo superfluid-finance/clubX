@@ -17,15 +17,20 @@ export const { publicClient } = configureChains(SupportedNetworks, [
   walletConnectProvider({ projectId: WalletConnectID }),
 ]);
 
+const magicConnector = new MagicAuthConnector({
+  options: {
+    isDarkMode: true,
+    apiKey: MagicLinkKey,
+  },
+});
+
+// @ts-ignore
+magicConnector.name = "Email login";
+
 const wagmiConfig = createConfig({
   autoConnect: true,
   connectors: [
-    new MagicAuthConnector({
-      options: {
-        isDarkMode: true,
-        apiKey: MagicLinkKey,
-      },
-    }),
+    magicConnector,
     new WalletConnectConnector({
       options: { projectId: WalletConnectID, showQrModal: false },
     }),
@@ -39,6 +44,8 @@ createWeb3Modal({
   wagmiConfig,
   projectId: WalletConnectID,
   chains: SupportedNetworks,
+  defaultChain: network,
+  featuredWalletIds: [],
 });
 
 export default function App({ Component, pageProps }: AppProps) {
