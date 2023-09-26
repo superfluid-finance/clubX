@@ -1,19 +1,15 @@
 import CFAv1ForwarderABI from "@/abis/CFAv1Forwarder";
 import SuperTokenABI from "@/abis/SuperToken";
 import SuperfluidClubABI from "@/abis/SuperfluidClub";
-import { parseEther } from "viem";
 import {
   Address,
   readContracts,
   useContractRead,
-  useContractWrite,
   useMutation,
-  usePrepareContractWrite,
   useQuery,
-  useWaitForTransaction,
 } from "wagmi";
-import Configuration from "./Configuration";
 import { writeContract } from "wagmi/actions";
+import Configuration from "./Configuration";
 
 const { SuperfluidClubAddress, network, CFAv1ForwarderAddress } = Configuration;
 
@@ -47,17 +43,6 @@ export const useGetProtege = (address?: Address) =>
     enabled: !!address,
     staleTime: 30000,
   });
-
-// export const sponsorAddress = (address: Address, ether: number) => {
-//   return writeContract({
-//     chainId: network.id,
-//     abi: SuperfluidClubABI,
-//     address: SuperfluidClubAddress,
-//     functionName: "sponsor",
-//     value: parseEther(ether.toString()), //fee + sponsor amount
-//     args: [address],
-//   });
-// };
 
 export const useSponsor = () => {
   return useMutation({

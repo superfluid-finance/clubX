@@ -1,67 +1,47 @@
 import { useWeb3Modal } from "@web3modal/wagmi/react";
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 import { Button } from "./Button";
 import Flex from "./Flex";
 import FlowingBalance from "./FlowingBalance";
 import { SnapScrollContent, SnapScrollWrapper } from "./SnapScroll";
 import { CaptionStyle, H1, H2, H3, Subtitle2 } from "./Typography";
+import useScrollPosition from "@/hooks/useScrollPosition";
+import { useRef } from "react";
+import ScrollDownBtn from "./ScrollDownBtn";
+import HeroSection from "./landing/HeroSection";
+import OverlayGrain from "./OverlayGrain";
 
-const ScrollImg = styled.img`
-  height: 38px;
+const PulseCenteredKeyframes = keyframes`
+0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 1;
+    }
+    100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.6;
+    }
 `;
 
-const ScrollDownBtn = () => {
-  return (
-    <Flex
-      align="center"
-      gap="12px"
-      style={{ position: "absolute", bottom: "5dvh" }}
-    >
-      <b style={{ fontWeight: 500 }}>Next</b>
-      <ScrollImg src="/assets/scroll-down.svg" />
-    </Flex>
-  );
-};
-
-const HeroSectionWrapper = styled.div`
-  scroll-snap-align: start;
-`;
-
-const HeroSection = styled(SnapScrollContent)`
-  background-image: url("/assets/bg1.png");
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 23dvh;
-  padding-bottom: 5dvh;
-  scroll-snap-align: initial;
-`;
-
-const CitySection = styled(SnapScrollContent)`
-  background-image: url("/assets/bg2.png");
-  background-size: cover;
-  background-position: center;
-  height: 100dvh;
-  position: relative;
-  overflow: hidden;
-  scroll-snap-align: initial;
-  position: relative;
-`;
-
-const CityBuildings = styled.img`
-  display: block;
-  position: absolute;
-  top: calc(100dvh + 60dvh);
-  width: 100%;
+const PulseLeftKeyframes = keyframes`
+0% {
+      transform: translateY(-50%) scale(1);
+      opacity: 0.6;
+    }
+    50% {
+      transform: translateY(-50%) scale(1.2);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-50%) scale(1);
+      opacity: 0.6;
+    }
 `;
 
 const PoweredBySection = styled(SnapScrollContent)`
-  background-image: url("/assets/bg3.png");
-  background-size: cover;
-  background-position: center;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -213,6 +193,7 @@ const ConnectCard = styled.div`
 
   &::before {
     content: "";
+    z-index: 1;
     position: absolute;
     inset: 0;
     border-radius: 8px;
@@ -227,30 +208,138 @@ const ConnectCard = styled.div`
   }
 `;
 
+const Gradient1 = styled.img`
+  position: absolute;
+  top: 60%;
+  left: 40%;
+  transform: translate(-50%, -50%);
+  width: 100vw;
+  animation: ${PulseCenteredKeyframes} 2s infinite
+    cubic-bezier(0.35, 0, 0.65, 1);
+`;
+
+const Gradient2 = styled.img`
+  position: absolute;
+  top: 70%;
+  left: 70%;
+  width: 55vw;
+  transform: translate(-50%, -50%);
+  animation: ${PulseCenteredKeyframes} 2s infinite 300ms
+    cubic-bezier(0.35, 0, 0.65, 1);
+`;
+
+const Pulse2 = keyframes`
+    10% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    31% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+    32% {
+      opacity: 0.5;
+      transform: scale(0.8);
+    }
+    34% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    35% {
+      opacity: 0.5;
+      transform: scale(0.7);
+    }
+    45% {
+      opacity: 0.5;
+      transform: scale(0.7);
+    }
+    60% {
+      opacity: 1;
+      transform: scale(1);
+    }
+`;
+
+const Gradient3 = styled.img`
+  position: absolute;
+  left: 0;
+  transform-origin: left;
+  animation: ${Pulse2} 4s infinite cubic-bezier(0.35, 0, 0.65, 1);
+`;
+
+const Gradient4 = styled.img`
+  position: absolute;
+  right: 0;
+  transform-origin: right;
+  animation: ${Pulse2} 4s infinite 200ms cubic-bezier(0.35, 0, 0.65, 1);
+`;
+
+const Gradient5 = styled.img`
+  position: absolute;
+  left: 0;
+  transform-origin: left;
+  animation-delay: 1000;
+  animation: ${Pulse2} 4s infinite 400ms cubic-bezier(0.35, 0, 0.65, 1);
+`;
+
+const Electricity = keyframes`
+    10% {
+      opacity: 0.5;
+    }
+    31% {
+      opacity: 1;
+    }
+    32% {
+      opacity: 0.1;
+    }
+    34% {
+      opacity: 0.5;
+    }
+    35% {
+      opacity: 0.05;
+    }
+    45% {
+      opacity: 0.05;
+    }
+    60% {
+      opacity: 0.5;
+    }
+`;
+
+const Icon1 = styled.img`
+  opacity: 0.5;
+  animation: ${Electricity} 4s infinite cubic-bezier(0.35, 0, 0.65, 1);
+`;
+const Icon2 = styled.img`
+  opacity: 0.5;
+  animation: ${Electricity} 4s infinite 200ms cubic-bezier(0.35, 0, 0.65, 1);
+`;
+const Icon3 = styled.img`
+  opacity: 0.5;
+  animation: ${Electricity} 4s infinite 400ms cubic-bezier(0.35, 0, 0.65, 1);
+`;
+
+const Gradient6 = styled.img`
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: ${PulseLeftKeyframes} 2s infinite cubic-bezier(0.35, 0, 0.65, 1);
+`;
+
 const IntroScreens = () => {
   const { open } = useWeb3Modal();
+  const scrollWrapper = useRef<HTMLDivElement>(null);
 
   const onClickJoin = () => {
     open();
   };
 
   return (
-    <SnapScrollWrapper>
-      <HeroSectionWrapper>
-        <HeroSection>
-          <Flex gap="8px" align="center">
-            <H1>Join CLUBx</H1>
-            <p>Refer people to get a higher Flow Rate</p>
-          </Flex>
-          <ScrollDownBtn />
-        </HeroSection>
+    <SnapScrollWrapper ref={scrollWrapper}>
+      <HeroSection scrollWrapper={scrollWrapper} />
 
-        <CitySection></CitySection>
-        <CityBuildings src="/assets/bg3.png" />
-      </HeroSectionWrapper>
-
-      <PoweredBySection>
-        <Flex gap="15px" align="center">
+      <PoweredBySection style={{ background: "#000009", position: "relative" }}>
+        <Flex gap="15px" align="center" style={{ zIndex: 2 }}>
           <GreenBoxWrapper>
             <div></div>
             <GreenBox gap="8px" align="center">
@@ -269,6 +358,7 @@ const IntroScreens = () => {
           </PoweredByBox>
         </Flex>
         <ScrollDownBtn />
+        <OverlayGrain />
       </PoweredBySection>
 
       <SnapScrollContent
@@ -276,13 +366,14 @@ const IntroScreens = () => {
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          backgroundImage: "url(/assets/grain.png), url(/assets/test3.png)",
-          backgroundSize: "cover",
-          backgroundBlendMode: "overlay",
         }}
       >
         <Flex align="center" style={{ marginTop: "10dvh" }}>
-          <Flex justify="center" gap="12px" style={{ marginBottom: "32px" }}>
+          <Flex
+            justify="center"
+            gap="12px"
+            style={{ marginBottom: "32px", zIndex: 2 }}
+          >
             <Flex direction="row" justify="center" align="center">
               <img src="/assets/beam.svg" />
               <div>Upgraded ERC-20</div>
@@ -294,7 +385,7 @@ const IntroScreens = () => {
             </div>
           </Flex>
 
-          <PinkBoxWrapper>
+          <PinkBoxWrapper style={{ position: "relative" }}>
             <PinkBoxLines />
             <PinkBox gap="8px" align="center">
               <Flex direction="row" align="end" gap="8px" justify="center">
@@ -309,10 +400,11 @@ const IntroScreens = () => {
               </Flex>
               <p>Total amount streamed</p>
             </PinkBox>
-            <div />
+            <Gradient6 src="/assets/gradient6.svg" />
           </PinkBoxWrapper>
         </Flex>
         <ScrollDownBtn />
+        <OverlayGrain />
       </SnapScrollContent>
 
       <SnapScrollContent
@@ -321,15 +413,20 @@ const IntroScreens = () => {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          backgroundImage: "url(/assets/grain.png), url(/assets/test2.png)",
-          backgroundSize: "cover",
-          backgroundBlendMode: "overlay",
+          background: "#000009",
         }}
       >
         <ValuePropList>
-          <Flex direction="row" align="center" text="left" gap="28px">
-            <img src="/assets/timer.svg" />
-            <div>
+          <Flex
+            direction="row"
+            align="center"
+            text="left"
+            gap="28px"
+            style={{ position: "relative" }}
+          >
+            <Gradient3 src="/assets/gradient3.svg" />
+            <Icon1 src="/assets/timer.svg" />
+            <div style={{ zIndex: 1 }}>
               <Subtitle2>Get paid</Subtitle2>
               <H3>every second</H3>
             </div>
@@ -342,16 +439,21 @@ const IntroScreens = () => {
             gap="28px"
             style={{ alignSelf: "end" }}
           >
-            <div>
+            <Gradient4 src="/assets/gradient4.svg" />
+            <div style={{ zIndex: 1 }}>
               <Subtitle2>Generate yield</Subtitle2>
               <H3>every second</H3>
             </div>
-            <img src="/assets/yield.svg" />
+            <Icon2 src="/assets/yield.svg" />
           </Flex>
 
           <Flex direction="row" align="center" text="left" gap="28px">
-            <img src="/assets/dca.svg" />
-            <div>
+            <Gradient5
+              src="/assets/gradient5.svg"
+              style={{ position: "absolute", left: 0 }}
+            />
+            <Icon3 src="/assets/dca.svg" />
+            <div style={{ zIndex: 1 }}>
               <Subtitle2>Passive</Subtitle2>
               <H3>DCA</H3>
             </div>
@@ -359,6 +461,7 @@ const IntroScreens = () => {
         </ValuePropList>
 
         <ScrollDownBtn />
+        <OverlayGrain />
       </SnapScrollContent>
 
       <SnapScrollContent
@@ -366,19 +469,35 @@ const IntroScreens = () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundImage: "url(/assets/grain.png), url(/assets/test1.png)",
-          backgroundSize: "cover",
-          backgroundBlendMode: "overlay",
+          background: "#000009",
         }}
       >
+        <div style={{ position: "absolute" }}>
+          <div
+            style={{
+              position: "relative",
+              width: "100vw",
+              height: "100vw",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <Gradient1 src="/assets/gradient2.svg" />
+            <Gradient2 src="/assets/gradient1.svg" />
+          </div>
+        </div>
         <ConnectCard>
-          <div>
+          <div style={{ zIndex: 1 }}>
             <H1>Join CLUBx</H1>
             <p>Refer people to get a higher Flow Rate</p>
           </div>
-          <img src="/assets/glowing-logo.png" />
-          <Button onClick={onClickJoin}>Join</Button>
+          <img src="/assets/glowing-logo.png" style={{ opacity: 0.8 }} />
+          <Button style={{ zIndex: 1 }} onClick={onClickJoin}>
+            Join
+          </Button>
         </ConnectCard>
+        <OverlayGrain />
       </SnapScrollContent>
     </SnapScrollWrapper>
   );

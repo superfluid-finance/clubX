@@ -47,3 +47,7 @@ export const Subtitle1 = styled.div`
 export const Subtitle2 = styled.div`
   ${Subtitle2Styles}
 `;
+
+export const Caption = styled.div`
+  ${CaptionStyle}
+`;

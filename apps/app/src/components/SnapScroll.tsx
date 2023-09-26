@@ -15,4 +15,5 @@ export const SnapScrollContent = styled.section`
   /* border: 1px solid red; */
   scroll-snap-align: center;
   position: relative;
+  overflow: hidden;
 `;
