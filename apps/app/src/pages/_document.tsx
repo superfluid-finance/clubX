@@ -70,9 +70,9 @@ export default class MyDocument extends Document {
             name="msapplication-config"
             content="/icons/browserconfig.xml"
           />
-          <meta name="msapplication-TileColor" content="#000000" />
+          <meta name="msapplication-TileColor" content="#000009" />
           <meta name="msapplication-tap-highlight" content="no" />
-          <meta name="theme-color" content="#000000" />
+          <meta name="theme-color" content="#000009" />
 
           <link rel="apple-touch-icon" href="/Logo.png" />
           <link rel="apple-touch-icon" sizes="152x152" href="/Logo.png" />

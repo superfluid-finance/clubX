@@ -34,5 +34,6 @@ export const Button = styled.button`
 `;
 
 export const LinkButton = styled(Link)`
+  display: inline-block;
   ${ButtonStyles}
 `;

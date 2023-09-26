@@ -1,19 +1,29 @@
 import Amount from "@/components/Amount";
-import { Button } from "@/components/Button";
+import { Button, LinkButton } from "@/components/Button";
 import ConnectionGateBtn from "@/components/ConnectionGateBtn";
+import Delimiter from "@/components/Delimiter";
 import Flex from "@/components/Flex";
 import { FooterLink } from "@/components/FooterButton";
 import { PageContent, PageWrapper } from "@/components/Layout";
-import { H2, H3, Subtitle1 } from "@/components/Typography";
+import { Caption, H3 } from "@/components/Typography";
 import { useGetFee, useGetProtege, useIsProtege, useSponsor } from "@/core/Api";
 import Configuration from "@/core/Configuration";
 import getDefaultSponsorAmount from "@/utils/DefaultSponsorAmount";
 import { shortenHex } from "@/utils/StringUtils";
 import { Html5Qrcode } from "html5-qrcode";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { FC, useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Address, isAddress } from "viem";
 import { useAccount, useBalance, useWaitForTransaction } from "wagmi";
+
+const CostItem: FC<{ title: string; wei: bigint }> = ({ title, wei }) => (
+  <Flex direction="row" align="center" justify="space-between" gap="32px">
+    <div>{title}</div>
+    <b>
+      <Amount wei={wei} /> MATIC
+    </b>
+  </Flex>
+);
 
 const FooterInfo = styled.footer(() => ({
   width: "100%",
@@ -37,7 +47,34 @@ const ReaderWrapper = styled.div`
   width: 100%;
 `;
 
-const { network, SuperfluidClubAddress } = Configuration;
+const StatsBox = styled.div`
+  width: calc(100vw - 64px);
+  position: relative;
+  padding: 20px 24px;
+  margin-top: 36px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  &::before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    padding: 2px; /* control the border thickness */
+    background: linear-gradient(0deg, #b5b5ff, #0e0e4b);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+`;
+
+const { network } = Configuration;
 
 const Scan = () => {
   const cameraRef = useRef<HTMLDivElement | null>(null);
@@ -142,91 +179,108 @@ const Scan = () => {
     };
   }, [QRCodeReader.current]);
 
+  if (!scannedAddress) {
+    return (
+      <PageWrapper>
+        <PageContent>
+          <ReaderWrapper ref={cameraRef} id="reader" />
+        </PageContent>
+        <FooterLink href="/">Cancel</FooterLink>
+      </PageWrapper>
+    );
+  }
   return (
-    <PageWrapper>
+    <PageWrapper
+      style={{
+        backgroundImage: `url("/assets/bg4.png")`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+      }}
+    >
       <PageContent>
-        {scannedAddress ? (
-          <Flex
-            gap="8px"
-            align="center"
-            justify="center"
-            style={{ marginTop: "10dvh" }}
+        <Flex
+          gap="8px"
+          align="center"
+          justify="center"
+          style={{ marginTop: "20dvh" }}
+        >
+          <H3>Sponsorship request</H3>
+          <p
+            style={{
+              maxWidth: "calc(100vw - 32px)",
+              width: "270px",
+              margin: "0 auto",
+            }}
           >
-            <Subtitle1>Scanned address:</Subtitle1>
-            <H3>{shortenHex(scannedAddress, 8)}</H3>
+            Address {shortenHex(scannedAddress)} wants to become your protege.
+          </p>
 
+          <StatsBox>
             <>
-              {fee && (
-                <div>
-                  <div>Invitation fee</div>
-                  <Subtitle1>
-                    <Amount wei={fee} /> MATIC
-                  </Subtitle1>
-                </div>
-              )}
+              {fee && <CostItem title="Invitation fee" wei={fee} />}
 
               {protege && sponsorAmount && (
-                <div>
-                  <div>Sponsor amount</div>
-                  <Subtitle1>
-                    <Amount wei={sponsorAmount} /> MATIC
-                  </Subtitle1>
-                </div>
+                <CostItem title="Sponsor amount" wei={sponsorAmount} />
               )}
 
+              <Delimiter />
+
               {fee && protege && sponsorAmount && (
-                <div>
-                  <div>Total cost</div>
-                  <Subtitle1>
-                    <Amount wei={fee + sponsorAmount} /> MATIC
-                  </Subtitle1>
-                </div>
+                <CostItem title="Total cost" wei={fee + sponsorAmount} />
               )}
 
               {nativeBalance.data && (
-                <div>
-                  <div>Available balance</div>
-                  <Subtitle1>
-                    <Amount wei={nativeBalance.data.value} /> MATIC
-                  </Subtitle1>
-                </div>
+                <Flex direction="row" align="center" justify="end">
+                  <Caption>
+                    Available balance <Amount wei={nativeBalance.data.value} />{" "}
+                    MATIC
+                  </Caption>
+                </Flex>
               )}
-
-              <div style={{ width: "calc(100vw - 32px)", margin: "20px auto" }}>
-                {isProtegeResult.data === true && (
-                  <div>Unable to invite, user is already protege!</div>
-                )}
-
-                {isProtegeResult.data === false && !sponsorTxSuccess && (
-                  <ConnectionGateBtn
-                    expectedNetwork={network}
-                    disabled={sponsorMutation.isLoading || sponsorTxLoading}
-                  >
-                    <Button
-                      disabled={sponsorMutation.isLoading || sponsorTxLoading}
-                      onClick={onSponsor}
-                    >
-                      {sponsorMutation.isLoading || sponsorTxLoading
-                        ? "Loading..."
-                        : "Sponsor"}
-                    </Button>
-                  </ConnectionGateBtn>
-                )}
-
-                {sponsorTxSuccess && (
-                  <div>
-                    Successfully invited {shortenHex(scannedAddress)} to CLUBx
-                  </div>
-                )}
-              </div>
             </>
-          </Flex>
-        ) : (
-          <ReaderWrapper ref={cameraRef} id="reader" />
-        )}
+          </StatsBox>
+
+          <div style={{ width: "calc(100vw - 32px)", margin: "20px auto" }}>
+            {isProtegeResult.data === true && (
+              <div>Unable to invite, user is already protege!</div>
+            )}
+
+            {sponsorTxSuccess && (
+              <div>
+                Successfully invited {shortenHex(scannedAddress)} to CLUBx
+              </div>
+            )}
+          </div>
+        </Flex>
       </PageContent>
 
-      <FooterLink href="/">Cancel</FooterLink>
+      {isProtegeResult.data === false && !sponsorTxSuccess && (
+        <ConnectionGateBtn
+          expectedNetwork={network}
+          disabled={sponsorMutation.isLoading || sponsorTxLoading}
+        >
+          <Button
+            disabled={sponsorMutation.isLoading || sponsorTxLoading}
+            onClick={onSponsor}
+          >
+            {sponsorMutation.isLoading || sponsorTxLoading
+              ? "Loading..."
+              : "Sponsor"}
+          </Button>
+        </ConnectionGateBtn>
+      )}
+      {isProtegeResult.data === true && (
+        <LinkButton href="/">Go Back</LinkButton>
+      )}
+      <FooterLink
+        style={{
+          visibility: isProtegeResult.data !== true ? "visible" : "hidden",
+        }}
+        href="/"
+      >
+        Cancel
+      </FooterLink>
     </PageWrapper>
   );
 };

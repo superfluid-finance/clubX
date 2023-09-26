@@ -75,7 +75,7 @@ body {
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #000000;
+  background: #000009;
 
   font-variant-numeric: "tabular-nums";
 }

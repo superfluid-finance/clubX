@@ -1,4 +1,4 @@
-import { useIsProtege, useRealtimeBalance } from "@/core/Api";
+import { useGetProtege, useIsProtege, useRealtimeBalance } from "@/core/Api";
 import Configuration from "@/core/Configuration";
 import { UnitOfTime } from "@/utils/NumberUtils";
 import { shortenHex } from "@/utils/StringUtils";
@@ -12,7 +12,7 @@ import { LinkButton } from "./Button";
 import Flex from "./Flex";
 import FlowingBalance from "./FlowingBalance";
 import { SnapScrollContent, SnapScrollWrapper } from "./SnapScroll";
-import { CaptionStyle, H2 } from "./Typography";
+import { Caption, CaptionStyle, H2 } from "./Typography";
 
 const WhiteBox = styled(Flex)`
   position: relative;
@@ -90,12 +90,37 @@ const ProtegeSection = styled(SnapScrollContent)`
   display: flex;
   flex-direction: column;
   padding-top: 23dvh;
-  padding-bottom: 10dvh;
+  padding-bottom: 32px;
   justify-content: space-between;
   background-image: url("/assets/bg4.png");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+`;
+
+const StatsBox = styled.div`
+  position: relative;
+  padding: 20px 24px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &::before {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    padding: 2px; /* control the border thickness */
+    background: linear-gradient(0deg, #b5b5ff, #0e0e4b);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
 `;
 
 const { SuperfluidClubAddress } = Configuration;
@@ -104,25 +129,17 @@ interface HomeViewProps {}
 
 const HomeView: FC<HomeViewProps> = ({}) => {
   const { address } = useAccount();
-  const { data, isLoading, refetch: refetchIsProtege } = useIsProtege(address);
   const { disconnect } = useDisconnect();
-  const queryClient = useQueryClient();
 
   const onDisconnect = useCallback(() => {
     disconnect();
   }, [disconnect]);
 
-  const { data: realtimeBalanceData, refetch: refetchRealtimeBalance } =
-    useRealtimeBalance(address, SuperfluidClubAddress);
-
-  const onClearCache = () => {
-    queryClient.invalidateQueries({
-      queryKey: [{ scopeKey: "RealTimeBalance" }, { scopeKey: "IsProtege" }],
-    });
-    queryClient.clear();
-    refetchIsProtege();
-    refetchRealtimeBalance();
-  };
+  const { data: protegeData } = useGetProtege(address);
+  const { data: realtimeBalanceData } = useRealtimeBalance(
+    address,
+    SuperfluidClubAddress
+  );
 
   return (
     <SnapScrollWrapper>
@@ -172,6 +189,15 @@ const HomeView: FC<HomeViewProps> = ({}) => {
             <span style={{ fontWeight: 400 }}>/month</span>
           </WhiteBox>
         </Flex>
+
+        {protegeData && (
+          <StatsBox>
+            <Caption>
+              Members you invited: {protegeData.directTotalProtegeCount}
+            </Caption>
+            {/* <Caption>Level: {protegeData.level}</Caption> */}
+          </StatsBox>
+        )}
 
         <LinkButton href="/scan">Scan</LinkButton>
       </ProtegeSection>
