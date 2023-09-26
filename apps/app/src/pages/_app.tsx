@@ -1,5 +1,6 @@
 import Configuration from "@/core/Configuration";
 import "@/styles/globals.css";
+import { MagicAuthConnector } from "@magiclabs/wagmi-connector";
 import { walletConnectProvider } from "@web3modal/wagmi";
 import { createWeb3Modal } from "@web3modal/wagmi/react";
 import type { AppProps } from "next/app";
@@ -8,7 +9,7 @@ import { CoinbaseWalletConnector } from "wagmi/connectors/coinbaseWallet";
 import { InjectedConnector } from "wagmi/connectors/injected";
 import { WalletConnectConnector } from "wagmi/connectors/walletConnect";
 
-const { WalletConnectID, network } = Configuration;
+const { WalletConnectID, network, MagicLinkKey } = Configuration;
 
 const SupportedNetworks = [network];
 
@@ -17,8 +18,14 @@ export const { publicClient } = configureChains(SupportedNetworks, [
 ]);
 
 const wagmiConfig = createConfig({
-  autoConnect: false,
+  autoConnect: true,
   connectors: [
+    new MagicAuthConnector({
+      options: {
+        isDarkMode: true,
+        apiKey: MagicLinkKey,
+      },
+    }),
     new WalletConnectConnector({
       options: { projectId: WalletConnectID, showQrModal: false },
     }),
