@@ -6,7 +6,7 @@ import FlowingBalance from "./FlowingBalance";
 import { SnapScrollContent, SnapScrollWrapper } from "./SnapScroll";
 import { CaptionStyle, H1, H2, H3, Subtitle2 } from "./Typography";
 import useScrollPosition from "@/hooks/useScrollPosition";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import ScrollDownBtn from "./ScrollDownBtn";
 import HeroSection from "./landing/HeroSection";
 import OverlayGrain from "./OverlayGrain";
@@ -328,14 +328,16 @@ const Gradient6 = styled.img`
 
 const IntroScreens = () => {
   const { open } = useWeb3Modal();
-  const scrollWrapper = useRef<HTMLDivElement>(null);
+  const [scrollWrapper, setScrollWrapper] = useState<HTMLDivElement | null>(
+    null
+  );
 
   const onClickJoin = () => {
     open();
   };
 
   return (
-    <SnapScrollWrapper ref={scrollWrapper}>
+    <SnapScrollWrapper ref={(newRef) => setScrollWrapper(newRef)}>
       <HeroSection scrollWrapper={scrollWrapper} />
 
       <PoweredBySection style={{ background: "#000009", position: "relative" }}>

@@ -46,11 +46,11 @@ const CityBuildings = styled.img`
 `;
 
 interface HeroSectionProps {
-  scrollWrapper: RefObject<HTMLElement>;
+  scrollWrapper: HTMLElement | null;
 }
 
 const HeroSection: FC<HeroSectionProps> = ({ scrollWrapper }) => {
-  const pos = useScrollPosition(scrollWrapper.current, 0.25);
+  const pos = useScrollPosition(scrollWrapper, 0.25);
 
   return (
     <Wrapper>
