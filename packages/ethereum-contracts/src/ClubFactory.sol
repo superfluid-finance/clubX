@@ -13,12 +13,15 @@ contract PayableUUPSProxy is UUPSProxy {
 }
 
 contract ClubFactory is UUPSProxiable, IClubFactory {
-    error CLUB_FACTORY_ONLY_HOST();
+
+    error CLUB_FACTORY_ONLY_MESSIAH();
 
     ISuperfluid public immutable host;
     ISuperfluidClub public immutable CLUB_LOGIC;
     IConstantOutflowNFT public immutable CONSTANT_OUTFLOW_NFT_LOGIC;
     IConstantInflowNFT public immutable CONSTANT_INFLOW_NFT_LOGIC;
+
+    address public theGreatMessiah;
 
     constructor(
         ISuperfluid host_,
@@ -31,6 +34,8 @@ contract ClubFactory is UUPSProxiable, IClubFactory {
 
         CONSTANT_OUTFLOW_NFT_LOGIC = constantOutflowNFTLogic_;
         CONSTANT_INFLOW_NFT_LOGIC = constantInflowNFTLogic_;
+
+        theGreatMessiah = msg.sender;
         // emit ClubLogicCreated(_SUPER_TOKEN_LOGIC);
     }
 
@@ -45,8 +50,8 @@ contract ClubFactory is UUPSProxiable, IClubFactory {
     }
 
     function updateCode(address newAddress) external override {
-        if (msg.sender != address(host)) {
-            revert CLUB_FACTORY_ONLY_HOST();
+        if (msg.sender != theGreatMessiah) {
+            revert CLUB_FACTORY_ONLY_MESSIAH();
         }
         _updateCodeAddress(newAddress);
 
