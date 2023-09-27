@@ -161,40 +161,6 @@ contract SuperfluidClub is ISuperfluidClub, SuperToken, UUPSProxiable {
         }
     }
 
-    function remove(address oldProtege) external override {
-        if (!isProtege(oldProtege)) {
-            revert NOT_PROTEGE();
-        }
-        address actualSponsor = (msg.sender == owner) ? address(this) : msg.sender;
-        Protege memory protegeInfo = _proteges[oldProtege];
-        delete _proteges[oldProtege];
-
-        // stop flow
-        if (ISuperToken(address(this)).getFlowRate(address(this), oldProtege) > 0) {
-            ISuperToken(address(this)).deleteFlow(address(this), oldProtege);
-        }
-
-        // remove from global counter
-        _proteges[address(this)].totalProtegeCount--;
-
-        _proteges[protegeInfo.sponsor].directTotalProtegeCount--;
-
-        uint32 totalProtegeCount = _proteges[actualSponsor].totalProtegeCount;
-        address s = protegeInfo.sponsor;
-        while (isProtege(s)) {
-            // storage "pointer"
-            Protege storage sponsorChainInfo = _proteges[s];
-            sponsorChainInfo.totalProtegeCount--;
-            sponsorChainInfo.desiredFlowRate -= calculateFlowRate(totalProtegeCount);
-            // if flowRate is 0, delete flow
-            if (sponsorChainInfo.desiredFlowRate == 0) {
-                ISuperToken(address(this)).deleteFlow(s, oldProtege);
-            } else {
-                _createOrUpdateStream(s, sponsorChainInfo.desiredFlowRate);
-            }
-        }
-    }
-
     /// @dev ISuperfluidClub.sponsor implementation - WRONG
     function restartStream() external {
         if (!isProtege(msg.sender)) {
@@ -241,9 +207,9 @@ contract SuperfluidClub is ISuperfluidClub, SuperToken, UUPSProxiable {
     }
 
     function _transferOwnership(address newOwner) internal {
-        address oldOwner = owner;
+        emit OwnershipTransferred(owner, newOwner);
         owner = newOwner;
-        emit OwnershipTransferred(oldOwner, newOwner);
+
     }
 
     /// @dev ISuperfluidClub.withdraw implementation

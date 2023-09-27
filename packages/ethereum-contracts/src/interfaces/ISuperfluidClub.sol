@@ -57,9 +57,6 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
      */
     function sponsor(address payable newProtege) external payable;
 
-    /// @dev test function
-    function remove(address oldProtege) external;
-
     /**
      * @notice restart a stream to a protege
      */
