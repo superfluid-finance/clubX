@@ -54,7 +54,6 @@ export const useSponsor = () => {
       amount: bigint;
     }) =>
       writeContract({
-        chainId: network.id,
         abi: SuperfluidClubABI,
         address: SuperfluidClubAddress,
         functionName: "sponsor",

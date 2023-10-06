@@ -25,7 +25,7 @@ const magicConnector = new MagicAuthConnector({
 });
 
 // @ts-ignore
-magicConnector.name = "Email login";
+magicConnector.name = "Email login with Magic";
 
 const wagmiConfig = createConfig({
   autoConnect: true,
