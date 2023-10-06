@@ -41,3 +41,10 @@ sponsorChainInfo.desiredFlowRate += sponsorDesiredFlowRate; // increase sponsor 
 
 distributableAmount -= sponsorDesiredFlowRate;
 ```
+
+
+## Examples:
+
+Basic case of adding a new Protege to the system:
+
+[![Superfluid Club - Level 1 ](./img/graph1.png)](./img/graph1.png)
