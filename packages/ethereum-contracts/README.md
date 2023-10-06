@@ -2,49 +2,42 @@
 
 _This README will help users and developers understand the functionalities, data structures, and logic flow of the contract._
 
+## Overview
 The Superfluid Club contract is designed to facilitate the operations of a club using the Superfluid finance protocol.
+The club is structed as a sponsorship chain (tree), where a person can become a "protege" under another person's sponsorship.
 
 ## Features:
 
 - The club's operations revolve around "sponsorships" and "proteges".
 - A person can become a "protege" under another person's sponsorship, creating a sponsorship relationship.
-- Sponsorship can go up to a defined `MAX_SPONSORSHIP_LEVEL` (6 by default).
-- There are stream flows based on the level of sponsorship + count of proteges under a single sponsor.
+- Sponsorship can go up to a defined `MAX_SPONSORSHIP_LEVEL`.
+- Each new protege added, the club can generate more 720 tokens per day, distributed among the protege and sponsors in the sponsorship chain.
+
+## Key Components:
+Each participant (Protege) in the system is described by a struct which contains:
+
+- `sponsor`: Address of the entity that sponsored them.
+- `level`: Hierarchical level in the sponsorship tree.
+- `totalProtegeCount`: Total number of Proteges under them (including indirect).
+- `directTotalProtegeCount`: Total number of Proteges directly under them.
+- `desiredFlowRate`: Desired rate of token stream from its sponsor.
+
+## Sponsorship Logic:
+Sponsorship: New address becomes a Protege and is linked to a sponsor. A certain amount of token is streamed to new Protege and to all sponsors in that specific branch tree.
 
 ## Formulas & Calculations:
 
-- **Allocation Calculation**: `allocation = FIRST_ELEMENT_PROGRESSION / (2 ** level);`
-  - This calculates the allocation for a given sponsorship level.
+- **Protege flowRate**: `protegeDesiredFlowRate = MAX_SPONSORSHIP_PATH_OUTFLOW / level / 86400`
 
-- **Flow Rate Calculation**: `baseRate = (MAX_SPONSORSHIP_PATH_OUTFLOW * getProtegeLevelWeight(protegeLvl)) / 100;`
-  - Based on the protege's level and the defined maximum outflow for the path, this determines the flow rate.
+- **Sponsor updated flowRate**: `distributableAmount = MAX_SPONSORSHIP_PATH_OUTFLOW - protegeDesiredFlowRate where each sponsor gets 50% and last level takes the rest`
+  - Sponsors near the new Protege will get more tokens than those far away.
 
-## Data Structures:
+```solidity 
+// if last sponsor in the chain take remaining amount, else take 50% of available amount
+int96 sponsorDesiredFlowRate =
+  sponsorChainInfo.level == 1 ? distributableAmount : (distributableAmount * 50000) / 100000;
 
-1. **Protege Struct**: Represents a member of the club.
-- `sponsor`: The address of the protege's sponsor.
-- `level`: The level of the protege in the sponsorship chain.
-- `protegeCount`: The number of proteges under this protege.
+sponsorChainInfo.desiredFlowRate += sponsorDesiredFlowRate; // increase sponsor flowRate
 
-2. **State Variables**:
-- `_proteges`: A mapping that links an address to its corresponding Protege structure.
-- `init`: Ensures the contract's initialization occurs only once.
-
-## Core Logic:
-
-- **Initialization**: Initializes the contract, sets the token symbol and name, and mints a fixed amount of tokens to the contract address.
-
-- **Sponsorship**: The function checks the eligibility of the sponsor and the new protege. Calculates the new flow rates for every sponsor up the chain and updates or creates a stream for each sponsor in the chain.
-
-- **Flow Rate Calculation**: The rate is determined based on the level of the protege and the number of proteges under a given sponsor.
-
-- **Withdrawal and Mint**: The contract owner has the privilege to withdraw fees and mint new club tokens to the contract.
-
-## Utility Functions:
-
-- `isProtege()`: Checks if an address is a protege in the club.
-
-- `getChainOfSponsors()`: Returns the chain of sponsors for a given protege address.
-
-- `toInt96()` & `toUint256()`: Utility functions for type conversion.
-
+distributableAmount -= sponsorDesiredFlowRate;
+```

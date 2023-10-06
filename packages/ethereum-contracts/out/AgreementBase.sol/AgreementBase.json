@@ -154,7 +154,7 @@
     "realtimeBalanceOf(address,address,uint256)": "9b2e48bc",
     "updateCode(address)": "46951954"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"AGREEMENT_BASE_ONLY_HOST\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"uuid\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"codeAddress\",\"type\":\"address\"}],\"name\":\"CodeUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"version\",\"type\":\"uint8\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"agreementType\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"castrate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCodeAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"codeAddress\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proxiableUUID\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISuperfluidToken\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"realtimeBalanceOf\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"dynamicBalance\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"owedDeposit\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\"}],\"name\":\"updateCode\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Superfluid\",\"events\":{\"Initialized(uint8)\":{\"details\":\"Triggered when the contract has been initialized or reinitialized.\"}},\"kind\":\"dev\",\"methods\":{\"agreementType()\":{\"details\":\"Get the type of the agreement class\"},\"getCodeAddress()\":{\"details\":\"Get current implementation code address.\"},\"proxiableUUID()\":{\"details\":\"Proxiable UUID marker function, this would help to avoid wrong logic      contract to be used for upgrading. NOTE: The semantics of the UUID deviates from the actual UUPS standard,       where it is equivalent of _IMPLEMENTATION_SLOT.\"},\"realtimeBalanceOf(address,address,uint256)\":{\"details\":\"Calculate the real-time balance for the account of this agreement class\",\"params\":{\"account\":\"Account the state belongs to\",\"time\":\"Time used for the calculation\"},\"returns\":{\"deposit\":\"Account deposit amount of this agreement\",\"dynamicBalance\":\"Dynamic balance portion of real-time balance of this agreement\",\"owedDeposit\":\"Account owed deposit amount of this agreement\"}}},\"title\":\"Superfluid agreement base boilerplate contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/agreements/AgreementBase.sol\":\"AgreementBase\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/proxy/utils/Initializable.sol\":{\"keccak256\":\"0x3d6069be9b4c01fb81840fb9c2c4dc58dd6a6a4aafaa2c6837de8699574d84c6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://720d6bb56ea0c4ef781c0bd65c5bd0541f5a46100163b2587170f97658d2deed\",\"dweb:/ipfs/QmTS2biLVPrv8CeeXCaKmkFxonMiRvc1LxiYBRYDAJHQUS\"]},\"lib/openzeppelin-contracts/contracts/utils/Address.sol\":{\"keccak256\":\"0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931\",\"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/agreements/AgreementBase.sol\":{\"keccak256\":\"0x5cb9d45e9b3753ab7f8c19e1a52da400893a93792ddf8a09bd8f06948e16d792\",\"license\":\"AGPLv3\",\"urls\":[\"bzz-raw://db309803ee144a4adf10e8a09da704cdf23471fa3815bbe0c88dc8c904b4e113\",\"dweb:/ipfs/QmXKQnXURdZ4Es3hsQYFgnu7VjL1uJy1FfMEjDXyeckt6L\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol\":{\"keccak256\":\"0xba0407c47917aee8b6e7cea745332d2f7244cc3b91d249426f0105b365feb0ee\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4e8c38994af84e123476f8de8b81fe466e9a575374b13c38a4dc30bdd2d12c06\",\"dweb:/ipfs/QmfHrSyeMQN7wVn7qmD6aPH1wX4ugkhQXiR8te6xhADGaK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluidToken.sol\":{\"keccak256\":\"0x18ea972421ff57ce62103f90c820ee039f170f0189a4b3c73fd0ff09452d1dbf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dd24799269920b4b7925362b41650b5b968bb957dc0dec50b451f5382fe573c1\",\"dweb:/ipfs/QmbL19zzZZSbVu2gYA3FtJLu4kbCtk9BybxCU7oJfpUbE7\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/upgradability/UUPSProxiable.sol\":{\"keccak256\":\"0x5727ab9e11a1d76b9bde364a4239b9401d8afff8c9a6f7a9bc822b5413d0cf7a\",\"license\":\"AGPLv3\",\"urls\":[\"bzz-raw://6bd4990aa1eb94065fcca64dc94b3493729d7407ed834106ac44c5ad25fa6953\",\"dweb:/ipfs/QmSeU3GAYTJA948HjygmpmJ1avRwGg5zJQXsGWeYrow4sp\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/upgradability/UUPSUtils.sol\":{\"keccak256\":\"0x507b0157775ffc422aee1010ab640f019dc8d653e88db6ef3c57c6486f593dc6\",\"license\":\"AGPLv3\",\"urls\":[\"bzz-raw://a9b9c00cf8285e748baca7e61f29313965ea77342c50c31f426cd8af4b0be238\",\"dweb:/ipfs/QmWg34M9kVrXLBpwPguoyr178oZabaqRQogJebTLJp98ud\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"AGREEMENT_BASE_ONLY_HOST\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"bytes32\",\"name\":\"uuid\",\"type\":\"bytes32\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"codeAddress\",\"type\":\"address\"}],\"name\":\"CodeUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"version\",\"type\":\"uint8\"}],\"name\":\"Initialized\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"agreementType\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"castrate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCodeAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"codeAddress\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"proxiableUUID\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISuperfluidToken\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"realtimeBalanceOf\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"dynamicBalance\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"owedDeposit\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"newAddress\",\"type\":\"address\"}],\"name\":\"updateCode\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Superfluid\",\"events\":{\"Initialized(uint8)\":{\"details\":\"Triggered when the contract has been initialized or reinitialized.\"}},\"kind\":\"dev\",\"methods\":{\"agreementType()\":{\"details\":\"Get the type of the agreement class\"},\"getCodeAddress()\":{\"details\":\"Get current implementation code address.\"},\"proxiableUUID()\":{\"details\":\"Proxiable UUID marker function, this would help to avoid wrong logic      contract to be used for upgrading. NOTE: The semantics of the UUID deviates from the actual UUPS standard,       where it is equivalent of _IMPLEMENTATION_SLOT.\"},\"realtimeBalanceOf(address,address,uint256)\":{\"details\":\"Calculate the real-time balance for the account of this agreement class\",\"params\":{\"account\":\"Account the state belongs to\",\"time\":\"Time used for the calculation\"},\"returns\":{\"deposit\":\"Account deposit amount of this agreement\",\"dynamicBalance\":\"Dynamic balance portion of real-time balance of this agreement\",\"owedDeposit\":\"Account owed deposit amount of this agreement\"}}},\"title\":\"Superfluid agreement base boilerplate contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/agreements/AgreementBase.sol\":\"AgreementBase\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/proxy/utils/Initializable.sol\":{\"keccak256\":\"0x3d6069be9b4c01fb81840fb9c2c4dc58dd6a6a4aafaa2c6837de8699574d84c6\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://720d6bb56ea0c4ef781c0bd65c5bd0541f5a46100163b2587170f97658d2deed\",\"dweb:/ipfs/QmTS2biLVPrv8CeeXCaKmkFxonMiRvc1LxiYBRYDAJHQUS\"]},\"lib/openzeppelin-contracts/contracts/utils/Address.sol\":{\"keccak256\":\"0x006dd67219697fe68d7fbfdea512e7c4cb64a43565ed86171d67e844982da6fa\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2455248c8ddd9cc6a7af76a13973cddf222072427e7b0e2a7d1aff345145e931\",\"dweb:/ipfs/QmfYjnjRbWqYpuxurqveE6HtzsY1Xx323J428AKQgtBJZm\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/agreements/AgreementBase.sol\":{\"keccak256\":\"0x5cb9d45e9b3753ab7f8c19e1a52da400893a93792ddf8a09bd8f06948e16d792\",\"license\":\"AGPLv3\",\"urls\":[\"bzz-raw://db309803ee144a4adf10e8a09da704cdf23471fa3815bbe0c88dc8c904b4e113\",\"dweb:/ipfs/QmXKQnXURdZ4Es3hsQYFgnu7VjL1uJy1FfMEjDXyeckt6L\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol\":{\"keccak256\":\"0xba0407c47917aee8b6e7cea745332d2f7244cc3b91d249426f0105b365feb0ee\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4e8c38994af84e123476f8de8b81fe466e9a575374b13c38a4dc30bdd2d12c06\",\"dweb:/ipfs/QmfHrSyeMQN7wVn7qmD6aPH1wX4ugkhQXiR8te6xhADGaK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluidToken.sol\":{\"keccak256\":\"0x18ea972421ff57ce62103f90c820ee039f170f0189a4b3c73fd0ff09452d1dbf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dd24799269920b4b7925362b41650b5b968bb957dc0dec50b451f5382fe573c1\",\"dweb:/ipfs/QmbL19zzZZSbVu2gYA3FtJLu4kbCtk9BybxCU7oJfpUbE7\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/upgradability/UUPSProxiable.sol\":{\"keccak256\":\"0x5727ab9e11a1d76b9bde364a4239b9401d8afff8c9a6f7a9bc822b5413d0cf7a\",\"license\":\"AGPLv3\",\"urls\":[\"bzz-raw://6bd4990aa1eb94065fcca64dc94b3493729d7407ed834106ac44c5ad25fa6953\",\"dweb:/ipfs/QmSeU3GAYTJA948HjygmpmJ1avRwGg5zJQXsGWeYrow4sp\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/upgradability/UUPSUtils.sol\":{\"keccak256\":\"0x507b0157775ffc422aee1010ab640f019dc8d653e88db6ef3c57c6486f593dc6\",\"license\":\"AGPLv3\",\"urls\":[\"bzz-raw://a9b9c00cf8285e748baca7e61f29313965ea77342c50c31f426cd8af4b0be238\",\"dweb:/ipfs/QmWg34M9kVrXLBpwPguoyr178oZabaqRQogJebTLJp98ud\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.19+commit.7dd6d404"
@@ -344,7 +344,7 @@
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 200
+        "runs": 1
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -416,25 +416,25 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/agreements/AgreementBase.sol",
-    "id": 49647,
+    "id": 49415,
     "exportedSymbols": {
       "AgreementBase": [
-        49646
+        49414
       ],
       "ISuperAgreement": [
-        66456
+        66224
       ],
       "UUPSProxiable": [
-        77572
+        77340
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "35:866:50",
+    "src": "35:866:47",
     "nodes": [
       {
-        "id": 49590,
+        "id": 49358,
         "nodeType": "PragmaDirective",
-        "src": "35:23:50",
+        "src": "35:23:47",
         "nodes": [],
         "literals": [
           "solidity",
@@ -443,24 +443,24 @@
         ]
       },
       {
-        "id": 49592,
+        "id": 49360,
         "nodeType": "ImportDirective",
-        "src": "60:67:50",
+        "src": "60:67:47",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/upgradability/UUPSProxiable.sol",
         "file": "../upgradability/UUPSProxiable.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 49647,
-        "sourceUnit": 77573,
+        "scope": 49415,
+        "sourceUnit": 77341,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 49591,
+              "id": 49359,
               "name": "UUPSProxiable",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 77572,
-              "src": "69:13:50",
+              "referencedDeclaration": 77340,
+              "src": "69:13:47",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -469,24 +469,24 @@
         "unitAlias": ""
       },
       {
-        "id": 49594,
+        "id": 49362,
         "nodeType": "ImportDirective",
-        "src": "128:79:50",
+        "src": "128:79:47",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol",
         "file": "../interfaces/superfluid/ISuperAgreement.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 49647,
-        "sourceUnit": 66457,
+        "scope": 49415,
+        "sourceUnit": 66225,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 49593,
+              "id": 49361,
               "name": "ISuperAgreement",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 66456,
-              "src": "137:15:50",
+              "referencedDeclaration": 66224,
+              "src": "137:15:47",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -495,20 +495,20 @@
         "unitAlias": ""
       },
       {
-        "id": 49646,
+        "id": 49414,
         "nodeType": "ContractDefinition",
-        "src": "296:604:50",
+        "src": "296:604:47",
         "nodes": [
           {
-            "id": 49601,
+            "id": 49369,
             "nodeType": "VariableDeclaration",
-            "src": "376:32:50",
+            "src": "376:32:47",
             "nodes": [],
             "constant": false,
             "mutability": "immutable",
             "name": "_host",
-            "nameLocation": "403:5:50",
-            "scope": 49646,
+            "nameLocation": "403:5:47",
+            "scope": 49414,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -516,10 +516,10 @@
               "typeString": "address"
             },
             "typeName": {
-              "id": 49600,
+              "id": 49368,
               "name": "address",
               "nodeType": "ElementaryTypeName",
-              "src": "376:7:50",
+              "src": "376:7:47",
               "stateMutability": "nonpayable",
               "typeDescriptions": {
                 "typeIdentifier": "t_address",
@@ -529,45 +529,45 @@
             "visibility": "internal"
           },
           {
-            "id": 49603,
+            "id": 49371,
             "nodeType": "ErrorDefinition",
-            "src": "436:33:50",
+            "src": "436:33:47",
             "nodes": [],
             "errorSelector": "1601d91e",
             "name": "AGREEMENT_BASE_ONLY_HOST",
-            "nameLocation": "442:24:50",
+            "nameLocation": "442:24:47",
             "parameters": {
-              "id": 49602,
+              "id": 49370,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "466:2:50"
+              "src": "466:2:47"
             }
           },
           {
-            "id": 49613,
+            "id": 49381,
             "nodeType": "FunctionDefinition",
-            "src": "489:59:50",
+            "src": "489:59:47",
             "nodes": [],
             "body": {
-              "id": 49612,
+              "id": 49380,
               "nodeType": "Block",
-              "src": "519:29:50",
+              "src": "519:29:47",
               "nodes": [],
               "statements": [
                 {
                   "expression": {
-                    "id": 49610,
+                    "id": 49378,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
-                      "id": 49608,
+                      "id": 49376,
                       "name": "_host",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 49601,
-                      "src": "529:5:50",
+                      "referencedDeclaration": 49369,
+                      "src": "529:5:47",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -576,26 +576,26 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 49609,
+                      "id": 49377,
                       "name": "host",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 49605,
-                      "src": "537:4:50",
+                      "referencedDeclaration": 49373,
+                      "src": "537:4:47",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "529:12:50",
+                    "src": "529:12:47",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 49611,
+                  "id": 49379,
                   "nodeType": "ExpressionStatement",
-                  "src": "529:12:50"
+                  "src": "529:12:47"
                 }
               ]
             },
@@ -605,18 +605,18 @@
             "name": "",
             "nameLocation": "-1:-1:-1",
             "parameters": {
-              "id": 49606,
+              "id": 49374,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 49605,
+                  "id": 49373,
                   "mutability": "mutable",
                   "name": "host",
-                  "nameLocation": "509:4:50",
+                  "nameLocation": "509:4:47",
                   "nodeType": "VariableDeclaration",
-                  "scope": 49613,
-                  "src": "501:12:50",
+                  "scope": 49381,
+                  "src": "501:12:47",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -624,10 +624,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 49604,
+                    "id": 49372,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "501:7:50",
+                    "src": "501:7:47",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -637,28 +637,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "500:14:50"
+              "src": "500:14:47"
             },
             "returnParameters": {
-              "id": 49607,
+              "id": 49375,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "519:0:50"
+              "src": "519:0:47"
             },
-            "scope": 49646,
+            "scope": 49414,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           },
           {
-            "id": 49626,
+            "id": 49394,
             "nodeType": "FunctionDefinition",
-            "src": "554:145:50",
+            "src": "554:145:47",
             "nodes": [],
             "body": {
-              "id": 49625,
+              "id": 49393,
               "nodeType": "Block",
-              "src": "638:61:50",
+              "src": "638:61:47",
               "nodes": [],
               "statements": [
                 {
@@ -669,14 +669,14 @@
                       "expression": {
                         "arguments": [
                           {
-                            "id": 49620,
+                            "id": 49388,
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": -28,
-                            "src": "671:4:50",
+                            "src": "671:4:47",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_AgreementBase_$49646",
+                              "typeIdentifier": "t_contract$_AgreementBase_$49414",
                               "typeString": "contract AgreementBase"
                             }
                           }
@@ -684,22 +684,22 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_AgreementBase_$49646",
+                              "typeIdentifier": "t_contract$_AgreementBase_$49414",
                               "typeString": "contract AgreementBase"
                             }
                           ],
-                          "id": 49619,
+                          "id": 49387,
                           "name": "ISuperAgreement",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 66456,
-                          "src": "655:15:50",
+                          "referencedDeclaration": 66224,
+                          "src": "655:15:47",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_type$_t_contract$_ISuperAgreement_$66456_$",
+                            "typeIdentifier": "t_type$_t_contract$_ISuperAgreement_$66224_$",
                             "typeString": "type(contract ISuperAgreement)"
                           }
                         },
-                        "id": 49621,
+                        "id": 49389,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -708,29 +708,29 @@
                         "nameLocations": [],
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "655:21:50",
+                        "src": "655:21:47",
                         "tryCall": false,
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_ISuperAgreement_$66456",
+                          "typeIdentifier": "t_contract$_ISuperAgreement_$66224",
                           "typeString": "contract ISuperAgreement"
                         }
                       },
-                      "id": 49622,
+                      "id": 49390,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "677:13:50",
+                      "memberLocation": "677:13:47",
                       "memberName": "agreementType",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 66438,
-                      "src": "655:35:50",
+                      "referencedDeclaration": 66206,
+                      "src": "655:35:47",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_view$__$returns$_t_bytes32_$",
                         "typeString": "function () view external returns (bytes32)"
                       }
                     },
-                    "id": 49623,
+                    "id": 49391,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -739,54 +739,54 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "655:37:50",
+                    "src": "655:37:47",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
                     }
                   },
-                  "functionReturnParameters": 49618,
-                  "id": 49624,
+                  "functionReturnParameters": 49386,
+                  "id": 49392,
                   "nodeType": "Return",
-                  "src": "648:44:50"
+                  "src": "648:44:47"
                 }
               ]
             },
             "baseFunctions": [
-              77512
+              77280
             ],
             "functionSelector": "52d1902d",
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "proxiableUUID",
-            "nameLocation": "563:13:50",
+            "nameLocation": "563:13:47",
             "overrides": {
-              "id": 49615,
+              "id": 49383,
               "nodeType": "OverrideSpecifier",
               "overrides": [],
-              "src": "599:8:50"
+              "src": "599:8:47"
             },
             "parameters": {
-              "id": 49614,
+              "id": 49382,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "576:2:50"
+              "src": "576:2:47"
             },
             "returnParameters": {
-              "id": 49618,
+              "id": 49386,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 49617,
+                  "id": 49385,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 49626,
-                  "src": "625:7:50",
+                  "scope": 49394,
+                  "src": "625:7:47",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -794,10 +794,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 49616,
+                    "id": 49384,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "625:7:50",
+                    "src": "625:7:47",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -806,22 +806,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "624:9:50"
+              "src": "624:9:47"
             },
-            "scope": 49646,
+            "scope": 49414,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "public"
           },
           {
-            "id": 49645,
+            "id": 49413,
             "nodeType": "FunctionDefinition",
-            "src": "705:192:50",
+            "src": "705:192:47",
             "nodes": [],
             "body": {
-              "id": 49644,
+              "id": 49412,
               "nodeType": "Block",
-              "src": "775:122:50",
+              "src": "775:122:47",
               "nodes": [],
               "statements": [
                 {
@@ -830,33 +830,33 @@
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     },
-                    "id": 49635,
+                    "id": 49403,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
                       "expression": {
-                        "id": 49632,
+                        "id": 49400,
                         "name": "msg",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": -15,
-                        "src": "789:3:50",
+                        "src": "789:3:47",
                         "typeDescriptions": {
                           "typeIdentifier": "t_magic_message",
                           "typeString": "msg"
                         }
                       },
-                      "id": 49633,
+                      "id": 49401,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "793:6:50",
+                      "memberLocation": "793:6:47",
                       "memberName": "sender",
                       "nodeType": "MemberAccess",
-                      "src": "789:10:50",
+                      "src": "789:10:47",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -865,43 +865,43 @@
                     "nodeType": "BinaryOperation",
                     "operator": "!=",
                     "rightExpression": {
-                      "id": 49634,
+                      "id": 49402,
                       "name": "_host",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 49601,
-                      "src": "803:5:50",
+                      "referencedDeclaration": 49369,
+                      "src": "803:5:47",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "src": "789:19:50",
+                    "src": "789:19:47",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 49639,
+                  "id": 49407,
                   "nodeType": "IfStatement",
-                  "src": "785:58:50",
+                  "src": "785:58:47",
                   "trueBody": {
                     "errorCall": {
                       "arguments": [],
                       "expression": {
                         "argumentTypes": [],
-                        "id": 49636,
+                        "id": 49404,
                         "name": "AGREEMENT_BASE_ONLY_HOST",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 49603,
-                        "src": "817:24:50",
+                        "referencedDeclaration": 49371,
+                        "src": "817:24:47",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_error_pure$__$returns$__$",
                           "typeString": "function () pure"
                         }
                       },
-                      "id": 49637,
+                      "id": 49405,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -910,28 +910,28 @@
                       "nameLocations": [],
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "817:26:50",
+                      "src": "817:26:47",
                       "tryCall": false,
                       "typeDescriptions": {
                         "typeIdentifier": "t_tuple$__$",
                         "typeString": "tuple()"
                       }
                     },
-                    "id": 49638,
+                    "id": 49406,
                     "nodeType": "RevertStatement",
-                    "src": "810:33:50"
+                    "src": "810:33:47"
                   }
                 },
                 {
                   "expression": {
                     "arguments": [
                       {
-                        "id": 49641,
+                        "id": 49409,
                         "name": "newAddress",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 49628,
-                        "src": "879:10:50",
+                        "referencedDeclaration": 49396,
+                        "src": "879:10:47",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -945,18 +945,18 @@
                           "typeString": "address"
                         }
                       ],
-                      "id": 49640,
+                      "id": 49408,
                       "name": "_updateCodeAddress",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 77565,
-                      "src": "860:18:50",
+                      "referencedDeclaration": 77333,
+                      "src": "860:18:47",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$returns$__$",
                         "typeString": "function (address)"
                       }
                     },
-                    "id": 49642,
+                    "id": 49410,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -965,48 +965,48 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "860:30:50",
+                    "src": "860:30:47",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "functionReturnParameters": 49631,
-                  "id": 49643,
+                  "functionReturnParameters": 49399,
+                  "id": 49411,
                   "nodeType": "Return",
-                  "src": "853:37:50"
+                  "src": "853:37:47"
                 }
               ]
             },
             "baseFunctions": [
-              77500
+              77268
             ],
             "functionSelector": "46951954",
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "updateCode",
-            "nameLocation": "714:10:50",
+            "nameLocation": "714:10:47",
             "overrides": {
-              "id": 49630,
+              "id": 49398,
               "nodeType": "OverrideSpecifier",
               "overrides": [],
-              "src": "762:8:50"
+              "src": "762:8:47"
             },
             "parameters": {
-              "id": 49629,
+              "id": 49397,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 49628,
+                  "id": 49396,
                   "mutability": "mutable",
                   "name": "newAddress",
-                  "nameLocation": "733:10:50",
+                  "nameLocation": "733:10:47",
                   "nodeType": "VariableDeclaration",
-                  "scope": 49645,
-                  "src": "725:18:50",
+                  "scope": 49413,
+                  "src": "725:18:47",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1014,10 +1014,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 49627,
+                    "id": 49395,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "725:7:50",
+                    "src": "725:7:47",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1027,15 +1027,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "724:20:50"
+              "src": "724:20:47"
             },
             "returnParameters": {
-              "id": 49631,
+              "id": 49399,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "775:0:50"
+              "src": "775:0:47"
             },
-            "scope": 49646,
+            "scope": 49414,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1045,60 +1045,60 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 49596,
+              "id": 49364,
               "name": "UUPSProxiable",
               "nameLocations": [
-                "335:13:50"
+                "335:13:47"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 77572,
-              "src": "335:13:50"
+              "referencedDeclaration": 77340,
+              "src": "335:13:47"
             },
-            "id": 49597,
+            "id": 49365,
             "nodeType": "InheritanceSpecifier",
-            "src": "335:13:50"
+            "src": "335:13:47"
           },
           {
             "baseName": {
-              "id": 49598,
+              "id": 49366,
               "name": "ISuperAgreement",
               "nameLocations": [
-                "354:15:50"
+                "354:15:47"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 66456,
-              "src": "354:15:50"
+              "referencedDeclaration": 66224,
+              "src": "354:15:47"
             },
-            "id": 49599,
+            "id": 49367,
             "nodeType": "InheritanceSpecifier",
-            "src": "354:15:50"
+            "src": "354:15:47"
           }
         ],
         "canonicalName": "AgreementBase",
         "contractDependencies": [],
         "contractKind": "contract",
         "documentation": {
-          "id": 49595,
+          "id": 49363,
           "nodeType": "StructuredDocumentation",
-          "src": "209:86:50",
+          "src": "209:86:47",
           "text": " @title Superfluid agreement base boilerplate contract\n @author Superfluid"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          49646,
-          66456,
-          77572,
-          43996
+          49414,
+          66224,
+          77340,
+          43764
         ],
         "name": "AgreementBase",
-        "nameLocation": "314:13:50",
-        "scope": 49647,
+        "nameLocation": "314:13:47",
+        "scope": 49415,
         "usedErrors": [
-          49603
+          49371
         ]
       }
     ],
     "license": "AGPLv3"
   },
-  "id": 50
+  "id": 47
 }

@@ -7,17 +7,17 @@
     }
   ],
   "bytecode": {
-    "object": "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212206a02ca9f11d2f9c318e6ecf9309c1be85fe0b646efaa9a42244109243a1a896264736f6c63430008130033",
-    "sourceMap": "174:836:86:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;174:836:86;;;;;;;;;;;;;;;;;",
+    "object": "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220c27e43446532dd3550030fe8ed5b97b2f799a8d235d38e74d7e2782a9b0ab65b64736f6c63430008130033",
+    "sourceMap": "174:836:83:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;174:836:83;;;;;;;;;;;;;;;;;",
     "linkReferences": {}
   },
   "deployedBytecode": {
-    "object": "0x73000000000000000000000000000000000000000030146080604052600080fdfea26469706673582212206a02ca9f11d2f9c318e6ecf9309c1be85fe0b646efaa9a42244109243a1a896264736f6c63430008130033",
-    "sourceMap": "174:836:86:-:0;;;;;;;;",
+    "object": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220c27e43446532dd3550030fe8ed5b97b2f799a8d235d38e74d7e2782a9b0ab65b64736f6c63430008130033",
+    "sourceMap": "174:836:83:-:0;;;;;;;;",
     "linkReferences": {}
   },
   "methodIdentifiers": {},
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"OUT_OF_GAS\",\"type\":\"error\"}],\"devdoc\":{\"author\":\"Superfluid\",\"kind\":\"dev\",\"methods\":{},\"title\":\"SafeGasLibrary\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"An internal library used to handle out of gas errors\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/libs/SafeGasLibrary.sol\":\"SafeGasLibrary\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/libs/SafeGasLibrary.sol\":{\"keccak256\":\"0x7abd4d1f45d303f80a042d8f67122662a56ae17b70bd6e263beb691064efc85e\",\"license\":\"AGPLv3\",\"urls\":[\"bzz-raw://cc8615b2d9740bb2e73812264f176d38b022a80c3f9ef2a358c129e129a92a23\",\"dweb:/ipfs/QmUjaGTJKnvQPx1L9AikP7uYTTnbRCtTZKFdY1fp3ErAqq\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"OUT_OF_GAS\",\"type\":\"error\"}],\"devdoc\":{\"author\":\"Superfluid\",\"kind\":\"dev\",\"methods\":{},\"title\":\"SafeGasLibrary\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"notice\":\"An internal library used to handle out of gas errors\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/libs/SafeGasLibrary.sol\":\"SafeGasLibrary\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/libs/SafeGasLibrary.sol\":{\"keccak256\":\"0x7abd4d1f45d303f80a042d8f67122662a56ae17b70bd6e263beb691064efc85e\",\"license\":\"AGPLv3\",\"urls\":[\"bzz-raw://cc8615b2d9740bb2e73812264f176d38b022a80c3f9ef2a358c129e129a92a23\",\"dweb:/ipfs/QmUjaGTJKnvQPx1L9AikP7uYTTnbRCtTZKFdY1fp3ErAqq\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.19+commit.7dd6d404"
@@ -57,7 +57,7 @@
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 200
+        "runs": 1
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -81,19 +81,19 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/libs/SafeGasLibrary.sol",
-    "id": 68913,
+    "id": 68681,
     "exportedSymbols": {
       "SafeGasLibrary": [
-        68912
+        68680
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "35:976:86",
+    "src": "35:976:83",
     "nodes": [
       {
-        "id": 68878,
+        "id": 68646,
         "nodeType": "PragmaDirective",
-        "src": "35:23:86",
+        "src": "35:23:83",
         "nodes": [],
         "literals": [
           "solidity",
@@ -102,34 +102,34 @@
         ]
       },
       {
-        "id": 68912,
+        "id": 68680,
         "nodeType": "ContractDefinition",
-        "src": "174:836:86",
+        "src": "174:836:83",
         "nodes": [
           {
-            "id": 68881,
+            "id": 68649,
             "nodeType": "ErrorDefinition",
-            "src": "203:19:86",
+            "src": "203:19:83",
             "nodes": [],
             "errorSelector": "20afada5",
             "name": "OUT_OF_GAS",
-            "nameLocation": "209:10:86",
+            "nameLocation": "209:10:83",
             "parameters": {
-              "id": 68880,
+              "id": 68648,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "219:2:86"
+              "src": "219:2:83"
             }
           },
           {
-            "id": 68896,
+            "id": 68664,
             "nodeType": "FunctionDefinition",
-            "src": "242:128:86",
+            "src": "242:128:83",
             "nodes": [],
             "body": {
-              "id": 68895,
+              "id": 68663,
               "nodeType": "Block",
-              "src": "315:55:86",
+              "src": "315:55:83",
               "nodes": [],
               "statements": [
                 {
@@ -138,7 +138,7 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 68893,
+                    "id": 68661,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -147,18 +147,18 @@
                       "arguments": [],
                       "expression": {
                         "argumentTypes": [],
-                        "id": 68888,
+                        "id": 68656,
                         "name": "gasleft",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": -7,
-                        "src": "332:7:86",
+                        "src": "332:7:83",
                         "typeDescriptions": {
                           "typeIdentifier": "t_function_gasleft_view$__$returns$_t_uint256_$",
                           "typeString": "function () view returns (uint256)"
                         }
                       },
-                      "id": 68889,
+                      "id": 68657,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -167,7 +167,7 @@
                       "nameLocations": [],
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "332:9:86",
+                      "src": "332:9:83",
                       "tryCall": false,
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
@@ -181,18 +181,18 @@
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       },
-                      "id": 68892,
+                      "id": 68660,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
                       "leftExpression": {
-                        "id": 68890,
+                        "id": 68658,
                         "name": "gasLeftBefore",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 68883,
-                        "src": "345:13:86",
+                        "referencedDeclaration": 68651,
+                        "src": "345:13:83",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -202,36 +202,36 @@
                       "operator": "/",
                       "rightExpression": {
                         "hexValue": "3633",
-                        "id": 68891,
+                        "id": 68659,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "number",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "361:2:86",
+                        "src": "361:2:83",
                         "typeDescriptions": {
                           "typeIdentifier": "t_rational_63_by_1",
                           "typeString": "int_const 63"
                         },
                         "value": "63"
                       },
-                      "src": "345:18:86",
+                      "src": "345:18:83",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "332:31:86",
+                    "src": "332:31:83",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 68887,
-                  "id": 68894,
+                  "functionReturnParameters": 68655,
+                  "id": 68662,
                   "nodeType": "Return",
-                  "src": "325:38:86"
+                  "src": "325:38:83"
                 }
               ]
             },
@@ -239,20 +239,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "_isOutOfGas",
-            "nameLocation": "251:11:86",
+            "nameLocation": "251:11:83",
             "parameters": {
-              "id": 68884,
+              "id": 68652,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68883,
+                  "id": 68651,
                   "mutability": "mutable",
                   "name": "gasLeftBefore",
-                  "nameLocation": "271:13:86",
+                  "nameLocation": "271:13:83",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68896,
-                  "src": "263:21:86",
+                  "scope": 68664,
+                  "src": "263:21:83",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -260,10 +260,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 68882,
+                    "id": 68650,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "263:7:86",
+                    "src": "263:7:83",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -272,21 +272,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "262:23:86"
+              "src": "262:23:83"
             },
             "returnParameters": {
-              "id": 68887,
+              "id": 68655,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68886,
+                  "id": 68654,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68896,
-                  "src": "309:4:86",
+                  "scope": 68664,
+                  "src": "309:4:83",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -294,10 +294,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 68885,
+                    "id": 68653,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "309:4:86",
+                    "src": "309:4:83",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -306,34 +306,34 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "308:6:86"
+              "src": "308:6:83"
             },
-            "scope": 68912,
+            "scope": 68680,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "internal"
           },
           {
-            "id": 68911,
+            "id": 68679,
             "nodeType": "FunctionDefinition",
-            "src": "526:482:86",
+            "src": "526:482:83",
             "nodes": [],
             "body": {
-              "id": 68910,
+              "id": 68678,
               "nodeType": "Block",
-              "src": "592:416:86",
+              "src": "592:416:83",
               "nodes": [],
               "statements": [
                 {
                   "condition": {
                     "arguments": [
                       {
-                        "id": 68903,
+                        "id": 68671,
                         "name": "gasLeftBefore",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 68899,
-                        "src": "942:13:86",
+                        "referencedDeclaration": 68667,
+                        "src": "942:13:83",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -347,18 +347,18 @@
                           "typeString": "uint256"
                         }
                       ],
-                      "id": 68902,
+                      "id": 68670,
                       "name": "_isOutOfGas",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 68896,
-                      "src": "930:11:86",
+                      "referencedDeclaration": 68664,
+                      "src": "930:11:83",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_view$_t_uint256_$returns$_t_bool_$",
                         "typeString": "function (uint256) view returns (bool)"
                       }
                     },
-                    "id": 68904,
+                    "id": 68672,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -367,38 +367,38 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "930:26:86",
+                    "src": "930:26:83",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 68909,
+                  "id": 68677,
                   "nodeType": "IfStatement",
-                  "src": "926:76:86",
+                  "src": "926:76:83",
                   "trueBody": {
-                    "id": 68908,
+                    "id": 68676,
                     "nodeType": "Block",
-                    "src": "958:44:86",
+                    "src": "958:44:83",
                     "statements": [
                       {
                         "errorCall": {
                           "arguments": [],
                           "expression": {
                             "argumentTypes": [],
-                            "id": 68905,
+                            "id": 68673,
                             "name": "OUT_OF_GAS",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 68881,
-                            "src": "979:10:86",
+                            "referencedDeclaration": 68649,
+                            "src": "979:10:83",
                             "typeDescriptions": {
                               "typeIdentifier": "t_function_error_pure$__$returns$__$",
                               "typeString": "function () pure"
                             }
                           },
-                          "id": 68906,
+                          "id": 68674,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -407,16 +407,16 @@
                           "nameLocations": [],
                           "names": [],
                           "nodeType": "FunctionCall",
-                          "src": "979:12:86",
+                          "src": "979:12:83",
                           "tryCall": false,
                           "typeDescriptions": {
                             "typeIdentifier": "t_tuple$__$",
                             "typeString": "tuple()"
                           }
                         },
-                        "id": 68907,
+                        "id": 68675,
                         "nodeType": "RevertStatement",
-                        "src": "972:19:86"
+                        "src": "972:19:83"
                       }
                     ]
                   }
@@ -424,29 +424,29 @@
               ]
             },
             "documentation": {
-              "id": 68897,
+              "id": 68665,
               "nodeType": "StructuredDocumentation",
-              "src": "376:145:86",
+              "src": "376:145:83",
               "text": "@dev A function used in the catch block to handle true out of gas errors\n @param gasLeftBefore the gas left before the try/catch block"
             },
             "implemented": true,
             "kind": "function",
             "modifiers": [],
             "name": "_revertWhenOutOfGas",
-            "nameLocation": "535:19:86",
+            "nameLocation": "535:19:83",
             "parameters": {
-              "id": 68900,
+              "id": 68668,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68899,
+                  "id": 68667,
                   "mutability": "mutable",
                   "name": "gasLeftBefore",
-                  "nameLocation": "563:13:86",
+                  "nameLocation": "563:13:83",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68911,
-                  "src": "555:21:86",
+                  "scope": 68679,
+                  "src": "555:21:83",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -454,10 +454,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 68898,
+                    "id": 68666,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "555:7:86",
+                    "src": "555:7:83",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -466,15 +466,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "554:23:86"
+              "src": "554:23:83"
             },
             "returnParameters": {
-              "id": 68901,
+              "id": 68669,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "592:0:86"
+              "src": "592:0:83"
             },
-            "scope": 68912,
+            "scope": 68680,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "internal"
@@ -486,24 +486,24 @@
         "contractDependencies": [],
         "contractKind": "library",
         "documentation": {
-          "id": 68879,
+          "id": 68647,
           "nodeType": "StructuredDocumentation",
-          "src": "60:114:86",
+          "src": "60:114:83",
           "text": "@title SafeGasLibrary\n @author Superfluid\n @notice An internal library used to handle out of gas errors"
         },
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          68912
+          68680
         ],
         "name": "SafeGasLibrary",
-        "nameLocation": "182:14:86",
-        "scope": 68913,
+        "nameLocation": "182:14:83",
+        "scope": 68681,
         "usedErrors": [
-          68881
+          68649
         ]
       }
     ],
     "license": "AGPLv3"
   },
-  "id": 86
+  "id": 83
 }

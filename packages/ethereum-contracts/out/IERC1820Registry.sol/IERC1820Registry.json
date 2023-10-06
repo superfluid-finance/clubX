@@ -234,7 +234,7 @@
     "setManager(address,address)": "5df8122f",
     "updateERC165Cache(address,bytes4)": "a41e7d51"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"interfaceHash\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"implementer\",\"type\":\"address\"}],\"name\":\"InterfaceImplementerSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newManager\",\"type\":\"address\"}],\"name\":\"ManagerChanged\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"_interfaceHash\",\"type\":\"bytes32\"}],\"name\":\"getInterfaceImplementer\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"getManager\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"implementsERC165Interface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"implementsERC165InterfaceNoCache\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"interfaceName\",\"type\":\"string\"}],\"name\":\"interfaceHash\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"_interfaceHash\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"implementer\",\"type\":\"address\"}],\"name\":\"setInterfaceImplementer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"newManager\",\"type\":\"address\"}],\"name\":\"setManager\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"updateERC165Cache\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the global ERC1820 Registry, as defined in the https://eips.ethereum.org/EIPS/eip-1820[EIP]. Accounts may register implementers for interfaces in this registry, as well as query support. Implementers may be shared by multiple accounts, and can also implement more than a single interface for each account. Contracts can implement interfaces for themselves, but externally-owned accounts (EOA) must delegate this to a contract. {IERC165} interfaces can also be queried via the registry. For an in-depth explanation and source code analysis, see the EIP text.\",\"kind\":\"dev\",\"methods\":{\"getInterfaceImplementer(address,bytes32)\":{\"details\":\"Returns the implementer of `interfaceHash` for `account`. If no such implementer is registered, returns the zero address. If `interfaceHash` is an {IERC165} interface id (i.e. it ends with 28 zeroes), `account` will be queried for support of it. `account` being the zero address is an alias for the caller's address.\"},\"getManager(address)\":{\"details\":\"Returns the manager for `account`. See {setManager}.\"},\"implementsERC165Interface(address,bytes4)\":{\"params\":{\"account\":\"Address of the contract to check.\",\"interfaceId\":\"ERC165 interface to check.\"},\"returns\":{\"_0\":\"True if `account` implements `interfaceId`, false otherwise.\"}},\"implementsERC165InterfaceNoCache(address,bytes4)\":{\"params\":{\"account\":\"Address of the contract to check.\",\"interfaceId\":\"ERC165 interface to check.\"},\"returns\":{\"_0\":\"True if `account` implements `interfaceId`, false otherwise.\"}},\"interfaceHash(string)\":{\"details\":\"Returns the interface hash for an `interfaceName`, as defined in the corresponding https://eips.ethereum.org/EIPS/eip-1820#interface-name[section of the EIP].\"},\"setInterfaceImplementer(address,bytes32,address)\":{\"details\":\"Sets the `implementer` contract as ``account``'s implementer for `interfaceHash`. `account` being the zero address is an alias for the caller's address. The zero address can also be used in `implementer` to remove an old one. See {interfaceHash} to learn how these are created. Emits an {InterfaceImplementerSet} event. Requirements: - the caller must be the current manager for `account`. - `interfaceHash` must not be an {IERC165} interface id (i.e. it must not end in 28 zeroes). - `implementer` must implement {IERC1820Implementer} and return true when queried for support, unless `implementer` is the caller. See {IERC1820Implementer-canImplementInterfaceForAddress}.\"},\"setManager(address,address)\":{\"details\":\"Sets `newManager` as the manager for `account`. A manager of an account is able to set interface implementers for it. By default, each account is its own manager. Passing a value of `0x0` in `newManager` will reset the manager to this initial state. Emits a {ManagerChanged} event. Requirements: - the caller must be the current manager for `account`.\"},\"updateERC165Cache(address,bytes4)\":{\"params\":{\"account\":\"Address of the contract for which to update the cache.\",\"interfaceId\":\"ERC165 interface for which to update the cache.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"implementsERC165Interface(address,bytes4)\":{\"notice\":\"Checks whether a contract implements an ERC165 interface or not. If the result is not cached a direct lookup on the contract address is performed. If the result is not cached or the cached value is out-of-date, the cache MUST be updated manually by calling {updateERC165Cache} with the contract address.\"},\"implementsERC165InterfaceNoCache(address,bytes4)\":{\"notice\":\"Checks whether a contract implements an ERC165 interface or not without using or updating the cache.\"},\"updateERC165Cache(address,bytes4)\":{\"notice\":\"Updates the cache with whether the contract implements an ERC165 interface or not.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC1820Registry.sol\":\"IERC1820Registry\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC1820Registry.sol\":{\"keccak256\":\"0x42f11bff9d625194645e74f01a3cf8f69a3979f07becfa293f75757cabb92050\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7dc35b43a667c38d0868c20d648ccb2ec4107bcc1e77ce4fc79ce4938cb51a6d\",\"dweb:/ipfs/QmbwauNDkoLnWYB2owGeZBYWz2y7ZejdC6Q3c5MPZHLnNm\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"bytes32\",\"name\":\"interfaceHash\",\"type\":\"bytes32\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"implementer\",\"type\":\"address\"}],\"name\":\"InterfaceImplementerSet\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"newManager\",\"type\":\"address\"}],\"name\":\"ManagerChanged\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"_interfaceHash\",\"type\":\"bytes32\"}],\"name\":\"getInterfaceImplementer\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"}],\"name\":\"getManager\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"implementsERC165Interface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"implementsERC165InterfaceNoCache\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"interfaceName\",\"type\":\"string\"}],\"name\":\"interfaceHash\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"pure\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"_interfaceHash\",\"type\":\"bytes32\"},{\"internalType\":\"address\",\"name\":\"implementer\",\"type\":\"address\"}],\"name\":\"setInterfaceImplementer\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"newManager\",\"type\":\"address\"}],\"name\":\"setManager\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"updateERC165Cache\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"details\":\"Interface of the global ERC1820 Registry, as defined in the https://eips.ethereum.org/EIPS/eip-1820[EIP]. Accounts may register implementers for interfaces in this registry, as well as query support. Implementers may be shared by multiple accounts, and can also implement more than a single interface for each account. Contracts can implement interfaces for themselves, but externally-owned accounts (EOA) must delegate this to a contract. {IERC165} interfaces can also be queried via the registry. For an in-depth explanation and source code analysis, see the EIP text.\",\"kind\":\"dev\",\"methods\":{\"getInterfaceImplementer(address,bytes32)\":{\"details\":\"Returns the implementer of `interfaceHash` for `account`. If no such implementer is registered, returns the zero address. If `interfaceHash` is an {IERC165} interface id (i.e. it ends with 28 zeroes), `account` will be queried for support of it. `account` being the zero address is an alias for the caller's address.\"},\"getManager(address)\":{\"details\":\"Returns the manager for `account`. See {setManager}.\"},\"implementsERC165Interface(address,bytes4)\":{\"params\":{\"account\":\"Address of the contract to check.\",\"interfaceId\":\"ERC165 interface to check.\"},\"returns\":{\"_0\":\"True if `account` implements `interfaceId`, false otherwise.\"}},\"implementsERC165InterfaceNoCache(address,bytes4)\":{\"params\":{\"account\":\"Address of the contract to check.\",\"interfaceId\":\"ERC165 interface to check.\"},\"returns\":{\"_0\":\"True if `account` implements `interfaceId`, false otherwise.\"}},\"interfaceHash(string)\":{\"details\":\"Returns the interface hash for an `interfaceName`, as defined in the corresponding https://eips.ethereum.org/EIPS/eip-1820#interface-name[section of the EIP].\"},\"setInterfaceImplementer(address,bytes32,address)\":{\"details\":\"Sets the `implementer` contract as ``account``'s implementer for `interfaceHash`. `account` being the zero address is an alias for the caller's address. The zero address can also be used in `implementer` to remove an old one. See {interfaceHash} to learn how these are created. Emits an {InterfaceImplementerSet} event. Requirements: - the caller must be the current manager for `account`. - `interfaceHash` must not be an {IERC165} interface id (i.e. it must not end in 28 zeroes). - `implementer` must implement {IERC1820Implementer} and return true when queried for support, unless `implementer` is the caller. See {IERC1820Implementer-canImplementInterfaceForAddress}.\"},\"setManager(address,address)\":{\"details\":\"Sets `newManager` as the manager for `account`. A manager of an account is able to set interface implementers for it. By default, each account is its own manager. Passing a value of `0x0` in `newManager` will reset the manager to this initial state. Emits a {ManagerChanged} event. Requirements: - the caller must be the current manager for `account`.\"},\"updateERC165Cache(address,bytes4)\":{\"params\":{\"account\":\"Address of the contract for which to update the cache.\",\"interfaceId\":\"ERC165 interface for which to update the cache.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"implementsERC165Interface(address,bytes4)\":{\"notice\":\"Checks whether a contract implements an ERC165 interface or not. If the result is not cached a direct lookup on the contract address is performed. If the result is not cached or the cached value is out-of-date, the cache MUST be updated manually by calling {updateERC165Cache} with the contract address.\"},\"implementsERC165InterfaceNoCache(address,bytes4)\":{\"notice\":\"Checks whether a contract implements an ERC165 interface or not without using or updating the cache.\"},\"updateERC165Cache(address,bytes4)\":{\"notice\":\"Updates the cache with whether the contract implements an ERC165 interface or not.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC1820Registry.sol\":\"IERC1820Registry\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC1820Registry.sol\":{\"keccak256\":\"0x42f11bff9d625194645e74f01a3cf8f69a3979f07becfa293f75757cabb92050\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7dc35b43a667c38d0868c20d648ccb2ec4107bcc1e77ce4fc79ce4938cb51a6d\",\"dweb:/ipfs/QmbwauNDkoLnWYB2owGeZBYWz2y7ZejdC6Q3c5MPZHLnNm\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.19+commit.7dd6d404"
@@ -529,7 +529,7 @@
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 200
+        "runs": 1
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -553,19 +553,19 @@
   },
   "ast": {
     "absolutePath": "lib/openzeppelin-contracts/contracts/utils/introspection/IERC1820Registry.sol",
-    "id": 46152,
+    "id": 45920,
     "exportedSymbols": {
       "IERC1820Registry": [
-        46151
+        45919
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "124:4713:44",
+    "src": "124:4713:41",
     "nodes": [
       {
-        "id": 46063,
+        "id": 45831,
         "nodeType": "PragmaDirective",
-        "src": "124:23:44",
+        "src": "124:23:41",
         "nodes": [],
         "literals": [
           "solidity",
@@ -575,33 +575,33 @@
         ]
       },
       {
-        "id": 46151,
+        "id": 45919,
         "nodeType": "ContractDefinition",
-        "src": "769:4067:44",
+        "src": "769:4067:41",
         "nodes": [
           {
-            "id": 46072,
+            "id": 45840,
             "nodeType": "EventDefinition",
-            "src": "802:115:44",
+            "src": "802:115:41",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "93baa6efbd2244243bfee6ce4cfdd1d04fc4c0e9a786abd3a41313bd352db153",
             "name": "InterfaceImplementerSet",
-            "nameLocation": "808:23:44",
+            "nameLocation": "808:23:41",
             "parameters": {
-              "id": 46071,
+              "id": 45839,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46066,
+                  "id": 45834,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "848:7:44",
+                  "nameLocation": "848:7:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46072,
-                  "src": "832:23:44",
+                  "scope": 45840,
+                  "src": "832:23:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -609,10 +609,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46065,
+                    "id": 45833,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "832:7:44",
+                    "src": "832:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -623,14 +623,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46068,
+                  "id": 45836,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "interfaceHash",
-                  "nameLocation": "873:13:44",
+                  "nameLocation": "873:13:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46072,
-                  "src": "857:29:44",
+                  "scope": 45840,
+                  "src": "857:29:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -638,10 +638,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46067,
+                    "id": 45835,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "857:7:44",
+                    "src": "857:7:41",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -651,14 +651,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46070,
+                  "id": 45838,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "implementer",
-                  "nameLocation": "904:11:44",
+                  "nameLocation": "904:11:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46072,
-                  "src": "888:27:44",
+                  "scope": 45840,
+                  "src": "888:27:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -666,10 +666,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46069,
+                    "id": 45837,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "888:7:44",
+                    "src": "888:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -679,32 +679,32 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "831:85:44"
+              "src": "831:85:41"
             }
           },
           {
-            "id": 46078,
+            "id": 45846,
             "nodeType": "EventDefinition",
-            "src": "923:74:44",
+            "src": "923:74:41",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "605c2dbf762e5f7d60a546d42e7205dcb1b011ebc62a61736a57c9089d3a4350",
             "name": "ManagerChanged",
-            "nameLocation": "929:14:44",
+            "nameLocation": "929:14:41",
             "parameters": {
-              "id": 46077,
+              "id": 45845,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46074,
+                  "id": 45842,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "960:7:44",
+                  "nameLocation": "960:7:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46078,
-                  "src": "944:23:44",
+                  "scope": 45846,
+                  "src": "944:23:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -712,10 +712,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46073,
+                    "id": 45841,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "944:7:44",
+                    "src": "944:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -726,14 +726,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 46076,
+                  "id": 45844,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "newManager",
-                  "nameLocation": "985:10:44",
+                  "nameLocation": "985:10:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46078,
-                  "src": "969:26:44",
+                  "scope": 45846,
+                  "src": "969:26:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -741,10 +741,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46075,
+                    "id": 45843,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "969:7:44",
+                    "src": "969:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -754,18 +754,18 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "943:53:44"
+              "src": "943:53:41"
             }
           },
           {
-            "id": 46086,
+            "id": 45854,
             "nodeType": "FunctionDefinition",
-            "src": "1453:66:44",
+            "src": "1453:66:41",
             "nodes": [],
             "documentation": {
-              "id": 46079,
+              "id": 45847,
               "nodeType": "StructuredDocumentation",
-              "src": "1003:445:44",
+              "src": "1003:445:41",
               "text": " @dev Sets `newManager` as the manager for `account`. A manager of an\n account is able to set interface implementers for it.\n By default, each account is its own manager. Passing a value of `0x0` in\n `newManager` will reset the manager to this initial state.\n Emits a {ManagerChanged} event.\n Requirements:\n - the caller must be the current manager for `account`."
             },
             "functionSelector": "5df8122f",
@@ -773,20 +773,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "setManager",
-            "nameLocation": "1462:10:44",
+            "nameLocation": "1462:10:41",
             "parameters": {
-              "id": 46084,
+              "id": 45852,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46081,
+                  "id": 45849,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "1481:7:44",
+                  "nameLocation": "1481:7:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46086,
-                  "src": "1473:15:44",
+                  "scope": 45854,
+                  "src": "1473:15:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -794,10 +794,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46080,
+                    "id": 45848,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1473:7:44",
+                    "src": "1473:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -808,13 +808,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46083,
+                  "id": 45851,
                   "mutability": "mutable",
                   "name": "newManager",
-                  "nameLocation": "1498:10:44",
+                  "nameLocation": "1498:10:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46086,
-                  "src": "1490:18:44",
+                  "scope": 45854,
+                  "src": "1490:18:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -822,10 +822,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46082,
+                    "id": 45850,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1490:7:44",
+                    "src": "1490:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -835,28 +835,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1472:37:44"
+              "src": "1472:37:41"
             },
             "returnParameters": {
-              "id": 46085,
+              "id": 45853,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1518:0:44"
+              "src": "1518:0:41"
             },
-            "scope": 46151,
+            "scope": 45919,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46094,
+            "id": 45862,
             "nodeType": "FunctionDefinition",
-            "src": "1620:69:44",
+            "src": "1620:69:41",
             "nodes": [],
             "documentation": {
-              "id": 46087,
+              "id": 45855,
               "nodeType": "StructuredDocumentation",
-              "src": "1525:90:44",
+              "src": "1525:90:41",
               "text": " @dev Returns the manager for `account`.\n See {setManager}."
             },
             "functionSelector": "3d584063",
@@ -864,20 +864,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "getManager",
-            "nameLocation": "1629:10:44",
+            "nameLocation": "1629:10:41",
             "parameters": {
-              "id": 46090,
+              "id": 45858,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46089,
+                  "id": 45857,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "1648:7:44",
+                  "nameLocation": "1648:7:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46094,
-                  "src": "1640:15:44",
+                  "scope": 45862,
+                  "src": "1640:15:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -885,10 +885,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46088,
+                    "id": 45856,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1640:7:44",
+                    "src": "1640:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -898,21 +898,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1639:17:44"
+              "src": "1639:17:41"
             },
             "returnParameters": {
-              "id": 46093,
+              "id": 45861,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46092,
+                  "id": 45860,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46094,
-                  "src": "1680:7:44",
+                  "scope": 45862,
+                  "src": "1680:7:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -920,10 +920,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46091,
+                    "id": 45859,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1680:7:44",
+                    "src": "1680:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -933,22 +933,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1679:9:44"
+              "src": "1679:9:41"
             },
-            "scope": 46151,
+            "scope": 45919,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46104,
+            "id": 45872,
             "nodeType": "FunctionDefinition",
-            "src": "2515:104:44",
+            "src": "2515:104:41",
             "nodes": [],
             "documentation": {
-              "id": 46095,
+              "id": 45863,
               "nodeType": "StructuredDocumentation",
-              "src": "1695:815:44",
+              "src": "1695:815:41",
               "text": " @dev Sets the `implementer` contract as ``account``'s implementer for\n `interfaceHash`.\n `account` being the zero address is an alias for the caller's address.\n The zero address can also be used in `implementer` to remove an old one.\n See {interfaceHash} to learn how these are created.\n Emits an {InterfaceImplementerSet} event.\n Requirements:\n - the caller must be the current manager for `account`.\n - `interfaceHash` must not be an {IERC165} interface id (i.e. it must not\n end in 28 zeroes).\n - `implementer` must implement {IERC1820Implementer} and return true when\n queried for support, unless `implementer` is the caller. See\n {IERC1820Implementer-canImplementInterfaceForAddress}."
             },
             "functionSelector": "29965a1d",
@@ -956,20 +956,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "setInterfaceImplementer",
-            "nameLocation": "2524:23:44",
+            "nameLocation": "2524:23:41",
             "parameters": {
-              "id": 46102,
+              "id": 45870,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46097,
+                  "id": 45865,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "2556:7:44",
+                  "nameLocation": "2556:7:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46104,
-                  "src": "2548:15:44",
+                  "scope": 45872,
+                  "src": "2548:15:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -977,10 +977,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46096,
+                    "id": 45864,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2548:7:44",
+                    "src": "2548:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -991,13 +991,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46099,
+                  "id": 45867,
                   "mutability": "mutable",
                   "name": "_interfaceHash",
-                  "nameLocation": "2573:14:44",
+                  "nameLocation": "2573:14:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46104,
-                  "src": "2565:22:44",
+                  "scope": 45872,
+                  "src": "2565:22:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1005,10 +1005,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46098,
+                    "id": 45866,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2565:7:44",
+                    "src": "2565:7:41",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1018,13 +1018,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46101,
+                  "id": 45869,
                   "mutability": "mutable",
                   "name": "implementer",
-                  "nameLocation": "2597:11:44",
+                  "nameLocation": "2597:11:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46104,
-                  "src": "2589:19:44",
+                  "scope": 45872,
+                  "src": "2589:19:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1032,10 +1032,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46100,
+                    "id": 45868,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2589:7:44",
+                    "src": "2589:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1045,28 +1045,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2547:62:44"
+              "src": "2547:62:41"
             },
             "returnParameters": {
-              "id": 46103,
+              "id": 45871,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2618:0:44"
+              "src": "2618:0:41"
             },
-            "scope": 46151,
+            "scope": 45919,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46114,
+            "id": 45882,
             "nodeType": "FunctionDefinition",
-            "src": "3012:106:44",
+            "src": "3012:106:41",
             "nodes": [],
             "documentation": {
-              "id": 46105,
+              "id": 45873,
               "nodeType": "StructuredDocumentation",
-              "src": "2625:382:44",
+              "src": "2625:382:41",
               "text": " @dev Returns the implementer of `interfaceHash` for `account`. If no such\n implementer is registered, returns the zero address.\n If `interfaceHash` is an {IERC165} interface id (i.e. it ends with 28\n zeroes), `account` will be queried for support of it.\n `account` being the zero address is an alias for the caller's address."
             },
             "functionSelector": "aabbb8ca",
@@ -1074,20 +1074,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "getInterfaceImplementer",
-            "nameLocation": "3021:23:44",
+            "nameLocation": "3021:23:41",
             "parameters": {
-              "id": 46110,
+              "id": 45878,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46107,
+                  "id": 45875,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "3053:7:44",
+                  "nameLocation": "3053:7:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46114,
-                  "src": "3045:15:44",
+                  "scope": 45882,
+                  "src": "3045:15:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1095,10 +1095,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46106,
+                    "id": 45874,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3045:7:44",
+                    "src": "3045:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1109,13 +1109,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46109,
+                  "id": 45877,
                   "mutability": "mutable",
                   "name": "_interfaceHash",
-                  "nameLocation": "3070:14:44",
+                  "nameLocation": "3070:14:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46114,
-                  "src": "3062:22:44",
+                  "scope": 45882,
+                  "src": "3062:22:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1123,10 +1123,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46108,
+                    "id": 45876,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3062:7:44",
+                    "src": "3062:7:41",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1135,21 +1135,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3044:41:44"
+              "src": "3044:41:41"
             },
             "returnParameters": {
-              "id": 46113,
+              "id": 45881,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46112,
+                  "id": 45880,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46114,
-                  "src": "3109:7:44",
+                  "scope": 45882,
+                  "src": "3109:7:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1157,10 +1157,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46111,
+                    "id": 45879,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3109:7:44",
+                    "src": "3109:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1170,22 +1170,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3108:9:44"
+              "src": "3108:9:41"
             },
-            "scope": 46151,
+            "scope": 45919,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46122,
+            "id": 45890,
             "nodeType": "FunctionDefinition",
-            "src": "3325:86:44",
+            "src": "3325:86:41",
             "nodes": [],
             "documentation": {
-              "id": 46115,
+              "id": 45883,
               "nodeType": "StructuredDocumentation",
-              "src": "3124:196:44",
+              "src": "3124:196:41",
               "text": " @dev Returns the interface hash for an `interfaceName`, as defined in the\n corresponding\n https://eips.ethereum.org/EIPS/eip-1820#interface-name[section of the EIP]."
             },
             "functionSelector": "65ba36c1",
@@ -1193,20 +1193,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "interfaceHash",
-            "nameLocation": "3334:13:44",
+            "nameLocation": "3334:13:41",
             "parameters": {
-              "id": 46118,
+              "id": 45886,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46117,
+                  "id": 45885,
                   "mutability": "mutable",
                   "name": "interfaceName",
-                  "nameLocation": "3364:13:44",
+                  "nameLocation": "3364:13:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46122,
-                  "src": "3348:29:44",
+                  "scope": 45890,
+                  "src": "3348:29:41",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1214,10 +1214,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 46116,
+                    "id": 45884,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3348:6:44",
+                    "src": "3348:6:41",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1226,21 +1226,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3347:31:44"
+              "src": "3347:31:41"
             },
             "returnParameters": {
-              "id": 46121,
+              "id": 45889,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46120,
+                  "id": 45888,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46122,
-                  "src": "3402:7:44",
+                  "scope": 45890,
+                  "src": "3402:7:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1248,10 +1248,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 46119,
+                    "id": 45887,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3402:7:44",
+                    "src": "3402:7:41",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -1260,22 +1260,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3401:9:44"
+              "src": "3401:9:41"
             },
-            "scope": 46151,
+            "scope": 45919,
             "stateMutability": "pure",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46130,
+            "id": 45898,
             "nodeType": "FunctionDefinition",
-            "src": "3682:73:44",
+            "src": "3682:73:41",
             "nodes": [],
             "documentation": {
-              "id": 46123,
+              "id": 45891,
               "nodeType": "StructuredDocumentation",
-              "src": "3417:260:44",
+              "src": "3417:260:41",
               "text": " @notice Updates the cache with whether the contract implements an ERC165 interface or not.\n @param account Address of the contract for which to update the cache.\n @param interfaceId ERC165 interface for which to update the cache."
             },
             "functionSelector": "a41e7d51",
@@ -1283,20 +1283,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "updateERC165Cache",
-            "nameLocation": "3691:17:44",
+            "nameLocation": "3691:17:41",
             "parameters": {
-              "id": 46128,
+              "id": 45896,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46125,
+                  "id": 45893,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "3717:7:44",
+                  "nameLocation": "3717:7:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46130,
-                  "src": "3709:15:44",
+                  "scope": 45898,
+                  "src": "3709:15:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1304,10 +1304,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46124,
+                    "id": 45892,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3709:7:44",
+                    "src": "3709:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1318,13 +1318,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46127,
+                  "id": 45895,
                   "mutability": "mutable",
                   "name": "interfaceId",
-                  "nameLocation": "3733:11:44",
+                  "nameLocation": "3733:11:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46130,
-                  "src": "3726:18:44",
+                  "scope": 45898,
+                  "src": "3726:18:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1332,10 +1332,10 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 46126,
+                    "id": 45894,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3726:6:44",
+                    "src": "3726:6:41",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes4",
                       "typeString": "bytes4"
@@ -1344,28 +1344,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3708:37:44"
+              "src": "3708:37:41"
             },
             "returnParameters": {
-              "id": 46129,
+              "id": 45897,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3754:0:44"
+              "src": "3754:0:41"
             },
-            "scope": 46151,
+            "scope": 45919,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46140,
+            "id": 45908,
             "nodeType": "FunctionDefinition",
-            "src": "4302:101:44",
+            "src": "4302:101:41",
             "nodes": [],
             "documentation": {
-              "id": 46131,
+              "id": 45899,
               "nodeType": "StructuredDocumentation",
-              "src": "3761:536:44",
+              "src": "3761:536:41",
               "text": " @notice Checks whether a contract implements an ERC165 interface or not.\n If the result is not cached a direct lookup on the contract address is performed.\n If the result is not cached or the cached value is out-of-date, the cache MUST be updated manually by calling\n {updateERC165Cache} with the contract address.\n @param account Address of the contract to check.\n @param interfaceId ERC165 interface to check.\n @return True if `account` implements `interfaceId`, false otherwise."
             },
             "functionSelector": "f712f3e8",
@@ -1373,20 +1373,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "implementsERC165Interface",
-            "nameLocation": "4311:25:44",
+            "nameLocation": "4311:25:41",
             "parameters": {
-              "id": 46136,
+              "id": 45904,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46133,
+                  "id": 45901,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "4345:7:44",
+                  "nameLocation": "4345:7:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46140,
-                  "src": "4337:15:44",
+                  "scope": 45908,
+                  "src": "4337:15:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1394,10 +1394,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46132,
+                    "id": 45900,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4337:7:44",
+                    "src": "4337:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1408,13 +1408,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46135,
+                  "id": 45903,
                   "mutability": "mutable",
                   "name": "interfaceId",
-                  "nameLocation": "4361:11:44",
+                  "nameLocation": "4361:11:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46140,
-                  "src": "4354:18:44",
+                  "scope": 45908,
+                  "src": "4354:18:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1422,10 +1422,10 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 46134,
+                    "id": 45902,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4354:6:44",
+                    "src": "4354:6:41",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes4",
                       "typeString": "bytes4"
@@ -1434,21 +1434,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4336:37:44"
+              "src": "4336:37:41"
             },
             "returnParameters": {
-              "id": 46139,
+              "id": 45907,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46138,
+                  "id": 45906,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46140,
-                  "src": "4397:4:44",
+                  "scope": 45908,
+                  "src": "4397:4:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1456,10 +1456,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46137,
+                    "id": 45905,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4397:4:44",
+                    "src": "4397:4:41",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1468,22 +1468,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4396:6:44"
+              "src": "4396:6:41"
             },
-            "scope": 46151,
+            "scope": 45919,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 46150,
+            "id": 45918,
             "nodeType": "FunctionDefinition",
-            "src": "4726:108:44",
+            "src": "4726:108:41",
             "nodes": [],
             "documentation": {
-              "id": 46141,
+              "id": 45909,
               "nodeType": "StructuredDocumentation",
-              "src": "4409:312:44",
+              "src": "4409:312:41",
               "text": " @notice Checks whether a contract implements an ERC165 interface or not without using or updating the cache.\n @param account Address of the contract to check.\n @param interfaceId ERC165 interface to check.\n @return True if `account` implements `interfaceId`, false otherwise."
             },
             "functionSelector": "b7056765",
@@ -1491,20 +1491,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "implementsERC165InterfaceNoCache",
-            "nameLocation": "4735:32:44",
+            "nameLocation": "4735:32:41",
             "parameters": {
-              "id": 46146,
+              "id": 45914,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46143,
+                  "id": 45911,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "4776:7:44",
+                  "nameLocation": "4776:7:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46150,
-                  "src": "4768:15:44",
+                  "scope": 45918,
+                  "src": "4768:15:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1512,10 +1512,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 46142,
+                    "id": 45910,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4768:7:44",
+                    "src": "4768:7:41",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1526,13 +1526,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 46145,
+                  "id": 45913,
                   "mutability": "mutable",
                   "name": "interfaceId",
-                  "nameLocation": "4792:11:44",
+                  "nameLocation": "4792:11:41",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46150,
-                  "src": "4785:18:44",
+                  "scope": 45918,
+                  "src": "4785:18:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1540,10 +1540,10 @@
                     "typeString": "bytes4"
                   },
                   "typeName": {
-                    "id": 46144,
+                    "id": 45912,
                     "name": "bytes4",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4785:6:44",
+                    "src": "4785:6:41",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes4",
                       "typeString": "bytes4"
@@ -1552,21 +1552,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4767:37:44"
+              "src": "4767:37:41"
             },
             "returnParameters": {
-              "id": 46149,
+              "id": 45917,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 46148,
+                  "id": 45916,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 46150,
-                  "src": "4828:4:44",
+                  "scope": 45918,
+                  "src": "4828:4:41",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1574,10 +1574,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 46147,
+                    "id": 45915,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4828:4:44",
+                    "src": "4828:4:41",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1586,9 +1586,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4827:6:44"
+              "src": "4827:6:41"
             },
-            "scope": 46151,
+            "scope": 45919,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -1600,22 +1600,22 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 46064,
+          "id": 45832,
           "nodeType": "StructuredDocumentation",
-          "src": "149:619:44",
+          "src": "149:619:41",
           "text": " @dev Interface of the global ERC1820 Registry, as defined in the\n https://eips.ethereum.org/EIPS/eip-1820[EIP]. Accounts may register\n implementers for interfaces in this registry, as well as query support.\n Implementers may be shared by multiple accounts, and can also implement more\n than a single interface for each account. Contracts can implement interfaces\n for themselves, but externally-owned accounts (EOA) must delegate this to a\n contract.\n {IERC165} interfaces can also be queried via the registry.\n For an in-depth explanation and source code analysis, see the EIP text."
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          46151
+          45919
         ],
         "name": "IERC1820Registry",
-        "nameLocation": "779:16:44",
-        "scope": 46152,
+        "nameLocation": "779:16:41",
+        "scope": 45920,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 44
+  "id": 41
 }

@@ -71,7 +71,7 @@
     "get(string)": "693ec85e",
     "set(string,address)": "a815ff15"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"name\":\"Set\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"name\":\"set\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Superfluid\",\"kind\":\"dev\",\"methods\":{\"get(string)\":{\"details\":\"Get address by name\"},\"set(string,address)\":{\"details\":\"Set resolver address name\"}},\"title\":\"Abstraction for an address resolver contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/utils/IResolver.sol\":\"IResolver\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/utils/IResolver.sol\":{\"keccak256\":\"0xf38c6d48ce4b36d05d3d9395c2ce43d9c761770e8dadeb86f5b3bc96e51b7150\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ec68f2563e0b1ef2f599709e3196d61d5a9462d74582c801ff27a755e3e5937e\",\"dweb:/ipfs/Qmcof4dwJGTxC8siHAcsmfmphPkQPUYWVuQfPqwsSyXE3P\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"name\":\"Set\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"}],\"name\":\"get\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"address\",\"name\":\"target\",\"type\":\"address\"}],\"name\":\"set\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Superfluid\",\"kind\":\"dev\",\"methods\":{\"get(string)\":{\"details\":\"Get address by name\"},\"set(string,address)\":{\"details\":\"Set resolver address name\"}},\"title\":\"Abstraction for an address resolver contract\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/utils/IResolver.sol\":\"IResolver\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/utils/IResolver.sol\":{\"keccak256\":\"0xf38c6d48ce4b36d05d3d9395c2ce43d9c761770e8dadeb86f5b3bc96e51b7150\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://ec68f2563e0b1ef2f599709e3196d61d5a9462d74582c801ff27a755e3e5937e\",\"dweb:/ipfs/Qmcof4dwJGTxC8siHAcsmfmphPkQPUYWVuQfPqwsSyXE3P\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.19+commit.7dd6d404"
@@ -168,7 +168,7 @@
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 200
+        "runs": 1
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -192,19 +192,19 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/utils/IResolver.sol",
-    "id": 68261,
+    "id": 68029,
     "exportedSymbols": {
       "IResolver": [
-        68260
+        68028
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:432:79",
+    "src": "32:432:76",
     "nodes": [
       {
-        "id": 68236,
+        "id": 68004,
         "nodeType": "PragmaDirective",
-        "src": "32:26:79",
+        "src": "32:26:76",
         "nodes": [],
         "literals": [
           "solidity",
@@ -214,33 +214,33 @@
         ]
       },
       {
-        "id": 68260,
+        "id": 68028,
         "nodeType": "ContractDefinition",
-        "src": "145:318:79",
+        "src": "145:318:76",
         "nodes": [
           {
-            "id": 68243,
+            "id": 68011,
             "nodeType": "EventDefinition",
-            "src": "172:47:79",
+            "src": "172:47:76",
             "nodes": [],
             "anonymous": false,
             "eventSelector": "496595ced95720268cf8bc60bae3f35024ff2a130f73ac4e20f5c1eaca35db99",
             "name": "Set",
-            "nameLocation": "178:3:79",
+            "nameLocation": "178:3:76",
             "parameters": {
-              "id": 68242,
+              "id": 68010,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68239,
+                  "id": 68007,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "name",
-                  "nameLocation": "197:4:79",
+                  "nameLocation": "197:4:76",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68243,
-                  "src": "182:19:79",
+                  "scope": 68011,
+                  "src": "182:19:76",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -248,10 +248,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 68238,
+                    "id": 68006,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "182:6:79",
+                    "src": "182:6:76",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -261,14 +261,14 @@
                 },
                 {
                   "constant": false,
-                  "id": 68241,
+                  "id": 68009,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "target",
-                  "nameLocation": "211:6:79",
+                  "nameLocation": "211:6:76",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68243,
-                  "src": "203:14:79",
+                  "scope": 68011,
+                  "src": "203:14:76",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -276,10 +276,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 68240,
+                    "id": 68008,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "203:7:79",
+                    "src": "203:7:76",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -289,18 +289,18 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "181:37:79"
+              "src": "181:37:76"
             }
           },
           {
-            "id": 68251,
+            "id": 68019,
             "nodeType": "FunctionDefinition",
-            "src": "279:60:79",
+            "src": "279:60:76",
             "nodes": [],
             "documentation": {
-              "id": 68244,
+              "id": 68012,
               "nodeType": "StructuredDocumentation",
-              "src": "225:49:79",
+              "src": "225:49:76",
               "text": " @dev Set resolver address name"
             },
             "functionSelector": "a815ff15",
@@ -308,20 +308,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "set",
-            "nameLocation": "288:3:79",
+            "nameLocation": "288:3:76",
             "parameters": {
-              "id": 68249,
+              "id": 68017,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68246,
+                  "id": 68014,
                   "mutability": "mutable",
                   "name": "name",
-                  "nameLocation": "308:4:79",
+                  "nameLocation": "308:4:76",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68251,
-                  "src": "292:20:79",
+                  "scope": 68019,
+                  "src": "292:20:76",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -329,10 +329,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 68245,
+                    "id": 68013,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "292:6:79",
+                    "src": "292:6:76",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -342,13 +342,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 68248,
+                  "id": 68016,
                   "mutability": "mutable",
                   "name": "target",
-                  "nameLocation": "322:6:79",
+                  "nameLocation": "322:6:76",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68251,
-                  "src": "314:14:79",
+                  "scope": 68019,
+                  "src": "314:14:76",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -356,10 +356,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 68247,
+                    "id": 68015,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "314:7:79",
+                    "src": "314:7:76",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -369,28 +369,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "291:38:79"
+              "src": "291:38:76"
             },
             "returnParameters": {
-              "id": 68250,
+              "id": 68018,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "338:0:79"
+              "src": "338:0:76"
             },
-            "scope": 68260,
+            "scope": 68028,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 68259,
+            "id": 68027,
             "nodeType": "FunctionDefinition",
-            "src": "393:67:79",
+            "src": "393:67:76",
             "nodes": [],
             "documentation": {
-              "id": 68252,
+              "id": 68020,
               "nodeType": "StructuredDocumentation",
-              "src": "345:43:79",
+              "src": "345:43:76",
               "text": " @dev Get address by name"
             },
             "functionSelector": "693ec85e",
@@ -398,20 +398,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "get",
-            "nameLocation": "402:3:79",
+            "nameLocation": "402:3:76",
             "parameters": {
-              "id": 68255,
+              "id": 68023,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68254,
+                  "id": 68022,
                   "mutability": "mutable",
                   "name": "name",
-                  "nameLocation": "422:4:79",
+                  "nameLocation": "422:4:76",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68259,
-                  "src": "406:20:79",
+                  "scope": 68027,
+                  "src": "406:20:76",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -419,10 +419,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 68253,
+                    "id": 68021,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "406:6:79",
+                    "src": "406:6:76",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -431,21 +431,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "405:22:79"
+              "src": "405:22:76"
             },
             "returnParameters": {
-              "id": 68258,
+              "id": 68026,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68257,
+                  "id": 68025,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68259,
-                  "src": "451:7:79",
+                  "scope": 68027,
+                  "src": "451:7:76",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -453,10 +453,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 68256,
+                    "id": 68024,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "451:7:79",
+                    "src": "451:7:76",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -466,9 +466,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "450:9:79"
+              "src": "450:9:76"
             },
-            "scope": 68260,
+            "scope": 68028,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -480,22 +480,22 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 68237,
+          "id": 68005,
           "nodeType": "StructuredDocumentation",
-          "src": "60:84:79",
+          "src": "60:84:76",
           "text": " @title Abstraction for an address resolver contract\n @author Superfluid"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          68260
+          68028
         ],
         "name": "IResolver",
-        "nameLocation": "155:9:79",
-        "scope": 68261,
+        "nameLocation": "155:9:76",
+        "scope": 68029,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 79
+  "id": 76
 }

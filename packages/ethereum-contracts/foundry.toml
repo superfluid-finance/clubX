@@ -2,6 +2,8 @@
 src = "src"
 out = "out"
 solc = "0.8.19"
+optimizer = true
+optimizer_runs = 1
 libs = ["lib"]
 remappings = [
     '@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts',

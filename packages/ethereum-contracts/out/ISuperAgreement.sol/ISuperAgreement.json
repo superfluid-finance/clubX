@@ -67,7 +67,7 @@
     "agreementType()": "7730599e",
     "realtimeBalanceOf(address,address,uint256)": "9b2e48bc"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"agreementType\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISuperfluidToken\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"realtimeBalanceOf\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"dynamicBalance\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"owedDeposit\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Superfluid\",\"kind\":\"dev\",\"methods\":{\"agreementType()\":{\"details\":\"Get the type of the agreement class\"},\"realtimeBalanceOf(address,address,uint256)\":{\"details\":\"Calculate the real-time balance for the account of this agreement class\",\"params\":{\"account\":\"Account the state belongs to\",\"time\":\"Time used for the calculation\"},\"returns\":{\"deposit\":\"Account deposit amount of this agreement\",\"dynamicBalance\":\"Dynamic balance portion of real-time balance of this agreement\",\"owedDeposit\":\"Account owed deposit amount of this agreement\"}}},\"title\":\"Super agreement interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol\":\"ISuperAgreement\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol\":{\"keccak256\":\"0xba0407c47917aee8b6e7cea745332d2f7244cc3b91d249426f0105b365feb0ee\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4e8c38994af84e123476f8de8b81fe466e9a575374b13c38a4dc30bdd2d12c06\",\"dweb:/ipfs/QmfHrSyeMQN7wVn7qmD6aPH1wX4ugkhQXiR8te6xhADGaK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluidToken.sol\":{\"keccak256\":\"0x18ea972421ff57ce62103f90c820ee039f170f0189a4b3c73fd0ff09452d1dbf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dd24799269920b4b7925362b41650b5b968bb957dc0dec50b451f5382fe573c1\",\"dweb:/ipfs/QmbL19zzZZSbVu2gYA3FtJLu4kbCtk9BybxCU7oJfpUbE7\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"agreementType\",\"outputs\":[{\"internalType\":\"bytes32\",\"name\":\"\",\"type\":\"bytes32\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ISuperfluidToken\",\"name\":\"token\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"time\",\"type\":\"uint256\"}],\"name\":\"realtimeBalanceOf\",\"outputs\":[{\"internalType\":\"int256\",\"name\":\"dynamicBalance\",\"type\":\"int256\"},{\"internalType\":\"uint256\",\"name\":\"deposit\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"owedDeposit\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Superfluid\",\"kind\":\"dev\",\"methods\":{\"agreementType()\":{\"details\":\"Get the type of the agreement class\"},\"realtimeBalanceOf(address,address,uint256)\":{\"details\":\"Calculate the real-time balance for the account of this agreement class\",\"params\":{\"account\":\"Account the state belongs to\",\"time\":\"Time used for the calculation\"},\"returns\":{\"deposit\":\"Account deposit amount of this agreement\",\"dynamicBalance\":\"Dynamic balance portion of real-time balance of this agreement\",\"owedDeposit\":\"Account owed deposit amount of this agreement\"}}},\"title\":\"Super agreement interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol\":\"ISuperAgreement\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol\":{\"keccak256\":\"0xba0407c47917aee8b6e7cea745332d2f7244cc3b91d249426f0105b365feb0ee\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4e8c38994af84e123476f8de8b81fe466e9a575374b13c38a4dc30bdd2d12c06\",\"dweb:/ipfs/QmfHrSyeMQN7wVn7qmD6aPH1wX4ugkhQXiR8te6xhADGaK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluidToken.sol\":{\"keccak256\":\"0x18ea972421ff57ce62103f90c820ee039f170f0189a4b3c73fd0ff09452d1dbf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dd24799269920b4b7925362b41650b5b968bb957dc0dec50b451f5382fe573c1\",\"dweb:/ipfs/QmbL19zzZZSbVu2gYA3FtJLu4kbCtk9BybxCU7oJfpUbE7\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.19+commit.7dd6d404"
@@ -170,7 +170,7 @@
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 200
+        "runs": 1
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -202,22 +202,22 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol",
-    "id": 66457,
+    "id": 66225,
     "exportedSymbols": {
       "ISuperAgreement": [
-        66456
+        66224
       ],
       "ISuperfluidToken": [
-        68136
+        67904
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:1014:67",
+    "src": "32:1014:64",
     "nodes": [
       {
-        "id": 66429,
+        "id": 66197,
         "nodeType": "PragmaDirective",
-        "src": "32:26:67",
+        "src": "32:26:64",
         "nodes": [],
         "literals": [
           "solidity",
@@ -227,24 +227,24 @@
         ]
       },
       {
-        "id": 66431,
+        "id": 66199,
         "nodeType": "ImportDirective",
-        "src": "60:58:67",
+        "src": "60:58:64",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluidToken.sol",
         "file": "./ISuperfluidToken.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 66457,
-        "sourceUnit": 68137,
+        "scope": 66225,
+        "sourceUnit": 67905,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 66430,
+              "id": 66198,
               "name": "ISuperfluidToken",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 68136,
-              "src": "69:16:67",
+              "referencedDeclaration": 67904,
+              "src": "69:16:64",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -253,19 +253,19 @@
         "unitAlias": ""
       },
       {
-        "id": 66456,
+        "id": 66224,
         "nodeType": "ContractDefinition",
-        "src": "186:859:67",
+        "src": "186:859:64",
         "nodes": [
           {
-            "id": 66438,
+            "id": 66206,
             "nodeType": "FunctionDefinition",
-            "src": "283:57:67",
+            "src": "283:57:64",
             "nodes": [],
             "documentation": {
-              "id": 66433,
+              "id": 66201,
               "nodeType": "StructuredDocumentation",
-              "src": "219:59:67",
+              "src": "219:59:64",
               "text": " @dev Get the type of the agreement class"
             },
             "functionSelector": "7730599e",
@@ -273,26 +273,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "agreementType",
-            "nameLocation": "292:13:67",
+            "nameLocation": "292:13:64",
             "parameters": {
-              "id": 66434,
+              "id": 66202,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "305:2:67"
+              "src": "305:2:64"
             },
             "returnParameters": {
-              "id": 66437,
+              "id": 66205,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 66436,
+                  "id": 66204,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66438,
-                  "src": "331:7:67",
+                  "scope": 66206,
+                  "src": "331:7:64",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -300,10 +300,10 @@
                     "typeString": "bytes32"
                   },
                   "typeName": {
-                    "id": 66435,
+                    "id": 66203,
                     "name": "bytes32",
                     "nodeType": "ElementaryTypeName",
-                    "src": "331:7:67",
+                    "src": "331:7:64",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bytes32",
                       "typeString": "bytes32"
@@ -312,22 +312,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "330:9:67"
+              "src": "330:9:64"
             },
-            "scope": 66456,
+            "scope": 66224,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 66455,
+            "id": 66223,
             "nodeType": "FunctionDefinition",
-            "src": "776:266:67",
+            "src": "776:266:64",
             "nodes": [],
             "documentation": {
-              "id": 66439,
+              "id": 66207,
               "nodeType": "StructuredDocumentation",
-              "src": "346:425:67",
+              "src": "346:425:64",
               "text": " @dev Calculate the real-time balance for the account of this agreement class\n @param account Account the state belongs to\n @param time Time used for the calculation\n @return dynamicBalance Dynamic balance portion of real-time balance of this agreement\n @return deposit Account deposit amount of this agreement\n @return owedDeposit Account owed deposit amount of this agreement"
             },
             "functionSelector": "9b2e48bc",
@@ -335,43 +335,43 @@
             "kind": "function",
             "modifiers": [],
             "name": "realtimeBalanceOf",
-            "nameLocation": "785:17:67",
+            "nameLocation": "785:17:64",
             "parameters": {
-              "id": 66447,
+              "id": 66215,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 66442,
+                  "id": 66210,
                   "mutability": "mutable",
                   "name": "token",
-                  "nameLocation": "829:5:67",
+                  "nameLocation": "829:5:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66455,
-                  "src": "812:22:67",
+                  "scope": 66223,
+                  "src": "812:22:64",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperfluidToken_$68136",
+                    "typeIdentifier": "t_contract$_ISuperfluidToken_$67904",
                     "typeString": "contract ISuperfluidToken"
                   },
                   "typeName": {
-                    "id": 66441,
+                    "id": 66209,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 66440,
+                      "id": 66208,
                       "name": "ISuperfluidToken",
                       "nameLocations": [
-                        "812:16:67"
+                        "812:16:64"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 68136,
-                      "src": "812:16:67"
+                      "referencedDeclaration": 67904,
+                      "src": "812:16:64"
                     },
-                    "referencedDeclaration": 68136,
-                    "src": "812:16:67",
+                    "referencedDeclaration": 67904,
+                    "src": "812:16:64",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperfluidToken_$68136",
+                      "typeIdentifier": "t_contract$_ISuperfluidToken_$67904",
                       "typeString": "contract ISuperfluidToken"
                     }
                   },
@@ -379,13 +379,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 66444,
+                  "id": 66212,
                   "mutability": "mutable",
                   "name": "account",
-                  "nameLocation": "852:7:67",
+                  "nameLocation": "852:7:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66455,
-                  "src": "844:15:67",
+                  "scope": 66223,
+                  "src": "844:15:64",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -393,10 +393,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 66443,
+                    "id": 66211,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "844:7:67",
+                    "src": "844:7:64",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -407,13 +407,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 66446,
+                  "id": 66214,
                   "mutability": "mutable",
                   "name": "time",
-                  "nameLocation": "877:4:67",
+                  "nameLocation": "877:4:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66455,
-                  "src": "869:12:67",
+                  "scope": 66223,
+                  "src": "869:12:64",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -421,10 +421,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 66445,
+                    "id": 66213,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "869:7:67",
+                    "src": "869:7:64",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -433,21 +433,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "802:85:67"
+              "src": "802:85:64"
             },
             "returnParameters": {
-              "id": 66454,
+              "id": 66222,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 66449,
+                  "id": 66217,
                   "mutability": "mutable",
                   "name": "dynamicBalance",
-                  "nameLocation": "955:14:67",
+                  "nameLocation": "955:14:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66455,
-                  "src": "948:21:67",
+                  "scope": 66223,
+                  "src": "948:21:64",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -455,10 +455,10 @@
                     "typeString": "int256"
                   },
                   "typeName": {
-                    "id": 66448,
+                    "id": 66216,
                     "name": "int256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "948:6:67",
+                    "src": "948:6:64",
                     "typeDescriptions": {
                       "typeIdentifier": "t_int256",
                       "typeString": "int256"
@@ -468,13 +468,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 66451,
+                  "id": 66219,
                   "mutability": "mutable",
                   "name": "deposit",
-                  "nameLocation": "991:7:67",
+                  "nameLocation": "991:7:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66455,
-                  "src": "983:15:67",
+                  "scope": 66223,
+                  "src": "983:15:64",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -482,10 +482,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 66450,
+                    "id": 66218,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "983:7:67",
+                    "src": "983:7:64",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -495,13 +495,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 66453,
+                  "id": 66221,
                   "mutability": "mutable",
                   "name": "owedDeposit",
-                  "nameLocation": "1020:11:67",
+                  "nameLocation": "1020:11:64",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66455,
-                  "src": "1012:19:67",
+                  "scope": 66223,
+                  "src": "1012:19:64",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -509,10 +509,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 66452,
+                    "id": 66220,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1012:7:67",
+                    "src": "1012:7:64",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -521,9 +521,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "934:107:67"
+              "src": "934:107:64"
             },
-            "scope": 66456,
+            "scope": 66224,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -535,22 +535,22 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 66432,
+          "id": 66200,
           "nodeType": "StructuredDocumentation",
-          "src": "120:65:67",
+          "src": "120:65:64",
           "text": " @title Super agreement interface\n @author Superfluid"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          66456
+          66224
         ],
         "name": "ISuperAgreement",
-        "nameLocation": "196:15:67",
-        "scope": 66457,
+        "nameLocation": "196:15:64",
+        "scope": 66225,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 67
+  "id": 64
 }

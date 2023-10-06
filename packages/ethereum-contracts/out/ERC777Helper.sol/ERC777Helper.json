@@ -1,17 +1,17 @@
 {
   "abi": [],
   "bytecode": {
-    "object": "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122069a120e0852ae574c657b489ccbd1e8696930de0fb2c033cb9f62a940494c0a364736f6c63430008130033",
-    "sourceMap": "224:2621:83:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;224:2621:83;;;;;;;;;;;;;;;;;",
+    "object": "0x60566037600b82828239805160001a607314602a57634e487b7160e01b600052600060045260246000fd5b30600052607381538281f3fe73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220459f9a52ab015afab3fa37f4533b1f73f1307a07b102a2014aeaeb15c5f45f4264736f6c63430008130033",
+    "sourceMap": "224:2621:80:-:0;;;;;;;;;;;;;;;-1:-1:-1;;;224:2621:80;;;;;;;;;;;;;;;;;",
     "linkReferences": {}
   },
   "deployedBytecode": {
-    "object": "0x73000000000000000000000000000000000000000030146080604052600080fdfea264697066735822122069a120e0852ae574c657b489ccbd1e8696930de0fb2c033cb9f62a940494c0a364736f6c63430008130033",
-    "sourceMap": "224:2621:83:-:0;;;;;;;;",
+    "object": "0x73000000000000000000000000000000000000000030146080604052600080fdfea2646970667358221220459f9a52ab015afab3fa37f4533b1f73f1307a07b102a2014aeaeb15c5f45f4264736f6c63430008130033",
+    "sourceMap": "224:2621:80:-:0;;;;;;;;",
     "linkReferences": {}
   },
   "methodIdentifiers": {},
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"author\":\"Superfluid\",\"kind\":\"dev\",\"methods\":{},\"title\":\"ERC777 helper library\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/libs/ERC777Helper.sol\":\"ERC777Helper\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC1820Registry.sol\":{\"keccak256\":\"0x42f11bff9d625194645e74f01a3cf8f69a3979f07becfa293f75757cabb92050\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7dc35b43a667c38d0868c20d648ccb2ec4107bcc1e77ce4fc79ce4938cb51a6d\",\"dweb:/ipfs/QmbwauNDkoLnWYB2owGeZBYWz2y7ZejdC6Q3c5MPZHLnNm\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/libs/ERC777Helper.sol\":{\"keccak256\":\"0xd75c3848f98447943342c7182ce97295fcc537cde99173a80725f65c0edb4b87\",\"license\":\"AGPLv3\",\"urls\":[\"bzz-raw://85fe4263ed625f88a4fbba987d597b0d95765836abd47e437eac6d8b455d1fda\",\"dweb:/ipfs/QmVSNNnRVyjyR4vwbD5yMK5bMqUYfGNhJzrg7Z9ae9nuny\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"author\":\"Superfluid\",\"kind\":\"dev\",\"methods\":{},\"title\":\"ERC777 helper library\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/libs/ERC777Helper.sol\":\"ERC777Helper\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC1820Registry.sol\":{\"keccak256\":\"0x42f11bff9d625194645e74f01a3cf8f69a3979f07becfa293f75757cabb92050\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7dc35b43a667c38d0868c20d648ccb2ec4107bcc1e77ce4fc79ce4938cb51a6d\",\"dweb:/ipfs/QmbwauNDkoLnWYB2owGeZBYWz2y7ZejdC6Q3c5MPZHLnNm\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/libs/ERC777Helper.sol\":{\"keccak256\":\"0xd75c3848f98447943342c7182ce97295fcc537cde99173a80725f65c0edb4b87\",\"license\":\"AGPLv3\",\"urls\":[\"bzz-raw://85fe4263ed625f88a4fbba987d597b0d95765836abd47e437eac6d8b455d1fda\",\"dweb:/ipfs/QmVSNNnRVyjyR4vwbD5yMK5bMqUYfGNhJzrg7Z9ae9nuny\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.19+commit.7dd6d404"
@@ -45,7 +45,7 @@
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 200
+        "runs": 1
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -77,22 +77,22 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/libs/ERC777Helper.sol",
-    "id": 68714,
+    "id": 68482,
     "exportedSymbols": {
       "ERC777Helper": [
-        68713
+        68481
       ],
       "IERC1820Registry": [
-        46151
+        45919
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "35:2811:83",
+    "src": "35:2811:80",
     "nodes": [
       {
-        "id": 68456,
+        "id": 68224,
         "nodeType": "PragmaDirective",
-        "src": "35:23:83",
+        "src": "35:23:80",
         "nodes": [],
         "literals": [
           "solidity",
@@ -101,24 +101,24 @@
         ]
       },
       {
-        "id": 68458,
+        "id": 68226,
         "nodeType": "ImportDirective",
-        "src": "60:100:83",
+        "src": "60:100:80",
         "nodes": [],
         "absolutePath": "lib/openzeppelin-contracts/contracts/utils/introspection/IERC1820Registry.sol",
         "file": "@openzeppelin/contracts/utils/introspection/IERC1820Registry.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 68714,
-        "sourceUnit": 46152,
+        "scope": 68482,
+        "sourceUnit": 45920,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 68457,
+              "id": 68225,
               "name": "IERC1820Registry",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 46151,
-              "src": "69:16:83",
+              "referencedDeclaration": 45919,
+              "src": "69:16:80",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -127,43 +127,43 @@
         "unitAlias": ""
       },
       {
-        "id": 68713,
+        "id": 68481,
         "nodeType": "ContractDefinition",
-        "src": "224:2621:83",
+        "src": "224:2621:80",
         "nodes": [
           {
-            "id": 68465,
+            "id": 68233,
             "nodeType": "VariableDeclaration",
-            "src": "252:123:83",
+            "src": "252:123:80",
             "nodes": [],
             "constant": true,
             "mutability": "constant",
             "name": "_ERC1820_REGISTRY",
-            "nameLocation": "287:17:83",
-            "scope": 68713,
+            "nameLocation": "287:17:80",
+            "scope": 68481,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
-              "typeIdentifier": "t_contract$_IERC1820Registry_$46151",
+              "typeIdentifier": "t_contract$_IERC1820Registry_$45919",
               "typeString": "contract IERC1820Registry"
             },
             "typeName": {
-              "id": 68461,
+              "id": 68229,
               "nodeType": "UserDefinedTypeName",
               "pathNode": {
-                "id": 68460,
+                "id": 68228,
                 "name": "IERC1820Registry",
                 "nameLocations": [
-                  "252:16:83"
+                  "252:16:80"
                 ],
                 "nodeType": "IdentifierPath",
-                "referencedDeclaration": 46151,
-                "src": "252:16:83"
+                "referencedDeclaration": 45919,
+                "src": "252:16:80"
               },
-              "referencedDeclaration": 46151,
-              "src": "252:16:83",
+              "referencedDeclaration": 45919,
+              "src": "252:16:80",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IERC1820Registry_$46151",
+                "typeIdentifier": "t_contract$_IERC1820Registry_$45919",
                 "typeString": "contract IERC1820Registry"
               }
             },
@@ -171,14 +171,14 @@
               "arguments": [
                 {
                   "hexValue": "307831383230613442373631384264453731446365386364633733614142364339353930356661443234",
-                  "id": 68463,
+                  "id": 68231,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
                   "kind": "number",
                   "lValueRequested": false,
                   "nodeType": "Literal",
-                  "src": "332:42:83",
+                  "src": "332:42:80",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
                     "typeString": "address"
@@ -193,18 +193,18 @@
                     "typeString": "address"
                   }
                 ],
-                "id": 68462,
+                "id": 68230,
                 "name": "IERC1820Registry",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
-                "referencedDeclaration": 46151,
-                "src": "315:16:83",
+                "referencedDeclaration": 45919,
+                "src": "315:16:80",
                 "typeDescriptions": {
-                  "typeIdentifier": "t_type$_t_contract$_IERC1820Registry_$46151_$",
+                  "typeIdentifier": "t_type$_t_contract$_IERC1820Registry_$45919_$",
                   "typeString": "type(contract IERC1820Registry)"
                 }
               },
-              "id": 68464,
+              "id": 68232,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -213,25 +213,25 @@
               "nameLocations": [],
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "315:60:83",
+              "src": "315:60:80",
               "tryCall": false,
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_IERC1820Registry_$46151",
+                "typeIdentifier": "t_contract$_IERC1820Registry_$45919",
                 "typeString": "contract IERC1820Registry"
               }
             },
             "visibility": "internal"
           },
           {
-            "id": 68470,
+            "id": 68238,
             "nodeType": "VariableDeclaration",
-            "src": "382:89:83",
+            "src": "382:89:80",
             "nodes": [],
             "constant": true,
             "mutability": "constant",
             "name": "_TOKENS_SENDER_INTERFACE_HASH",
-            "nameLocation": "408:29:83",
-            "scope": 68713,
+            "nameLocation": "408:29:80",
+            "scope": 68481,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -239,10 +239,10 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 68466,
+              "id": 68234,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
-              "src": "382:7:83",
+              "src": "382:7:80",
               "typeDescriptions": {
                 "typeIdentifier": "t_bytes32",
                 "typeString": "bytes32"
@@ -252,14 +252,14 @@
               "arguments": [
                 {
                   "hexValue": "455243373737546f6b656e7353656e646572",
-                  "id": 68468,
+                  "id": 68236,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
                   "kind": "string",
                   "lValueRequested": false,
                   "nodeType": "Literal",
-                  "src": "450:20:83",
+                  "src": "450:20:80",
                   "typeDescriptions": {
                     "typeIdentifier": "t_stringliteral_29ddb589b1fb5fc7cf394961c1adf5f8c6454761adf795e67fe149f658abe895",
                     "typeString": "literal_string \"ERC777TokensSender\""
@@ -274,18 +274,18 @@
                     "typeString": "literal_string \"ERC777TokensSender\""
                   }
                 ],
-                "id": 68467,
+                "id": 68235,
                 "name": "keccak256",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
                 "referencedDeclaration": -8,
-                "src": "440:9:83",
+                "src": "440:9:80",
                 "typeDescriptions": {
                   "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                   "typeString": "function (bytes memory) pure returns (bytes32)"
                 }
               },
-              "id": 68469,
+              "id": 68237,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -294,7 +294,7 @@
               "nameLocations": [],
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "440:31:83",
+              "src": "440:31:80",
               "tryCall": false,
               "typeDescriptions": {
                 "typeIdentifier": "t_bytes32",
@@ -304,15 +304,15 @@
             "visibility": "internal"
           },
           {
-            "id": 68475,
+            "id": 68243,
             "nodeType": "VariableDeclaration",
-            "src": "477:95:83",
+            "src": "477:95:80",
             "nodes": [],
             "constant": true,
             "mutability": "constant",
             "name": "_TOKENS_RECIPIENT_INTERFACE_HASH",
-            "nameLocation": "503:32:83",
-            "scope": 68713,
+            "nameLocation": "503:32:80",
+            "scope": 68481,
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -320,10 +320,10 @@
               "typeString": "bytes32"
             },
             "typeName": {
-              "id": 68471,
+              "id": 68239,
               "name": "bytes32",
               "nodeType": "ElementaryTypeName",
-              "src": "477:7:83",
+              "src": "477:7:80",
               "typeDescriptions": {
                 "typeIdentifier": "t_bytes32",
                 "typeString": "bytes32"
@@ -333,14 +333,14 @@
               "arguments": [
                 {
                   "hexValue": "455243373737546f6b656e73526563697069656e74",
-                  "id": 68473,
+                  "id": 68241,
                   "isConstant": false,
                   "isLValue": false,
                   "isPure": true,
                   "kind": "string",
                   "lValueRequested": false,
                   "nodeType": "Literal",
-                  "src": "548:23:83",
+                  "src": "548:23:80",
                   "typeDescriptions": {
                     "typeIdentifier": "t_stringliteral_b281fc8c12954d22544db45de3159a39272895b169a852b314f9cc762e44c53b",
                     "typeString": "literal_string \"ERC777TokensRecipient\""
@@ -355,18 +355,18 @@
                     "typeString": "literal_string \"ERC777TokensRecipient\""
                   }
                 ],
-                "id": 68472,
+                "id": 68240,
                 "name": "keccak256",
                 "nodeType": "Identifier",
                 "overloadedDeclarations": [],
                 "referencedDeclaration": -8,
-                "src": "538:9:83",
+                "src": "538:9:80",
                 "typeDescriptions": {
                   "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                   "typeString": "function (bytes memory) pure returns (bytes32)"
                 }
               },
-              "id": 68474,
+              "id": 68242,
               "isConstant": false,
               "isLValue": false,
               "isPure": true,
@@ -375,7 +375,7 @@
               "nameLocations": [],
               "names": [],
               "nodeType": "FunctionCall",
-              "src": "538:34:83",
+              "src": "538:34:80",
               "tryCall": false,
               "typeDescriptions": {
                 "typeIdentifier": "t_bytes32",
@@ -385,21 +385,21 @@
             "visibility": "internal"
           },
           {
-            "id": 68495,
+            "id": 68263,
             "nodeType": "StructDefinition",
-            "src": "633:258:83",
+            "src": "633:258:80",
             "nodes": [],
             "canonicalName": "ERC777Helper.Operators",
             "members": [
               {
                 "constant": false,
-                "id": 68478,
+                "id": 68246,
                 "mutability": "mutable",
                 "name": "defaultOperatorsArray",
-                "nameLocation": "670:21:83",
+                "nameLocation": "670:21:80",
                 "nodeType": "VariableDeclaration",
-                "scope": 68495,
-                "src": "660:31:83",
+                "scope": 68263,
+                "src": "660:31:80",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -408,19 +408,19 @@
                 },
                 "typeName": {
                   "baseType": {
-                    "id": 68476,
+                    "id": 68244,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "660:7:83",
+                    "src": "660:7:80",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
-                  "id": 68477,
+                  "id": 68245,
                   "nodeType": "ArrayTypeName",
-                  "src": "660:9:83",
+                  "src": "660:9:80",
                   "typeDescriptions": {
                     "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                     "typeString": "address[]"
@@ -430,13 +430,13 @@
               },
               {
                 "constant": false,
-                "id": 68482,
+                "id": 68250,
                 "mutability": "mutable",
                 "name": "defaultOperators",
-                "nameLocation": "726:16:83",
+                "nameLocation": "726:16:80",
                 "nodeType": "VariableDeclaration",
-                "scope": 68495,
-                "src": "701:41:83",
+                "scope": 68263,
+                "src": "701:41:80",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -444,21 +444,21 @@
                   "typeString": "mapping(address => bool)"
                 },
                 "typeName": {
-                  "id": 68481,
+                  "id": 68249,
                   "keyName": "",
                   "keyNameLocation": "-1:-1:-1",
                   "keyType": {
-                    "id": 68479,
+                    "id": 68247,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "709:7:83",
+                    "src": "709:7:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
                   "nodeType": "Mapping",
-                  "src": "701:24:83",
+                  "src": "701:24:80",
                   "typeDescriptions": {
                     "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                     "typeString": "mapping(address => bool)"
@@ -466,10 +466,10 @@
                   "valueName": "",
                   "valueNameLocation": "-1:-1:-1",
                   "valueType": {
-                    "id": 68480,
+                    "id": 68248,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "720:4:83",
+                    "src": "720:4:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -480,13 +480,13 @@
               },
               {
                 "constant": false,
-                "id": 68488,
+                "id": 68256,
                 "mutability": "mutable",
                 "name": "operators",
-                "nameLocation": "797:9:83",
+                "nameLocation": "797:9:80",
                 "nodeType": "VariableDeclaration",
-                "scope": 68495,
-                "src": "752:54:83",
+                "scope": 68263,
+                "src": "752:54:80",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -494,21 +494,21 @@
                   "typeString": "mapping(address => mapping(address => bool))"
                 },
                 "typeName": {
-                  "id": 68487,
+                  "id": 68255,
                   "keyName": "",
                   "keyNameLocation": "-1:-1:-1",
                   "keyType": {
-                    "id": 68483,
+                    "id": 68251,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "760:7:83",
+                    "src": "760:7:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
                   "nodeType": "Mapping",
-                  "src": "752:44:83",
+                  "src": "752:44:80",
                   "typeDescriptions": {
                     "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
                     "typeString": "mapping(address => mapping(address => bool))"
@@ -516,21 +516,21 @@
                   "valueName": "",
                   "valueNameLocation": "-1:-1:-1",
                   "valueType": {
-                    "id": 68486,
+                    "id": 68254,
                     "keyName": "",
                     "keyNameLocation": "-1:-1:-1",
                     "keyType": {
-                      "id": 68484,
+                      "id": 68252,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "779:7:83",
+                      "src": "779:7:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
                     "nodeType": "Mapping",
-                    "src": "771:24:83",
+                    "src": "771:24:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                       "typeString": "mapping(address => bool)"
@@ -538,10 +538,10 @@
                     "valueName": "",
                     "valueNameLocation": "-1:-1:-1",
                     "valueType": {
-                      "id": 68485,
+                      "id": 68253,
                       "name": "bool",
                       "nodeType": "ElementaryTypeName",
-                      "src": "790:4:83",
+                      "src": "790:4:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -553,13 +553,13 @@
               },
               {
                 "constant": false,
-                "id": 68494,
+                "id": 68262,
                 "mutability": "mutable",
                 "name": "revokedDefaultOperators",
-                "nameLocation": "861:23:83",
+                "nameLocation": "861:23:80",
                 "nodeType": "VariableDeclaration",
-                "scope": 68495,
-                "src": "816:68:83",
+                "scope": 68263,
+                "src": "816:68:80",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -567,21 +567,21 @@
                   "typeString": "mapping(address => mapping(address => bool))"
                 },
                 "typeName": {
-                  "id": 68493,
+                  "id": 68261,
                   "keyName": "",
                   "keyNameLocation": "-1:-1:-1",
                   "keyType": {
-                    "id": 68489,
+                    "id": 68257,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "824:7:83",
+                    "src": "824:7:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
                       "typeString": "address"
                     }
                   },
                   "nodeType": "Mapping",
-                  "src": "816:44:83",
+                  "src": "816:44:80",
                   "typeDescriptions": {
                     "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
                     "typeString": "mapping(address => mapping(address => bool))"
@@ -589,21 +589,21 @@
                   "valueName": "",
                   "valueNameLocation": "-1:-1:-1",
                   "valueType": {
-                    "id": 68492,
+                    "id": 68260,
                     "keyName": "",
                     "keyNameLocation": "-1:-1:-1",
                     "keyType": {
-                      "id": 68490,
+                      "id": 68258,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "843:7:83",
+                      "src": "843:7:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
                     "nodeType": "Mapping",
-                    "src": "835:24:83",
+                    "src": "835:24:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                       "typeString": "mapping(address => bool)"
@@ -611,10 +611,10 @@
                     "valueName": "",
                     "valueNameLocation": "-1:-1:-1",
                     "valueType": {
-                      "id": 68491,
+                      "id": 68259,
                       "name": "bool",
                       "nodeType": "ElementaryTypeName",
-                      "src": "854:4:83",
+                      "src": "854:4:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -626,31 +626,31 @@
               }
             ],
             "name": "Operators",
-            "nameLocation": "640:9:83",
-            "scope": 68713,
+            "nameLocation": "640:9:80",
+            "scope": 68481,
             "visibility": "public"
           },
           {
-            "id": 68527,
+            "id": 68295,
             "nodeType": "FunctionDefinition",
-            "src": "897:246:83",
+            "src": "897:246:80",
             "nodes": [],
             "body": {
-              "id": 68526,
+              "id": 68294,
               "nodeType": "Block",
-              "src": "939:204:83",
+              "src": "939:204:80",
               "nodes": [],
               "statements": [
                 {
                   "expression": {
                     "arguments": [
                       {
-                        "id": 68503,
+                        "id": 68271,
                         "name": "token",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 68497,
-                        "src": "991:5:83",
+                        "referencedDeclaration": 68265,
+                        "src": "991:5:80",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -660,14 +660,14 @@
                         "arguments": [
                           {
                             "hexValue": "455243373737546f6b656e",
-                            "id": 68505,
+                            "id": 68273,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "string",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "1008:13:83",
+                            "src": "1008:13:80",
                             "typeDescriptions": {
                               "typeIdentifier": "t_stringliteral_ac7fbab5f54a3ca8194167523c6753bfeb96a445279294b6125b68cce2177054",
                               "typeString": "literal_string \"ERC777Token\""
@@ -682,18 +682,18 @@
                               "typeString": "literal_string \"ERC777Token\""
                             }
                           ],
-                          "id": 68504,
+                          "id": 68272,
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": -8,
-                          "src": "998:9:83",
+                          "src": "998:9:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                             "typeString": "function (bytes memory) pure returns (bytes32)"
                           }
                         },
-                        "id": 68506,
+                        "id": 68274,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -702,7 +702,7 @@
                         "nameLocations": [],
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "998:24:83",
+                        "src": "998:24:80",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -712,14 +712,14 @@
                       {
                         "arguments": [
                           {
-                            "id": 68509,
+                            "id": 68277,
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": -28,
-                            "src": "1032:4:83",
+                            "src": "1032:4:80",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_ERC777Helper_$68713",
+                              "typeIdentifier": "t_contract$_ERC777Helper_$68481",
                               "typeString": "library ERC777Helper"
                             }
                           }
@@ -727,30 +727,30 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_ERC777Helper_$68713",
+                              "typeIdentifier": "t_contract$_ERC777Helper_$68481",
                               "typeString": "library ERC777Helper"
                             }
                           ],
-                          "id": 68508,
+                          "id": 68276,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "1024:7:83",
+                          "src": "1024:7:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
                           },
                           "typeName": {
-                            "id": 68507,
+                            "id": 68275,
                             "name": "address",
                             "nodeType": "ElementaryTypeName",
-                            "src": "1024:7:83",
+                            "src": "1024:7:80",
                             "typeDescriptions": {}
                           }
                         },
-                        "id": 68510,
+                        "id": 68278,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -759,7 +759,7 @@
                         "nameLocations": [],
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1024:13:83",
+                        "src": "1024:13:80",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -783,33 +783,33 @@
                         }
                       ],
                       "expression": {
-                        "id": 68500,
+                        "id": 68268,
                         "name": "_ERC1820_REGISTRY",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 68465,
-                        "src": "949:17:83",
+                        "referencedDeclaration": 68233,
+                        "src": "949:17:80",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IERC1820Registry_$46151",
+                          "typeIdentifier": "t_contract$_IERC1820Registry_$45919",
                           "typeString": "contract IERC1820Registry"
                         }
                       },
-                      "id": 68502,
+                      "id": 68270,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "967:23:83",
+                      "memberLocation": "967:23:80",
                       "memberName": "setInterfaceImplementer",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 46104,
-                      "src": "949:41:83",
+                      "referencedDeclaration": 45872,
+                      "src": "949:41:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_bytes32_$_t_address_$returns$__$",
                         "typeString": "function (address,bytes32,address) external"
                       }
                     },
-                    "id": 68511,
+                    "id": 68279,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -818,27 +818,27 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "949:89:83",
+                    "src": "949:89:80",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 68512,
+                  "id": 68280,
                   "nodeType": "ExpressionStatement",
-                  "src": "949:89:83"
+                  "src": "949:89:80"
                 },
                 {
                   "expression": {
                     "arguments": [
                       {
-                        "id": 68516,
+                        "id": 68284,
                         "name": "token",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 68497,
-                        "src": "1090:5:83",
+                        "referencedDeclaration": 68265,
+                        "src": "1090:5:80",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -848,14 +848,14 @@
                         "arguments": [
                           {
                             "hexValue": "4552433230546f6b656e",
-                            "id": 68518,
+                            "id": 68286,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "string",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "1107:12:83",
+                            "src": "1107:12:80",
                             "typeDescriptions": {
                               "typeIdentifier": "t_stringliteral_aea199e31a596269b42cdafd93407f14436db6e4cad65417994c2eb37381e05a",
                               "typeString": "literal_string \"ERC20Token\""
@@ -870,18 +870,18 @@
                               "typeString": "literal_string \"ERC20Token\""
                             }
                           ],
-                          "id": 68517,
+                          "id": 68285,
                           "name": "keccak256",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": -8,
-                          "src": "1097:9:83",
+                          "src": "1097:9:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_function_keccak256_pure$_t_bytes_memory_ptr_$returns$_t_bytes32_$",
                             "typeString": "function (bytes memory) pure returns (bytes32)"
                           }
                         },
-                        "id": 68519,
+                        "id": 68287,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
@@ -890,7 +890,7 @@
                         "nameLocations": [],
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1097:23:83",
+                        "src": "1097:23:80",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_bytes32",
@@ -900,14 +900,14 @@
                       {
                         "arguments": [
                           {
-                            "id": 68522,
+                            "id": 68290,
                             "name": "this",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": -28,
-                            "src": "1130:4:83",
+                            "src": "1130:4:80",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_contract$_ERC777Helper_$68713",
+                              "typeIdentifier": "t_contract$_ERC777Helper_$68481",
                               "typeString": "library ERC777Helper"
                             }
                           }
@@ -915,30 +915,30 @@
                         "expression": {
                           "argumentTypes": [
                             {
-                              "typeIdentifier": "t_contract$_ERC777Helper_$68713",
+                              "typeIdentifier": "t_contract$_ERC777Helper_$68481",
                               "typeString": "library ERC777Helper"
                             }
                           ],
-                          "id": 68521,
+                          "id": 68289,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "lValueRequested": false,
                           "nodeType": "ElementaryTypeNameExpression",
-                          "src": "1122:7:83",
+                          "src": "1122:7:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_type$_t_address_$",
                             "typeString": "type(address)"
                           },
                           "typeName": {
-                            "id": 68520,
+                            "id": 68288,
                             "name": "address",
                             "nodeType": "ElementaryTypeName",
-                            "src": "1122:7:83",
+                            "src": "1122:7:80",
                             "typeDescriptions": {}
                           }
                         },
-                        "id": 68523,
+                        "id": 68291,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -947,7 +947,7 @@
                         "nameLocations": [],
                         "names": [],
                         "nodeType": "FunctionCall",
-                        "src": "1122:13:83",
+                        "src": "1122:13:80",
                         "tryCall": false,
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
@@ -971,33 +971,33 @@
                         }
                       ],
                       "expression": {
-                        "id": 68513,
+                        "id": 68281,
                         "name": "_ERC1820_REGISTRY",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 68465,
-                        "src": "1048:17:83",
+                        "referencedDeclaration": 68233,
+                        "src": "1048:17:80",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_contract$_IERC1820Registry_$46151",
+                          "typeIdentifier": "t_contract$_IERC1820Registry_$45919",
                           "typeString": "contract IERC1820Registry"
                         }
                       },
-                      "id": 68515,
+                      "id": 68283,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "1066:23:83",
+                      "memberLocation": "1066:23:80",
                       "memberName": "setInterfaceImplementer",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 46104,
-                      "src": "1048:41:83",
+                      "referencedDeclaration": 45872,
+                      "src": "1048:41:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_external_nonpayable$_t_address_$_t_bytes32_$_t_address_$returns$__$",
                         "typeString": "function (address,bytes32,address) external"
                       }
                     },
-                    "id": 68524,
+                    "id": 68292,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1006,16 +1006,16 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1048:88:83",
+                    "src": "1048:88:80",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 68525,
+                  "id": 68293,
                   "nodeType": "ExpressionStatement",
-                  "src": "1048:88:83"
+                  "src": "1048:88:80"
                 }
               ]
             },
@@ -1023,20 +1023,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "register",
-            "nameLocation": "906:8:83",
+            "nameLocation": "906:8:80",
             "parameters": {
-              "id": 68498,
+              "id": 68266,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68497,
+                  "id": 68265,
                   "mutability": "mutable",
                   "name": "token",
-                  "nameLocation": "923:5:83",
+                  "nameLocation": "923:5:80",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68527,
-                  "src": "915:13:83",
+                  "scope": 68295,
+                  "src": "915:13:80",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1044,10 +1044,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 68496,
+                    "id": 68264,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "915:7:83",
+                    "src": "915:7:80",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1057,28 +1057,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "914:15:83"
+              "src": "914:15:80"
             },
             "returnParameters": {
-              "id": 68499,
+              "id": 68267,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "939:0:83"
+              "src": "939:0:80"
             },
-            "scope": 68713,
+            "scope": 68481,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           },
           {
-            "id": 68565,
+            "id": 68333,
             "nodeType": "FunctionDefinition",
-            "src": "1149:366:83",
+            "src": "1149:366:80",
             "nodes": [],
             "body": {
-              "id": 68564,
+              "id": 68332,
               "nodeType": "Block",
-              "src": "1264:251:83",
+              "src": "1264:251:80",
               "nodes": [],
               "statements": [
                 {
@@ -1087,7 +1087,7 @@
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     },
-                    "id": 68562,
+                    "id": 68330,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1097,7 +1097,7 @@
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       },
-                      "id": 68555,
+                      "id": 68323,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -1107,18 +1107,18 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 68541,
+                        "id": 68309,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 68539,
+                          "id": 68307,
                           "name": "operator",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 68532,
-                          "src": "1281:8:83",
+                          "referencedDeclaration": 68300,
+                          "src": "1281:8:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -1127,18 +1127,18 @@
                         "nodeType": "BinaryOperation",
                         "operator": "==",
                         "rightExpression": {
-                          "id": 68540,
+                          "id": 68308,
                           "name": "tokenHolder",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 68534,
-                          "src": "1293:11:83",
+                          "referencedDeclaration": 68302,
+                          "src": "1293:11:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "1281:23:83",
+                        "src": "1281:23:80",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -1153,7 +1153,7 @@
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
                             },
-                            "id": 68553,
+                            "id": 68321,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": false,
@@ -1161,40 +1161,40 @@
                             "leftExpression": {
                               "baseExpression": {
                                 "expression": {
-                                  "id": 68542,
+                                  "id": 68310,
                                   "name": "self",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 68530,
-                                  "src": "1338:4:83",
+                                  "referencedDeclaration": 68298,
+                                  "src": "1338:4:80",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                                    "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                                     "typeString": "struct ERC777Helper.Operators storage pointer"
                                   }
                                 },
-                                "id": 68543,
+                                "id": 68311,
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
                                 "lValueRequested": false,
-                                "memberLocation": "1343:16:83",
+                                "memberLocation": "1343:16:80",
                                 "memberName": "defaultOperators",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 68482,
-                                "src": "1338:21:83",
+                                "referencedDeclaration": 68250,
+                                "src": "1338:21:80",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                                   "typeString": "mapping(address => bool)"
                                 }
                               },
-                              "id": 68545,
+                              "id": 68313,
                               "indexExpression": {
-                                "id": 68544,
+                                "id": 68312,
                                 "name": "operator",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 68532,
-                                "src": "1360:8:83",
+                                "referencedDeclaration": 68300,
+                                "src": "1360:8:80",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
                                   "typeString": "address"
@@ -1205,7 +1205,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "nodeType": "IndexAccess",
-                              "src": "1338:31:83",
+                              "src": "1338:31:80",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_bool",
                                 "typeString": "bool"
@@ -1214,7 +1214,7 @@
                             "nodeType": "BinaryOperation",
                             "operator": "&&",
                             "rightExpression": {
-                              "id": 68552,
+                              "id": 68320,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -1222,45 +1222,45 @@
                               "nodeType": "UnaryOperation",
                               "operator": "!",
                               "prefix": true,
-                              "src": "1389:52:83",
+                              "src": "1389:52:80",
                               "subExpression": {
                                 "baseExpression": {
                                   "baseExpression": {
                                     "expression": {
-                                      "id": 68546,
+                                      "id": 68314,
                                       "name": "self",
                                       "nodeType": "Identifier",
                                       "overloadedDeclarations": [],
-                                      "referencedDeclaration": 68530,
-                                      "src": "1390:4:83",
+                                      "referencedDeclaration": 68298,
+                                      "src": "1390:4:80",
                                       "typeDescriptions": {
-                                        "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                                        "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                                         "typeString": "struct ERC777Helper.Operators storage pointer"
                                       }
                                     },
-                                    "id": 68547,
+                                    "id": 68315,
                                     "isConstant": false,
                                     "isLValue": true,
                                     "isPure": false,
                                     "lValueRequested": false,
-                                    "memberLocation": "1395:23:83",
+                                    "memberLocation": "1395:23:80",
                                     "memberName": "revokedDefaultOperators",
                                     "nodeType": "MemberAccess",
-                                    "referencedDeclaration": 68494,
-                                    "src": "1390:28:83",
+                                    "referencedDeclaration": 68262,
+                                    "src": "1390:28:80",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
                                       "typeString": "mapping(address => mapping(address => bool))"
                                     }
                                   },
-                                  "id": 68549,
+                                  "id": 68317,
                                   "indexExpression": {
-                                    "id": 68548,
+                                    "id": 68316,
                                     "name": "tokenHolder",
                                     "nodeType": "Identifier",
                                     "overloadedDeclarations": [],
-                                    "referencedDeclaration": 68534,
-                                    "src": "1419:11:83",
+                                    "referencedDeclaration": 68302,
+                                    "src": "1419:11:80",
                                     "typeDescriptions": {
                                       "typeIdentifier": "t_address",
                                       "typeString": "address"
@@ -1271,20 +1271,20 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "nodeType": "IndexAccess",
-                                  "src": "1390:41:83",
+                                  "src": "1390:41:80",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                                     "typeString": "mapping(address => bool)"
                                   }
                                 },
-                                "id": 68551,
+                                "id": 68319,
                                 "indexExpression": {
-                                  "id": 68550,
+                                  "id": 68318,
                                   "name": "operator",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 68532,
-                                  "src": "1432:8:83",
+                                  "referencedDeclaration": 68300,
+                                  "src": "1432:8:80",
                                   "typeDescriptions": {
                                     "typeIdentifier": "t_address",
                                     "typeString": "address"
@@ -1295,7 +1295,7 @@
                                 "isPure": false,
                                 "lValueRequested": false,
                                 "nodeType": "IndexAccess",
-                                "src": "1390:51:83",
+                                "src": "1390:51:80",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_bool",
                                   "typeString": "bool"
@@ -1306,27 +1306,27 @@
                                 "typeString": "bool"
                               }
                             },
-                            "src": "1338:103:83",
+                            "src": "1338:103:80",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
                             }
                           }
                         ],
-                        "id": 68554,
+                        "id": 68322,
                         "isConstant": false,
                         "isInlineArray": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "TupleExpression",
-                        "src": "1320:135:83",
+                        "src": "1320:135:80",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
                         }
                       },
-                      "src": "1281:174:83",
+                      "src": "1281:174:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
@@ -1338,40 +1338,40 @@
                       "baseExpression": {
                         "baseExpression": {
                           "expression": {
-                            "id": 68556,
+                            "id": 68324,
                             "name": "self",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
-                            "referencedDeclaration": 68530,
-                            "src": "1471:4:83",
+                            "referencedDeclaration": 68298,
+                            "src": "1471:4:80",
                             "typeDescriptions": {
-                              "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                              "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                               "typeString": "struct ERC777Helper.Operators storage pointer"
                             }
                           },
-                          "id": 68557,
+                          "id": 68325,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
                           "lValueRequested": false,
-                          "memberLocation": "1476:9:83",
+                          "memberLocation": "1476:9:80",
                           "memberName": "operators",
                           "nodeType": "MemberAccess",
-                          "referencedDeclaration": 68488,
-                          "src": "1471:14:83",
+                          "referencedDeclaration": 68256,
+                          "src": "1471:14:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
                             "typeString": "mapping(address => mapping(address => bool))"
                           }
                         },
-                        "id": 68559,
+                        "id": 68327,
                         "indexExpression": {
-                          "id": 68558,
+                          "id": 68326,
                           "name": "tokenHolder",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 68534,
-                          "src": "1486:11:83",
+                          "referencedDeclaration": 68302,
+                          "src": "1486:11:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -1382,20 +1382,20 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "1471:27:83",
+                        "src": "1471:27:80",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                           "typeString": "mapping(address => bool)"
                         }
                       },
-                      "id": 68561,
+                      "id": 68329,
                       "indexExpression": {
-                        "id": 68560,
+                        "id": 68328,
                         "name": "operator",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 68532,
-                        "src": "1499:8:83",
+                        "referencedDeclaration": 68300,
+                        "src": "1499:8:80",
                         "typeDescriptions": {
                           "typeIdentifier": "t_address",
                           "typeString": "address"
@@ -1406,22 +1406,22 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "1471:37:83",
+                      "src": "1471:37:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_bool",
                         "typeString": "bool"
                       }
                     },
-                    "src": "1281:227:83",
+                    "src": "1281:227:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "functionReturnParameters": 68538,
-                  "id": 68563,
+                  "functionReturnParameters": 68306,
+                  "id": 68331,
                   "nodeType": "Return",
-                  "src": "1274:234:83"
+                  "src": "1274:234:80"
                 }
               ]
             },
@@ -1429,43 +1429,43 @@
             "kind": "function",
             "modifiers": [],
             "name": "isOperatorFor",
-            "nameLocation": "1158:13:83",
+            "nameLocation": "1158:13:80",
             "parameters": {
-              "id": 68535,
+              "id": 68303,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68530,
+                  "id": 68298,
                   "mutability": "mutable",
                   "name": "self",
-                  "nameLocation": "1190:4:83",
+                  "nameLocation": "1190:4:80",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68565,
-                  "src": "1172:22:83",
+                  "scope": 68333,
+                  "src": "1172:22:80",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                    "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                     "typeString": "struct ERC777Helper.Operators"
                   },
                   "typeName": {
-                    "id": 68529,
+                    "id": 68297,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 68528,
+                      "id": 68296,
                       "name": "Operators",
                       "nameLocations": [
-                        "1172:9:83"
+                        "1172:9:80"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 68495,
-                      "src": "1172:9:83"
+                      "referencedDeclaration": 68263,
+                      "src": "1172:9:80"
                     },
-                    "referencedDeclaration": 68495,
-                    "src": "1172:9:83",
+                    "referencedDeclaration": 68263,
+                    "src": "1172:9:80",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                      "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                       "typeString": "struct ERC777Helper.Operators"
                     }
                   },
@@ -1473,13 +1473,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 68532,
+                  "id": 68300,
                   "mutability": "mutable",
                   "name": "operator",
-                  "nameLocation": "1204:8:83",
+                  "nameLocation": "1204:8:80",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68565,
-                  "src": "1196:16:83",
+                  "scope": 68333,
+                  "src": "1196:16:80",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1487,10 +1487,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 68531,
+                    "id": 68299,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1196:7:83",
+                    "src": "1196:7:80",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1501,13 +1501,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 68534,
+                  "id": 68302,
                   "mutability": "mutable",
                   "name": "tokenHolder",
-                  "nameLocation": "1222:11:83",
+                  "nameLocation": "1222:11:80",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68565,
-                  "src": "1214:19:83",
+                  "scope": 68333,
+                  "src": "1214:19:80",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1515,10 +1515,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 68533,
+                    "id": 68301,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1214:7:83",
+                    "src": "1214:7:80",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1528,21 +1528,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1171:63:83"
+              "src": "1171:63:80"
             },
             "returnParameters": {
-              "id": 68538,
+              "id": 68306,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68537,
+                  "id": 68305,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68565,
-                  "src": "1258:4:83",
+                  "scope": 68333,
+                  "src": "1258:4:80",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1550,10 +1550,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 68536,
+                    "id": 68304,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1258:4:83",
+                    "src": "1258:4:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1562,22 +1562,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1257:6:83"
+              "src": "1257:6:80"
             },
-            "scope": 68713,
+            "scope": 68481,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "internal"
           },
           {
-            "id": 68608,
+            "id": 68376,
             "nodeType": "FunctionDefinition",
-            "src": "1521:382:83",
+            "src": "1521:382:80",
             "nodes": [],
             "body": {
-              "id": 68607,
+              "id": 68375,
               "nodeType": "Block",
-              "src": "1615:288:83",
+              "src": "1615:288:80",
               "nodes": [],
               "statements": [
                 {
@@ -1588,18 +1588,18 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 68578,
+                        "id": 68346,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 68576,
+                          "id": 68344,
                           "name": "holder",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 68570,
-                          "src": "1633:6:83",
+                          "referencedDeclaration": 68338,
+                          "src": "1633:6:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -1608,18 +1608,18 @@
                         "nodeType": "BinaryOperation",
                         "operator": "!=",
                         "rightExpression": {
-                          "id": 68577,
+                          "id": 68345,
                           "name": "operator",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 68572,
-                          "src": "1643:8:83",
+                          "referencedDeclaration": 68340,
+                          "src": "1643:8:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "1633:18:83",
+                        "src": "1633:18:80",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -1627,14 +1627,14 @@
                       },
                       {
                         "hexValue": "4552433737374f70657261746f72733a20617574686f72697a696e672073656c66206173206f70657261746f72",
-                        "id": 68579,
+                        "id": 68347,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "1653:47:83",
+                        "src": "1653:47:80",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_5d4c05756585a41c5de4cdb02798324b2b07e77eae3fccbef7d8b17744695773",
                           "typeString": "literal_string \"ERC777Operators: authorizing self as operator\""
@@ -1653,7 +1653,7 @@
                           "typeString": "literal_string \"ERC777Operators: authorizing self as operator\""
                         }
                       ],
-                      "id": 68575,
+                      "id": 68343,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -1661,13 +1661,13 @@
                         -18
                       ],
                       "referencedDeclaration": -18,
-                      "src": "1625:7:83",
+                      "src": "1625:7:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 68580,
+                    "id": 68348,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -1676,55 +1676,55 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "1625:76:83",
+                    "src": "1625:76:80",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 68581,
+                  "id": 68349,
                   "nodeType": "ExpressionStatement",
-                  "src": "1625:76:83"
+                  "src": "1625:76:80"
                 },
                 {
                   "condition": {
                     "baseExpression": {
                       "expression": {
-                        "id": 68582,
+                        "id": 68350,
                         "name": "self",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 68568,
-                        "src": "1716:4:83",
+                        "referencedDeclaration": 68336,
+                        "src": "1716:4:80",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                          "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                           "typeString": "struct ERC777Helper.Operators storage pointer"
                         }
                       },
-                      "id": 68583,
+                      "id": 68351,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "1721:16:83",
+                      "memberLocation": "1721:16:80",
                       "memberName": "defaultOperators",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 68482,
-                      "src": "1716:21:83",
+                      "referencedDeclaration": 68250,
+                      "src": "1716:21:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                         "typeString": "mapping(address => bool)"
                       }
                     },
-                    "id": 68585,
+                    "id": 68353,
                     "indexExpression": {
-                      "id": 68584,
+                      "id": 68352,
                       "name": "operator",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 68572,
-                      "src": "1738:8:83",
+                      "referencedDeclaration": 68340,
+                      "src": "1738:8:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -1735,20 +1735,20 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "1716:31:83",
+                    "src": "1716:31:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
                   "falseBody": {
-                    "id": 68605,
+                    "id": 68373,
                     "nodeType": "Block",
-                    "src": "1833:64:83",
+                    "src": "1833:64:80",
                     "statements": [
                       {
                         "expression": {
-                          "id": 68603,
+                          "id": 68371,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1757,40 +1757,40 @@
                             "baseExpression": {
                               "baseExpression": {
                                 "expression": {
-                                  "id": 68595,
+                                  "id": 68363,
                                   "name": "self",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 68568,
-                                  "src": "1847:4:83",
+                                  "referencedDeclaration": 68336,
+                                  "src": "1847:4:80",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                                    "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                                     "typeString": "struct ERC777Helper.Operators storage pointer"
                                   }
                                 },
-                                "id": 68599,
+                                "id": 68367,
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
                                 "lValueRequested": false,
-                                "memberLocation": "1852:9:83",
+                                "memberLocation": "1852:9:80",
                                 "memberName": "operators",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 68488,
-                                "src": "1847:14:83",
+                                "referencedDeclaration": 68256,
+                                "src": "1847:14:80",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
                                   "typeString": "mapping(address => mapping(address => bool))"
                                 }
                               },
-                              "id": 68600,
+                              "id": 68368,
                               "indexExpression": {
-                                "id": 68597,
+                                "id": 68365,
                                 "name": "holder",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 68570,
-                                "src": "1862:6:83",
+                                "referencedDeclaration": 68338,
+                                "src": "1862:6:80",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
                                   "typeString": "address"
@@ -1801,20 +1801,20 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "nodeType": "IndexAccess",
-                              "src": "1847:22:83",
+                              "src": "1847:22:80",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                                 "typeString": "mapping(address => bool)"
                               }
                             },
-                            "id": 68601,
+                            "id": 68369,
                             "indexExpression": {
-                              "id": 68598,
+                              "id": 68366,
                               "name": "operator",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 68572,
-                              "src": "1870:8:83",
+                              "referencedDeclaration": 68340,
+                              "src": "1870:8:80",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
                                 "typeString": "address"
@@ -1825,7 +1825,7 @@
                             "isPure": false,
                             "lValueRequested": true,
                             "nodeType": "IndexAccess",
-                            "src": "1847:32:83",
+                            "src": "1847:32:80",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
@@ -1835,43 +1835,43 @@
                           "operator": "=",
                           "rightHandSide": {
                             "hexValue": "74727565",
-                            "id": 68602,
+                            "id": 68370,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "bool",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "1882:4:83",
+                            "src": "1882:4:80",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
                             },
                             "value": "true"
                           },
-                          "src": "1847:39:83",
+                          "src": "1847:39:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           }
                         },
-                        "id": 68604,
+                        "id": 68372,
                         "nodeType": "ExpressionStatement",
-                        "src": "1847:39:83"
+                        "src": "1847:39:80"
                       }
                     ]
                   },
-                  "id": 68606,
+                  "id": 68374,
                   "nodeType": "IfStatement",
-                  "src": "1712:185:83",
+                  "src": "1712:185:80",
                   "trueBody": {
-                    "id": 68594,
+                    "id": 68362,
                     "nodeType": "Block",
-                    "src": "1749:78:83",
+                    "src": "1749:78:80",
                     "statements": [
                       {
                         "expression": {
-                          "id": 68592,
+                          "id": 68360,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -1879,45 +1879,45 @@
                           "nodeType": "UnaryOperation",
                           "operator": "delete",
                           "prefix": true,
-                          "src": "1763:53:83",
+                          "src": "1763:53:80",
                           "subExpression": {
                             "baseExpression": {
                               "baseExpression": {
                                 "expression": {
-                                  "id": 68586,
+                                  "id": 68354,
                                   "name": "self",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 68568,
-                                  "src": "1770:4:83",
+                                  "referencedDeclaration": 68336,
+                                  "src": "1770:4:80",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                                    "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                                     "typeString": "struct ERC777Helper.Operators storage pointer"
                                   }
                                 },
-                                "id": 68587,
+                                "id": 68355,
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
                                 "lValueRequested": false,
-                                "memberLocation": "1775:23:83",
+                                "memberLocation": "1775:23:80",
                                 "memberName": "revokedDefaultOperators",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 68494,
-                                "src": "1770:28:83",
+                                "referencedDeclaration": 68262,
+                                "src": "1770:28:80",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
                                   "typeString": "mapping(address => mapping(address => bool))"
                                 }
                               },
-                              "id": 68589,
+                              "id": 68357,
                               "indexExpression": {
-                                "id": 68588,
+                                "id": 68356,
                                 "name": "holder",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 68570,
-                                "src": "1799:6:83",
+                                "referencedDeclaration": 68338,
+                                "src": "1799:6:80",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
                                   "typeString": "address"
@@ -1928,20 +1928,20 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "nodeType": "IndexAccess",
-                              "src": "1770:36:83",
+                              "src": "1770:36:80",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                                 "typeString": "mapping(address => bool)"
                               }
                             },
-                            "id": 68591,
+                            "id": 68359,
                             "indexExpression": {
-                              "id": 68590,
+                              "id": 68358,
                               "name": "operator",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 68572,
-                              "src": "1807:8:83",
+                              "referencedDeclaration": 68340,
+                              "src": "1807:8:80",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
                                 "typeString": "address"
@@ -1952,7 +1952,7 @@
                             "isPure": false,
                             "lValueRequested": true,
                             "nodeType": "IndexAccess",
-                            "src": "1770:46:83",
+                            "src": "1770:46:80",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
@@ -1963,9 +1963,9 @@
                             "typeString": "tuple()"
                           }
                         },
-                        "id": 68593,
+                        "id": 68361,
                         "nodeType": "ExpressionStatement",
-                        "src": "1763:53:83"
+                        "src": "1763:53:80"
                       }
                     ]
                   }
@@ -1976,43 +1976,43 @@
             "kind": "function",
             "modifiers": [],
             "name": "authorizeOperator",
-            "nameLocation": "1530:17:83",
+            "nameLocation": "1530:17:80",
             "parameters": {
-              "id": 68573,
+              "id": 68341,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68568,
+                  "id": 68336,
                   "mutability": "mutable",
                   "name": "self",
-                  "nameLocation": "1566:4:83",
+                  "nameLocation": "1566:4:80",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68608,
-                  "src": "1548:22:83",
+                  "scope": 68376,
+                  "src": "1548:22:80",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                    "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                     "typeString": "struct ERC777Helper.Operators"
                   },
                   "typeName": {
-                    "id": 68567,
+                    "id": 68335,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 68566,
+                      "id": 68334,
                       "name": "Operators",
                       "nameLocations": [
-                        "1548:9:83"
+                        "1548:9:80"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 68495,
-                      "src": "1548:9:83"
+                      "referencedDeclaration": 68263,
+                      "src": "1548:9:80"
                     },
-                    "referencedDeclaration": 68495,
-                    "src": "1548:9:83",
+                    "referencedDeclaration": 68263,
+                    "src": "1548:9:80",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                      "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                       "typeString": "struct ERC777Helper.Operators"
                     }
                   },
@@ -2020,13 +2020,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 68570,
+                  "id": 68338,
                   "mutability": "mutable",
                   "name": "holder",
-                  "nameLocation": "1580:6:83",
+                  "nameLocation": "1580:6:80",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68608,
-                  "src": "1572:14:83",
+                  "scope": 68376,
+                  "src": "1572:14:80",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2034,10 +2034,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 68569,
+                    "id": 68337,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1572:7:83",
+                    "src": "1572:7:80",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2048,13 +2048,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 68572,
+                  "id": 68340,
                   "mutability": "mutable",
                   "name": "operator",
-                  "nameLocation": "1596:8:83",
+                  "nameLocation": "1596:8:80",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68608,
-                  "src": "1588:16:83",
+                  "scope": 68376,
+                  "src": "1588:16:80",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2062,10 +2062,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 68571,
+                    "id": 68339,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1588:7:83",
+                    "src": "1588:7:80",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2075,28 +2075,28 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1547:58:83"
+              "src": "1547:58:80"
             },
             "returnParameters": {
-              "id": 68574,
+              "id": 68342,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1615:0:83"
+              "src": "1615:0:80"
             },
-            "scope": 68713,
+            "scope": 68481,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           },
           {
-            "id": 68652,
+            "id": 68420,
             "nodeType": "FunctionDefinition",
-            "src": "1909:379:83",
+            "src": "1909:379:80",
             "nodes": [],
             "body": {
-              "id": 68651,
+              "id": 68419,
               "nodeType": "Block",
-              "src": "2000:288:83",
+              "src": "2000:288:80",
               "nodes": [],
               "statements": [
                 {
@@ -2107,18 +2107,18 @@
                           "typeIdentifier": "t_address",
                           "typeString": "address"
                         },
-                        "id": 68622,
+                        "id": 68390,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
                         "lValueRequested": false,
                         "leftExpression": {
-                          "id": 68619,
+                          "id": 68387,
                           "name": "operator",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 68615,
-                          "src": "2018:8:83",
+                          "referencedDeclaration": 68383,
+                          "src": "2018:8:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
@@ -2128,32 +2128,32 @@
                         "operator": "!=",
                         "rightExpression": {
                           "expression": {
-                            "id": 68620,
+                            "id": 68388,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": -15,
-                            "src": "2030:3:83",
+                            "src": "2030:3:80",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 68621,
+                          "id": 68389,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
-                          "memberLocation": "2034:6:83",
+                          "memberLocation": "2034:6:80",
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
-                          "src": "2030:10:83",
+                          "src": "2030:10:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address",
                             "typeString": "address"
                           }
                         },
-                        "src": "2018:22:83",
+                        "src": "2018:22:80",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -2161,14 +2161,14 @@
                       },
                       {
                         "hexValue": "4552433737374f70657261746f72733a207265766f6b696e672073656c66206173206f70657261746f72",
-                        "id": 68623,
+                        "id": 68391,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2042:44:83",
+                        "src": "2042:44:80",
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_123cf14c65f0c410f0f92f7ec63641dec7325e8e4395c52a2bdbb5956fb306a4",
                           "typeString": "literal_string \"ERC777Operators: revoking self as operator\""
@@ -2187,7 +2187,7 @@
                           "typeString": "literal_string \"ERC777Operators: revoking self as operator\""
                         }
                       ],
-                      "id": 68618,
+                      "id": 68386,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -2195,13 +2195,13 @@
                         -18
                       ],
                       "referencedDeclaration": -18,
-                      "src": "2010:7:83",
+                      "src": "2010:7:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 68624,
+                    "id": 68392,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2210,55 +2210,55 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2010:77:83",
+                    "src": "2010:77:80",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 68625,
+                  "id": 68393,
                   "nodeType": "ExpressionStatement",
-                  "src": "2010:77:83"
+                  "src": "2010:77:80"
                 },
                 {
                   "condition": {
                     "baseExpression": {
                       "expression": {
-                        "id": 68626,
+                        "id": 68394,
                         "name": "self",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 68611,
-                        "src": "2101:4:83",
+                        "referencedDeclaration": 68379,
+                        "src": "2101:4:80",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                          "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                           "typeString": "struct ERC777Helper.Operators storage pointer"
                         }
                       },
-                      "id": 68627,
+                      "id": 68395,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "2106:16:83",
+                      "memberLocation": "2106:16:80",
                       "memberName": "defaultOperators",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 68482,
-                      "src": "2101:21:83",
+                      "referencedDeclaration": 68250,
+                      "src": "2101:21:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                         "typeString": "mapping(address => bool)"
                       }
                     },
-                    "id": 68629,
+                    "id": 68397,
                     "indexExpression": {
-                      "id": 68628,
+                      "id": 68396,
                       "name": "operator",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 68615,
-                      "src": "2123:8:83",
+                      "referencedDeclaration": 68383,
+                      "src": "2123:8:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
@@ -2269,20 +2269,20 @@
                     "isPure": false,
                     "lValueRequested": false,
                     "nodeType": "IndexAccess",
-                    "src": "2101:31:83",
+                    "src": "2101:31:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
                   "falseBody": {
-                    "id": 68649,
+                    "id": 68417,
                     "nodeType": "Block",
-                    "src": "2218:64:83",
+                    "src": "2218:64:80",
                     "statements": [
                       {
                         "expression": {
-                          "id": 68647,
+                          "id": 68415,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2290,45 +2290,45 @@
                           "nodeType": "UnaryOperation",
                           "operator": "delete",
                           "prefix": true,
-                          "src": "2232:39:83",
+                          "src": "2232:39:80",
                           "subExpression": {
                             "baseExpression": {
                               "baseExpression": {
                                 "expression": {
-                                  "id": 68641,
+                                  "id": 68409,
                                   "name": "self",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 68611,
-                                  "src": "2239:4:83",
+                                  "referencedDeclaration": 68379,
+                                  "src": "2239:4:80",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                                    "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                                     "typeString": "struct ERC777Helper.Operators storage pointer"
                                   }
                                 },
-                                "id": 68642,
+                                "id": 68410,
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
                                 "lValueRequested": false,
-                                "memberLocation": "2244:9:83",
+                                "memberLocation": "2244:9:80",
                                 "memberName": "operators",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 68488,
-                                "src": "2239:14:83",
+                                "referencedDeclaration": 68256,
+                                "src": "2239:14:80",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
                                   "typeString": "mapping(address => mapping(address => bool))"
                                 }
                               },
-                              "id": 68644,
+                              "id": 68412,
                               "indexExpression": {
-                                "id": 68643,
+                                "id": 68411,
                                 "name": "holder",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 68613,
-                                "src": "2254:6:83",
+                                "referencedDeclaration": 68381,
+                                "src": "2254:6:80",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
                                   "typeString": "address"
@@ -2339,20 +2339,20 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "nodeType": "IndexAccess",
-                              "src": "2239:22:83",
+                              "src": "2239:22:80",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                                 "typeString": "mapping(address => bool)"
                               }
                             },
-                            "id": 68646,
+                            "id": 68414,
                             "indexExpression": {
-                              "id": 68645,
+                              "id": 68413,
                               "name": "operator",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 68615,
-                              "src": "2262:8:83",
+                              "referencedDeclaration": 68383,
+                              "src": "2262:8:80",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
                                 "typeString": "address"
@@ -2363,7 +2363,7 @@
                             "isPure": false,
                             "lValueRequested": true,
                             "nodeType": "IndexAccess",
-                            "src": "2239:32:83",
+                            "src": "2239:32:80",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
@@ -2374,23 +2374,23 @@
                             "typeString": "tuple()"
                           }
                         },
-                        "id": 68648,
+                        "id": 68416,
                         "nodeType": "ExpressionStatement",
-                        "src": "2232:39:83"
+                        "src": "2232:39:80"
                       }
                     ]
                   },
-                  "id": 68650,
+                  "id": 68418,
                   "nodeType": "IfStatement",
-                  "src": "2097:185:83",
+                  "src": "2097:185:80",
                   "trueBody": {
-                    "id": 68640,
+                    "id": 68408,
                     "nodeType": "Block",
-                    "src": "2134:78:83",
+                    "src": "2134:78:80",
                     "statements": [
                       {
                         "expression": {
-                          "id": 68638,
+                          "id": 68406,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2399,40 +2399,40 @@
                             "baseExpression": {
                               "baseExpression": {
                                 "expression": {
-                                  "id": 68630,
+                                  "id": 68398,
                                   "name": "self",
                                   "nodeType": "Identifier",
                                   "overloadedDeclarations": [],
-                                  "referencedDeclaration": 68611,
-                                  "src": "2148:4:83",
+                                  "referencedDeclaration": 68379,
+                                  "src": "2148:4:80",
                                   "typeDescriptions": {
-                                    "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                                    "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                                     "typeString": "struct ERC777Helper.Operators storage pointer"
                                   }
                                 },
-                                "id": 68634,
+                                "id": 68402,
                                 "isConstant": false,
                                 "isLValue": true,
                                 "isPure": false,
                                 "lValueRequested": false,
-                                "memberLocation": "2153:23:83",
+                                "memberLocation": "2153:23:80",
                                 "memberName": "revokedDefaultOperators",
                                 "nodeType": "MemberAccess",
-                                "referencedDeclaration": 68494,
-                                "src": "2148:28:83",
+                                "referencedDeclaration": 68262,
+                                "src": "2148:28:80",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_mapping$_t_address_$_t_mapping$_t_address_$_t_bool_$_$",
                                   "typeString": "mapping(address => mapping(address => bool))"
                                 }
                               },
-                              "id": 68635,
+                              "id": 68403,
                               "indexExpression": {
-                                "id": 68632,
+                                "id": 68400,
                                 "name": "holder",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 68613,
-                                "src": "2177:6:83",
+                                "referencedDeclaration": 68381,
+                                "src": "2177:6:80",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_address",
                                   "typeString": "address"
@@ -2443,20 +2443,20 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "nodeType": "IndexAccess",
-                              "src": "2148:36:83",
+                              "src": "2148:36:80",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                                 "typeString": "mapping(address => bool)"
                               }
                             },
-                            "id": 68636,
+                            "id": 68404,
                             "indexExpression": {
-                              "id": 68633,
+                              "id": 68401,
                               "name": "operator",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 68615,
-                              "src": "2185:8:83",
+                              "referencedDeclaration": 68383,
+                              "src": "2185:8:80",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
                                 "typeString": "address"
@@ -2467,7 +2467,7 @@
                             "isPure": false,
                             "lValueRequested": true,
                             "nodeType": "IndexAccess",
-                            "src": "2148:46:83",
+                            "src": "2148:46:80",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
@@ -2477,29 +2477,29 @@
                           "operator": "=",
                           "rightHandSide": {
                             "hexValue": "74727565",
-                            "id": 68637,
+                            "id": 68405,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "bool",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "2197:4:83",
+                            "src": "2197:4:80",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
                             },
                             "value": "true"
                           },
-                          "src": "2148:53:83",
+                          "src": "2148:53:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           }
                         },
-                        "id": 68639,
+                        "id": 68407,
                         "nodeType": "ExpressionStatement",
-                        "src": "2148:53:83"
+                        "src": "2148:53:80"
                       }
                     ]
                   }
@@ -2510,43 +2510,43 @@
             "kind": "function",
             "modifiers": [],
             "name": "revokeOperator",
-            "nameLocation": "1918:14:83",
+            "nameLocation": "1918:14:80",
             "parameters": {
-              "id": 68616,
+              "id": 68384,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68611,
+                  "id": 68379,
                   "mutability": "mutable",
                   "name": "self",
-                  "nameLocation": "1951:4:83",
+                  "nameLocation": "1951:4:80",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68652,
-                  "src": "1933:22:83",
+                  "scope": 68420,
+                  "src": "1933:22:80",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                    "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                     "typeString": "struct ERC777Helper.Operators"
                   },
                   "typeName": {
-                    "id": 68610,
+                    "id": 68378,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 68609,
+                      "id": 68377,
                       "name": "Operators",
                       "nameLocations": [
-                        "1933:9:83"
+                        "1933:9:80"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 68495,
-                      "src": "1933:9:83"
+                      "referencedDeclaration": 68263,
+                      "src": "1933:9:80"
                     },
-                    "referencedDeclaration": 68495,
-                    "src": "1933:9:83",
+                    "referencedDeclaration": 68263,
+                    "src": "1933:9:80",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                      "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                       "typeString": "struct ERC777Helper.Operators"
                     }
                   },
@@ -2554,13 +2554,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 68613,
+                  "id": 68381,
                   "mutability": "mutable",
                   "name": "holder",
-                  "nameLocation": "1965:6:83",
+                  "nameLocation": "1965:6:80",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68652,
-                  "src": "1957:14:83",
+                  "scope": 68420,
+                  "src": "1957:14:80",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2568,10 +2568,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 68612,
+                    "id": 68380,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1957:7:83",
+                    "src": "1957:7:80",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2582,13 +2582,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 68615,
+                  "id": 68383,
                   "mutability": "mutable",
                   "name": "operator",
-                  "nameLocation": "1981:8:83",
+                  "nameLocation": "1981:8:80",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68652,
-                  "src": "1973:16:83",
+                  "scope": 68420,
+                  "src": "1973:16:80",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2596,10 +2596,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 68614,
+                    "id": 68382,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1973:7:83",
+                    "src": "1973:7:80",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -2609,63 +2609,63 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1932:58:83"
+              "src": "1932:58:80"
             },
             "returnParameters": {
-              "id": 68617,
+              "id": 68385,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2000:0:83"
+              "src": "2000:0:80"
             },
-            "scope": 68713,
+            "scope": 68481,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
           },
           {
-            "id": 68665,
+            "id": 68433,
             "nodeType": "FunctionDefinition",
-            "src": "2294:141:83",
+            "src": "2294:141:80",
             "nodes": [],
             "body": {
-              "id": 68664,
+              "id": 68432,
               "nodeType": "Block",
-              "src": "2385:50:83",
+              "src": "2385:50:80",
               "nodes": [],
               "statements": [
                 {
                   "expression": {
                     "expression": {
-                      "id": 68661,
+                      "id": 68429,
                       "name": "self",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 68655,
-                      "src": "2402:4:83",
+                      "referencedDeclaration": 68423,
+                      "src": "2402:4:80",
                       "typeDescriptions": {
-                        "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                        "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                         "typeString": "struct ERC777Helper.Operators storage pointer"
                       }
                     },
-                    "id": 68662,
+                    "id": 68430,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
                     "lValueRequested": false,
-                    "memberLocation": "2407:21:83",
+                    "memberLocation": "2407:21:80",
                     "memberName": "defaultOperatorsArray",
                     "nodeType": "MemberAccess",
-                    "referencedDeclaration": 68478,
-                    "src": "2402:26:83",
+                    "referencedDeclaration": 68246,
+                    "src": "2402:26:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage",
                       "typeString": "address[] storage ref"
                     }
                   },
-                  "functionReturnParameters": 68660,
-                  "id": 68663,
+                  "functionReturnParameters": 68428,
+                  "id": 68431,
                   "nodeType": "Return",
-                  "src": "2395:33:83"
+                  "src": "2395:33:80"
                 }
               ]
             },
@@ -2673,64 +2673,64 @@
             "kind": "function",
             "modifiers": [],
             "name": "defaultOperators",
-            "nameLocation": "2303:16:83",
+            "nameLocation": "2303:16:80",
             "parameters": {
-              "id": 68656,
+              "id": 68424,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68655,
+                  "id": 68423,
                   "mutability": "mutable",
                   "name": "self",
-                  "nameLocation": "2338:4:83",
+                  "nameLocation": "2338:4:80",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68665,
-                  "src": "2320:22:83",
+                  "scope": 68433,
+                  "src": "2320:22:80",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                    "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                     "typeString": "struct ERC777Helper.Operators"
                   },
                   "typeName": {
-                    "id": 68654,
+                    "id": 68422,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 68653,
+                      "id": 68421,
                       "name": "Operators",
                       "nameLocations": [
-                        "2320:9:83"
+                        "2320:9:80"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 68495,
-                      "src": "2320:9:83"
+                      "referencedDeclaration": 68263,
+                      "src": "2320:9:80"
                     },
-                    "referencedDeclaration": 68495,
-                    "src": "2320:9:83",
+                    "referencedDeclaration": 68263,
+                    "src": "2320:9:80",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                      "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                       "typeString": "struct ERC777Helper.Operators"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "2319:24:83"
+              "src": "2319:24:80"
             },
             "returnParameters": {
-              "id": 68660,
+              "id": 68428,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68659,
+                  "id": 68427,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68665,
-                  "src": "2367:16:83",
+                  "scope": 68433,
+                  "src": "2367:16:80",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -2739,19 +2739,19 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 68657,
+                      "id": 68425,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "2367:7:83",
+                      "src": "2367:7:80",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "id": 68658,
+                    "id": 68426,
                     "nodeType": "ArrayTypeName",
-                    "src": "2367:9:83",
+                    "src": "2367:9:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                       "typeString": "address[]"
@@ -2760,22 +2760,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2366:18:83"
+              "src": "2366:18:80"
             },
-            "scope": 68713,
+            "scope": 68481,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "internal"
           },
           {
-            "id": 68712,
+            "id": 68480,
             "nodeType": "FunctionDefinition",
-            "src": "2441:401:83",
+            "src": "2441:401:80",
             "nodes": [],
             "body": {
-              "id": 68711,
+              "id": 68479,
               "nodeType": "Block",
-              "src": "2533:309:83",
+              "src": "2533:309:80",
               "nodes": [],
               "statements": [
                 {
@@ -2786,7 +2786,7 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 68679,
+                        "id": 68447,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2794,41 +2794,41 @@
                         "leftExpression": {
                           "expression": {
                             "expression": {
-                              "id": 68675,
+                              "id": 68443,
                               "name": "self",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
-                              "referencedDeclaration": 68668,
-                              "src": "2628:4:83",
+                              "referencedDeclaration": 68436,
+                              "src": "2628:4:80",
                               "typeDescriptions": {
-                                "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                                "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                                 "typeString": "struct ERC777Helper.Operators storage pointer"
                               }
                             },
-                            "id": 68676,
+                            "id": 68444,
                             "isConstant": false,
                             "isLValue": true,
                             "isPure": false,
                             "lValueRequested": false,
-                            "memberLocation": "2633:21:83",
+                            "memberLocation": "2633:21:80",
                             "memberName": "defaultOperatorsArray",
                             "nodeType": "MemberAccess",
-                            "referencedDeclaration": 68478,
-                            "src": "2628:26:83",
+                            "referencedDeclaration": 68246,
+                            "src": "2628:26:80",
                             "typeDescriptions": {
                               "typeIdentifier": "t_array$_t_address_$dyn_storage",
                               "typeString": "address[] storage ref"
                             }
                           },
-                          "id": 68677,
+                          "id": 68445,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
                           "lValueRequested": false,
-                          "memberLocation": "2655:6:83",
+                          "memberLocation": "2655:6:80",
                           "memberName": "length",
                           "nodeType": "MemberAccess",
-                          "src": "2628:33:83",
+                          "src": "2628:33:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -2838,21 +2838,21 @@
                         "operator": "==",
                         "rightExpression": {
                           "hexValue": "30",
-                          "id": 68678,
+                          "id": 68446,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "number",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "2665:1:83",
+                          "src": "2665:1:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_rational_0_by_1",
                             "typeString": "int_const 0"
                           },
                           "value": "0"
                         },
-                        "src": "2628:38:83",
+                        "src": "2628:38:80",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -2866,18 +2866,18 @@
                           "typeString": "bool"
                         }
                       ],
-                      "id": 68674,
+                      "id": 68442,
                       "name": "assert",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": -3,
-                      "src": "2621:6:83",
+                      "src": "2621:6:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_assert_pure$_t_bool_$returns$__$",
                         "typeString": "function (bool) pure"
                       }
                     },
-                    "id": 68680,
+                    "id": 68448,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2886,47 +2886,47 @@
                     "nameLocations": [],
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2621:46:83",
+                    "src": "2621:46:80",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 68681,
+                  "id": 68449,
                   "nodeType": "ExpressionStatement",
-                  "src": "2621:46:83"
+                  "src": "2621:46:80"
                 },
                 {
                   "expression": {
-                    "id": 68686,
+                    "id": 68454,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "expression": {
-                        "id": 68682,
+                        "id": 68450,
                         "name": "self",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 68668,
-                        "src": "2677:4:83",
+                        "referencedDeclaration": 68436,
+                        "src": "2677:4:80",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                          "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                           "typeString": "struct ERC777Helper.Operators storage pointer"
                         }
                       },
-                      "id": 68684,
+                      "id": 68452,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
                       "lValueRequested": true,
-                      "memberLocation": "2682:21:83",
+                      "memberLocation": "2682:21:80",
                       "memberName": "defaultOperatorsArray",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 68478,
-                      "src": "2677:26:83",
+                      "referencedDeclaration": 68246,
+                      "src": "2677:26:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_address_$dyn_storage",
                         "typeString": "address[] storage ref"
@@ -2935,36 +2935,36 @@
                     "nodeType": "Assignment",
                     "operator": "=",
                     "rightHandSide": {
-                      "id": 68685,
+                      "id": 68453,
                       "name": "operators",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 68671,
-                      "src": "2706:9:83",
+                      "referencedDeclaration": 68439,
+                      "src": "2706:9:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
                         "typeString": "address[] memory"
                       }
                     },
-                    "src": "2677:38:83",
+                    "src": "2677:38:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage",
                       "typeString": "address[] storage ref"
                     }
                   },
-                  "id": 68687,
+                  "id": 68455,
                   "nodeType": "ExpressionStatement",
-                  "src": "2677:38:83"
+                  "src": "2677:38:80"
                 },
                 {
                   "body": {
-                    "id": 68709,
+                    "id": 68477,
                     "nodeType": "Block",
-                    "src": "2769:67:83",
+                    "src": "2769:67:80",
                     "statements": [
                       {
                         "expression": {
-                          "id": 68707,
+                          "id": 68475,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2972,54 +2972,54 @@
                           "leftHandSide": {
                             "baseExpression": {
                               "expression": {
-                                "id": 68699,
+                                "id": 68467,
                                 "name": "self",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 68668,
-                                "src": "2783:4:83",
+                                "referencedDeclaration": 68436,
+                                "src": "2783:4:80",
                                 "typeDescriptions": {
-                                  "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                                  "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                                   "typeString": "struct ERC777Helper.Operators storage pointer"
                                 }
                               },
-                              "id": 68704,
+                              "id": 68472,
                               "isConstant": false,
                               "isLValue": true,
                               "isPure": false,
                               "lValueRequested": false,
-                              "memberLocation": "2788:16:83",
+                              "memberLocation": "2788:16:80",
                               "memberName": "defaultOperators",
                               "nodeType": "MemberAccess",
-                              "referencedDeclaration": 68482,
-                              "src": "2783:21:83",
+                              "referencedDeclaration": 68250,
+                              "src": "2783:21:80",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_bool_$",
                                 "typeString": "mapping(address => bool)"
                               }
                             },
-                            "id": 68705,
+                            "id": 68473,
                             "indexExpression": {
                               "baseExpression": {
-                                "id": 68701,
+                                "id": 68469,
                                 "name": "operators",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 68671,
-                                "src": "2805:9:83",
+                                "referencedDeclaration": 68439,
+                                "src": "2805:9:80",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
                                   "typeString": "address[] memory"
                                 }
                               },
-                              "id": 68703,
+                              "id": 68471,
                               "indexExpression": {
-                                "id": 68702,
+                                "id": 68470,
                                 "name": "i",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
-                                "referencedDeclaration": 68689,
-                                "src": "2815:1:83",
+                                "referencedDeclaration": 68457,
+                                "src": "2815:1:80",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
@@ -3030,7 +3030,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "nodeType": "IndexAccess",
-                              "src": "2805:12:83",
+                              "src": "2805:12:80",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address",
                                 "typeString": "address"
@@ -3041,7 +3041,7 @@
                             "isPure": false,
                             "lValueRequested": true,
                             "nodeType": "IndexAccess",
-                            "src": "2783:35:83",
+                            "src": "2783:35:80",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
@@ -3051,29 +3051,29 @@
                           "operator": "=",
                           "rightHandSide": {
                             "hexValue": "74727565",
-                            "id": 68706,
+                            "id": 68474,
                             "isConstant": false,
                             "isLValue": false,
                             "isPure": true,
                             "kind": "bool",
                             "lValueRequested": false,
                             "nodeType": "Literal",
-                            "src": "2821:4:83",
+                            "src": "2821:4:80",
                             "typeDescriptions": {
                               "typeIdentifier": "t_bool",
                               "typeString": "bool"
                             },
                             "value": "true"
                           },
-                          "src": "2783:42:83",
+                          "src": "2783:42:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_bool",
                             "typeString": "bool"
                           }
                         },
-                        "id": 68708,
+                        "id": 68476,
                         "nodeType": "ExpressionStatement",
-                        "src": "2783:42:83"
+                        "src": "2783:42:80"
                       }
                     ]
                   },
@@ -3082,18 +3082,18 @@
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     },
-                    "id": 68695,
+                    "id": 68463,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftExpression": {
-                      "id": 68692,
+                      "id": 68460,
                       "name": "i",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 68689,
-                      "src": "2742:1:83",
+                      "referencedDeclaration": 68457,
+                      "src": "2742:1:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -3103,52 +3103,52 @@
                     "operator": "<",
                     "rightExpression": {
                       "expression": {
-                        "id": 68693,
+                        "id": 68461,
                         "name": "operators",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 68671,
-                        "src": "2746:9:83",
+                        "referencedDeclaration": 68439,
+                        "src": "2746:9:80",
                         "typeDescriptions": {
                           "typeIdentifier": "t_array$_t_address_$dyn_memory_ptr",
                           "typeString": "address[] memory"
                         }
                       },
-                      "id": 68694,
+                      "id": 68462,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
                       "lValueRequested": false,
-                      "memberLocation": "2756:6:83",
+                      "memberLocation": "2756:6:80",
                       "memberName": "length",
                       "nodeType": "MemberAccess",
-                      "src": "2746:16:83",
+                      "src": "2746:16:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "2742:20:83",
+                    "src": "2742:20:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
                     }
                   },
-                  "id": 68710,
+                  "id": 68478,
                   "initializationExpression": {
                     "assignments": [
-                      68689
+                      68457
                     ],
                     "declarations": [
                       {
                         "constant": false,
-                        "id": 68689,
+                        "id": 68457,
                         "mutability": "mutable",
                         "name": "i",
-                        "nameLocation": "2735:1:83",
+                        "nameLocation": "2735:1:80",
                         "nodeType": "VariableDeclaration",
-                        "scope": 68710,
-                        "src": "2730:6:83",
+                        "scope": 68478,
+                        "src": "2730:6:80",
                         "stateVariable": false,
                         "storageLocation": "default",
                         "typeDescriptions": {
@@ -3156,10 +3156,10 @@
                           "typeString": "uint256"
                         },
                         "typeName": {
-                          "id": 68688,
+                          "id": 68456,
                           "name": "uint",
                           "nodeType": "ElementaryTypeName",
-                          "src": "2730:4:83",
+                          "src": "2730:4:80",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -3168,17 +3168,17 @@
                         "visibility": "internal"
                       }
                     ],
-                    "id": 68691,
+                    "id": 68459,
                     "initialValue": {
                       "hexValue": "30",
-                      "id": 68690,
+                      "id": 68458,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "2739:1:83",
+                      "src": "2739:1:80",
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_0_by_1",
                         "typeString": "int_const 0"
@@ -3186,11 +3186,11 @@
                       "value": "0"
                     },
                     "nodeType": "VariableDeclarationStatement",
-                    "src": "2730:10:83"
+                    "src": "2730:10:80"
                   },
                   "loopExpression": {
                     "expression": {
-                      "id": 68697,
+                      "id": 68465,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -3198,14 +3198,14 @@
                       "nodeType": "UnaryOperation",
                       "operator": "++",
                       "prefix": true,
-                      "src": "2764:3:83",
+                      "src": "2764:3:80",
                       "subExpression": {
-                        "id": 68696,
+                        "id": 68464,
                         "name": "i",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 68689,
-                        "src": "2766:1:83",
+                        "referencedDeclaration": 68457,
+                        "src": "2766:1:80",
                         "typeDescriptions": {
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
@@ -3216,12 +3216,12 @@
                         "typeString": "uint256"
                       }
                     },
-                    "id": 68698,
+                    "id": 68466,
                     "nodeType": "ExpressionStatement",
-                    "src": "2764:3:83"
+                    "src": "2764:3:80"
                   },
                   "nodeType": "ForStatement",
-                  "src": "2725:111:83"
+                  "src": "2725:111:80"
                 }
               ]
             },
@@ -3229,43 +3229,43 @@
             "kind": "function",
             "modifiers": [],
             "name": "setupDefaultOperators",
-            "nameLocation": "2450:21:83",
+            "nameLocation": "2450:21:80",
             "parameters": {
-              "id": 68672,
+              "id": 68440,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68668,
+                  "id": 68436,
                   "mutability": "mutable",
                   "name": "self",
-                  "nameLocation": "2490:4:83",
+                  "nameLocation": "2490:4:80",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68712,
-                  "src": "2472:22:83",
+                  "scope": 68480,
+                  "src": "2472:22:80",
                   "stateVariable": false,
                   "storageLocation": "storage",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                    "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                     "typeString": "struct ERC777Helper.Operators"
                   },
                   "typeName": {
-                    "id": 68667,
+                    "id": 68435,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 68666,
+                      "id": 68434,
                       "name": "Operators",
                       "nameLocations": [
-                        "2472:9:83"
+                        "2472:9:80"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 68495,
-                      "src": "2472:9:83"
+                      "referencedDeclaration": 68263,
+                      "src": "2472:9:80"
                     },
-                    "referencedDeclaration": 68495,
-                    "src": "2472:9:83",
+                    "referencedDeclaration": 68263,
+                    "src": "2472:9:80",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_Operators_$68495_storage_ptr",
+                      "typeIdentifier": "t_struct$_Operators_$68263_storage_ptr",
                       "typeString": "struct ERC777Helper.Operators"
                     }
                   },
@@ -3273,13 +3273,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 68671,
+                  "id": 68439,
                   "mutability": "mutable",
                   "name": "operators",
-                  "nameLocation": "2513:9:83",
+                  "nameLocation": "2513:9:80",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68712,
-                  "src": "2496:26:83",
+                  "scope": 68480,
+                  "src": "2496:26:80",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -3288,19 +3288,19 @@
                   },
                   "typeName": {
                     "baseType": {
-                      "id": 68669,
+                      "id": 68437,
                       "name": "address",
                       "nodeType": "ElementaryTypeName",
-                      "src": "2496:7:83",
+                      "src": "2496:7:80",
                       "stateMutability": "nonpayable",
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "id": 68670,
+                    "id": 68438,
                     "nodeType": "ArrayTypeName",
-                    "src": "2496:9:83",
+                    "src": "2496:9:80",
                     "typeDescriptions": {
                       "typeIdentifier": "t_array$_t_address_$dyn_storage_ptr",
                       "typeString": "address[]"
@@ -3309,15 +3309,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2471:52:83"
+              "src": "2471:52:80"
             },
             "returnParameters": {
-              "id": 68673,
+              "id": 68441,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2533:0:83"
+              "src": "2533:0:80"
             },
-            "scope": 68713,
+            "scope": 68481,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "internal"
@@ -3329,22 +3329,22 @@
         "contractDependencies": [],
         "contractKind": "library",
         "documentation": {
-          "id": 68459,
+          "id": 68227,
           "nodeType": "StructuredDocumentation",
-          "src": "162:61:83",
+          "src": "162:61:80",
           "text": " @title ERC777 helper library\n @author Superfluid"
         },
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          68713
+          68481
         ],
         "name": "ERC777Helper",
-        "nameLocation": "232:12:83",
-        "scope": 68714,
+        "nameLocation": "232:12:80",
+        "scope": 68482,
         "usedErrors": []
       }
     ],
     "license": "AGPLv3"
   },
-  "id": 83
+  "id": 80
 }

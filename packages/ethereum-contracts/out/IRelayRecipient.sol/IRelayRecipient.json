@@ -47,7 +47,7 @@
     "isTrustedForwarder(address)": "572b6c05",
     "versionRecipient()": "486ff0cd"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"forwarder\",\"type\":\"address\"}],\"name\":\"isTrustedForwarder\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"versionRecipient\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Superfluid\",\"details\":\"A contract must implement this interface in order to support relayed transactionsIt is better to inherit the BaseRelayRecipient as its implementation\",\"kind\":\"dev\",\"methods\":{\"isTrustedForwarder(address)\":{\"details\":\"the forwarder is required to verify the sender's signature, and verify      the call is not a replay.\"},\"versionRecipient()\":{\"details\":\"EIP 2771 version NOTE: - It is not clear if it is actually from the EIP 2771.... - https://docs.biconomy.io/guides/enable-gasless-transactions/eip-2771\"}},\"title\":\"Relay recipient interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"isTrustedForwarder(address)\":{\"notice\":\"Returns if the forwarder is trusted to forward relayed transactions to us.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/utils/IRelayRecipient.sol\":\"IRelayRecipient\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/utils/IRelayRecipient.sol\":{\"keccak256\":\"0x449c94dc19b806af3ff12ac121c2092a813337f9b8fc8d8df93d1e70fc9f8a2b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c81819d57bcefb0fa6a9729350ef595bdf7938bb02fac4306a6a7c3871a9085d\",\"dweb:/ipfs/QmRVAm5377PBv2Ct5BX4sfJJWixuhqYtkJ6MqQbPq3yzEa\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"forwarder\",\"type\":\"address\"}],\"name\":\"isTrustedForwarder\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"versionRecipient\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Superfluid\",\"details\":\"A contract must implement this interface in order to support relayed transactionsIt is better to inherit the BaseRelayRecipient as its implementation\",\"kind\":\"dev\",\"methods\":{\"isTrustedForwarder(address)\":{\"details\":\"the forwarder is required to verify the sender's signature, and verify      the call is not a replay.\"},\"versionRecipient()\":{\"details\":\"EIP 2771 version NOTE: - It is not clear if it is actually from the EIP 2771.... - https://docs.biconomy.io/guides/enable-gasless-transactions/eip-2771\"}},\"title\":\"Relay recipient interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"isTrustedForwarder(address)\":{\"notice\":\"Returns if the forwarder is trusted to forward relayed transactions to us.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/utils/IRelayRecipient.sol\":\"IRelayRecipient\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/utils/IRelayRecipient.sol\":{\"keccak256\":\"0x449c94dc19b806af3ff12ac121c2092a813337f9b8fc8d8df93d1e70fc9f8a2b\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c81819d57bcefb0fa6a9729350ef595bdf7938bb02fac4306a6a7c3871a9085d\",\"dweb:/ipfs/QmRVAm5377PBv2Ct5BX4sfJJWixuhqYtkJ6MqQbPq3yzEa\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.19+commit.7dd6d404"
@@ -125,7 +125,7 @@
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 200
+        "runs": 1
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -149,19 +149,19 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/utils/IRelayRecipient.sol",
-    "id": 68235,
+    "id": 68003,
     "exportedSymbols": {
       "IRelayRecipient": [
-        68234
+        68002
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:988:78",
+    "src": "32:988:75",
     "nodes": [
       {
-        "id": 68218,
+        "id": 67986,
         "nodeType": "PragmaDirective",
-        "src": "32:26:78",
+        "src": "32:26:75",
         "nodes": [],
         "literals": [
           "solidity",
@@ -171,19 +171,19 @@
         ]
       },
       {
-        "id": 68234,
+        "id": 68002,
         "nodeType": "ContractDefinition",
-        "src": "402:617:78",
+        "src": "402:617:75",
         "nodes": [
           {
-            "id": 68227,
+            "id": 67995,
             "nodeType": "FunctionDefinition",
-            "src": "662:75:78",
+            "src": "662:75:75",
             "nodes": [],
             "documentation": {
-              "id": 68220,
+              "id": 67988,
               "nodeType": "StructuredDocumentation",
-              "src": "435:222:78",
+              "src": "435:222:75",
               "text": " @notice Returns if the forwarder is trusted to forward relayed transactions to us.\n @dev the forwarder is required to verify the sender's signature, and verify\n      the call is not a replay."
             },
             "functionSelector": "572b6c05",
@@ -191,20 +191,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "isTrustedForwarder",
-            "nameLocation": "671:18:78",
+            "nameLocation": "671:18:75",
             "parameters": {
-              "id": 68223,
+              "id": 67991,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68222,
+                  "id": 67990,
                   "mutability": "mutable",
                   "name": "forwarder",
-                  "nameLocation": "698:9:78",
+                  "nameLocation": "698:9:75",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68227,
-                  "src": "690:17:78",
+                  "scope": 67995,
+                  "src": "690:17:75",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -212,10 +212,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 68221,
+                    "id": 67989,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "690:7:78",
+                    "src": "690:7:75",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -225,21 +225,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "689:19:78"
+              "src": "689:19:75"
             },
             "returnParameters": {
-              "id": 68226,
+              "id": 67994,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68225,
+                  "id": 67993,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68227,
-                  "src": "731:4:78",
+                  "scope": 67995,
+                  "src": "731:4:75",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -247,10 +247,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 68224,
+                    "id": 67992,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "731:4:78",
+                    "src": "731:4:75",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -259,22 +259,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "730:6:78"
+              "src": "730:6:75"
             },
-            "scope": 68234,
+            "scope": 68002,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 68233,
+            "id": 68001,
             "nodeType": "FunctionDefinition",
-            "src": "951:66:78",
+            "src": "951:66:75",
             "nodes": [],
             "documentation": {
-              "id": 68228,
+              "id": 67996,
               "nodeType": "StructuredDocumentation",
-              "src": "743:203:78",
+              "src": "743:203:75",
               "text": " @dev EIP 2771 version\n NOTE:\n - It is not clear if it is actually from the EIP 2771....\n - https://docs.biconomy.io/guides/enable-gasless-transactions/eip-2771"
             },
             "functionSelector": "486ff0cd",
@@ -282,26 +282,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "versionRecipient",
-            "nameLocation": "960:16:78",
+            "nameLocation": "960:16:75",
             "parameters": {
-              "id": 68229,
+              "id": 67997,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "976:2:78"
+              "src": "976:2:75"
             },
             "returnParameters": {
-              "id": 68232,
+              "id": 68000,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68231,
+                  "id": 67999,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68233,
-                  "src": "1002:13:78",
+                  "scope": 68001,
+                  "src": "1002:13:75",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -309,10 +309,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 68230,
+                    "id": 67998,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1002:6:78",
+                    "src": "1002:6:75",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -321,9 +321,9 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1001:15:78"
+              "src": "1001:15:75"
             },
-            "scope": 68234,
+            "scope": 68002,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
@@ -335,22 +335,22 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 68219,
+          "id": 67987,
           "nodeType": "StructuredDocumentation",
-          "src": "169:232:78",
+          "src": "169:232:75",
           "text": " @title Relay recipient interface\n @author Superfluid\n @dev A contract must implement this interface in order to support relayed transactions\n @dev It is better to inherit the BaseRelayRecipient as its implementation"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          68234
+          68002
         ],
         "name": "IRelayRecipient",
-        "nameLocation": "412:15:78",
-        "scope": 68235,
+        "nameLocation": "412:15:75",
+        "scope": 68003,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 78
+  "id": 75
 }

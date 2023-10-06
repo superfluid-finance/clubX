@@ -519,7 +519,7 @@
     "transferFrom(address,address,uint256)": "23b872dd",
     "triggerMetadataUpdate(uint256)": "2f388560"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"CFA_NFT_APPROVE_CALLER_NOT_OWNER_OR_APPROVED_FOR_ALL\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_APPROVE_TO_CALLER\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_APPROVE_TO_CURRENT_OWNER\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_INVALID_TOKEN_ID\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_ONLY_SUPER_TOKEN_FACTORY\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_TRANSFER_CALLER_NOT_OWNER_OR_APPROVED_FOR_ALL\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_TRANSFER_FROM_INCORRECT_OWNER\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_TRANSFER_IS_NOT_ALLOWED\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_TRANSFER_TO_ZERO_ADDRESS\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"MetadataUpdate\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"balance\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"flowDataByTokenId\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"superToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowSender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowReceiver\",\"type\":\"address\"},{\"internalType\":\"uint32\",\"name\":\"flowStartDate\",\"type\":\"uint32\"}],\"internalType\":\"struct IFlowNFTBase.FlowNFTData\",\"name\":\"flowData\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"superToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowSender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowReceiver\",\"type\":\"address\"}],\"name\":\"getTokenId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"nftName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"nftSymbol\",\"type\":\"string\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"tokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"triggerMetadataUpdate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"Approval(address,address,uint256)\":{\"details\":\"Emitted when `owner` enables `approved` to manage the `tokenId` token.\"},\"ApprovalForAll(address,address,bool)\":{\"details\":\"Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets.\"},\"MetadataUpdate(uint256)\":{\"details\":\"This event comes from https://eips.ethereum.org/EIPS/eip-4906\",\"params\":{\"tokenId\":\"the id of the token that should have its metadata updated\"}},\"Transfer(address,address,uint256)\":{\"details\":\"Emitted when `tokenId` token is transferred from `from` to `to`.\"}},\"kind\":\"dev\",\"methods\":{\"approve(address,uint256)\":{\"details\":\"Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event.\"},\"balanceOf(address)\":{\"details\":\"Returns the number of tokens in ``owner``'s account.\"},\"flowDataByTokenId(uint256)\":{\"params\":{\"tokenId\":\"the token id\"},\"returns\":{\"flowData\":\"the flow data associated with `tokenId`\"}},\"getApproved(uint256)\":{\"details\":\"Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist.\"},\"getTokenId(address,address,address)\":{\"details\":\"tokenId = uint256(keccak256(abi.encode(block.chainId, superToken, flowSender, flowReceiver)))\",\"params\":{\"flowReceiver\":\"the flow receiver\",\"flowSender\":\"the flow sender\",\"superToken\":\"the super token\"},\"returns\":{\"_0\":\"tokenId the tokenId\"}},\"isApprovedForAll(address,address)\":{\"details\":\"Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}\"},\"name()\":{\"details\":\"Returns the token collection name.\"},\"ownerOf(uint256)\":{\"details\":\"Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist.\"},\"safeTransferFrom(address,address,uint256)\":{\"details\":\"Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.\"},\"safeTransferFrom(address,address,uint256,bytes)\":{\"details\":\"Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.\"},\"setApprovalForAll(address,bool)\":{\"details\":\"Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event.\"},\"supportsInterface(bytes4)\":{\"details\":\"Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas.\"},\"symbol()\":{\"details\":\"Returns the token collection symbol.\"},\"tokenURI(uint256)\":{\"details\":\"Returns the Uniform Resource Identifier (URI) for `tokenId` token.\"},\"transferFrom(address,address,uint256)\":{\"details\":\"Transfers `tokenId` token from `from` to `to`. WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving ERC721 or else they may be permanently lost. Usage of {safeTransferFrom} prevents loss, though the caller must understand this adds an external call which potentially creates a reentrancy vulnerability. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"events\":{\"MetadataUpdate(uint256)\":{\"notice\":\"Informs third-party platforms that NFT metadata should be updated\"}},\"kind\":\"user\",\"methods\":{\"flowDataByTokenId(uint256)\":{\"notice\":\"An external function for querying flow data by `tokenId``\"},\"getTokenId(address,address,address)\":{\"notice\":\"An external function for computing the deterministic tokenId\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol\":\"IFlowNFTBase\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x5bce51e11f7d194b79ea59fe00c9e8de9fa2c5530124960f29a24d4c740a3266\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e66dfde185df46104c11bc89d08fa0760737aa59a2b8546a656473d810a8ea4\",\"dweb:/ipfs/QmXvyqtXPaPss2PD7eqPoSao5Szm2n6UMoiG8TZZDjmChR\"]},\"lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol\":{\"keccak256\":\"0x75b829ff2f26c14355d1cba20e16fe7b29ca58eb5fef665ede48bc0f9c6c74b9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a0a107160525724f9e1bbbab031defc2f298296dd9e331f16a6f7130cec32146\",\"dweb:/ipfs/QmemujxSd7gX8A9M8UwmNbz4Ms3U9FG9QfudUgxwvTmPWf\"]},\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f\",\"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol\":{\"keccak256\":\"0xa1600ee907288d7852678cc43f995498a039710a4f025a8785de288c4a4ceced\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d317bab758d3b73005ac27b87e2410a087ca8507538795f555d37bd2d97a028d\",\"dweb:/ipfs/QmSHDBjGYTC64LkDaTQj38DZUGNV9mzxhUYAAfaDLQYEmS\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"CFA_NFT_APPROVE_CALLER_NOT_OWNER_OR_APPROVED_FOR_ALL\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_APPROVE_TO_CALLER\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_APPROVE_TO_CURRENT_OWNER\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_INVALID_TOKEN_ID\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_ONLY_SUPER_TOKEN_FACTORY\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_TRANSFER_CALLER_NOT_OWNER_OR_APPROVED_FOR_ALL\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_TRANSFER_FROM_INCORRECT_OWNER\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_TRANSFER_IS_NOT_ALLOWED\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"CFA_NFT_TRANSFER_TO_ZERO_ADDRESS\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"approved\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Approval\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"ApprovalForAll\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"MetadataUpdate\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"Transfer\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"approve\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"name\":\"balanceOf\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"balance\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"flowDataByTokenId\",\"outputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"superToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowSender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowReceiver\",\"type\":\"address\"},{\"internalType\":\"uint32\",\"name\":\"flowStartDate\",\"type\":\"uint32\"}],\"internalType\":\"struct IFlowNFTBase.FlowNFTData\",\"name\":\"flowData\",\"type\":\"tuple\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"getApproved\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"superToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowSender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"flowReceiver\",\"type\":\"address\"}],\"name\":\"getTokenId\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"string\",\"name\":\"nftName\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"nftSymbol\",\"type\":\"string\"}],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"}],\"name\":\"isApprovedForAll\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"name\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"ownerOf\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"owner\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"data\",\"type\":\"bytes\"}],\"name\":\"safeTransferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"operator\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"approved\",\"type\":\"bool\"}],\"name\":\"setApprovalForAll\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"interfaceId\",\"type\":\"bytes4\"}],\"name\":\"supportsInterface\",\"outputs\":[{\"internalType\":\"bool\",\"name\":\"\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"symbol\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"tokenURI\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"from\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"transferFrom\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"tokenId\",\"type\":\"uint256\"}],\"name\":\"triggerMetadataUpdate\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"events\":{\"Approval(address,address,uint256)\":{\"details\":\"Emitted when `owner` enables `approved` to manage the `tokenId` token.\"},\"ApprovalForAll(address,address,bool)\":{\"details\":\"Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets.\"},\"MetadataUpdate(uint256)\":{\"details\":\"This event comes from https://eips.ethereum.org/EIPS/eip-4906\",\"params\":{\"tokenId\":\"the id of the token that should have its metadata updated\"}},\"Transfer(address,address,uint256)\":{\"details\":\"Emitted when `tokenId` token is transferred from `from` to `to`.\"}},\"kind\":\"dev\",\"methods\":{\"approve(address,uint256)\":{\"details\":\"Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event.\"},\"balanceOf(address)\":{\"details\":\"Returns the number of tokens in ``owner``'s account.\"},\"flowDataByTokenId(uint256)\":{\"params\":{\"tokenId\":\"the token id\"},\"returns\":{\"flowData\":\"the flow data associated with `tokenId`\"}},\"getApproved(uint256)\":{\"details\":\"Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist.\"},\"getTokenId(address,address,address)\":{\"details\":\"tokenId = uint256(keccak256(abi.encode(block.chainId, superToken, flowSender, flowReceiver)))\",\"params\":{\"flowReceiver\":\"the flow receiver\",\"flowSender\":\"the flow sender\",\"superToken\":\"the super token\"},\"returns\":{\"_0\":\"tokenId the tokenId\"}},\"isApprovedForAll(address,address)\":{\"details\":\"Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}\"},\"name()\":{\"details\":\"Returns the token collection name.\"},\"ownerOf(uint256)\":{\"details\":\"Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist.\"},\"safeTransferFrom(address,address,uint256)\":{\"details\":\"Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.\"},\"safeTransferFrom(address,address,uint256,bytes)\":{\"details\":\"Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.\"},\"setApprovalForAll(address,bool)\":{\"details\":\"Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event.\"},\"supportsInterface(bytes4)\":{\"details\":\"Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas.\"},\"symbol()\":{\"details\":\"Returns the token collection symbol.\"},\"tokenURI(uint256)\":{\"details\":\"Returns the Uniform Resource Identifier (URI) for `tokenId` token.\"},\"transferFrom(address,address,uint256)\":{\"details\":\"Transfers `tokenId` token from `from` to `to`. WARNING: Note that the caller is responsible to confirm that the recipient is capable of receiving ERC721 or else they may be permanently lost. Usage of {safeTransferFrom} prevents loss, though the caller must understand this adds an external call which potentially creates a reentrancy vulnerability. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event.\"}},\"version\":1},\"userdoc\":{\"events\":{\"MetadataUpdate(uint256)\":{\"notice\":\"Informs third-party platforms that NFT metadata should be updated\"}},\"kind\":\"user\",\"methods\":{\"flowDataByTokenId(uint256)\":{\"notice\":\"An external function for querying flow data by `tokenId``\"},\"getTokenId(address,address,address)\":{\"notice\":\"An external function for computing the deterministic tokenId\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol\":\"IFlowNFTBase\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x5bce51e11f7d194b79ea59fe00c9e8de9fa2c5530124960f29a24d4c740a3266\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e66dfde185df46104c11bc89d08fa0760737aa59a2b8546a656473d810a8ea4\",\"dweb:/ipfs/QmXvyqtXPaPss2PD7eqPoSao5Szm2n6UMoiG8TZZDjmChR\"]},\"lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol\":{\"keccak256\":\"0x75b829ff2f26c14355d1cba20e16fe7b29ca58eb5fef665ede48bc0f9c6c74b9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a0a107160525724f9e1bbbab031defc2f298296dd9e331f16a6f7130cec32146\",\"dweb:/ipfs/QmemujxSd7gX8A9M8UwmNbz4Ms3U9FG9QfudUgxwvTmPWf\"]},\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f\",\"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol\":{\"keccak256\":\"0xa1600ee907288d7852678cc43f995498a039710a4f025a8785de288c4a4ceced\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d317bab758d3b73005ac27b87e2410a087ca8507538795f555d37bd2d97a028d\",\"dweb:/ipfs/QmSHDBjGYTC64LkDaTQj38DZUGNV9mzxhUYAAfaDLQYEmS\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.19+commit.7dd6d404"
@@ -1102,7 +1102,7 @@
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 200
+        "runs": 1
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -1150,22 +1150,22 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol",
-    "id": 66422,
+    "id": 66190,
     "exportedSymbols": {
       "IERC721Metadata": [
-        45241
+        45009
       ],
       "IFlowNFTBase": [
-        66421
+        66189
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:3352:64",
+    "src": "32:3352:61",
     "nodes": [
       {
-        "id": 66351,
+        "id": 66119,
         "nodeType": "PragmaDirective",
-        "src": "32:25:64",
+        "src": "32:25:61",
         "nodes": [],
         "literals": [
           "solidity",
@@ -1175,24 +1175,24 @@
         ]
       },
       {
-        "id": 66353,
+        "id": 66121,
         "nodeType": "ImportDirective",
-        "src": "59:102:64",
+        "src": "59:102:61",
         "nodes": [],
         "absolutePath": "lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "file": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 66422,
-        "sourceUnit": 45242,
+        "scope": 66190,
+        "sourceUnit": 45010,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 66352,
+              "id": 66120,
               "name": "IERC721Metadata",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 45241,
-              "src": "68:15:64",
+              "referencedDeclaration": 45009,
+              "src": "68:15:61",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -1201,26 +1201,26 @@
         "unitAlias": ""
       },
       {
-        "id": 66421,
+        "id": 66189,
         "nodeType": "ContractDefinition",
-        "src": "163:3220:64",
+        "src": "163:3220:61",
         "nodes": [
           {
-            "id": 66364,
+            "id": 66132,
             "nodeType": "StructDefinition",
-            "src": "539:142:64",
+            "src": "539:142:61",
             "nodes": [],
             "canonicalName": "IFlowNFTBase.FlowNFTData",
             "members": [
               {
                 "constant": false,
-                "id": 66357,
+                "id": 66125,
                 "mutability": "mutable",
                 "name": "superToken",
-                "nameLocation": "576:10:64",
+                "nameLocation": "576:10:61",
                 "nodeType": "VariableDeclaration",
-                "scope": 66364,
-                "src": "568:18:64",
+                "scope": 66132,
+                "src": "568:18:61",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1228,10 +1228,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 66356,
+                  "id": 66124,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "568:7:64",
+                  "src": "568:7:61",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -1242,13 +1242,13 @@
               },
               {
                 "constant": false,
-                "id": 66359,
+                "id": 66127,
                 "mutability": "mutable",
                 "name": "flowSender",
-                "nameLocation": "604:10:64",
+                "nameLocation": "604:10:61",
                 "nodeType": "VariableDeclaration",
-                "scope": 66364,
-                "src": "596:18:64",
+                "scope": 66132,
+                "src": "596:18:61",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1256,10 +1256,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 66358,
+                  "id": 66126,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "596:7:64",
+                  "src": "596:7:61",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -1270,13 +1270,13 @@
               },
               {
                 "constant": false,
-                "id": 66361,
+                "id": 66129,
                 "mutability": "mutable",
                 "name": "flowReceiver",
-                "nameLocation": "632:12:64",
+                "nameLocation": "632:12:61",
                 "nodeType": "VariableDeclaration",
-                "scope": 66364,
-                "src": "624:20:64",
+                "scope": 66132,
+                "src": "624:20:61",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1284,10 +1284,10 @@
                   "typeString": "address"
                 },
                 "typeName": {
-                  "id": 66360,
+                  "id": 66128,
                   "name": "address",
                   "nodeType": "ElementaryTypeName",
-                  "src": "624:7:64",
+                  "src": "624:7:61",
                   "stateMutability": "nonpayable",
                   "typeDescriptions": {
                     "typeIdentifier": "t_address",
@@ -1298,13 +1298,13 @@
               },
               {
                 "constant": false,
-                "id": 66363,
+                "id": 66131,
                 "mutability": "mutable",
                 "name": "flowStartDate",
-                "nameLocation": "661:13:64",
+                "nameLocation": "661:13:61",
                 "nodeType": "VariableDeclaration",
-                "scope": 66364,
-                "src": "654:20:64",
+                "scope": 66132,
+                "src": "654:20:61",
                 "stateVariable": false,
                 "storageLocation": "default",
                 "typeDescriptions": {
@@ -1312,10 +1312,10 @@
                   "typeString": "uint32"
                 },
                 "typeName": {
-                  "id": 66362,
+                  "id": 66130,
                   "name": "uint32",
                   "nodeType": "ElementaryTypeName",
-                  "src": "654:6:64",
+                  "src": "654:6:61",
                   "typeDescriptions": {
                     "typeIdentifier": "t_uint32",
                     "typeString": "uint32"
@@ -1325,174 +1325,174 @@
               }
             ],
             "name": "FlowNFTData",
-            "nameLocation": "546:11:64",
-            "scope": 66421,
+            "nameLocation": "546:11:61",
+            "scope": 66189,
             "visibility": "public"
           },
           {
-            "id": 66366,
+            "id": 66134,
             "nodeType": "ErrorDefinition",
-            "src": "869:61:64",
+            "src": "869:61:61",
             "nodes": [],
             "errorSelector": "a3352582",
             "name": "CFA_NFT_APPROVE_CALLER_NOT_OWNER_OR_APPROVED_FOR_ALL",
-            "nameLocation": "875:52:64",
+            "nameLocation": "875:52:61",
             "parameters": {
-              "id": 66365,
+              "id": 66133,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "927:2:64"
+              "src": "927:2:61"
             }
           },
           {
-            "id": 66368,
+            "id": 66136,
             "nodeType": "ErrorDefinition",
-            "src": "951:34:64",
+            "src": "951:34:61",
             "nodes": [],
             "errorSelector": "d3c77329",
             "name": "CFA_NFT_APPROVE_TO_CALLER",
-            "nameLocation": "957:25:64",
+            "nameLocation": "957:25:61",
             "parameters": {
-              "id": 66367,
+              "id": 66135,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "982:2:64"
+              "src": "982:2:61"
             }
           },
           {
-            "id": 66370,
+            "id": 66138,
             "nodeType": "ErrorDefinition",
-            "src": "1033:41:64",
+            "src": "1033:41:61",
             "nodes": [],
             "errorSelector": "e4790b25",
             "name": "CFA_NFT_APPROVE_TO_CURRENT_OWNER",
-            "nameLocation": "1039:32:64",
+            "nameLocation": "1039:32:61",
             "parameters": {
-              "id": 66369,
+              "id": 66137,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1071:2:64"
+              "src": "1071:2:61"
             }
           },
           {
-            "id": 66372,
+            "id": 66140,
             "nodeType": "ErrorDefinition",
-            "src": "1115:33:64",
+            "src": "1115:33:61",
             "nodes": [],
             "errorSelector": "eab95e3b",
             "name": "CFA_NFT_INVALID_TOKEN_ID",
-            "nameLocation": "1121:24:64",
+            "nameLocation": "1121:24:61",
             "parameters": {
-              "id": 66371,
+              "id": 66139,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1145:2:64"
+              "src": "1145:2:61"
             }
           },
           {
-            "id": 66374,
+            "id": 66142,
             "nodeType": "ErrorDefinition",
-            "src": "1197:41:64",
+            "src": "1197:41:61",
             "nodes": [],
             "errorSelector": "ebb7505b",
             "name": "CFA_NFT_ONLY_SUPER_TOKEN_FACTORY",
-            "nameLocation": "1203:32:64",
+            "nameLocation": "1203:32:61",
             "parameters": {
-              "id": 66373,
+              "id": 66141,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1235:2:64"
+              "src": "1235:2:61"
             }
           },
           {
-            "id": 66376,
+            "id": 66144,
             "nodeType": "ErrorDefinition",
-            "src": "1279:62:64",
+            "src": "1279:62:61",
             "nodes": [],
             "errorSelector": "2551d606",
             "name": "CFA_NFT_TRANSFER_CALLER_NOT_OWNER_OR_APPROVED_FOR_ALL",
-            "nameLocation": "1285:53:64",
+            "nameLocation": "1285:53:61",
             "parameters": {
-              "id": 66375,
+              "id": 66143,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1338:2:64"
+              "src": "1338:2:61"
             }
           },
           {
-            "id": 66378,
+            "id": 66146,
             "nodeType": "ErrorDefinition",
-            "src": "1361:46:64",
+            "src": "1361:46:61",
             "nodes": [],
             "errorSelector": "5a26c744",
             "name": "CFA_NFT_TRANSFER_FROM_INCORRECT_OWNER",
-            "nameLocation": "1367:37:64",
+            "nameLocation": "1367:37:61",
             "parameters": {
-              "id": 66377,
+              "id": 66145,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1404:2:64"
+              "src": "1404:2:61"
             }
           },
           {
-            "id": 66380,
+            "id": 66148,
             "nodeType": "ErrorDefinition",
-            "src": "1443:40:64",
+            "src": "1443:40:61",
             "nodes": [],
             "errorSelector": "aa747eca",
             "name": "CFA_NFT_TRANSFER_IS_NOT_ALLOWED",
-            "nameLocation": "1449:31:64",
+            "nameLocation": "1449:31:61",
             "parameters": {
-              "id": 66379,
+              "id": 66147,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1480:2:64"
+              "src": "1480:2:61"
             }
           },
           {
-            "id": 66382,
+            "id": 66150,
             "nodeType": "ErrorDefinition",
-            "src": "1525:41:64",
+            "src": "1525:41:61",
             "nodes": [],
             "errorSelector": "de06d21e",
             "name": "CFA_NFT_TRANSFER_TO_ZERO_ADDRESS",
-            "nameLocation": "1531:32:64",
+            "nameLocation": "1531:32:61",
             "parameters": {
-              "id": 66381,
+              "id": 66149,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1563:2:64"
+              "src": "1563:2:61"
             }
           },
           {
-            "id": 66387,
+            "id": 66155,
             "nodeType": "EventDefinition",
-            "src": "2021:38:64",
+            "src": "2021:38:61",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 66383,
+              "id": 66151,
               "nodeType": "StructuredDocumentation",
-              "src": "1783:233:64",
+              "src": "1783:233:61",
               "text": "@notice Informs third-party platforms that NFT metadata should be updated\n @dev This event comes from https://eips.ethereum.org/EIPS/eip-4906\n @param tokenId the id of the token that should have its metadata updated"
             },
             "eventSelector": "f8e1a15aba9398e019f0b49df1a4fde98ee17ae345cb5f6b5e2c27f5033e8ce7",
             "name": "MetadataUpdate",
-            "nameLocation": "2027:14:64",
+            "nameLocation": "2027:14:61",
             "parameters": {
-              "id": 66386,
+              "id": 66154,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 66385,
+                  "id": 66153,
                   "indexed": false,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "2050:7:64",
+                  "nameLocation": "2050:7:61",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66387,
-                  "src": "2042:15:64",
+                  "scope": 66155,
+                  "src": "2042:15:61",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1500,10 +1500,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 66384,
+                    "id": 66152,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2042:7:64",
+                    "src": "2042:7:61",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1512,18 +1512,18 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2041:17:64"
+              "src": "2041:17:61"
             }
           },
           {
-            "id": 66396,
+            "id": 66164,
             "nodeType": "FunctionDefinition",
-            "src": "2413:110:64",
+            "src": "2413:110:61",
             "nodes": [],
             "documentation": {
-              "id": 66388,
+              "id": 66156,
               "nodeType": "StructuredDocumentation",
-              "src": "2238:170:64",
+              "src": "2238:170:61",
               "text": "@notice An external function for querying flow data by `tokenId``\n @param tokenId the token id\n @return flowData the flow data associated with `tokenId`"
             },
             "functionSelector": "8d47859e",
@@ -1531,20 +1531,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "flowDataByTokenId",
-            "nameLocation": "2422:17:64",
+            "nameLocation": "2422:17:61",
             "parameters": {
-              "id": 66391,
+              "id": 66159,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 66390,
+                  "id": 66158,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "2457:7:64",
+                  "nameLocation": "2457:7:61",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66396,
-                  "src": "2449:15:64",
+                  "scope": 66164,
+                  "src": "2449:15:61",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1552,10 +1552,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 66389,
+                    "id": 66157,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2449:7:64",
+                    "src": "2449:7:61",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1564,66 +1564,66 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2439:31:64"
+              "src": "2439:31:61"
             },
             "returnParameters": {
-              "id": 66395,
+              "id": 66163,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 66394,
+                  "id": 66162,
                   "mutability": "mutable",
                   "name": "flowData",
-                  "nameLocation": "2513:8:64",
+                  "nameLocation": "2513:8:61",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66396,
-                  "src": "2494:27:64",
+                  "scope": 66164,
+                  "src": "2494:27:61",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_struct$_FlowNFTData_$66364_memory_ptr",
+                    "typeIdentifier": "t_struct$_FlowNFTData_$66132_memory_ptr",
                     "typeString": "struct IFlowNFTBase.FlowNFTData"
                   },
                   "typeName": {
-                    "id": 66393,
+                    "id": 66161,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 66392,
+                      "id": 66160,
                       "name": "FlowNFTData",
                       "nameLocations": [
-                        "2494:11:64"
+                        "2494:11:61"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 66364,
-                      "src": "2494:11:64"
+                      "referencedDeclaration": 66132,
+                      "src": "2494:11:61"
                     },
-                    "referencedDeclaration": 66364,
-                    "src": "2494:11:64",
+                    "referencedDeclaration": 66132,
+                    "src": "2494:11:61",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_struct$_FlowNFTData_$66364_storage_ptr",
+                      "typeIdentifier": "t_struct$_FlowNFTData_$66132_storage_ptr",
                       "typeString": "struct IFlowNFTBase.FlowNFTData"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "2493:29:64"
+              "src": "2493:29:61"
             },
-            "scope": 66421,
+            "scope": 66189,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 66408,
+            "id": 66176,
             "nodeType": "FunctionDefinition",
-            "src": "2879:144:64",
+            "src": "2879:144:61",
             "nodes": [],
             "documentation": {
-              "id": 66397,
+              "id": 66165,
               "nodeType": "StructuredDocumentation",
-              "src": "2529:345:64",
+              "src": "2529:345:61",
               "text": "@notice An external function for computing the deterministic tokenId\n @dev tokenId = uint256(keccak256(abi.encode(block.chainId, superToken, flowSender, flowReceiver)))\n @param superToken the super token\n @param flowSender the flow sender\n @param flowReceiver the flow receiver\n @return tokenId the tokenId"
             },
             "functionSelector": "89f71d2d",
@@ -1631,20 +1631,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "getTokenId",
-            "nameLocation": "2888:10:64",
+            "nameLocation": "2888:10:61",
             "parameters": {
-              "id": 66404,
+              "id": 66172,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 66399,
+                  "id": 66167,
                   "mutability": "mutable",
                   "name": "superToken",
-                  "nameLocation": "2916:10:64",
+                  "nameLocation": "2916:10:61",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66408,
-                  "src": "2908:18:64",
+                  "scope": 66176,
+                  "src": "2908:18:61",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1652,10 +1652,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 66398,
+                    "id": 66166,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2908:7:64",
+                    "src": "2908:7:61",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1666,13 +1666,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 66401,
+                  "id": 66169,
                   "mutability": "mutable",
                   "name": "flowSender",
-                  "nameLocation": "2944:10:64",
+                  "nameLocation": "2944:10:61",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66408,
-                  "src": "2936:18:64",
+                  "scope": 66176,
+                  "src": "2936:18:61",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1680,10 +1680,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 66400,
+                    "id": 66168,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2936:7:64",
+                    "src": "2936:7:61",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1694,13 +1694,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 66403,
+                  "id": 66171,
                   "mutability": "mutable",
                   "name": "flowReceiver",
-                  "nameLocation": "2972:12:64",
+                  "nameLocation": "2972:12:61",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66408,
-                  "src": "2964:20:64",
+                  "scope": 66176,
+                  "src": "2964:20:61",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1708,10 +1708,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 66402,
+                    "id": 66170,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2964:7:64",
+                    "src": "2964:7:61",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1721,21 +1721,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2898:92:64"
+              "src": "2898:92:61"
             },
             "returnParameters": {
-              "id": 66407,
+              "id": 66175,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 66406,
+                  "id": 66174,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66408,
-                  "src": "3014:7:64",
+                  "scope": 66176,
+                  "src": "3014:7:61",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1743,10 +1743,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 66405,
+                    "id": 66173,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3014:7:64",
+                    "src": "3014:7:61",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1755,37 +1755,37 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3013:9:64"
+              "src": "3013:9:61"
             },
-            "scope": 66421,
+            "scope": 66189,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 66415,
+            "id": 66183,
             "nodeType": "FunctionDefinition",
-            "src": "3203:99:64",
+            "src": "3203:99:61",
             "nodes": [],
             "functionSelector": "4cd88b76",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "initialize",
-            "nameLocation": "3212:10:64",
+            "nameLocation": "3212:10:61",
             "parameters": {
-              "id": 66413,
+              "id": 66181,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 66410,
+                  "id": 66178,
                   "mutability": "mutable",
                   "name": "nftName",
-                  "nameLocation": "3246:7:64",
+                  "nameLocation": "3246:7:61",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66415,
-                  "src": "3232:21:64",
+                  "scope": 66183,
+                  "src": "3232:21:61",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1793,10 +1793,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 66409,
+                    "id": 66177,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3232:6:64",
+                    "src": "3232:6:61",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1806,13 +1806,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 66412,
+                  "id": 66180,
                   "mutability": "mutable",
                   "name": "nftSymbol",
-                  "nameLocation": "3277:9:64",
+                  "nameLocation": "3277:9:61",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66415,
-                  "src": "3263:23:64",
+                  "scope": 66183,
+                  "src": "3263:23:61",
                   "stateVariable": false,
                   "storageLocation": "memory",
                   "typeDescriptions": {
@@ -1820,10 +1820,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 66411,
+                    "id": 66179,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3263:6:64",
+                    "src": "3263:6:61",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1832,43 +1832,43 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3222:70:64"
+              "src": "3222:70:61"
             },
             "returnParameters": {
-              "id": 66414,
+              "id": 66182,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3301:0:64"
+              "src": "3301:0:61"
             },
-            "scope": 66421,
+            "scope": 66189,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 66420,
+            "id": 66188,
             "nodeType": "FunctionDefinition",
-            "src": "3324:57:64",
+            "src": "3324:57:61",
             "nodes": [],
             "functionSelector": "2f388560",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "triggerMetadataUpdate",
-            "nameLocation": "3333:21:64",
+            "nameLocation": "3333:21:61",
             "parameters": {
-              "id": 66418,
+              "id": 66186,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 66417,
+                  "id": 66185,
                   "mutability": "mutable",
                   "name": "tokenId",
-                  "nameLocation": "3363:7:64",
+                  "nameLocation": "3363:7:61",
                   "nodeType": "VariableDeclaration",
-                  "scope": 66420,
-                  "src": "3355:15:64",
+                  "scope": 66188,
+                  "src": "3355:15:61",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1876,10 +1876,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 66416,
+                    "id": 66184,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3355:7:64",
+                    "src": "3355:7:61",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1888,15 +1888,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3354:17:64"
+              "src": "3354:17:61"
             },
             "returnParameters": {
-              "id": 66419,
+              "id": 66187,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3380:0:64"
+              "src": "3380:0:61"
             },
-            "scope": 66421,
+            "scope": 66189,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -1906,18 +1906,18 @@
         "baseContracts": [
           {
             "baseName": {
-              "id": 66354,
+              "id": 66122,
               "name": "IERC721Metadata",
               "nameLocations": [
-                "189:15:64"
+                "189:15:61"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 45241,
-              "src": "189:15:64"
+              "referencedDeclaration": 45009,
+              "src": "189:15:61"
             },
-            "id": 66355,
+            "id": 66123,
             "nodeType": "InheritanceSpecifier",
-            "src": "189:15:64"
+            "src": "189:15:61"
           }
         ],
         "canonicalName": "IFlowNFTBase",
@@ -1925,28 +1925,28 @@
         "contractKind": "interface",
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          66421,
-          45241,
-          45214,
-          46061
+          66189,
+          45009,
+          44982,
+          45829
         ],
         "name": "IFlowNFTBase",
-        "nameLocation": "173:12:64",
-        "scope": 66422,
+        "nameLocation": "173:12:61",
+        "scope": 66190,
         "usedErrors": [
-          66366,
-          66368,
-          66370,
-          66372,
-          66374,
-          66376,
-          66378,
-          66380,
-          66382
+          66134,
+          66136,
+          66138,
+          66140,
+          66142,
+          66144,
+          66146,
+          66148,
+          66150
         ]
       }
     ],
     "license": "MIT"
   },
-  "id": 64
+  "id": 61
 }

@@ -49,7 +49,7 @@
     "upgradeByETH()": "cf81464b",
     "upgradeByETHTo(address)": "7687d19b"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"wad\",\"type\":\"uint256\"}],\"name\":\"downgradeToETH\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"upgradeByETH\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"upgradeByETHTo\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Superfluid\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Super ETH (SETH) custom token interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/ISETH.sol\":\"ISETHCustom\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5\",\"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53\"]},\"lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x5bce51e11f7d194b79ea59fe00c9e8de9fa2c5530124960f29a24d4c740a3266\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e66dfde185df46104c11bc89d08fa0760737aa59a2b8546a656473d810a8ea4\",\"dweb:/ipfs/QmXvyqtXPaPss2PD7eqPoSao5Szm2n6UMoiG8TZZDjmChR\"]},\"lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol\":{\"keccak256\":\"0x75b829ff2f26c14355d1cba20e16fe7b29ca58eb5fef665ede48bc0f9c6c74b9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a0a107160525724f9e1bbbab031defc2f298296dd9e331f16a6f7130cec32146\",\"dweb:/ipfs/QmemujxSd7gX8A9M8UwmNbz4Ms3U9FG9QfudUgxwvTmPWf\"]},\"lib/openzeppelin-contracts/contracts/token/ERC777/IERC777.sol\":{\"keccak256\":\"0x79e6094047e40d49efa3c725b7a1519e16c28c46944884b5f6d0fbe89b450f03\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2570d04d0b74df414fa33f9f7da6442419a07909ece7baeecd7147d9c7d6a432\",\"dweb:/ipfs/QmRDQM1kzddwCk8ateQgnogu495fWb4L9Xwr42DAQhHzi5\"]},\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f\",\"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantInflowNFT.sol\":{\"keccak256\":\"0xb219bf31e236fe6c2968ecf0f6c3eb24cb6774aaf4fcc83252e9b06bba718f33\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c09b0ffff8630ba6a86cdcd17f1ac65f8ba4e5b296e0320d945943e156fdf839\",\"dweb:/ipfs/QmPkBBJBYyYg1xxM4wRKdEpGK3b1beYeKoM6THzYb3qjM7\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantOutflowNFT.sol\":{\"keccak256\":\"0x15799c1552fa7aad4c1a7197451cd02422a6c768b236ab2904e72f7158a4a2c2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c62bb88c0c43ad162c8c226aede16a75c352738aaaf6794fa0c2881dcf59ad42\",\"dweb:/ipfs/QmeWQdFDvzbN8JrCRSRRnZEuw5EbWVzRLM2duhJ515QUXK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol\":{\"keccak256\":\"0xa1600ee907288d7852678cc43f995498a039710a4f025a8785de288c4a4ceced\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d317bab758d3b73005ac27b87e2410a087ca8507538795f555d37bd2d97a028d\",\"dweb:/ipfs/QmSHDBjGYTC64LkDaTQj38DZUGNV9mzxhUYAAfaDLQYEmS\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol\":{\"keccak256\":\"0xba0407c47917aee8b6e7cea745332d2f7244cc3b91d249426f0105b365feb0ee\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4e8c38994af84e123476f8de8b81fe466e9a575374b13c38a4dc30bdd2d12c06\",\"dweb:/ipfs/QmfHrSyeMQN7wVn7qmD6aPH1wX4ugkhQXiR8te6xhADGaK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperToken.sol\":{\"keccak256\":\"0xa8a3d0d97b11244bb58331dc53b8152c03337b5e7907182b15bcfcfae355cdd7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://91758fd68a25655981be1737b232b5a7bf912ed32dfa7d6c71ebe79e07a364a3\",\"dweb:/ipfs/QmPH1ZMeuFvUL3hXt6xaNfH6aUHNFASECzQM2uFtmcrBon\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluidToken.sol\":{\"keccak256\":\"0x18ea972421ff57ce62103f90c820ee039f170f0189a4b3c73fd0ff09452d1dbf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dd24799269920b4b7925362b41650b5b968bb957dc0dec50b451f5382fe573c1\",\"dweb:/ipfs/QmbL19zzZZSbVu2gYA3FtJLu4kbCtk9BybxCU7oJfpUbE7\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/ISETH.sol\":{\"keccak256\":\"0x9857ab20198ca28d75afcf2f6843a23a1052bf2199a308392f8e2d8a63914cbc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8321dcd14869cfb65ed07c2de950f04cf79c1d0392cb2b820f0e76e2b344d1bb\",\"dweb:/ipfs/QmRbDDTwGUkpNnSNgiugGU7r4jJLTkgAFqQfRyd3zkEBXT\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/TokenInfo.sol\":{\"keccak256\":\"0x5adaf0dcec7b8f91b9958c013fc3109f7b8b0efcd30391dc2bc1d98e0d406c0d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7dcdd83f10ee1b771e8423a387cad5a1fa325c2f6f37be44dba7d45975eb6b22\",\"dweb:/ipfs/QmNhGMNgexsrxJbmGzq7ry3555t77eCgjNjeDWMD46vQrG\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"wad\",\"type\":\"uint256\"}],\"name\":\"downgradeToETH\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"upgradeByETH\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"to\",\"type\":\"address\"}],\"name\":\"upgradeByETHTo\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Superfluid\",\"kind\":\"dev\",\"methods\":{},\"title\":\"Super ETH (SETH) custom token interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/ISETH.sol\":\"ISETHCustom\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5\",\"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53\"]},\"lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x5bce51e11f7d194b79ea59fe00c9e8de9fa2c5530124960f29a24d4c740a3266\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e66dfde185df46104c11bc89d08fa0760737aa59a2b8546a656473d810a8ea4\",\"dweb:/ipfs/QmXvyqtXPaPss2PD7eqPoSao5Szm2n6UMoiG8TZZDjmChR\"]},\"lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol\":{\"keccak256\":\"0x75b829ff2f26c14355d1cba20e16fe7b29ca58eb5fef665ede48bc0f9c6c74b9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a0a107160525724f9e1bbbab031defc2f298296dd9e331f16a6f7130cec32146\",\"dweb:/ipfs/QmemujxSd7gX8A9M8UwmNbz4Ms3U9FG9QfudUgxwvTmPWf\"]},\"lib/openzeppelin-contracts/contracts/token/ERC777/IERC777.sol\":{\"keccak256\":\"0x79e6094047e40d49efa3c725b7a1519e16c28c46944884b5f6d0fbe89b450f03\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2570d04d0b74df414fa33f9f7da6442419a07909ece7baeecd7147d9c7d6a432\",\"dweb:/ipfs/QmRDQM1kzddwCk8ateQgnogu495fWb4L9Xwr42DAQhHzi5\"]},\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f\",\"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantInflowNFT.sol\":{\"keccak256\":\"0xb219bf31e236fe6c2968ecf0f6c3eb24cb6774aaf4fcc83252e9b06bba718f33\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c09b0ffff8630ba6a86cdcd17f1ac65f8ba4e5b296e0320d945943e156fdf839\",\"dweb:/ipfs/QmPkBBJBYyYg1xxM4wRKdEpGK3b1beYeKoM6THzYb3qjM7\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantOutflowNFT.sol\":{\"keccak256\":\"0x15799c1552fa7aad4c1a7197451cd02422a6c768b236ab2904e72f7158a4a2c2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c62bb88c0c43ad162c8c226aede16a75c352738aaaf6794fa0c2881dcf59ad42\",\"dweb:/ipfs/QmeWQdFDvzbN8JrCRSRRnZEuw5EbWVzRLM2duhJ515QUXK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol\":{\"keccak256\":\"0xa1600ee907288d7852678cc43f995498a039710a4f025a8785de288c4a4ceced\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d317bab758d3b73005ac27b87e2410a087ca8507538795f555d37bd2d97a028d\",\"dweb:/ipfs/QmSHDBjGYTC64LkDaTQj38DZUGNV9mzxhUYAAfaDLQYEmS\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol\":{\"keccak256\":\"0xba0407c47917aee8b6e7cea745332d2f7244cc3b91d249426f0105b365feb0ee\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4e8c38994af84e123476f8de8b81fe466e9a575374b13c38a4dc30bdd2d12c06\",\"dweb:/ipfs/QmfHrSyeMQN7wVn7qmD6aPH1wX4ugkhQXiR8te6xhADGaK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperToken.sol\":{\"keccak256\":\"0xa8a3d0d97b11244bb58331dc53b8152c03337b5e7907182b15bcfcfae355cdd7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://91758fd68a25655981be1737b232b5a7bf912ed32dfa7d6c71ebe79e07a364a3\",\"dweb:/ipfs/QmPH1ZMeuFvUL3hXt6xaNfH6aUHNFASECzQM2uFtmcrBon\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluidToken.sol\":{\"keccak256\":\"0x18ea972421ff57ce62103f90c820ee039f170f0189a4b3c73fd0ff09452d1dbf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dd24799269920b4b7925362b41650b5b968bb957dc0dec50b451f5382fe573c1\",\"dweb:/ipfs/QmbL19zzZZSbVu2gYA3FtJLu4kbCtk9BybxCU7oJfpUbE7\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/ISETH.sol\":{\"keccak256\":\"0x9857ab20198ca28d75afcf2f6843a23a1052bf2199a308392f8e2d8a63914cbc\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://8321dcd14869cfb65ed07c2de950f04cf79c1d0392cb2b820f0e76e2b344d1bb\",\"dweb:/ipfs/QmRbDDTwGUkpNnSNgiugGU7r4jJLTkgAFqQfRyd3zkEBXT\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/TokenInfo.sol\":{\"keccak256\":\"0x5adaf0dcec7b8f91b9958c013fc3109f7b8b0efcd30391dc2bc1d98e0d406c0d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7dcdd83f10ee1b771e8423a387cad5a1fa325c2f6f37be44dba7d45975eb6b22\",\"dweb:/ipfs/QmNhGMNgexsrxJbmGzq7ry3555t77eCgjNjeDWMD46vQrG\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.19+commit.7dd6d404"
@@ -114,7 +114,7 @@
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 200
+        "runs": 1
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -234,25 +234,25 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/ISETH.sol",
-    "id": 68195,
+    "id": 67963,
     "exportedSymbols": {
       "ISETH": [
-        68194
+        67962
       ],
       "ISETHCustom": [
-        68188
+        67956
       ],
       "ISuperToken": [
-        67038
+        66806
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:540:76",
+    "src": "32:540:73",
     "nodes": [
       {
-        "id": 68171,
+        "id": 67939,
         "nodeType": "PragmaDirective",
-        "src": "32:26:76",
+        "src": "32:26:73",
         "nodes": [],
         "literals": [
           "solidity",
@@ -262,24 +262,24 @@
         ]
       },
       {
-        "id": 68173,
+        "id": 67941,
         "nodeType": "ImportDirective",
-        "src": "60:60:76",
+        "src": "60:60:73",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperToken.sol",
         "file": "../superfluid/ISuperToken.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 68195,
-        "sourceUnit": 67039,
+        "scope": 67963,
+        "sourceUnit": 66807,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 68172,
+              "id": 67940,
               "name": "ISuperToken",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 67038,
-              "src": "69:11:76",
+              "referencedDeclaration": 66806,
+              "src": "69:11:73",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -288,62 +288,62 @@
         "unitAlias": ""
       },
       {
-        "id": 68188,
+        "id": 67956,
         "nodeType": "ContractDefinition",
-        "src": "203:203:76",
+        "src": "203:203:73",
         "nodes": [
           {
-            "id": 68177,
+            "id": 67945,
             "nodeType": "FunctionDefinition",
-            "src": "257:41:76",
+            "src": "257:41:73",
             "nodes": [],
             "functionSelector": "cf81464b",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "upgradeByETH",
-            "nameLocation": "266:12:76",
+            "nameLocation": "266:12:73",
             "parameters": {
-              "id": 68175,
+              "id": 67943,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "278:2:76"
+              "src": "278:2:73"
             },
             "returnParameters": {
-              "id": 68176,
+              "id": 67944,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "297:0:76"
+              "src": "297:0:73"
             },
-            "scope": 68188,
+            "scope": 67956,
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 68182,
+            "id": 67950,
             "nodeType": "FunctionDefinition",
-            "src": "303:53:76",
+            "src": "303:53:73",
             "nodes": [],
             "functionSelector": "7687d19b",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "upgradeByETHTo",
-            "nameLocation": "312:14:76",
+            "nameLocation": "312:14:73",
             "parameters": {
-              "id": 68180,
+              "id": 67948,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68179,
+                  "id": 67947,
                   "mutability": "mutable",
                   "name": "to",
-                  "nameLocation": "335:2:76",
+                  "nameLocation": "335:2:73",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68182,
-                  "src": "327:10:76",
+                  "scope": 67950,
+                  "src": "327:10:73",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -351,10 +351,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 68178,
+                    "id": 67946,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "327:7:76",
+                    "src": "327:7:73",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -364,43 +364,43 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "326:12:76"
+              "src": "326:12:73"
             },
             "returnParameters": {
-              "id": 68181,
+              "id": 67949,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "355:0:76"
+              "src": "355:0:73"
             },
-            "scope": 68188,
+            "scope": 67956,
             "stateMutability": "payable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 68187,
+            "id": 67955,
             "nodeType": "FunctionDefinition",
-            "src": "361:43:76",
+            "src": "361:43:73",
             "nodes": [],
             "functionSelector": "160e8be3",
             "implemented": false,
             "kind": "function",
             "modifiers": [],
             "name": "downgradeToETH",
-            "nameLocation": "370:14:76",
+            "nameLocation": "370:14:73",
             "parameters": {
-              "id": 68185,
+              "id": 67953,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 68184,
+                  "id": 67952,
                   "mutability": "mutable",
                   "name": "wad",
-                  "nameLocation": "390:3:76",
+                  "nameLocation": "390:3:73",
                   "nodeType": "VariableDeclaration",
-                  "scope": 68187,
-                  "src": "385:8:76",
+                  "scope": 67955,
+                  "src": "385:8:73",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -408,10 +408,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 68183,
+                    "id": 67951,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "385:4:76",
+                    "src": "385:4:73",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -420,15 +420,15 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "384:10:76"
+              "src": "384:10:73"
             },
             "returnParameters": {
-              "id": 68186,
+              "id": 67954,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "403:0:76"
+              "src": "403:0:73"
             },
-            "scope": 68188,
+            "scope": 67956,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
@@ -440,105 +440,105 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 68174,
+          "id": 67942,
           "nodeType": "StructuredDocumentation",
-          "src": "123:79:76",
+          "src": "123:79:73",
           "text": " @title Super ETH (SETH) custom token interface\n @author Superfluid"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          68188
+          67956
         ],
         "name": "ISETHCustom",
-        "nameLocation": "213:11:76",
-        "scope": 68195,
+        "nameLocation": "213:11:73",
+        "scope": 67963,
         "usedErrors": []
       },
       {
-        "id": 68194,
+        "id": 67962,
         "nodeType": "ContractDefinition",
-        "src": "525:46:76",
+        "src": "525:46:73",
         "nodes": [],
         "abstract": false,
         "baseContracts": [
           {
             "baseName": {
-              "id": 68190,
+              "id": 67958,
               "name": "ISETHCustom",
               "nameLocations": [
-                "544:11:76"
+                "544:11:73"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 68188,
-              "src": "544:11:76"
+              "referencedDeclaration": 67956,
+              "src": "544:11:73"
             },
-            "id": 68191,
+            "id": 67959,
             "nodeType": "InheritanceSpecifier",
-            "src": "544:11:76"
+            "src": "544:11:73"
           },
           {
             "baseName": {
-              "id": 68192,
+              "id": 67960,
               "name": "ISuperToken",
               "nameLocations": [
-                "557:11:76"
+                "557:11:73"
               ],
               "nodeType": "IdentifierPath",
-              "referencedDeclaration": 67038,
-              "src": "557:11:76"
+              "referencedDeclaration": 66806,
+              "src": "557:11:73"
             },
-            "id": 68193,
+            "id": 67961,
             "nodeType": "InheritanceSpecifier",
-            "src": "557:11:76"
+            "src": "557:11:73"
           }
         ],
         "canonicalName": "ISETH",
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 68189,
+          "id": 67957,
           "nodeType": "StructuredDocumentation",
-          "src": "408:71:76",
+          "src": "408:71:73",
           "text": " @title Super ETH (SETH) full interface\n @author Superfluid"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          68194,
-          67038,
-          45404,
-          44661,
-          68216,
-          68136,
-          68188
+          67962,
+          66806,
+          45172,
+          44429,
+          67984,
+          67904,
+          67956
         ],
         "name": "ISETH",
-        "nameLocation": "535:5:76",
-        "scope": 68195,
+        "nameLocation": "535:5:73",
+        "scope": 67963,
         "usedErrors": [
-          66595,
-          66597,
-          66599,
-          66601,
-          66603,
-          66605,
-          66607,
-          66609,
-          66611,
-          66613,
-          66615,
-          66617,
-          66619,
-          66621,
-          67857,
-          67859,
-          67861,
-          67863,
-          67865,
-          67867
+          66363,
+          66365,
+          66367,
+          66369,
+          66371,
+          66373,
+          66375,
+          66377,
+          66379,
+          66381,
+          66383,
+          66385,
+          66387,
+          66389,
+          67625,
+          67627,
+          67629,
+          67631,
+          67633,
+          67635
         ]
       }
     ],
     "license": "MIT"
   },
-  "id": 76
+  "id": 73
 }

@@ -11,7 +11,7 @@
     "linkReferences": {}
   },
   "methodIdentifiers": {},
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IPoolMemberNFT.sol\":\"IPoolMemberNFT\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IPoolMemberNFT.sol\":{\"keccak256\":\"0xba6dc0dcbd8be4a96ab5f25f90977b7c71aa1eb15df1d6835ebe2b4bb46a3045\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://04a7a6e769361c9cfe38751c7dede99807c5c54f50f48c1ac929bb9f5a47fd19\",\"dweb:/ipfs/QmTTAp6LoQJC2N3Ko6HKWSr55iHijRBeUAoBxpri2Uw4jr\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IPoolMemberNFT.sol\":\"IPoolMemberNFT\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IPoolMemberNFT.sol\":{\"keccak256\":\"0xba6dc0dcbd8be4a96ab5f25f90977b7c71aa1eb15df1d6835ebe2b4bb46a3045\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://04a7a6e769361c9cfe38751c7dede99807c5c54f50f48c1ac929bb9f5a47fd19\",\"dweb:/ipfs/QmTTAp6LoQJC2N3Ko6HKWSr55iHijRBeUAoBxpri2Uw4jr\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.19+commit.7dd6d404"
@@ -45,7 +45,7 @@
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 200
+        "runs": 1
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -69,19 +69,19 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IPoolMemberNFT.sol",
-    "id": 66428,
+    "id": 66196,
     "exportedSymbols": {
       "IPoolMemberNFT": [
-        66427
+        66195
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:108:66",
+    "src": "32:108:63",
     "nodes": [
       {
-        "id": 66426,
+        "id": 66194,
         "nodeType": "PragmaDirective",
-        "src": "32:25:66",
+        "src": "32:25:63",
         "nodes": [],
         "literals": [
           "solidity",
@@ -91,9 +91,9 @@
         ]
       },
       {
-        "id": 66427,
+        "id": 66195,
         "nodeType": "ContractDefinition",
-        "src": "112:27:66",
+        "src": "112:27:63",
         "nodes": [],
         "abstract": false,
         "baseContracts": [],
@@ -102,15 +102,15 @@
         "contractKind": "interface",
         "fullyImplemented": true,
         "linearizedBaseContracts": [
-          66427
+          66195
         ],
         "name": "IPoolMemberNFT",
-        "nameLocation": "122:14:66",
-        "scope": 66428,
+        "nameLocation": "122:14:63",
+        "scope": 66196,
         "usedErrors": []
       }
     ],
     "license": "MIT"
   },
-  "id": 66
+  "id": 63
 }

@@ -2,9 +2,9 @@
 pragma solidity ^0.8.0;
 
 import {ISuperToken} from "@superfluid-finance/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluid.sol";
-import {IOwnable} from "./IOwnable.sol";
+//import {IOwnable} from "./IOwnable.sol";
 
-interface ISuperfluidClub is ISuperToken, IOwnable {
+interface ISuperfluidClub is ISuperToken {
     /// Events
     event PROTEGE_UPDATED(
         address indexed sponsor,
@@ -31,6 +31,13 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
     }
 
     /**
+     * @notice gets the protege for a given address
+     * @param protege The protege's address
+     * @return Protege structure representing the protege
+     */
+    function getProtege(address protege) external view returns (Protege memory);
+
+    /**
      * @notice checks if an address is a protege
      * @param protege The address to check
      * @return True if the address is a protege, false otherwise
@@ -44,13 +51,6 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
     function getChainOfSponsors(address protege) external view returns (Protege[] memory sponsors);
 
     /**
-     * @notice gets the protege for a given address
-     * @param protege The protege's address
-     * @return Protege structure representing the protege
-     */
-    function getProtege(address protege) external view returns (Protege memory);
-
-    /**
      * @dev internal function to create or update a stream
      * @notice this function requires that sender send amount of coin to the contract
      * @param newProtege The address of the new protege
@@ -61,12 +61,6 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
      * @notice restart a stream to a protege
      */
     function restartStream() external;
-    /**
-     * @notice calculates the flow rate based on level and number of proteges
-     * @param totalProtegeCount The number of proteges under the sponsor
-     * @return flowRate calculated flow rate
-     */
-    function calculateFlowRate(uint32 totalProtegeCount) external pure returns (int96 flowRate);
 
     /**
      * @notice gets the fee amount for a given protege level
@@ -74,12 +68,6 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
      * @return feeAmount amount needed to be paid
      */
     function fee(uint32 directProtegeCount) external pure returns (uint256 feeAmount);
-
-    /**
-     * @dev withdraws the fees from the contract
-     * @notice only the owner can call this function
-     */
-    function withdraw(address receiver, uint256 amount) external;
 
     /**
      * @dev mint club tokens to the contract
@@ -95,4 +83,9 @@ interface ISuperfluidClub is ISuperToken, IOwnable {
     function initialize(string calldata name, string calldata symbol, address newOwner) external;
 
     receive() external payable;
+
+    /**
+     * @dev Returns the address of the current owner.
+     */
+    function owner() external view returns (address);
 }

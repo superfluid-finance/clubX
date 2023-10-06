@@ -272,7 +272,7 @@
     "initialize()": "8129fc1c",
     "initializeCustomSuperToken(address)": "d412d344"
   },
-  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"SUPER_TOKEN_FACTORY_ALREADY_EXISTS\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SUPER_TOKEN_FACTORY_DOES_NOT_EXIST\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SUPER_TOKEN_FACTORY_NON_UPGRADEABLE_IS_DEPRECATED\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SUPER_TOKEN_FACTORY_ONLY_HOST\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SUPER_TOKEN_FACTORY_UNINITIALIZED\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SUPER_TOKEN_FACTORY_ZERO_ADDRESS\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"contract ISuperToken\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"CustomSuperTokenCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"contract ISuperToken\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"SuperTokenCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"contract ISuperToken\",\"name\":\"tokenLogic\",\"type\":\"address\"}],\"name\":\"SuperTokenLogicCreated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingToken\",\"type\":\"address\"}],\"name\":\"computeCanonicalERC20WrapperAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"superTokenAddress\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isDeployed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20WithTokenInfo\",\"name\":\"_underlyingToken\",\"type\":\"address\"}],\"name\":\"createCanonicalERC20Wrapper\",\"outputs\":[{\"internalType\":\"contract ISuperToken\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20WithTokenInfo\",\"name\":\"underlyingToken\",\"type\":\"address\"},{\"internalType\":\"enum ISuperTokenFactory.Upgradability\",\"name\":\"upgradability\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\"}],\"name\":\"createERC20Wrapper\",\"outputs\":[{\"internalType\":\"contract ISuperToken\",\"name\":\"superToken\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"underlyingToken\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"underlyingDecimals\",\"type\":\"uint8\"},{\"internalType\":\"enum ISuperTokenFactory.Upgradability\",\"name\":\"upgradability\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\"}],\"name\":\"createERC20Wrapper\",\"outputs\":[{\"internalType\":\"contract ISuperToken\",\"name\":\"superToken\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingTokenAddress\",\"type\":\"address\"}],\"name\":\"getCanonicalERC20Wrapper\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"superTokenAddress\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getHost\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"host\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getSuperTokenLogic\",\"outputs\":[{\"internalType\":\"contract ISuperToken\",\"name\":\"superToken\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"customSuperTokenProxy\",\"type\":\"address\"}],\"name\":\"initializeCustomSuperToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Superfluid\",\"events\":{\"CustomSuperTokenCreated(address)\":{\"details\":\"Custom super token created event\",\"params\":{\"token\":\"Newly created custom super token address\"}},\"SuperTokenCreated(address)\":{\"details\":\"Super token created event\",\"params\":{\"token\":\"Newly created super token address\"}},\"SuperTokenLogicCreated(address)\":{\"details\":\"Super token logic created event\",\"params\":{\"tokenLogic\":\"Token logic address\"}}},\"kind\":\"dev\",\"methods\":{\"computeCanonicalERC20WrapperAddress(address)\":{\"details\":\"We return from our canonical list if it already exists, otherwise we compute itnote that this function only computes addresses for SEMI_UPGRADABLE SuperTokens\",\"params\":{\"_underlyingToken\":\"Underlying ERC20 token address\"},\"returns\":{\"isDeployed\":\"whether the super token is deployed AND set in the canonical mapping\",\"superTokenAddress\":\"Super token address\"}},\"createCanonicalERC20Wrapper(address)\":{\"details\":\"salt for create2 is the keccak256 hash of abi.encode(address(_underlyingToken))\",\"params\":{\"_underlyingToken\":\"Underlying ERC20 token\"},\"returns\":{\"_0\":\"ISuperToken the created supertoken\"}},\"createERC20Wrapper(address,uint8,string,string)\":{\"params\":{\"name\":\"Super token name\",\"symbol\":\"Super token symbol\",\"underlyingToken\":\"Underlying ERC20 token\",\"upgradability\":\"Upgradability mode\"},\"returns\":{\"superToken\":\"The deployed and initialized wrapper super token NOTE: - It assumes token provide the .decimals() function\"}},\"createERC20Wrapper(address,uint8,uint8,string,string)\":{\"params\":{\"name\":\"Super token name\",\"symbol\":\"Super token symbol\",\"underlyingDecimals\":\"Underlying token decimals\",\"underlyingToken\":\"Underlying ERC20 token\",\"upgradability\":\"Upgradability mode\"},\"returns\":{\"superToken\":\"The deployed and initialized wrapper super token\"}},\"getCanonicalERC20Wrapper(address)\":{\"details\":\"We return the address if it exists and the zero address otherwise\",\"params\":{\"_underlyingTokenAddress\":\"Underlying ERC20 token address\"},\"returns\":{\"superTokenAddress\":\"Super token address\"}},\"getHost()\":{\"details\":\"Get superfluid host contract address\"},\"initialize()\":{\"details\":\"Initialize the contract\"},\"initializeCustomSuperToken(address)\":{\"details\":\"Creates a new custom super token\",\"params\":{\"customSuperTokenProxy\":\"address of the custom supertoken proxy\"}}},\"title\":\"Super token factory interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"computeCanonicalERC20WrapperAddress(address)\":{\"notice\":\"Computes/Retrieves wrapper super token address given the underlying token address\"},\"createCanonicalERC20Wrapper(address)\":{\"notice\":\"Creates a wrapper super token AND sets it in the canonical list OR reverts if it already exists\"},\"createERC20Wrapper(address,uint8,string,string)\":{\"notice\":\"Create new super token wrapper for the underlying ERC20 token with extra token info\"},\"createERC20Wrapper(address,uint8,uint8,string,string)\":{\"notice\":\"Create new super token wrapper for the underlying ERC20 token\"},\"getCanonicalERC20Wrapper(address)\":{\"notice\":\"Gets the canonical ERC20 wrapper super token address given the underlying token address\"},\"getSuperTokenLogic()\":{\"notice\":\"Get the canonical super token logic.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperTokenFactory.sol\":\"ISuperTokenFactory\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5\",\"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53\"]},\"lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x5bce51e11f7d194b79ea59fe00c9e8de9fa2c5530124960f29a24d4c740a3266\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e66dfde185df46104c11bc89d08fa0760737aa59a2b8546a656473d810a8ea4\",\"dweb:/ipfs/QmXvyqtXPaPss2PD7eqPoSao5Szm2n6UMoiG8TZZDjmChR\"]},\"lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol\":{\"keccak256\":\"0x75b829ff2f26c14355d1cba20e16fe7b29ca58eb5fef665ede48bc0f9c6c74b9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a0a107160525724f9e1bbbab031defc2f298296dd9e331f16a6f7130cec32146\",\"dweb:/ipfs/QmemujxSd7gX8A9M8UwmNbz4Ms3U9FG9QfudUgxwvTmPWf\"]},\"lib/openzeppelin-contracts/contracts/token/ERC777/IERC777.sol\":{\"keccak256\":\"0x79e6094047e40d49efa3c725b7a1519e16c28c46944884b5f6d0fbe89b450f03\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2570d04d0b74df414fa33f9f7da6442419a07909ece7baeecd7147d9c7d6a432\",\"dweb:/ipfs/QmRDQM1kzddwCk8ateQgnogu495fWb4L9Xwr42DAQhHzi5\"]},\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f\",\"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantInflowNFT.sol\":{\"keccak256\":\"0xb219bf31e236fe6c2968ecf0f6c3eb24cb6774aaf4fcc83252e9b06bba718f33\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c09b0ffff8630ba6a86cdcd17f1ac65f8ba4e5b296e0320d945943e156fdf839\",\"dweb:/ipfs/QmPkBBJBYyYg1xxM4wRKdEpGK3b1beYeKoM6THzYb3qjM7\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantOutflowNFT.sol\":{\"keccak256\":\"0x15799c1552fa7aad4c1a7197451cd02422a6c768b236ab2904e72f7158a4a2c2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c62bb88c0c43ad162c8c226aede16a75c352738aaaf6794fa0c2881dcf59ad42\",\"dweb:/ipfs/QmeWQdFDvzbN8JrCRSRRnZEuw5EbWVzRLM2duhJ515QUXK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol\":{\"keccak256\":\"0xa1600ee907288d7852678cc43f995498a039710a4f025a8785de288c4a4ceced\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d317bab758d3b73005ac27b87e2410a087ca8507538795f555d37bd2d97a028d\",\"dweb:/ipfs/QmSHDBjGYTC64LkDaTQj38DZUGNV9mzxhUYAAfaDLQYEmS\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol\":{\"keccak256\":\"0xba0407c47917aee8b6e7cea745332d2f7244cc3b91d249426f0105b365feb0ee\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4e8c38994af84e123476f8de8b81fe466e9a575374b13c38a4dc30bdd2d12c06\",\"dweb:/ipfs/QmfHrSyeMQN7wVn7qmD6aPH1wX4ugkhQXiR8te6xhADGaK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperToken.sol\":{\"keccak256\":\"0xa8a3d0d97b11244bb58331dc53b8152c03337b5e7907182b15bcfcfae355cdd7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://91758fd68a25655981be1737b232b5a7bf912ed32dfa7d6c71ebe79e07a364a3\",\"dweb:/ipfs/QmPH1ZMeuFvUL3hXt6xaNfH6aUHNFASECzQM2uFtmcrBon\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperTokenFactory.sol\":{\"keccak256\":\"0xbfc7fbef20c707e64adabe969ea6db4d6c26a56155961a8bf46b7e55a16a046d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://355aaac71bd3ebb260d6e6a9d35f07029a6f189a5d93c23f0dfec800630ed4c0\",\"dweb:/ipfs/QmXbE4rDRjTtVoxgDjVcJtxxdmK3WZ1ZEyG8iDMcn2mtfL\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluidToken.sol\":{\"keccak256\":\"0x18ea972421ff57ce62103f90c820ee039f170f0189a4b3c73fd0ff09452d1dbf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dd24799269920b4b7925362b41650b5b968bb957dc0dec50b451f5382fe573c1\",\"dweb:/ipfs/QmbL19zzZZSbVu2gYA3FtJLu4kbCtk9BybxCU7oJfpUbE7\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/ERC20WithTokenInfo.sol\":{\"keccak256\":\"0x479247ae4308ea9f5b50ff2bdae1299e91153a2c391a60e5d77cb3c980e527b9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://649630108e202474391d729bdc76b2d928f5569bd5922e32332430bea4086725\",\"dweb:/ipfs/QmTozaRLwTWA7rXnyadKg423sojN7xVvidwJtrPdKcYTfU\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/TokenInfo.sol\":{\"keccak256\":\"0x5adaf0dcec7b8f91b9958c013fc3109f7b8b0efcd30391dc2bc1d98e0d406c0d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7dcdd83f10ee1b771e8423a387cad5a1fa325c2f6f37be44dba7d45975eb6b22\",\"dweb:/ipfs/QmNhGMNgexsrxJbmGzq7ry3555t77eCgjNjeDWMD46vQrG\"]}},\"version\":1}",
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"SUPER_TOKEN_FACTORY_ALREADY_EXISTS\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SUPER_TOKEN_FACTORY_DOES_NOT_EXIST\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SUPER_TOKEN_FACTORY_NON_UPGRADEABLE_IS_DEPRECATED\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SUPER_TOKEN_FACTORY_ONLY_HOST\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SUPER_TOKEN_FACTORY_UNINITIALIZED\",\"type\":\"error\"},{\"inputs\":[],\"name\":\"SUPER_TOKEN_FACTORY_ZERO_ADDRESS\",\"type\":\"error\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"contract ISuperToken\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"CustomSuperTokenCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"contract ISuperToken\",\"name\":\"token\",\"type\":\"address\"}],\"name\":\"SuperTokenCreated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"contract ISuperToken\",\"name\":\"tokenLogic\",\"type\":\"address\"}],\"name\":\"SuperTokenLogicCreated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingToken\",\"type\":\"address\"}],\"name\":\"computeCanonicalERC20WrapperAddress\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"superTokenAddress\",\"type\":\"address\"},{\"internalType\":\"bool\",\"name\":\"isDeployed\",\"type\":\"bool\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20WithTokenInfo\",\"name\":\"_underlyingToken\",\"type\":\"address\"}],\"name\":\"createCanonicalERC20Wrapper\",\"outputs\":[{\"internalType\":\"contract ISuperToken\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract ERC20WithTokenInfo\",\"name\":\"underlyingToken\",\"type\":\"address\"},{\"internalType\":\"enum ISuperTokenFactory.Upgradability\",\"name\":\"upgradability\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\"}],\"name\":\"createERC20Wrapper\",\"outputs\":[{\"internalType\":\"contract ISuperToken\",\"name\":\"superToken\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"contract IERC20\",\"name\":\"underlyingToken\",\"type\":\"address\"},{\"internalType\":\"uint8\",\"name\":\"underlyingDecimals\",\"type\":\"uint8\"},{\"internalType\":\"enum ISuperTokenFactory.Upgradability\",\"name\":\"upgradability\",\"type\":\"uint8\"},{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"string\",\"name\":\"symbol\",\"type\":\"string\"}],\"name\":\"createERC20Wrapper\",\"outputs\":[{\"internalType\":\"contract ISuperToken\",\"name\":\"superToken\",\"type\":\"address\"}],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_underlyingTokenAddress\",\"type\":\"address\"}],\"name\":\"getCanonicalERC20Wrapper\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"superTokenAddress\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getHost\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"host\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getSuperTokenLogic\",\"outputs\":[{\"internalType\":\"contract ISuperToken\",\"name\":\"superToken\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"initialize\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"customSuperTokenProxy\",\"type\":\"address\"}],\"name\":\"initializeCustomSuperToken\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"Superfluid\",\"events\":{\"CustomSuperTokenCreated(address)\":{\"details\":\"Custom super token created event\",\"params\":{\"token\":\"Newly created custom super token address\"}},\"SuperTokenCreated(address)\":{\"details\":\"Super token created event\",\"params\":{\"token\":\"Newly created super token address\"}},\"SuperTokenLogicCreated(address)\":{\"details\":\"Super token logic created event\",\"params\":{\"tokenLogic\":\"Token logic address\"}}},\"kind\":\"dev\",\"methods\":{\"computeCanonicalERC20WrapperAddress(address)\":{\"details\":\"We return from our canonical list if it already exists, otherwise we compute itnote that this function only computes addresses for SEMI_UPGRADABLE SuperTokens\",\"params\":{\"_underlyingToken\":\"Underlying ERC20 token address\"},\"returns\":{\"isDeployed\":\"whether the super token is deployed AND set in the canonical mapping\",\"superTokenAddress\":\"Super token address\"}},\"createCanonicalERC20Wrapper(address)\":{\"details\":\"salt for create2 is the keccak256 hash of abi.encode(address(_underlyingToken))\",\"params\":{\"_underlyingToken\":\"Underlying ERC20 token\"},\"returns\":{\"_0\":\"ISuperToken the created supertoken\"}},\"createERC20Wrapper(address,uint8,string,string)\":{\"params\":{\"name\":\"Super token name\",\"symbol\":\"Super token symbol\",\"underlyingToken\":\"Underlying ERC20 token\",\"upgradability\":\"Upgradability mode\"},\"returns\":{\"superToken\":\"The deployed and initialized wrapper super token NOTE: - It assumes token provide the .decimals() function\"}},\"createERC20Wrapper(address,uint8,uint8,string,string)\":{\"params\":{\"name\":\"Super token name\",\"symbol\":\"Super token symbol\",\"underlyingDecimals\":\"Underlying token decimals\",\"underlyingToken\":\"Underlying ERC20 token\",\"upgradability\":\"Upgradability mode\"},\"returns\":{\"superToken\":\"The deployed and initialized wrapper super token\"}},\"getCanonicalERC20Wrapper(address)\":{\"details\":\"We return the address if it exists and the zero address otherwise\",\"params\":{\"_underlyingTokenAddress\":\"Underlying ERC20 token address\"},\"returns\":{\"superTokenAddress\":\"Super token address\"}},\"getHost()\":{\"details\":\"Get superfluid host contract address\"},\"initialize()\":{\"details\":\"Initialize the contract\"},\"initializeCustomSuperToken(address)\":{\"details\":\"Creates a new custom super token\",\"params\":{\"customSuperTokenProxy\":\"address of the custom supertoken proxy\"}}},\"title\":\"Super token factory interface\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"computeCanonicalERC20WrapperAddress(address)\":{\"notice\":\"Computes/Retrieves wrapper super token address given the underlying token address\"},\"createCanonicalERC20Wrapper(address)\":{\"notice\":\"Creates a wrapper super token AND sets it in the canonical list OR reverts if it already exists\"},\"createERC20Wrapper(address,uint8,string,string)\":{\"notice\":\"Create new super token wrapper for the underlying ERC20 token with extra token info\"},\"createERC20Wrapper(address,uint8,uint8,string,string)\":{\"notice\":\"Create new super token wrapper for the underlying ERC20 token\"},\"getCanonicalERC20Wrapper(address)\":{\"notice\":\"Gets the canonical ERC20 wrapper super token address given the underlying token address\"},\"getSuperTokenLogic()\":{\"notice\":\"Get the canonical super token logic.\"}},\"version\":1}},\"settings\":{\"compilationTarget\":{\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperTokenFactory.sol\":\"ISuperTokenFactory\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":1},\"remappings\":[\":@openzeppelin/=lib/openzeppelin-contracts/\",\":@superfluid-finance/custom-supertokens/=lib/custom-supertokens/\",\":@superfluid-finance/ethereum-contracts/=lib/superfluid-protocol-monorepo/packages/ethereum-contracts/\",\":custom-supertokens/=lib/custom-supertokens/contracts/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/\",\":openzeppelin/=lib/openzeppelin-contracts/contracts/\",\":superfluid-protocol-monorepo/=lib/superfluid-protocol-monorepo/packages/solidity-semantic-money/src/\"]},\"sources\":{\"lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol\":{\"keccak256\":\"0x287b55befed2961a7eabd7d7b1b2839cbca8a5b80ef8dcbb25ed3d4c2002c305\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://bd39944e8fc06be6dbe2dd1d8449b5336e23c6a7ba3e8e9ae5ae0f37f35283f5\",\"dweb:/ipfs/QmPV3FGYjVwvKSgAXKUN3r9T9GwniZz83CxBpM7vyj2G53\"]},\"lib/openzeppelin-contracts/contracts/token/ERC721/IERC721.sol\":{\"keccak256\":\"0x5bce51e11f7d194b79ea59fe00c9e8de9fa2c5530124960f29a24d4c740a3266\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7e66dfde185df46104c11bc89d08fa0760737aa59a2b8546a656473d810a8ea4\",\"dweb:/ipfs/QmXvyqtXPaPss2PD7eqPoSao5Szm2n6UMoiG8TZZDjmChR\"]},\"lib/openzeppelin-contracts/contracts/token/ERC721/extensions/IERC721Metadata.sol\":{\"keccak256\":\"0x75b829ff2f26c14355d1cba20e16fe7b29ca58eb5fef665ede48bc0f9c6c74b9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a0a107160525724f9e1bbbab031defc2f298296dd9e331f16a6f7130cec32146\",\"dweb:/ipfs/QmemujxSd7gX8A9M8UwmNbz4Ms3U9FG9QfudUgxwvTmPWf\"]},\"lib/openzeppelin-contracts/contracts/token/ERC777/IERC777.sol\":{\"keccak256\":\"0x79e6094047e40d49efa3c725b7a1519e16c28c46944884b5f6d0fbe89b450f03\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://2570d04d0b74df414fa33f9f7da6442419a07909ece7baeecd7147d9c7d6a432\",\"dweb:/ipfs/QmRDQM1kzddwCk8ateQgnogu495fWb4L9Xwr42DAQhHzi5\"]},\"lib/openzeppelin-contracts/contracts/utils/introspection/IERC165.sol\":{\"keccak256\":\"0x447a5f3ddc18419d41ff92b3773fb86471b1db25773e07f877f548918a185bf1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://be161e54f24e5c6fae81a12db1a8ae87bc5ae1b0ddc805d82a1440a68455088f\",\"dweb:/ipfs/QmP7C3CHdY9urF4dEMb9wmsp1wMxHF6nhA2yQE5SKiPAdy\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantInflowNFT.sol\":{\"keccak256\":\"0xb219bf31e236fe6c2968ecf0f6c3eb24cb6774aaf4fcc83252e9b06bba718f33\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c09b0ffff8630ba6a86cdcd17f1ac65f8ba4e5b296e0320d945943e156fdf839\",\"dweb:/ipfs/QmPkBBJBYyYg1xxM4wRKdEpGK3b1beYeKoM6THzYb3qjM7\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IConstantOutflowNFT.sol\":{\"keccak256\":\"0x15799c1552fa7aad4c1a7197451cd02422a6c768b236ab2904e72f7158a4a2c2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://c62bb88c0c43ad162c8c226aede16a75c352738aaaf6794fa0c2881dcf59ad42\",\"dweb:/ipfs/QmeWQdFDvzbN8JrCRSRRnZEuw5EbWVzRLM2duhJ515QUXK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/IFlowNFTBase.sol\":{\"keccak256\":\"0xa1600ee907288d7852678cc43f995498a039710a4f025a8785de288c4a4ceced\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://d317bab758d3b73005ac27b87e2410a087ca8507538795f555d37bd2d97a028d\",\"dweb:/ipfs/QmSHDBjGYTC64LkDaTQj38DZUGNV9mzxhUYAAfaDLQYEmS\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperAgreement.sol\":{\"keccak256\":\"0xba0407c47917aee8b6e7cea745332d2f7244cc3b91d249426f0105b365feb0ee\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://4e8c38994af84e123476f8de8b81fe466e9a575374b13c38a4dc30bdd2d12c06\",\"dweb:/ipfs/QmfHrSyeMQN7wVn7qmD6aPH1wX4ugkhQXiR8te6xhADGaK\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperToken.sol\":{\"keccak256\":\"0xa8a3d0d97b11244bb58331dc53b8152c03337b5e7907182b15bcfcfae355cdd7\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://91758fd68a25655981be1737b232b5a7bf912ed32dfa7d6c71ebe79e07a364a3\",\"dweb:/ipfs/QmPH1ZMeuFvUL3hXt6xaNfH6aUHNFASECzQM2uFtmcrBon\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperTokenFactory.sol\":{\"keccak256\":\"0xbfc7fbef20c707e64adabe969ea6db4d6c26a56155961a8bf46b7e55a16a046d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://355aaac71bd3ebb260d6e6a9d35f07029a6f189a5d93c23f0dfec800630ed4c0\",\"dweb:/ipfs/QmXbE4rDRjTtVoxgDjVcJtxxdmK3WZ1ZEyG8iDMcn2mtfL\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluidToken.sol\":{\"keccak256\":\"0x18ea972421ff57ce62103f90c820ee039f170f0189a4b3c73fd0ff09452d1dbf\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dd24799269920b4b7925362b41650b5b968bb957dc0dec50b451f5382fe573c1\",\"dweb:/ipfs/QmbL19zzZZSbVu2gYA3FtJLu4kbCtk9BybxCU7oJfpUbE7\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/ERC20WithTokenInfo.sol\":{\"keccak256\":\"0x479247ae4308ea9f5b50ff2bdae1299e91153a2c391a60e5d77cb3c980e527b9\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://649630108e202474391d729bdc76b2d928f5569bd5922e32332430bea4086725\",\"dweb:/ipfs/QmTozaRLwTWA7rXnyadKg423sojN7xVvidwJtrPdKcYTfU\"]},\"lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/TokenInfo.sol\":{\"keccak256\":\"0x5adaf0dcec7b8f91b9958c013fc3109f7b8b0efcd30391dc2bc1d98e0d406c0d\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://7dcdd83f10ee1b771e8423a387cad5a1fa325c2f6f37be44dba7d45975eb6b22\",\"dweb:/ipfs/QmNhGMNgexsrxJbmGzq7ry3555t77eCgjNjeDWMD46vQrG\"]}},\"version\":1}",
   "metadata": {
     "compiler": {
       "version": "0.8.19+commit.7dd6d404"
@@ -638,7 +638,7 @@
       ],
       "optimizer": {
         "enabled": true,
-        "runs": 200
+        "runs": 1
       },
       "metadata": {
         "bytecodeHash": "ipfs"
@@ -766,28 +766,28 @@
   },
   "ast": {
     "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperTokenFactory.sol",
-    "id": 67169,
+    "id": 66937,
     "exportedSymbols": {
       "ERC20WithTokenInfo": [
-        68148
+        67916
       ],
       "IERC20": [
-        44661
+        44429
       ],
       "ISuperToken": [
-        67038
+        66806
       ],
       "ISuperTokenFactory": [
-        67168
+        66936
       ]
     },
     "nodeType": "SourceUnit",
-    "src": "32:5506:70",
+    "src": "32:5506:67",
     "nodes": [
       {
-        "id": 67040,
+        "id": 66808,
         "nodeType": "PragmaDirective",
-        "src": "32:26:70",
+        "src": "32:26:67",
         "nodes": [],
         "literals": [
           "solidity",
@@ -797,24 +797,24 @@
         ]
       },
       {
-        "id": 67042,
+        "id": 66810,
         "nodeType": "ImportDirective",
-        "src": "60:48:70",
+        "src": "60:48:67",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/superfluid/ISuperToken.sol",
         "file": "./ISuperToken.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 67169,
-        "sourceUnit": 67039,
+        "scope": 66937,
+        "sourceUnit": 66807,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 67041,
+              "id": 66809,
               "name": "ISuperToken",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 67038,
-              "src": "69:11:70",
+              "referencedDeclaration": 66806,
+              "src": "69:11:67",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -823,36 +823,36 @@
         "unitAlias": ""
       },
       {
-        "id": 67045,
+        "id": 66813,
         "nodeType": "ImportDirective",
-        "src": "109:78:70",
+        "src": "109:78:67",
         "nodes": [],
         "absolutePath": "lib/superfluid-protocol-monorepo/packages/ethereum-contracts/contracts/interfaces/tokens/ERC20WithTokenInfo.sol",
         "file": "../tokens/ERC20WithTokenInfo.sol",
         "nameLocation": "-1:-1:-1",
-        "scope": 67169,
-        "sourceUnit": 68149,
+        "scope": 66937,
+        "sourceUnit": 67917,
         "symbolAliases": [
           {
             "foreign": {
-              "id": 67043,
+              "id": 66811,
               "name": "IERC20",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 44661,
-              "src": "118:6:70",
+              "referencedDeclaration": 44429,
+              "src": "118:6:67",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
           },
           {
             "foreign": {
-              "id": 67044,
+              "id": 66812,
               "name": "ERC20WithTokenInfo",
               "nodeType": "Identifier",
               "overloadedDeclarations": [],
-              "referencedDeclaration": 68148,
-              "src": "126:18:70",
+              "referencedDeclaration": 67916,
+              "src": "126:18:67",
               "typeDescriptions": {}
             },
             "nameLocation": "-1:-1:-1"
@@ -861,109 +861,109 @@
         "unitAlias": ""
       },
       {
-        "id": 67168,
+        "id": 66936,
         "nodeType": "ContractDefinition",
-        "src": "259:5279:70",
+        "src": "259:5279:67",
         "nodes": [
           {
-            "id": 67048,
+            "id": 66816,
             "nodeType": "ErrorDefinition",
-            "src": "469:43:70",
+            "src": "469:43:67",
             "nodes": [],
             "errorSelector": "91d67972",
             "name": "SUPER_TOKEN_FACTORY_ALREADY_EXISTS",
-            "nameLocation": "475:34:70",
+            "nameLocation": "475:34:67",
             "parameters": {
-              "id": 67047,
+              "id": 66815,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "509:2:70"
+              "src": "509:2:67"
             }
           },
           {
-            "id": 67050,
+            "id": 66818,
             "nodeType": "ErrorDefinition",
-            "src": "547:43:70",
+            "src": "547:43:67",
             "nodes": [],
             "errorSelector": "872cac48",
             "name": "SUPER_TOKEN_FACTORY_DOES_NOT_EXIST",
-            "nameLocation": "553:34:70",
+            "nameLocation": "553:34:67",
             "parameters": {
-              "id": 67049,
+              "id": 66817,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "587:2:70"
+              "src": "587:2:67"
             }
           },
           {
-            "id": 67052,
+            "id": 66820,
             "nodeType": "ErrorDefinition",
-            "src": "625:42:70",
+            "src": "625:42:67",
             "nodes": [],
             "errorSelector": "1b39b9b4",
             "name": "SUPER_TOKEN_FACTORY_UNINITIALIZED",
-            "nameLocation": "631:33:70",
+            "nameLocation": "631:33:67",
             "parameters": {
-              "id": 67051,
+              "id": 66819,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "664:2:70"
+              "src": "664:2:67"
             }
           },
           {
-            "id": 67054,
+            "id": 66822,
             "nodeType": "ErrorDefinition",
-            "src": "703:38:70",
+            "src": "703:38:67",
             "nodes": [],
             "errorSelector": "478b8e83",
             "name": "SUPER_TOKEN_FACTORY_ONLY_HOST",
-            "nameLocation": "709:29:70",
+            "nameLocation": "709:29:67",
             "parameters": {
-              "id": 67053,
+              "id": 66821,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "738:2:70"
+              "src": "738:2:67"
             }
           },
           {
-            "id": 67056,
+            "id": 66824,
             "nodeType": "ErrorDefinition",
-            "src": "781:58:70",
+            "src": "781:58:67",
             "nodes": [],
             "errorSelector": "c4901a43",
             "name": "SUPER_TOKEN_FACTORY_NON_UPGRADEABLE_IS_DEPRECATED",
-            "nameLocation": "787:49:70",
+            "nameLocation": "787:49:67",
             "parameters": {
-              "id": 67055,
+              "id": 66823,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "836:2:70"
+              "src": "836:2:67"
             }
           },
           {
-            "id": 67058,
+            "id": 66826,
             "nodeType": "ErrorDefinition",
-            "src": "859:41:70",
+            "src": "859:41:67",
             "nodes": [],
             "errorSelector": "305c9e82",
             "name": "SUPER_TOKEN_FACTORY_ZERO_ADDRESS",
-            "nameLocation": "865:32:70",
+            "nameLocation": "865:32:67",
             "parameters": {
-              "id": 67057,
+              "id": 66825,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "897:2:70"
+              "src": "897:2:67"
             }
           },
           {
-            "id": 67064,
+            "id": 66832,
             "nodeType": "FunctionDefinition",
-            "src": "1190:55:70",
+            "src": "1190:55:67",
             "nodes": [],
             "documentation": {
-              "id": 67059,
+              "id": 66827,
               "nodeType": "StructuredDocumentation",
-              "src": "1125:60:70",
+              "src": "1125:60:67",
               "text": " @dev Get superfluid host contract address"
             },
             "functionSelector": "20bc4425",
@@ -971,26 +971,26 @@
             "kind": "function",
             "modifiers": [],
             "name": "getHost",
-            "nameLocation": "1199:7:70",
+            "nameLocation": "1199:7:67",
             "parameters": {
-              "id": 67060,
+              "id": 66828,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1206:2:70"
+              "src": "1206:2:67"
             },
             "returnParameters": {
-              "id": 67063,
+              "id": 66831,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67062,
+                  "id": 66830,
                   "mutability": "mutable",
                   "name": "host",
-                  "nameLocation": "1239:4:70",
+                  "nameLocation": "1239:4:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67064,
-                  "src": "1231:12:70",
+                  "scope": 66832,
+                  "src": "1231:12:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -998,10 +998,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 67061,
+                    "id": 66829,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "1231:7:70",
+                    "src": "1231:7:67",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1011,22 +1011,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "1230:14:70"
+              "src": "1230:14:67"
             },
-            "scope": 67168,
+            "scope": 66936,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 67068,
+            "id": 66836,
             "nodeType": "FunctionDefinition",
-            "src": "1288:31:70",
+            "src": "1288:31:67",
             "nodes": [],
             "documentation": {
-              "id": 67065,
+              "id": 66833,
               "nodeType": "StructuredDocumentation",
-              "src": "1251:32:70",
+              "src": "1251:32:67",
               "text": "@dev Initialize the contract"
             },
             "functionSelector": "8129fc1c",
@@ -1034,33 +1034,33 @@
             "kind": "function",
             "modifiers": [],
             "name": "initialize",
-            "nameLocation": "1297:10:70",
+            "nameLocation": "1297:10:67",
             "parameters": {
-              "id": 67066,
+              "id": 66834,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1307:2:70"
+              "src": "1307:2:67"
             },
             "returnParameters": {
-              "id": 67067,
+              "id": 66835,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1318:0:70"
+              "src": "1318:0:67"
             },
-            "scope": 67168,
+            "scope": 66936,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 67075,
+            "id": 66843,
             "nodeType": "FunctionDefinition",
-            "src": "1393:77:70",
+            "src": "1393:77:67",
             "nodes": [],
             "documentation": {
-              "id": 67069,
+              "id": 66837,
               "nodeType": "StructuredDocumentation",
-              "src": "1325:63:70",
+              "src": "1325:63:67",
               "text": " @notice Get the canonical super token logic."
             },
             "functionSelector": "9470a5b2",
@@ -1068,103 +1068,103 @@
             "kind": "function",
             "modifiers": [],
             "name": "getSuperTokenLogic",
-            "nameLocation": "1402:18:70",
+            "nameLocation": "1402:18:67",
             "parameters": {
-              "id": 67070,
+              "id": 66838,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "1420:2:70"
+              "src": "1420:2:67"
             },
             "returnParameters": {
-              "id": 67074,
+              "id": 66842,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67073,
+                  "id": 66841,
                   "mutability": "mutable",
                   "name": "superToken",
-                  "nameLocation": "1458:10:70",
+                  "nameLocation": "1458:10:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67075,
-                  "src": "1446:22:70",
+                  "scope": 66843,
+                  "src": "1446:22:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                    "typeIdentifier": "t_contract$_ISuperToken_$66806",
                     "typeString": "contract ISuperToken"
                   },
                   "typeName": {
-                    "id": 67072,
+                    "id": 66840,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 67071,
+                      "id": 66839,
                       "name": "ISuperToken",
                       "nameLocations": [
-                        "1446:11:70"
+                        "1446:11:67"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 67038,
-                      "src": "1446:11:70"
+                      "referencedDeclaration": 66806,
+                      "src": "1446:11:67"
                     },
-                    "referencedDeclaration": 67038,
-                    "src": "1446:11:70",
+                    "referencedDeclaration": 66806,
+                    "src": "1446:11:67",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                      "typeIdentifier": "t_contract$_ISuperToken_$66806",
                       "typeString": "contract ISuperToken"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "1445:24:70"
+              "src": "1445:24:67"
             },
-            "scope": 67168,
+            "scope": 66936,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 67079,
+            "id": 66847,
             "nodeType": "EnumDefinition",
-            "src": "1524:304:70",
+            "src": "1524:304:67",
             "nodes": [],
             "canonicalName": "ISuperTokenFactory.Upgradability",
             "members": [
               {
-                "id": 67076,
+                "id": 66844,
                 "name": "NON_UPGRADABLE",
-                "nameLocation": "1634:14:70",
+                "nameLocation": "1634:14:67",
                 "nodeType": "EnumValue",
-                "src": "1634:14:70"
+                "src": "1634:14:67"
               },
               {
-                "id": 67077,
+                "id": 66845,
                 "name": "SEMI_UPGRADABLE",
-                "nameLocation": "1728:15:70",
+                "nameLocation": "1728:15:67",
                 "nodeType": "EnumValue",
-                "src": "1728:15:70"
+                "src": "1728:15:67"
               },
               {
-                "id": 67078,
+                "id": 66846,
                 "name": "FULL_UPGRADABLE",
-                "nameLocation": "1807:15:70",
+                "nameLocation": "1807:15:67",
                 "nodeType": "EnumValue",
-                "src": "1807:15:70"
+                "src": "1807:15:67"
               }
             ],
             "name": "Upgradability",
-            "nameLocation": "1529:13:70"
+            "nameLocation": "1529:13:67"
           },
           {
-            "id": 67098,
+            "id": 66866,
             "nodeType": "FunctionDefinition",
-            "src": "2237:257:70",
+            "src": "2237:257:67",
             "nodes": [],
             "documentation": {
-              "id": 67080,
+              "id": 66848,
               "nodeType": "StructuredDocumentation",
-              "src": "1834:398:70",
+              "src": "1834:398:67",
               "text": " @notice Create new super token wrapper for the underlying ERC20 token\n @param underlyingToken Underlying ERC20 token\n @param underlyingDecimals Underlying token decimals\n @param upgradability Upgradability mode\n @param name Super token name\n @param symbol Super token symbol\n @return superToken The deployed and initialized wrapper super token"
             },
             "functionSelector": "a6d0c534",
@@ -1172,43 +1172,43 @@
             "kind": "function",
             "modifiers": [],
             "name": "createERC20Wrapper",
-            "nameLocation": "2246:18:70",
+            "nameLocation": "2246:18:67",
             "parameters": {
-              "id": 67093,
+              "id": 66861,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67083,
+                  "id": 66851,
                   "mutability": "mutable",
                   "name": "underlyingToken",
-                  "nameLocation": "2281:15:70",
+                  "nameLocation": "2281:15:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67098,
-                  "src": "2274:22:70",
+                  "scope": 66866,
+                  "src": "2274:22:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_IERC20_$44661",
+                    "typeIdentifier": "t_contract$_IERC20_$44429",
                     "typeString": "contract IERC20"
                   },
                   "typeName": {
-                    "id": 67082,
+                    "id": 66850,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 67081,
+                      "id": 66849,
                       "name": "IERC20",
                       "nameLocations": [
-                        "2274:6:70"
+                        "2274:6:67"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 44661,
-                      "src": "2274:6:70"
+                      "referencedDeclaration": 44429,
+                      "src": "2274:6:67"
                     },
-                    "referencedDeclaration": 44661,
-                    "src": "2274:6:70",
+                    "referencedDeclaration": 44429,
+                    "src": "2274:6:67",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_IERC20_$44661",
+                      "typeIdentifier": "t_contract$_IERC20_$44429",
                       "typeString": "contract IERC20"
                     }
                   },
@@ -1216,13 +1216,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 67085,
+                  "id": 66853,
                   "mutability": "mutable",
                   "name": "underlyingDecimals",
-                  "nameLocation": "2312:18:70",
+                  "nameLocation": "2312:18:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67098,
-                  "src": "2306:24:70",
+                  "scope": 66866,
+                  "src": "2306:24:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1230,10 +1230,10 @@
                     "typeString": "uint8"
                   },
                   "typeName": {
-                    "id": 67084,
+                    "id": 66852,
                     "name": "uint8",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2306:5:70",
+                    "src": "2306:5:67",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint8",
                       "typeString": "uint8"
@@ -1243,36 +1243,36 @@
                 },
                 {
                   "constant": false,
-                  "id": 67088,
+                  "id": 66856,
                   "mutability": "mutable",
                   "name": "upgradability",
-                  "nameLocation": "2354:13:70",
+                  "nameLocation": "2354:13:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67098,
-                  "src": "2340:27:70",
+                  "scope": 66866,
+                  "src": "2340:27:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Upgradability_$67079",
+                    "typeIdentifier": "t_enum$_Upgradability_$66847",
                     "typeString": "enum ISuperTokenFactory.Upgradability"
                   },
                   "typeName": {
-                    "id": 67087,
+                    "id": 66855,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 67086,
+                      "id": 66854,
                       "name": "Upgradability",
                       "nameLocations": [
-                        "2340:13:70"
+                        "2340:13:67"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 67079,
-                      "src": "2340:13:70"
+                      "referencedDeclaration": 66847,
+                      "src": "2340:13:67"
                     },
-                    "referencedDeclaration": 67079,
-                    "src": "2340:13:70",
+                    "referencedDeclaration": 66847,
+                    "src": "2340:13:67",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_Upgradability_$67079",
+                      "typeIdentifier": "t_enum$_Upgradability_$66847",
                       "typeString": "enum ISuperTokenFactory.Upgradability"
                     }
                   },
@@ -1280,13 +1280,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 67090,
+                  "id": 66858,
                   "mutability": "mutable",
                   "name": "name",
-                  "nameLocation": "2393:4:70",
+                  "nameLocation": "2393:4:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67098,
-                  "src": "2377:20:70",
+                  "scope": 66866,
+                  "src": "2377:20:67",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1294,10 +1294,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 67089,
+                    "id": 66857,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2377:6:70",
+                    "src": "2377:6:67",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1307,13 +1307,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 67092,
+                  "id": 66860,
                   "mutability": "mutable",
                   "name": "symbol",
-                  "nameLocation": "2423:6:70",
+                  "nameLocation": "2423:6:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67098,
-                  "src": "2407:22:70",
+                  "scope": 66866,
+                  "src": "2407:22:67",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1321,10 +1321,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 67091,
+                    "id": 66859,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2407:6:70",
+                    "src": "2407:6:67",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1333,66 +1333,66 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2264:171:70"
+              "src": "2264:171:67"
             },
             "returnParameters": {
-              "id": 67097,
+              "id": 66865,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67096,
+                  "id": 66864,
                   "mutability": "mutable",
                   "name": "superToken",
-                  "nameLocation": "2482:10:70",
+                  "nameLocation": "2482:10:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67098,
-                  "src": "2470:22:70",
+                  "scope": 66866,
+                  "src": "2470:22:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                    "typeIdentifier": "t_contract$_ISuperToken_$66806",
                     "typeString": "contract ISuperToken"
                   },
                   "typeName": {
-                    "id": 67095,
+                    "id": 66863,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 67094,
+                      "id": 66862,
                       "name": "ISuperToken",
                       "nameLocations": [
-                        "2470:11:70"
+                        "2470:11:67"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 67038,
-                      "src": "2470:11:70"
+                      "referencedDeclaration": 66806,
+                      "src": "2470:11:67"
                     },
-                    "referencedDeclaration": 67038,
-                    "src": "2470:11:70",
+                    "referencedDeclaration": 66806,
+                    "src": "2470:11:67",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                      "typeIdentifier": "t_contract$_ISuperToken_$66806",
                       "typeString": "contract ISuperToken"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "2469:24:70"
+              "src": "2469:24:67"
             },
-            "scope": 67168,
+            "scope": 66936,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 67115,
+            "id": 66883,
             "nodeType": "FunctionDefinition",
-            "src": "2938:235:70",
+            "src": "2938:235:67",
             "nodes": [],
             "documentation": {
-              "id": 67099,
+              "id": 66867,
               "nodeType": "StructuredDocumentation",
-              "src": "2500:433:70",
+              "src": "2500:433:67",
               "text": " @notice Create new super token wrapper for the underlying ERC20 token with extra token info\n @param underlyingToken Underlying ERC20 token\n @param upgradability Upgradability mode\n @param name Super token name\n @param symbol Super token symbol\n @return superToken The deployed and initialized wrapper super token\n NOTE:\n - It assumes token provide the .decimals() function"
             },
             "functionSelector": "431f1481",
@@ -1400,43 +1400,43 @@
             "kind": "function",
             "modifiers": [],
             "name": "createERC20Wrapper",
-            "nameLocation": "2947:18:70",
+            "nameLocation": "2947:18:67",
             "parameters": {
-              "id": 67110,
+              "id": 66878,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67102,
+                  "id": 66870,
                   "mutability": "mutable",
                   "name": "underlyingToken",
-                  "nameLocation": "2994:15:70",
+                  "nameLocation": "2994:15:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67115,
-                  "src": "2975:34:70",
+                  "scope": 66883,
+                  "src": "2975:34:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC20WithTokenInfo_$68148",
+                    "typeIdentifier": "t_contract$_ERC20WithTokenInfo_$67916",
                     "typeString": "contract ERC20WithTokenInfo"
                   },
                   "typeName": {
-                    "id": 67101,
+                    "id": 66869,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 67100,
+                      "id": 66868,
                       "name": "ERC20WithTokenInfo",
                       "nameLocations": [
-                        "2975:18:70"
+                        "2975:18:67"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 68148,
-                      "src": "2975:18:70"
+                      "referencedDeclaration": 67916,
+                      "src": "2975:18:67"
                     },
-                    "referencedDeclaration": 68148,
-                    "src": "2975:18:70",
+                    "referencedDeclaration": 67916,
+                    "src": "2975:18:67",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20WithTokenInfo_$68148",
+                      "typeIdentifier": "t_contract$_ERC20WithTokenInfo_$67916",
                       "typeString": "contract ERC20WithTokenInfo"
                     }
                   },
@@ -1444,36 +1444,36 @@
                 },
                 {
                   "constant": false,
-                  "id": 67105,
+                  "id": 66873,
                   "mutability": "mutable",
                   "name": "upgradability",
-                  "nameLocation": "3033:13:70",
+                  "nameLocation": "3033:13:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67115,
-                  "src": "3019:27:70",
+                  "scope": 66883,
+                  "src": "3019:27:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_enum$_Upgradability_$67079",
+                    "typeIdentifier": "t_enum$_Upgradability_$66847",
                     "typeString": "enum ISuperTokenFactory.Upgradability"
                   },
                   "typeName": {
-                    "id": 67104,
+                    "id": 66872,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 67103,
+                      "id": 66871,
                       "name": "Upgradability",
                       "nameLocations": [
-                        "3019:13:70"
+                        "3019:13:67"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 67079,
-                      "src": "3019:13:70"
+                      "referencedDeclaration": 66847,
+                      "src": "3019:13:67"
                     },
-                    "referencedDeclaration": 67079,
-                    "src": "3019:13:70",
+                    "referencedDeclaration": 66847,
+                    "src": "3019:13:67",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_enum$_Upgradability_$67079",
+                      "typeIdentifier": "t_enum$_Upgradability_$66847",
                       "typeString": "enum ISuperTokenFactory.Upgradability"
                     }
                   },
@@ -1481,13 +1481,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 67107,
+                  "id": 66875,
                   "mutability": "mutable",
                   "name": "name",
-                  "nameLocation": "3072:4:70",
+                  "nameLocation": "3072:4:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67115,
-                  "src": "3056:20:70",
+                  "scope": 66883,
+                  "src": "3056:20:67",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1495,10 +1495,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 67106,
+                    "id": 66874,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3056:6:70",
+                    "src": "3056:6:67",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1508,13 +1508,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 67109,
+                  "id": 66877,
                   "mutability": "mutable",
                   "name": "symbol",
-                  "nameLocation": "3102:6:70",
+                  "nameLocation": "3102:6:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67115,
-                  "src": "3086:22:70",
+                  "scope": 66883,
+                  "src": "3086:22:67",
                   "stateVariable": false,
                   "storageLocation": "calldata",
                   "typeDescriptions": {
@@ -1522,10 +1522,10 @@
                     "typeString": "string"
                   },
                   "typeName": {
-                    "id": 67108,
+                    "id": 66876,
                     "name": "string",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3086:6:70",
+                    "src": "3086:6:67",
                     "typeDescriptions": {
                       "typeIdentifier": "t_string_storage_ptr",
                       "typeString": "string"
@@ -1534,66 +1534,66 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2965:149:70"
+              "src": "2965:149:67"
             },
             "returnParameters": {
-              "id": 67114,
+              "id": 66882,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67113,
+                  "id": 66881,
                   "mutability": "mutable",
                   "name": "superToken",
-                  "nameLocation": "3161:10:70",
+                  "nameLocation": "3161:10:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67115,
-                  "src": "3149:22:70",
+                  "scope": 66883,
+                  "src": "3149:22:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                    "typeIdentifier": "t_contract$_ISuperToken_$66806",
                     "typeString": "contract ISuperToken"
                   },
                   "typeName": {
-                    "id": 67112,
+                    "id": 66880,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 67111,
+                      "id": 66879,
                       "name": "ISuperToken",
                       "nameLocations": [
-                        "3149:11:70"
+                        "3149:11:67"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 67038,
-                      "src": "3149:11:70"
+                      "referencedDeclaration": 66806,
+                      "src": "3149:11:67"
                     },
-                    "referencedDeclaration": 67038,
-                    "src": "3149:11:70",
+                    "referencedDeclaration": 66806,
+                    "src": "3149:11:67",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                      "typeIdentifier": "t_contract$_ISuperToken_$66806",
                       "typeString": "contract ISuperToken"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "3148:24:70"
+              "src": "3148:24:67"
             },
-            "scope": 67168,
+            "scope": 66936,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 67125,
+            "id": 66893,
             "nodeType": "FunctionDefinition",
-            "src": "3502:121:70",
+            "src": "3502:121:67",
             "nodes": [],
             "documentation": {
-              "id": 67116,
+              "id": 66884,
               "nodeType": "StructuredDocumentation",
-              "src": "3179:318:70",
+              "src": "3179:318:67",
               "text": " @notice Creates a wrapper super token AND sets it in the canonical list OR reverts if it already exists\n @dev salt for create2 is the keccak256 hash of abi.encode(address(_underlyingToken))\n @param _underlyingToken Underlying ERC20 token\n @return ISuperToken the created supertoken"
             },
             "functionSelector": "151188dc",
@@ -1601,109 +1601,109 @@
             "kind": "function",
             "modifiers": [],
             "name": "createCanonicalERC20Wrapper",
-            "nameLocation": "3511:27:70",
+            "nameLocation": "3511:27:67",
             "parameters": {
-              "id": 67120,
+              "id": 66888,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67119,
+                  "id": 66887,
                   "mutability": "mutable",
                   "name": "_underlyingToken",
-                  "nameLocation": "3558:16:70",
+                  "nameLocation": "3558:16:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67125,
-                  "src": "3539:35:70",
+                  "scope": 66893,
+                  "src": "3539:35:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ERC20WithTokenInfo_$68148",
+                    "typeIdentifier": "t_contract$_ERC20WithTokenInfo_$67916",
                     "typeString": "contract ERC20WithTokenInfo"
                   },
                   "typeName": {
-                    "id": 67118,
+                    "id": 66886,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 67117,
+                      "id": 66885,
                       "name": "ERC20WithTokenInfo",
                       "nameLocations": [
-                        "3539:18:70"
+                        "3539:18:67"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 68148,
-                      "src": "3539:18:70"
+                      "referencedDeclaration": 67916,
+                      "src": "3539:18:67"
                     },
-                    "referencedDeclaration": 68148,
-                    "src": "3539:18:70",
+                    "referencedDeclaration": 67916,
+                    "src": "3539:18:67",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ERC20WithTokenInfo_$68148",
+                      "typeIdentifier": "t_contract$_ERC20WithTokenInfo_$67916",
                       "typeString": "contract ERC20WithTokenInfo"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "3538:37:70"
+              "src": "3538:37:67"
             },
             "returnParameters": {
-              "id": 67124,
+              "id": 66892,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67123,
+                  "id": 66891,
                   "mutability": "mutable",
                   "name": "",
                   "nameLocation": "-1:-1:-1",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67125,
-                  "src": "3610:11:70",
+                  "scope": 66893,
+                  "src": "3610:11:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                    "typeIdentifier": "t_contract$_ISuperToken_$66806",
                     "typeString": "contract ISuperToken"
                   },
                   "typeName": {
-                    "id": 67122,
+                    "id": 66890,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 67121,
+                      "id": 66889,
                       "name": "ISuperToken",
                       "nameLocations": [
-                        "3610:11:70"
+                        "3610:11:67"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 67038,
-                      "src": "3610:11:70"
+                      "referencedDeclaration": 66806,
+                      "src": "3610:11:67"
                     },
-                    "referencedDeclaration": 67038,
-                    "src": "3610:11:70",
+                    "referencedDeclaration": 66806,
+                    "src": "3610:11:67",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                      "typeIdentifier": "t_contract$_ISuperToken_$66806",
                       "typeString": "contract ISuperToken"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "3609:13:70"
+              "src": "3609:13:67"
             },
-            "scope": 67168,
+            "scope": 66936,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 67135,
+            "id": 66903,
             "nodeType": "FunctionDefinition",
-            "src": "4136:162:70",
+            "src": "4136:162:67",
             "nodes": [],
             "documentation": {
-              "id": 67126,
+              "id": 66894,
               "nodeType": "StructuredDocumentation",
-              "src": "3629:502:70",
+              "src": "3629:502:67",
               "text": " @notice Computes/Retrieves wrapper super token address given the underlying token address\n @dev We return from our canonical list if it already exists, otherwise we compute it\n @dev note that this function only computes addresses for SEMI_UPGRADABLE SuperTokens\n @param _underlyingToken Underlying ERC20 token address\n @return superTokenAddress Super token address\n @return isDeployed whether the super token is deployed AND set in the canonical mapping"
             },
             "functionSelector": "bab74c89",
@@ -1711,20 +1711,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "computeCanonicalERC20WrapperAddress",
-            "nameLocation": "4145:35:70",
+            "nameLocation": "4145:35:67",
             "parameters": {
-              "id": 67129,
+              "id": 66897,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67128,
+                  "id": 66896,
                   "mutability": "mutable",
                   "name": "_underlyingToken",
-                  "nameLocation": "4189:16:70",
+                  "nameLocation": "4189:16:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67135,
-                  "src": "4181:24:70",
+                  "scope": 66903,
+                  "src": "4181:24:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1732,10 +1732,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 67127,
+                    "id": 66895,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4181:7:70",
+                    "src": "4181:7:67",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1745,21 +1745,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4180:26:70"
+              "src": "4180:26:67"
             },
             "returnParameters": {
-              "id": 67134,
+              "id": 66902,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67131,
+                  "id": 66899,
                   "mutability": "mutable",
                   "name": "superTokenAddress",
-                  "nameLocation": "4262:17:70",
+                  "nameLocation": "4262:17:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67135,
-                  "src": "4254:25:70",
+                  "scope": 66903,
+                  "src": "4254:25:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1767,10 +1767,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 67130,
+                    "id": 66898,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4254:7:70",
+                    "src": "4254:7:67",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1781,13 +1781,13 @@
                 },
                 {
                   "constant": false,
-                  "id": 67133,
+                  "id": 66901,
                   "mutability": "mutable",
                   "name": "isDeployed",
-                  "nameLocation": "4286:10:70",
+                  "nameLocation": "4286:10:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67135,
-                  "src": "4281:15:70",
+                  "scope": 66903,
+                  "src": "4281:15:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1795,10 +1795,10 @@
                     "typeString": "bool"
                   },
                   "typeName": {
-                    "id": 67132,
+                    "id": 66900,
                     "name": "bool",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4281:4:70",
+                    "src": "4281:4:67",
                     "typeDescriptions": {
                       "typeIdentifier": "t_bool",
                       "typeString": "bool"
@@ -1807,22 +1807,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4253:44:70"
+              "src": "4253:44:67"
             },
-            "scope": 67168,
+            "scope": 66936,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 67143,
+            "id": 66911,
             "nodeType": "FunctionDefinition",
-            "src": "4623:141:70",
+            "src": "4623:141:67",
             "nodes": [],
             "documentation": {
-              "id": 67136,
+              "id": 66904,
               "nodeType": "StructuredDocumentation",
-              "src": "4304:314:70",
+              "src": "4304:314:67",
               "text": " @notice Gets the canonical ERC20 wrapper super token address given the underlying token address\n @dev We return the address if it exists and the zero address otherwise\n @param _underlyingTokenAddress Underlying ERC20 token address\n @return superTokenAddress Super token address"
             },
             "functionSelector": "eff0a89d",
@@ -1830,20 +1830,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "getCanonicalERC20Wrapper",
-            "nameLocation": "4632:24:70",
+            "nameLocation": "4632:24:67",
             "parameters": {
-              "id": 67139,
+              "id": 66907,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67138,
+                  "id": 66906,
                   "mutability": "mutable",
                   "name": "_underlyingTokenAddress",
-                  "nameLocation": "4665:23:70",
+                  "nameLocation": "4665:23:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67143,
-                  "src": "4657:31:70",
+                  "scope": 66911,
+                  "src": "4657:31:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1851,10 +1851,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 67137,
+                    "id": 66905,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4657:7:70",
+                    "src": "4657:7:67",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1864,21 +1864,21 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4656:33:70"
+              "src": "4656:33:67"
             },
             "returnParameters": {
-              "id": 67142,
+              "id": 66910,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67141,
+                  "id": 66909,
                   "mutability": "mutable",
                   "name": "superTokenAddress",
-                  "nameLocation": "4745:17:70",
+                  "nameLocation": "4745:17:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67143,
-                  "src": "4737:25:70",
+                  "scope": 66911,
+                  "src": "4737:25:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1886,10 +1886,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 67140,
+                    "id": 66908,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4737:7:70",
+                    "src": "4737:7:67",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1899,22 +1899,22 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4736:27:70"
+              "src": "4736:27:67"
             },
-            "scope": 67168,
+            "scope": 66936,
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 67149,
+            "id": 66917,
             "nodeType": "FunctionDefinition",
-            "src": "4906:98:70",
+            "src": "4906:98:67",
             "nodes": [],
             "documentation": {
-              "id": 67144,
+              "id": 66912,
               "nodeType": "StructuredDocumentation",
-              "src": "4770:131:70",
+              "src": "4770:131:67",
               "text": " @dev Creates a new custom super token\n @param customSuperTokenProxy address of the custom supertoken proxy"
             },
             "functionSelector": "d412d344",
@@ -1922,20 +1922,20 @@
             "kind": "function",
             "modifiers": [],
             "name": "initializeCustomSuperToken",
-            "nameLocation": "4915:26:70",
+            "nameLocation": "4915:26:67",
             "parameters": {
-              "id": 67147,
+              "id": 66915,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67146,
+                  "id": 66914,
                   "mutability": "mutable",
                   "name": "customSuperTokenProxy",
-                  "nameLocation": "4959:21:70",
+                  "nameLocation": "4959:21:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67149,
-                  "src": "4951:29:70",
+                  "scope": 66917,
+                  "src": "4951:29:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1943,10 +1943,10 @@
                     "typeString": "address"
                   },
                   "typeName": {
-                    "id": 67145,
+                    "id": 66913,
                     "name": "address",
                     "nodeType": "ElementaryTypeName",
-                    "src": "4951:7:70",
+                    "src": "4951:7:67",
                     "stateMutability": "nonpayable",
                     "typeDescriptions": {
                       "typeIdentifier": "t_address",
@@ -1956,200 +1956,200 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "4941:45:70"
+              "src": "4941:45:67"
             },
             "returnParameters": {
-              "id": 67148,
+              "id": 66916,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "5003:0:70"
+              "src": "5003:0:67"
             },
-            "scope": 67168,
+            "scope": 66936,
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
-            "id": 67155,
+            "id": 66923,
             "nodeType": "EventDefinition",
-            "src": "5118:61:70",
+            "src": "5118:61:67",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 67150,
+              "id": 66918,
               "nodeType": "StructuredDocumentation",
-              "src": "5010:103:70",
+              "src": "5010:103:67",
               "text": " @dev Super token logic created event\n @param tokenLogic Token logic address"
             },
             "eventSelector": "c13fb19d60857980e565bf5dae406b8802d3c1cec50c6156b30b12b874029783",
             "name": "SuperTokenLogicCreated",
-            "nameLocation": "5124:22:70",
+            "nameLocation": "5124:22:67",
             "parameters": {
-              "id": 67154,
+              "id": 66922,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67153,
+                  "id": 66921,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "tokenLogic",
-                  "nameLocation": "5167:10:70",
+                  "nameLocation": "5167:10:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67155,
-                  "src": "5147:30:70",
+                  "scope": 66923,
+                  "src": "5147:30:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                    "typeIdentifier": "t_contract$_ISuperToken_$66806",
                     "typeString": "contract ISuperToken"
                   },
                   "typeName": {
-                    "id": 67152,
+                    "id": 66920,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 67151,
+                      "id": 66919,
                       "name": "ISuperToken",
                       "nameLocations": [
-                        "5147:11:70"
+                        "5147:11:67"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 67038,
-                      "src": "5147:11:70"
+                      "referencedDeclaration": 66806,
+                      "src": "5147:11:67"
                     },
-                    "referencedDeclaration": 67038,
-                    "src": "5147:11:70",
+                    "referencedDeclaration": 66806,
+                    "src": "5147:11:67",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                      "typeIdentifier": "t_contract$_ISuperToken_$66806",
                       "typeString": "contract ISuperToken"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "5146:32:70"
+              "src": "5146:32:67"
             }
           },
           {
-            "id": 67161,
+            "id": 66929,
             "nodeType": "EventDefinition",
-            "src": "5296:51:70",
+            "src": "5296:51:67",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 67156,
+              "id": 66924,
               "nodeType": "StructuredDocumentation",
-              "src": "5185:106:70",
+              "src": "5185:106:67",
               "text": " @dev Super token created event\n @param token Newly created super token address"
             },
             "eventSelector": "b52c6d9d122e8c07769b96d7bb14e66db58ee03fdebaaa2f92547e9c7ef0e65f",
             "name": "SuperTokenCreated",
-            "nameLocation": "5302:17:70",
+            "nameLocation": "5302:17:67",
             "parameters": {
-              "id": 67160,
+              "id": 66928,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67159,
+                  "id": 66927,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "token",
-                  "nameLocation": "5340:5:70",
+                  "nameLocation": "5340:5:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67161,
-                  "src": "5320:25:70",
+                  "scope": 66929,
+                  "src": "5320:25:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                    "typeIdentifier": "t_contract$_ISuperToken_$66806",
                     "typeString": "contract ISuperToken"
                   },
                   "typeName": {
-                    "id": 67158,
+                    "id": 66926,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 67157,
+                      "id": 66925,
                       "name": "ISuperToken",
                       "nameLocations": [
-                        "5320:11:70"
+                        "5320:11:67"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 67038,
-                      "src": "5320:11:70"
+                      "referencedDeclaration": 66806,
+                      "src": "5320:11:67"
                     },
-                    "referencedDeclaration": 67038,
-                    "src": "5320:11:70",
+                    "referencedDeclaration": 66806,
+                    "src": "5320:11:67",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                      "typeIdentifier": "t_contract$_ISuperToken_$66806",
                       "typeString": "contract ISuperToken"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "5319:27:70"
+              "src": "5319:27:67"
             }
           },
           {
-            "id": 67167,
+            "id": 66935,
             "nodeType": "EventDefinition",
-            "src": "5478:57:70",
+            "src": "5478:57:67",
             "nodes": [],
             "anonymous": false,
             "documentation": {
-              "id": 67162,
+              "id": 66930,
               "nodeType": "StructuredDocumentation",
-              "src": "5353:120:70",
+              "src": "5353:120:67",
               "text": " @dev Custom super token created event\n @param token Newly created custom super token address"
             },
             "eventSelector": "437790724a6e97b75d23117f28cdd4b1beeafc34f7a0911ef256e9334f4369a5",
             "name": "CustomSuperTokenCreated",
-            "nameLocation": "5484:23:70",
+            "nameLocation": "5484:23:67",
             "parameters": {
-              "id": 67166,
+              "id": 66934,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 67165,
+                  "id": 66933,
                   "indexed": true,
                   "mutability": "mutable",
                   "name": "token",
-                  "nameLocation": "5528:5:70",
+                  "nameLocation": "5528:5:67",
                   "nodeType": "VariableDeclaration",
-                  "scope": 67167,
-                  "src": "5508:25:70",
+                  "scope": 66935,
+                  "src": "5508:25:67",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                    "typeIdentifier": "t_contract$_ISuperToken_$66806",
                     "typeString": "contract ISuperToken"
                   },
                   "typeName": {
-                    "id": 67164,
+                    "id": 66932,
                     "nodeType": "UserDefinedTypeName",
                     "pathNode": {
-                      "id": 67163,
+                      "id": 66931,
                       "name": "ISuperToken",
                       "nameLocations": [
-                        "5508:11:70"
+                        "5508:11:67"
                       ],
                       "nodeType": "IdentifierPath",
-                      "referencedDeclaration": 67038,
-                      "src": "5508:11:70"
+                      "referencedDeclaration": 66806,
+                      "src": "5508:11:67"
                     },
-                    "referencedDeclaration": 67038,
-                    "src": "5508:11:70",
+                    "referencedDeclaration": 66806,
+                    "src": "5508:11:67",
                     "typeDescriptions": {
-                      "typeIdentifier": "t_contract$_ISuperToken_$67038",
+                      "typeIdentifier": "t_contract$_ISuperToken_$66806",
                       "typeString": "contract ISuperToken"
                     }
                   },
                   "visibility": "internal"
                 }
               ],
-              "src": "5507:27:70"
+              "src": "5507:27:67"
             }
           }
         ],
@@ -2159,29 +2159,29 @@
         "contractDependencies": [],
         "contractKind": "interface",
         "documentation": {
-          "id": 67046,
+          "id": 66814,
           "nodeType": "StructuredDocumentation",
-          "src": "189:69:70",
+          "src": "189:69:67",
           "text": " @title Super token factory interface\n @author Superfluid"
         },
         "fullyImplemented": false,
         "linearizedBaseContracts": [
-          67168
+          66936
         ],
         "name": "ISuperTokenFactory",
-        "nameLocation": "269:18:70",
-        "scope": 67169,
+        "nameLocation": "269:18:67",
+        "scope": 66937,
         "usedErrors": [
-          67048,
-          67050,
-          67052,
-          67054,
-          67056,
-          67058
+          66816,
+          66818,
+          66820,
+          66822,
+          66824,
+          66826
         ]
       }
     ],
     "license": "MIT"
   },
-  "id": 70
+  "id": 67
 }
