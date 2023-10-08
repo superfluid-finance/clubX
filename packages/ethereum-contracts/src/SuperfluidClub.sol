@@ -18,6 +18,7 @@ contract SuperfluidClub is ISuperfluidClub, SuperToken, UUPSProxiable {
     error NOT_PROTEGE();
     error ALREADY_PROTEGE();
     error MAX_SPONSORSHIP_LEVEL_REACHED();
+    error NOT_ENOUGH_COIN();
 
     modifier onlyOwner() {
         if (msg.sender != owner) {
@@ -31,7 +32,7 @@ contract SuperfluidClub is ISuperfluidClub, SuperToken, UUPSProxiable {
     uint256 public constant MAX_SPONSORSHIP_PATH_OUTFLOW = 720 ether;
 
     // State variables
-    address public owner;
+    address public  owner;
     mapping(address => ISuperfluidClub.Protege) internal proteges;
 
     event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
@@ -63,11 +64,11 @@ contract SuperfluidClub is ISuperfluidClub, SuperToken, UUPSProxiable {
         external
         view
         override
-        returns (ISuperfluidClub.Protege[] memory sponsors)
+        returns (ISuperfluidClub.Protege[5] memory sponsors)
     {
-        uint256 i = 0;
+        uint256 i;
         while (isProtege(protege)) {
-            sponsors[i++] = proteges[protege];
+            sponsors[i++] = (proteges[protege]);
             protege = proteges[protege].sponsor;
         }
     }
@@ -99,10 +100,13 @@ contract SuperfluidClub is ISuperfluidClub, SuperToken, UUPSProxiable {
 
         uint256 coinAmount = msg.value;
         uint256 feeAmount = fee(proteges[actualSponsor].directTotalProtegeCount);
-        payable(owner).transfer(feeAmount);
+        if (coinAmount < feeAmount) {
+            revert NOT_ENOUGH_COIN();
+        }
 
         coinAmount -= feeAmount;
-        if (proteges[actualSponsor].level == MAX_SPONSORSHIP_LEVEL) {
+        uint8 actualSponsorLevel = proteges[actualSponsor].level;
+        if (actualSponsorLevel == MAX_SPONSORSHIP_LEVEL) {
             revert MAX_SPONSORSHIP_LEVEL_REACHED();
         }
 
@@ -110,7 +114,7 @@ contract SuperfluidClub is ISuperfluidClub, SuperToken, UUPSProxiable {
         proteges[address(this)].totalProtegeCount++;
 
         proteges[actualSponsor].directTotalProtegeCount++;
-        uint8 actualSponsorLevel = proteges[actualSponsor].level;
+
         uint8 level = actualSponsorLevel + 1;
         int96 protegeDesiredFlowRate = toInt96((MAX_SPONSORSHIP_PATH_OUTFLOW / level) / 86400);
         // how much can we distribute to the sponsor chain
@@ -156,6 +160,11 @@ contract SuperfluidClub is ISuperfluidClub, SuperToken, UUPSProxiable {
     /// @dev ISuperfluidClub.sponsor implementation
     function restartStream() external {
        _createOrUpdateStream(msg.sender, proteges[msg.sender].desiredFlowRate);
+    }
+
+    /// @dev ISuperfluidClub.withdraw implementation
+    function withdraw(address receiver, uint256 amount) external override onlyOwner {
+        payable(receiver).transfer(amount);
     }
 
     /// @dev ISuperfluidClub.fee implementation

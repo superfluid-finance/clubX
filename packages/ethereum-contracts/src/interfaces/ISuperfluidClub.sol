@@ -2,7 +2,6 @@
 pragma solidity ^0.8.0;
 
 import {ISuperToken} from "@superfluid-finance/ethereum-contracts/contracts/interfaces/superfluid/ISuperfluid.sol";
-//import {IOwnable} from "./IOwnable.sol";
 
 interface ISuperfluidClub is ISuperToken {
     /// Events
@@ -48,7 +47,7 @@ interface ISuperfluidClub is ISuperToken {
      * @param protege The protege's address
      * @return sponsors array of Protege structures representing the sponsors
      */
-    function getChainOfSponsors(address protege) external view returns (Protege[] memory sponsors);
+    function getChainOfSponsors(address protege) external view returns (Protege[5] memory sponsors);
 
     /**
      * @dev internal function to create or update a stream
@@ -68,6 +67,12 @@ interface ISuperfluidClub is ISuperToken {
      * @return feeAmount amount needed to be paid
      */
     function fee(uint32 directProtegeCount) external pure returns (uint256 feeAmount);
+
+    /**
+     * @dev withdraws the fees from the contract
+     * @notice only the owner can call this function
+     */
+    function withdraw(address receiver, uint256 amount) external;
 
     /**
      * @dev mint club tokens to the contract
