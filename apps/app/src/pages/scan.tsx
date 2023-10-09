@@ -11,6 +11,7 @@ import Configuration from "@/core/Configuration";
 import getDefaultSponsorAmount from "@/utils/DefaultSponsorAmount";
 import { shortenHex } from "@/utils/StringUtils";
 import { Html5Qrcode } from "html5-qrcode";
+import { useRouter } from "next/router";
 import { FC, useCallback, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Address, isAddress } from "viem";
@@ -24,24 +25,6 @@ const CostItem: FC<{ title: string; wei: bigint }> = ({ title, wei }) => (
     </b>
   </Flex>
 );
-
-const FooterInfo = styled.footer(() => ({
-  width: "100%",
-  lineHeight: "64px",
-  color: "white",
-}));
-
-export const Warning = styled(FooterInfo)`
-  background: orange;
-`;
-
-export const Error = styled(FooterInfo)`
-  background: red;
-`;
-
-export const Info = styled(FooterInfo)`
-  background: blue;
-`;
 
 const ReaderWrapper = styled.div`
   width: 100%;
@@ -80,29 +63,34 @@ const Scan = () => {
   const cameraRef = useRef<HTMLDivElement | null>(null);
   const QRCodeReader = useRef<Html5Qrcode>();
 
+  const router = useRouter();
+
   const [scannedAddress, setScannedAddress] = useState<Address | undefined>();
-  const [error, setError] = useState("");
 
   const { address } = useAccount();
   const sponsorMutation = useSponsor();
+
   const isProtegeResult = useIsProtege(scannedAddress);
+  const imProtegeResult = useIsProtege(address);
+
   const { data: protege } = useGetProtege(address);
   const { data: fee } = useGetFee(protege?.directTotalProtegeCount);
   const nativeBalance = useBalance({ address });
 
   const sponsorAmount = getDefaultSponsorAmount(protege?.level);
 
-  const invalidateSponsorCache = () => {
-    // TODO: Clear balances and sponsor amount cache
-  };
-
   const { isLoading: sponsorTxLoading, isSuccess: sponsorTxSuccess } =
     useWaitForTransaction({
       chainId: network.id,
       hash: sponsorMutation.data?.hash,
       enabled: !!sponsorMutation.data?.hash,
-      onSuccess: invalidateSponsorCache,
     });
+
+  useEffect(() => {
+    if (!address || imProtegeResult.data === false) {
+      router.replace("/");
+    }
+  }, [address, imProtegeResult]);
 
   const onSponsor = useCallback(() => {
     if (fee) {
@@ -122,21 +110,6 @@ const Scan = () => {
       QRCodeReader.current = undefined;
     };
   }, [cameraRef.current]);
-
-  // Render errors for 3 seconds
-  useEffect(() => {
-    let timeout: number;
-
-    if (error) {
-      timeout = window.setTimeout(() => {
-        setError("");
-      }, 3000);
-    }
-
-    return () => {
-      if (timeout) window.clearTimeout(timeout);
-    };
-  }, [error]);
 
   const onSuccessfulScan = useCallback(
     (decodedText: string) => {
@@ -189,6 +162,7 @@ const Scan = () => {
       </PageWrapper>
     );
   }
+
   return (
     <PageWrapper
       style={{
@@ -270,9 +244,11 @@ const Scan = () => {
           </Button>
         </ConnectionGateBtn>
       )}
+
       {isProtegeResult.data === true && (
         <LinkButton href="/">Go Back</LinkButton>
       )}
+
       <FooterLink
         style={{
           visibility: isProtegeResult.data !== true ? "visible" : "hidden",

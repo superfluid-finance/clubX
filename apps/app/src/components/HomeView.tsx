@@ -191,15 +191,20 @@ const HomeView: FC<HomeViewProps> = ({}) => {
         </Flex>
 
         {protegeData && (
-          <StatsBox>
-            <Caption>
-              Members you invited: {protegeData.directTotalProtegeCount}
-            </Caption>
-            {/* <Caption>Level: {protegeData.level}</Caption> */}
-          </StatsBox>
+          <>
+            <StatsBox>
+              <Caption>
+                Members you invited: {protegeData.directTotalProtegeCount}
+              </Caption>
+              {/* <Caption>Level: {protegeData.level}</Caption> */}
+            </StatsBox>
+            {protegeData.level < 5 ? (
+              <LinkButton href="/scan">Scan</LinkButton>
+            ) : (
+              <div />
+            )}
+          </>
         )}
-
-        <LinkButton href="/scan">Scan</LinkButton>
       </ProtegeSection>
     </SnapScrollWrapper>
   );

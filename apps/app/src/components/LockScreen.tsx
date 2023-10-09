@@ -50,14 +50,18 @@ const LockScreen: FC<LockScreenProps> = ({}) => {
       <ConnectedSection>
         <Flex gap="8px" align="center">
           <H1>Join CLUBx</H1>
-          <p>Refer people to get a higher Flow Rate</p>
+          <p style={{ maxWidth: "300px" }}>
+            Find CLUBx member who can scan your invitation to enter the club.
+          </p>
           <QRCode
             value={address || ""}
             viewBox={`0 0 256 256`}
+            bgColor="transparent"
             style={{
               background: "white",
               padding: "8px",
               borderRadius: "8px",
+              overflow: "hidden",
               marginTop: "24px",
               width: "80vw",
               height: "80vw",
