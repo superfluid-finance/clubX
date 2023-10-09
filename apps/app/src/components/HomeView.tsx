@@ -113,18 +113,14 @@ const HomeView: FC<HomeViewProps> = ({}) => {
           </HangingBox>
         </Flex>
 
-        {protegeData && (
+        {protegeData && protegeData.level < MAX_PROTEGE_LEVEL && (
           <>
             <StatsBox>
               <Caption>
                 Members you invited: {protegeData.directTotalProtegeCount}
               </Caption>
             </StatsBox>
-            {protegeData.level < MAX_PROTEGE_LEVEL ? (
-              <LinkButton href="/scan">Scan</LinkButton>
-            ) : (
-              <div />
-            )}
+            <LinkButton href="/scan">Scan</LinkButton>
           </>
         )}
       </ProtegeSection>
