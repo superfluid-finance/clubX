@@ -1,4 +1,5 @@
 import Amount from "@/components/Amount";
+import { GradientBorderBox } from "@/components/Boxes";
 import { Button, LinkButton } from "@/components/Button";
 import ConnectionGateBtn from "@/components/ConnectionGateBtn";
 import Delimiter from "@/components/Delimiter";
@@ -11,10 +12,18 @@ import Configuration from "@/core/Configuration";
 import getDefaultSponsorAmount from "@/utils/DefaultSponsorAmount";
 import { shortenHex } from "@/utils/StringUtils";
 import { Html5Qrcode } from "html5-qrcode";
-import { FC, useCallback, useEffect, useRef, useState } from "react";
+import { useRouter } from "next/router";
+import { FC, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components";
 import { Address, isAddress } from "viem";
 import { useAccount, useBalance, useWaitForTransaction } from "wagmi";
+
+const ScanPage = styled(PageWrapper)`
+  background-image: url("/assets/bg4.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
 
 const CostItem: FC<{ title: string; wei: bigint }> = ({ title, wei }) => (
   <Flex direction="row" align="center" justify="space-between" gap="32px">
@@ -25,53 +34,18 @@ const CostItem: FC<{ title: string; wei: bigint }> = ({ title, wei }) => (
   </Flex>
 );
 
-const FooterInfo = styled.footer(() => ({
-  width: "100%",
-  lineHeight: "64px",
-  color: "white",
-}));
-
-export const Warning = styled(FooterInfo)`
-  background: orange;
-`;
-
-export const Error = styled(FooterInfo)`
-  background: red;
-`;
-
-export const Info = styled(FooterInfo)`
-  background: blue;
-`;
-
 const ReaderWrapper = styled.div`
   width: 100%;
 `;
 
-const StatsBox = styled.div`
+const StatsBox = styled(GradientBorderBox)`
   width: calc(100vw - 64px);
-  position: relative;
   padding: 20px 24px;
   margin-top: 36px;
   align-self: center;
   display: flex;
   flex-direction: column;
   gap: 16px;
-
-  &::before {
-    content: "";
-    z-index: 1;
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    padding: 2px; /* control the border thickness */
-    background: linear-gradient(0deg, #b5b5ff, #0e0e4b);
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
 `;
 
 const { network } = Configuration;
@@ -80,29 +54,34 @@ const Scan = () => {
   const cameraRef = useRef<HTMLDivElement | null>(null);
   const QRCodeReader = useRef<Html5Qrcode>();
 
+  const router = useRouter();
+
   const [scannedAddress, setScannedAddress] = useState<Address | undefined>();
-  const [error, setError] = useState("");
 
   const { address } = useAccount();
   const sponsorMutation = useSponsor();
+
   const isProtegeResult = useIsProtege(scannedAddress);
+  const imProtegeResult = useIsProtege(address);
+
   const { data: protege } = useGetProtege(address);
   const { data: fee } = useGetFee(protege?.directTotalProtegeCount);
   const nativeBalance = useBalance({ address });
 
   const sponsorAmount = getDefaultSponsorAmount(protege?.level);
 
-  const invalidateSponsorCache = () => {
-    // TODO: Clear balances and sponsor amount cache
-  };
-
   const { isLoading: sponsorTxLoading, isSuccess: sponsorTxSuccess } =
     useWaitForTransaction({
       chainId: network.id,
       hash: sponsorMutation.data?.hash,
       enabled: !!sponsorMutation.data?.hash,
-      onSuccess: invalidateSponsorCache,
     });
+
+  useEffect(() => {
+    if (!address || imProtegeResult.data === false) {
+      router.replace("/");
+    }
+  }, [address, imProtegeResult]);
 
   const onSponsor = useCallback(() => {
     if (fee) {
@@ -122,21 +101,6 @@ const Scan = () => {
       QRCodeReader.current = undefined;
     };
   }, [cameraRef.current]);
-
-  // Render errors for 3 seconds
-  useEffect(() => {
-    let timeout: number;
-
-    if (error) {
-      timeout = window.setTimeout(() => {
-        setError("");
-      }, 3000);
-    }
-
-    return () => {
-      if (timeout) window.clearTimeout(timeout);
-    };
-  }, [error]);
 
   const onSuccessfulScan = useCallback(
     (decodedText: string) => {
@@ -179,6 +143,20 @@ const Scan = () => {
     };
   }, [QRCodeReader.current]);
 
+  const error = useMemo(() => {
+    if (isProtegeResult.data === true) {
+      return "Unable to invite, user is already protege!";
+    }
+
+    if (
+      nativeBalance.data &&
+      fee &&
+      nativeBalance.data.value < fee + sponsorAmount
+    ) {
+      return "Not enough balance to sponsor!";
+    }
+  }, [isProtegeResult.data]);
+
   if (!scannedAddress) {
     return (
       <PageWrapper>
@@ -189,15 +167,9 @@ const Scan = () => {
       </PageWrapper>
     );
   }
+
   return (
-    <PageWrapper
-      style={{
-        backgroundImage: `url("/assets/bg4.png")`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-      }}
-    >
+    <ScanPage>
       <PageContent>
         <Flex
           gap="8px"
@@ -242,9 +214,7 @@ const Scan = () => {
           </StatsBox>
 
           <div style={{ width: "calc(100vw - 32px)", margin: "20px auto" }}>
-            {isProtegeResult.data === true && (
-              <div>Unable to invite, user is already protege!</div>
-            )}
+            {error && <div>{error}</div>}
 
             {sponsorTxSuccess && (
               <div>
@@ -270,9 +240,11 @@ const Scan = () => {
           </Button>
         </ConnectionGateBtn>
       )}
+
       {isProtegeResult.data === true && (
         <LinkButton href="/">Go Back</LinkButton>
       )}
+
       <FooterLink
         style={{
           visibility: isProtegeResult.data !== true ? "visible" : "hidden",
@@ -281,7 +253,7 @@ const Scan = () => {
       >
         Cancel
       </FooterLink>
-    </PageWrapper>
+    </ScanPage>
   );
 };
 
