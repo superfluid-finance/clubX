@@ -30,7 +30,7 @@ Sponsorship: New address becomes a Protege and is linked to a sponsor. A certain
 - **Protege flowRate**: `protegeDesiredFlowRate = MAX_SPONSORSHIP_PATH_OUTFLOW / level / 86400`
 
 - **Sponsor updated flowRate**: `distributableAmount = MAX_SPONSORSHIP_PATH_OUTFLOW - protegeDesiredFlowRate where each sponsor gets 50% and last level takes the rest`
-  - Sponsors near the new Protege will get more tokens than those far away.
+  - Sponsors near the new Protégé will get more tokens than those far away.
 
 ```solidity 
 // if last sponsor in the chain take remaining amount, else take 50% of available amount
@@ -45,6 +45,13 @@ distributableAmount -= sponsorDesiredFlowRate;
 
 ## Examples:
 
-Basic case of adding a new Protege to the system:
 
-[![Superfluid Club - Level 1 ](./img/graph1.png)](./img/graph1.png)
+> At level 1, ClubX streams 720x tokens per day for each protégé
+[![Superfluid Club - Level 1 ](./img/1.png)](./img/1.png)
+
+
+> At level 2, protégé C get 360x tokens per day, and sponsor A gets 1080x tokens (720 + 360)
+[![Superfluid Club - Level 2 ](./img/2.png)](./img/2.png)
+
+> At level 5, we have a full chain of sponsors, where each sponsors get additional tokens for each new protégé added
+[![Superfluid Club - Level 7 ](./img/7.png)](./img/7.png)
