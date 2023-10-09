@@ -1,11 +1,11 @@
-import { useGetProtege, useIsProtege, useRealtimeBalance } from "@/core/Api";
+import { useGetProtege, useRealtimeBalance } from "@/core/Api";
 import Configuration from "@/core/Configuration";
 import { UnitOfTime } from "@/utils/NumberUtils";
 import { shortenHex } from "@/utils/StringUtils";
 import { fromUnixTime } from "date-fns";
 import { FC, useCallback } from "react";
 import styled from "styled-components";
-import { useAccount, useDisconnect, useQueryClient } from "wagmi";
+import { useAccount, useDisconnect } from "wagmi";
 import AccountCard from "./AccountCard";
 import Amount from "./Amount";
 import { LinkButton } from "./Button";
@@ -13,6 +13,7 @@ import Flex from "./Flex";
 import FlowingBalance from "./FlowingBalance";
 import { SnapScrollContent, SnapScrollWrapper } from "./SnapScroll";
 import { Caption, CaptionStyle, H2 } from "./Typography";
+import { GradientBorderBox } from "./Boxes";
 
 const WhiteBox = styled(Flex)`
   position: relative;
@@ -98,30 +99,15 @@ const ProtegeSection = styled(SnapScrollContent)`
   background-position: center;
 `;
 
-const StatsBox = styled.div`
-  position: relative;
+const StatsBox = styled(GradientBorderBox)`
   padding: 20px 24px;
   align-self: center;
   display: flex;
   flex-direction: column;
   gap: 12px;
-
-  &::before {
-    content: "";
-    z-index: 1;
-    position: absolute;
-    inset: 0;
-    border-radius: 8px;
-    padding: 2px; /* control the border thickness */
-    background: linear-gradient(0deg, #b5b5ff, #0e0e4b);
-    -webkit-mask:
-      linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
-  }
 `;
+
+const MAX_PROTEGE_LEVEL = 4;
 
 const { SuperfluidClubAddress } = Configuration;
 
@@ -196,9 +182,8 @@ const HomeView: FC<HomeViewProps> = ({}) => {
               <Caption>
                 Members you invited: {protegeData.directTotalProtegeCount}
               </Caption>
-              {/* <Caption>Level: {protegeData.level}</Caption> */}
             </StatsBox>
-            {protegeData.level < 5 ? (
+            {protegeData.level < MAX_PROTEGE_LEVEL ? (
               <LinkButton href="/scan">Scan</LinkButton>
             ) : (
               <div />
