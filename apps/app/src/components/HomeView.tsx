@@ -42,7 +42,7 @@ const StatsBox = styled(GradientBorderBox)`
   gap: 12px;
 `;
 
-const MAX_PROTEGE_LEVEL = 4;
+const MAX_PROTEGE_LEVEL = 5;
 
 const { SuperfluidClubAddress } = Configuration;
 
