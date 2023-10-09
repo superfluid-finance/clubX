@@ -55,3 +55,6 @@ distributableAmount -= sponsorDesiredFlowRate;
 
 > At level 5, we have a full chain of sponsors, where each sponsors get additional tokens for each new protégé added
 [![Superfluid Club - Level 7 ](./img/7.png)](./img/7.png)
+
+> A gif example of how the flow rates get changed depending on the referred users
+[![Superfluid Club - GIF ](./img/club.gif)](./img/club.gif)
