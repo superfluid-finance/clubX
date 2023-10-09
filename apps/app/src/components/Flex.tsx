@@ -1,5 +1,4 @@
 import { Property } from "csstype";
-import { CSSProperties } from "react";
 import { styled } from "styled-components";
 
 interface FlexProps {

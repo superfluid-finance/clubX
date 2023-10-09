@@ -56,7 +56,9 @@ const Scan = () => {
 
   const router = useRouter();
 
-  const [scannedAddress, setScannedAddress] = useState<Address | undefined>();
+  const [scannedAddress, setScannedAddress] = useState<Address | undefined>(
+    "0x8a546EC33fc88BC01211A9b025F1AC6d4E5790a7"
+  );
 
   const { address } = useAccount();
   const sponsorMutation = useSponsor();
@@ -155,7 +157,7 @@ const Scan = () => {
     ) {
       return "Not enough balance to sponsor!";
     }
-  }, [isProtegeResult.data]);
+  }, [isProtegeResult.data, nativeBalance.data]);
 
   if (!scannedAddress) {
     return (
@@ -228,10 +230,10 @@ const Scan = () => {
       {isProtegeResult.data === false && !sponsorTxSuccess && (
         <ConnectionGateBtn
           expectedNetwork={network}
-          disabled={sponsorMutation.isLoading || sponsorTxLoading}
+          disabled={!!error || sponsorMutation.isLoading || sponsorTxLoading}
         >
           <Button
-            disabled={sponsorMutation.isLoading || sponsorTxLoading}
+            disabled={!!error || sponsorMutation.isLoading || sponsorTxLoading}
             onClick={onSponsor}
           >
             {sponsorMutation.isLoading || sponsorTxLoading

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Flex from "./Flex";
+import { CaptionStyle } from "./Typography";
 
 export const GlowingBox = styled(Flex)<{ $color?: string }>`
   position: relative;
@@ -31,5 +32,32 @@ export const GradientBorderBox = styled.div`
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     pointer-events: none;
+  }
+`;
+
+export const HangingBox = styled(Flex)`
+  position: relative;
+  display: inline-flex;
+  border-radius: 8px;
+  border: 1.5px solid #e9ebef;
+  padding: 10px 24px;
+  ${CaptionStyle}
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: -15px;
+    width: 2px;
+    height: 15px;
+    background: linear-gradient(180deg, #06062b, #b5b5ff);
+  }
+
+  &::before {
+    left: 20%;
+  }
+
+  &::after {
+    right: 20%;
   }
 `;

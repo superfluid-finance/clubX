@@ -1,5 +1,5 @@
 import { FooterButton } from "@/components/FooterButton";
-import { useConnect, useDisconnect } from "wagmi";
+import { useDisconnect } from "wagmi";
 
 const Disconnect = () => {
   const { disconnect, isLoading, isIdle } = useDisconnect();

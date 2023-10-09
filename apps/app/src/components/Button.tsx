@@ -31,6 +31,11 @@ const ButtonStyles = css`
 
 export const Button = styled.button`
   ${ButtonStyles}
+
+  ${({ disabled }) =>
+    disabled && {
+      filter: "grayscale(1)",
+    }}
 `;
 
 export const LinkButton = styled(Link)`

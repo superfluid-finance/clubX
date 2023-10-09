@@ -1,11 +1,11 @@
 import { PulseCenteredKeyframes } from "@/utils/animations";
 import styled from "styled-components";
-import { GlowingBox } from "../Boxes";
+import { GlowingBox, HangingBox } from "../Boxes";
 import Flex from "../Flex";
 import OverlayGrain from "../OverlayGrain";
 import ScrollDownBtn from "../ScrollDownBtn";
 import { SnapScrollContent } from "../SnapScroll";
-import { CaptionStyle, H2 } from "../Typography";
+import { H2 } from "../Typography";
 
 const StyledSection = styled(SnapScrollContent)`
   align-items: center;
@@ -48,34 +48,6 @@ const GreenBoxLines = styled.div`
   }
 `;
 
-const PoweredByBox = styled(Flex)`
-  display: inline-flex;
-  border-radius: 8px;
-  border: 1.5px solid #e9ebef;
-  padding: 10px 24px;
-  ${CaptionStyle}
-  position: relative;
-  z-index: 2;
-
-  &::before,
-  &::after {
-    content: "";
-    position: absolute;
-    top: -15px;
-    width: 2px;
-    height: 15px;
-    background: linear-gradient(180deg, #06062b, #b5b5ff);
-  }
-
-  &::before {
-    left: 20%;
-  }
-
-  &::after {
-    right: 20%;
-  }
-`;
-
 const Gradient = styled.img`
   position: absolute;
   top: 100%;
@@ -101,10 +73,10 @@ const PoweredBySection = ({}) => {
           </GlowingBox>
           <GreenBoxLines />
         </GreenBoxWrapper>
-        <PoweredByBox direction="row" align="center" gap="4px">
+        <HangingBox direction="row" align="center" gap="4px">
           <div>Powered by</div>
           <img src="/assets/sf-logo.svg" />
-        </PoweredByBox>
+        </HangingBox>
       </Flex>
       <ScrollDownBtn />
       <OverlayGrain />
