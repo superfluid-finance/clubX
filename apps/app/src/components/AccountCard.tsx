@@ -5,7 +5,7 @@ const AccountCard = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
-  position: fixed;
+  position: absolute;
   top: 0;
   right: 10%;
   padding: 8px 20px;

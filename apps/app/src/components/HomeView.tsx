@@ -15,6 +15,7 @@ import FlowingBalance from "./FlowingBalance";
 import { HorizontalLines } from "./Lines";
 import { SnapScrollContent, SnapScrollWrapper } from "./SnapScroll";
 import { Caption, H2 } from "./Typography";
+import { PageWrapper } from "./Layout";
 
 const GreenBoxWrapper = styled.div`
   display: grid;
@@ -63,7 +64,7 @@ const HomeView: FC<HomeViewProps> = ({}) => {
   );
 
   return (
-    <SnapScrollWrapper>
+    <PageWrapper>
       <AccountCard onClick={onDisconnect}>
         {shortenHex(address || "")}
       </AccountCard>
@@ -124,7 +125,7 @@ const HomeView: FC<HomeViewProps> = ({}) => {
           </>
         )}
       </ProtegeSection>
-    </SnapScrollWrapper>
+    </PageWrapper>
   );
 };
 

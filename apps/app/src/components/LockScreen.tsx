@@ -8,6 +8,7 @@ import AccountCard from "./AccountCard";
 import Flex from "./Flex";
 import { SnapScrollContent, SnapScrollWrapper } from "./SnapScroll";
 import { H1 } from "./Typography";
+import { PageWrapper } from "./Layout";
 
 const ConnectedSection = styled(SnapScrollContent)`
   display: flex;
@@ -43,7 +44,7 @@ const LockScreen: FC<LockScreenProps> = ({}) => {
   }, [address]);
 
   return (
-    <SnapScrollWrapper>
+    <PageWrapper>
       <AccountCard onClick={onDisconnect}>
         {shortenHex(address || "")}
       </AccountCard>
@@ -69,7 +70,7 @@ const LockScreen: FC<LockScreenProps> = ({}) => {
           />
         </Flex>
       </ConnectedSection>
-    </SnapScrollWrapper>
+    </PageWrapper>
   );
 };
 

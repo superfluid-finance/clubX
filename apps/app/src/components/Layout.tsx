@@ -1,27 +1,19 @@
 import styled from "styled-components";
 
-export const PageWrapper = styled.main(() => ({
-  display: "flex",
-  flexDirection: "column",
-  maxHeight: "100dvh",
-  height: "100dvh",
-  maxWidth: "100%",
-  width: "100%",
-  overflow: "hidden",
-}));
+export const PageWrapper = styled.main`
+  display: flex;
+  flex-direction: column;
+  max-height: 100dvh;
+  height: 100dvh;
+  max-width: 800px;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+`;
 
-export const PageContent = styled.div(() => ({
-  flex: 1,
-  overflowY: "auto",
-  gap: "32px",
-}));
-
-export const Header = styled.header(() => ({
-  width: "100%",
-  textAlign: "center",
-  margin: "20px",
-}));
-
-export const Footer = styled.footer(() => ({
-  width: "100%",
-}));
+export const PageContent = styled.div`
+  flex: 1;
+  overflow-y: auto;
+  gap: 32px;
+`;

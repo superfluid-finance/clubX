@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { PageWrapper } from "./Layout";
 
 export const SnapScrollWrapper = styled.div`
   height: 100dvh;
