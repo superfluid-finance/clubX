@@ -12,7 +12,7 @@ import { H2 } from "../Typography";
 const PinkBoxWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  width: 100vw;
+  width: 100%;
 `;
 
 const PinkBox = styled(GlowingBox).attrs(() => ({ $color: "#ea00e0dd" }))`
@@ -64,41 +64,40 @@ const TokensSection: FC<TokensSectionProps> = ({}) => {
         position: "relative",
       }}
     >
-      <Flex align="center">
-        <Flex
-          justify="center"
-          gap="12px"
-          style={{ marginBottom: "32px", zIndex: 2 }}
-        >
-          <Flex direction="row" justify="center" align="center">
-            <img src="/assets/beam.svg" />
-            <div>Upgraded ERC-20</div>
-            <img src="/assets/beam.svg" />
-          </Flex>
-
-          <div>
-            Tokens with <b>streaming capabilities</b>
-          </div>
+      <Flex
+        justify="center"
+        gap="12px"
+        style={{ marginBottom: "32px", zIndex: 2 }}
+      >
+        <Flex direction="row" justify="center" align="center">
+          <img src="/assets/beam.svg" />
+          <div>Upgraded ERC-20</div>
+          <img src="/assets/beam.svg" />
         </Flex>
 
-        <PinkBoxWrapper style={{ position: "relative" }}>
-          <PinkBoxLines />
-          <PinkBox gap="8px" align="center">
-            <Flex direction="row" align="end" gap="8px" justify="center">
-              <H2 style={{ fontVariantNumeric: "tabular-nums" }}>
-                <FlowingBalance
-                  flowRate={BigInt(9385712843748234)}
-                  startingBalance={BigInt(12095746250000000000)}
-                  startingBalanceDate={new Date()}
-                />
-              </H2>
-              <b style={{ paddingBottom: "2px" }}>CLUBx</b>
-            </Flex>
-            <p>Total amount streamed</p>
-          </PinkBox>
-          <Gradient6 src="/assets/gradient6.svg" />
-        </PinkBoxWrapper>
+        <div style={{ textAlign: "center" }}>
+          Tokens with <b>streaming capabilities</b>
+        </div>
       </Flex>
+
+      <PinkBoxWrapper style={{ position: "relative" }}>
+        <PinkBoxLines />
+        <PinkBox gap="8px" align="center">
+          <Flex direction="row" align="end" gap="8px" justify="center">
+            <H2 style={{ fontVariantNumeric: "tabular-nums" }}>
+              <FlowingBalance
+                flowRate={BigInt(9385712843748234)}
+                startingBalance={BigInt(12095746250000000000)}
+                startingBalanceDate={new Date()}
+              />
+            </H2>
+            <b style={{ paddingBottom: "2px" }}>CLUBx</b>
+          </Flex>
+          <p>Total amount streamed</p>
+        </PinkBox>
+        <Gradient6 src="/assets/gradient6.svg" />
+      </PinkBoxWrapper>
+
       <ScrollDownBtn />
       <OverlayGrain />
     </SnapScrollContent>

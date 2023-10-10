@@ -19,7 +19,7 @@ import { Caption, H2 } from "./Typography";
 const GreenBoxWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  width: 100vw;
+  width: 100%;
 `;
 
 const ProtegeSection = styled(SnapScrollContent)`

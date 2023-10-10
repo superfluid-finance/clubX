@@ -5,8 +5,8 @@ export const PageWrapper = styled.main(() => ({
   flexDirection: "column",
   maxHeight: "100dvh",
   height: "100dvh",
-  maxWidth: "100vw",
-  width: "100vw",
+  maxWidth: "100%",
+  width: "100%",
   overflow: "hidden",
 }));
 

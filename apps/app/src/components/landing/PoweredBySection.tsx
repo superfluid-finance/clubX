@@ -20,7 +20,7 @@ const StyledSection = styled(SnapScrollContent)`
 const GreenBoxWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr auto 1fr;
-  width: 100vw;
+  width: 100%;
   z-index: 2;
 `;
 
@@ -58,8 +58,12 @@ const Gradient = styled.img`
 
 const PoweredBySection = ({}) => {
   return (
-    <StyledSection style={{ background: "#000009", position: "relative" }}>
-      <Flex gap="15px" align="center" style={{ position: "relative" }}>
+    <StyledSection>
+      <Flex
+        gap="15px"
+        align="center"
+        style={{ position: "relative", width: "100%" }}
+      >
         <Gradient src="/assets/gradient7.svg" />
         <GreenBoxWrapper>
           <div></div>
@@ -73,11 +77,13 @@ const PoweredBySection = ({}) => {
           </GlowingBox>
           <GreenBoxLines />
         </GreenBoxWrapper>
+
         <HangingBox direction="row" align="center" gap="4px">
           <div>Powered by</div>
           <img src="/assets/sf-logo.svg" />
         </HangingBox>
       </Flex>
+
       <ScrollDownBtn />
       <OverlayGrain />
     </StyledSection>

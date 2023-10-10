@@ -7,24 +7,31 @@ import { SnapScrollContent } from "../SnapScroll";
 import { H1 } from "../Typography";
 import { GradientBorderBox } from "../Boxes";
 
-const Gradient1 = styled.img`
+const GradientsWrapper = styled.div`
   position: absolute;
-  top: 60%;
-  left: 40%;
-  transform: translate(-50%, -50%);
-  width: 100vw;
-  animation: ${PulseCenteredKeyframes} 2s infinite
-    cubic-bezier(0.35, 0, 0.65, 1);
-`;
+  width: 100%;
 
-const Gradient2 = styled.img`
-  position: absolute;
-  top: 70%;
-  left: 70%;
-  width: 55vw;
-  transform: translate(-50%, -50%);
-  animation: ${PulseCenteredKeyframes} 2s infinite 300ms
-    cubic-bezier(0.35, 0, 0.65, 1);
+  img {
+    position: absolute;
+
+    &:first-child {
+      top: 60%;
+      left: 40%;
+      width: 100%;
+      transform: translate(-50%, -50%);
+      animation: ${PulseCenteredKeyframes} 2s infinite
+        cubic-bezier(0.35, 0, 0.65, 1);
+    }
+
+    &:last-child {
+      top: 70%;
+      left: 70%;
+      width: 55%;
+      transform: translate(-50%, -50%);
+      animation: ${PulseCenteredKeyframes} 2s infinite 300ms
+        cubic-bezier(0.35, 0, 0.65, 1);
+    }
+  }
 `;
 
 const ConnectCard = styled(GradientBorderBox)`
@@ -33,7 +40,7 @@ const ConnectCard = styled(GradientBorderBox)`
   align-items: center;
   justify-content: space-between;
   text-align: center;
-  width: 80vw;
+  width: 80%;
   padding: 72px 24px 24px;
   gap: 8dvh;
 
@@ -58,27 +65,18 @@ const JoinSection = () => {
         background: "#000009",
       }}
     >
-      <div style={{ position: "absolute" }}>
-        <div
-          style={{
-            position: "relative",
-            width: "100vw",
-            height: "100vw",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-        >
-          <Gradient1 src="/assets/gradient2.svg" />
-          <Gradient2 src="/assets/gradient1.svg" />
-        </div>
-      </div>
+      <GradientsWrapper>
+        <img src="/assets/gradient2.svg" />
+        <img src="/assets/gradient1.svg" />
+      </GradientsWrapper>
       <ConnectCard>
         <div style={{ zIndex: 1 }}>
           <H1>Join CLUBx</H1>
           <p>Refer people to get a higher Flow Rate</p>
         </div>
+
         <img src="/assets/glowing-logo.png" style={{ opacity: 0.8 }} />
+
         <Button style={{ zIndex: 1 }} onClick={onClickJoin}>
           Join
         </Button>

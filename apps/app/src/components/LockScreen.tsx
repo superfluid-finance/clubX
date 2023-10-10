@@ -63,8 +63,8 @@ const LockScreen: FC<LockScreenProps> = ({}) => {
               borderRadius: "8px",
               overflow: "hidden",
               marginTop: "24px",
-              width: "80vw",
-              height: "80vw",
+              width: "80%",
+              height: "auto",
             }}
           />
         </Flex>

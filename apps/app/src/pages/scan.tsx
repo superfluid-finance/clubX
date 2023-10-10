@@ -25,6 +25,20 @@ const ScanPage = styled(PageWrapper)`
   background-position: center;
 `;
 
+const ReaderWrapper = styled.div`
+  width: 100%;
+`;
+
+const StatsBox = styled(GradientBorderBox)`
+  width: calc(100% - 64px);
+  padding: 20px 24px;
+  margin-top: 36px;
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+`;
+
 const CostItem: FC<{ title: string; wei: bigint }> = ({ title, wei }) => (
   <Flex direction="row" align="center" justify="space-between" gap="32px">
     <div>{title}</div>
@@ -34,20 +48,6 @@ const CostItem: FC<{ title: string; wei: bigint }> = ({ title, wei }) => (
   </Flex>
 );
 
-const ReaderWrapper = styled.div`
-  width: 100%;
-`;
-
-const StatsBox = styled(GradientBorderBox)`
-  width: calc(100vw - 64px);
-  padding: 20px 24px;
-  margin-top: 36px;
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
-
 const { network } = Configuration;
 
 const Scan = () => {
@@ -56,9 +56,7 @@ const Scan = () => {
 
   const router = useRouter();
 
-  const [scannedAddress, setScannedAddress] = useState<Address | undefined>(
-    "0x8a546EC33fc88BC01211A9b025F1AC6d4E5790a7"
-  );
+  const [scannedAddress, setScannedAddress] = useState<Address | undefined>();
 
   const { address } = useAccount();
   const sponsorMutation = useSponsor();
@@ -182,7 +180,7 @@ const Scan = () => {
           <H3>Sponsorship request</H3>
           <p
             style={{
-              maxWidth: "calc(100vw - 32px)",
+              maxWidth: "calc(100% - 32px)",
               width: "270px",
               margin: "0 auto",
             }}
@@ -215,7 +213,7 @@ const Scan = () => {
             </>
           </StatsBox>
 
-          <div style={{ width: "calc(100vw - 32px)", margin: "20px auto" }}>
+          <div style={{ width: "calc(100% - 32px)", margin: "20px auto" }}>
             {error && <div>{error}</div>}
 
             {sponsorTxSuccess && (

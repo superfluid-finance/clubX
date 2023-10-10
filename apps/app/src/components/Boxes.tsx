@@ -42,6 +42,7 @@ export const HangingBox = styled(Flex)`
   border: 1.5px solid #e9ebef;
   padding: 10px 24px;
   ${CaptionStyle}
+  z-index: 1;
 
   &::before,
   &::after {
