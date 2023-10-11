@@ -65,6 +65,7 @@ const LockScreen: FC<LockScreenProps> = ({}) => {
               overflow: "hidden",
               marginTop: "24px",
               width: "80%",
+              maxWidth: "360px",
               height: "auto",
             }}
           />
