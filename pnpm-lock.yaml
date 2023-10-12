@@ -29,9 +29,6 @@ importers:
       '@types/node':
         specifier: 20.5.9
         version: 20.5.9
-      '@types/react':
-        specifier: 18.2.21
-        version: 18.2.21
       '@types/react-dom':
         specifier: 18.2.7
         version: 18.2.7
@@ -84,6 +81,9 @@ importers:
       '@types/lodash':
         specifier: ^4.14.199
         version: 4.14.199
+      '@types/react':
+        specifier: 18.2.21
+        version: 18.2.21
 
   packages/eslint-config-custom:
     devDependencies:
