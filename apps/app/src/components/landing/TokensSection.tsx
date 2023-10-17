@@ -86,8 +86,8 @@ const TokensSection: FC<TokensSectionProps> = ({}) => {
           <Flex direction="row" align="end" gap="8px" justify="center">
             <H2 style={{ fontVariantNumeric: "tabular-nums" }}>
               <FlowingBalance
-                flowRate={BigInt(9385712843748234)}
-                startingBalance={BigInt(12095746250000000000)}
+                flowRate={9385712843748234n}
+                startingBalance={12095746250000000000n}
                 startingBalanceDate={new Date()}
               />
             </H2>

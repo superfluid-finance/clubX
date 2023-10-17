@@ -80,17 +80,15 @@ export const useRealtimeBalance = (
 ) =>
   useQuery(["RealTimeBalance", accountAddress, superTokenAddress], {
     queryFn: async () =>
-      fetchRealtimeBalance(accountAddress, superTokenAddress),
+      fetchRealtimeBalance(accountAddress!, superTokenAddress!),
     enabled: !!accountAddress && !!superTokenAddress,
     staleTime: 30000,
   });
 
 const fetchRealtimeBalance = async (
-  accountAddress?: Address,
-  superTokenAddress?: Address
+  accountAddress: Address,
+  superTokenAddress: Address
 ) => {
-  if (!superTokenAddress || !accountAddress) return Promise.reject();
-
   const [flowrate, [currentBalance, _deposit, _owedDeposit, timestamp]] =
     await readContracts({
       allowFailure: false,

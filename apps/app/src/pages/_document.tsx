@@ -55,7 +55,7 @@ export default class MyDocument extends Document {
           <title>CLUBx</title>
           <meta name="description" content="The most exclusive club in web3." />
 
-          <link rel="icon" href="/icon.svg" />
+          <link rel="icon" href="/Logo.png" />
 
           <meta name="application-name" content="CLUBx" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -84,7 +84,7 @@ export default class MyDocument extends Document {
             href="/icons/safari-pinned-tab.svg"
             color="#000009"
           />
-          <link rel="shortcut icon" href="/icon.svg" />
+          <link rel="shortcut icon" href="/Logo.png" />
 
           <meta name="twitter:card" content="summary" />
           <meta name="twitter:url" content="https://clubx.superfluid.finance" />

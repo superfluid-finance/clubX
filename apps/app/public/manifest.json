@@ -3,23 +3,23 @@
   "short_name": "CLUBx",
   "description": "The most exclusive club in web3!",
   "start_url": "/",
-  "iconPath": "/icon.svg",
+  "iconPath": "/Logo.png",
   "display": "fullscreen",
   "orientation": "portrait",
   "icons": [
     {
-      "src": "/icon.svg",
+      "src": "/Logo.png",
       "sizes": "32x32",
-      "type": "image/svg"
-    },
-    {
-      "src": "/icon.svg",
-      "sizes": "32x32",
-      "type": "image/svg",
-      "purpose": "any maskable"
+      "type": "image/png"
     },
     {
       "src": "/Logo.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/Logo_512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
